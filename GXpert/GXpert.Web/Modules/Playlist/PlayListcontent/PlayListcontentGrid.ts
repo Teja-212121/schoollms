@@ -1,13 +1,13 @@
-﻿import { PlayListcontentColumns, PlayListcontentRow, PlayListcontentService } from '@/ServerTypes/Playlist';
+﻿import { PlayListContentColumns, PlayListContentRow, PlayListContentService } from '@/ServerTypes/Playlist';
 import { Decorators, EntityGrid } from '@serenity-is/corelib';
-import { PlayListcontentDialog } from './PlayListcontentDialog';
+import { PlayListContentDialog } from './PlayListContentDialog';
 
-@Decorators.registerClass('GXpert.Playlist.PlayListcontentGrid')
-export class PlayListcontentGrid extends EntityGrid<PlayListcontentRow, any> {
-    protected getColumnsKey() { return PlayListcontentColumns.columnsKey; }
-    protected getDialogType() { return PlayListcontentDialog; }
-    protected getRowDefinition() { return PlayListcontentRow; }
-    protected getService() { return PlayListcontentService.baseUrl; }
+@Decorators.registerClass('GXpert.Playlist.PlayListContentGrid')
+export class PlayListContentGrid extends EntityGrid<PlayListContentRow, any> {
+    protected getColumnsKey() { return PlayListContentColumns.columnsKey; }
+    protected getDialogType() { return PlayListContentDialog; }
+    protected getRowDefinition() { return PlayListContentRow; }
+    protected getService() { return PlayListContentService.baseUrl; }
 
     constructor(container: JQuery) {
         super(container);

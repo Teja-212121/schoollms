@@ -7,10 +7,10 @@ using System.ComponentModel;
 namespace GXpert.Attendance;
 
 [ConnectionKey("Default"), Module("Attendance"), TableName("AssignmentAttemptEvaluations")]
-[DisplayName("Assignment Attempt Evaluation"), InstanceName("Assignment Attempt Evaluation"), GenerateFields]
+[DisplayName("Assignment Attempt Evaluation"), InstanceName("Assignment Attempt Evaluation")]
 [ReadPermission("Administration:General")]
 [ModifyPermission("Administration:General")]
-public sealed partial class AssignmentAttemptEvaluationRow : Row<AssignmentAttemptEvaluationRow.RowFields>, IIdRow
+public sealed class AssignmentAttemptEvaluationRow : Row<AssignmentAttemptEvaluationRow.RowFields>, IIdRow
 {
     const string jAssignment = nameof(jAssignment);
     const string jAssignmentAttempt = nameof(jAssignmentAttempt);
@@ -59,4 +59,23 @@ public sealed partial class AssignmentAttemptEvaluationRow : Row<AssignmentAttem
 
     [DisplayName("Assignment Evaluation Evalution Criteria"), Expression($"{jAssignmentEvaluation}.[EvalutionCriteria]")]
     public string AssignmentEvaluationEvalutionCriteria { get => fields.AssignmentEvaluationEvalutionCriteria[this]; set => fields.AssignmentEvaluationEvalutionCriteria[this] = value; }
+
+    public class RowFields : RowFieldsBase
+    {
+        public Int32Field Id;
+        public Int32Field AssignmentId;
+        public Int32Field AssignmentAttemptId;
+        public Int32Field AssignmentEvaluationId;
+        public Int32Field MarksObtained;
+        public Int16Field EvaluationStatus;
+        public DateTimeField InsertDate;
+        public Int32Field InsertUserId;
+        public DateTimeField UpdateDate;
+        public Int32Field UpdateUserId;
+        public BooleanField IsActive;
+
+        public StringField AssignmentTitle;
+        public StringField AssignmentAttemptFileUploaded;
+        public StringField AssignmentEvaluationEvalutionCriteria;
+    }
 }

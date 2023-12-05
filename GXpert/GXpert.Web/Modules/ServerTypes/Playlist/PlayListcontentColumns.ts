@@ -1,25 +1,25 @@
 ﻿import { ColumnsBase, fieldsProxy } from "@serenity-is/corelib";
 import { Column } from "@serenity-is/sleekgrid";
-import { PlayListcontentRow } from "./PlayListcontentRow";
+import { PlayListContentRow } from "./PlayListContentRow";
 
-export interface PlayListcontentColumns {
-    Id: Column<PlayListcontentRow>;
-    PlayListTitle: Column<PlayListcontentRow>;
-    ContentTitle: Column<PlayListcontentRow>;
-    ExamTitle: Column<PlayListcontentRow>;
-    LiveSessionMeetingId: Column<PlayListcontentRow>;
-    AssignmentTitle: Column<PlayListcontentRow>;
-    ModuleTitle: Column<PlayListcontentRow>;
-    SortOrder: Column<PlayListcontentRow>;
-    EPublishStatus: Column<PlayListcontentRow>;
-    InsertDate: Column<PlayListcontentRow>;
-    InsertUserId: Column<PlayListcontentRow>;
-    UpdateDate: Column<PlayListcontentRow>;
-    UpdateUserId: Column<PlayListcontentRow>;
-    IsActive: Column<PlayListcontentRow>;
+export interface PlayListContentColumns {
+    Id: Column<PlayListContentRow>;
+    PlayListTitle: Column<PlayListContentRow>;
+    ContentTitle: Column<PlayListContentRow>;
+    ExamTitle: Column<PlayListContentRow>;
+    LiveSessionMeetingId: Column<PlayListContentRow>;
+    AssignmentTitle: Column<PlayListContentRow>;
+    ModuleTitle: Column<PlayListContentRow>;
+    SortOrder: Column<PlayListContentRow>;
+    EPublishStatus: Column<PlayListContentRow>;
+    InsertDate: Column<PlayListContentRow>;
+    InsertUserId: Column<PlayListContentRow>;
+    UpdateDate: Column<PlayListContentRow>;
+    UpdateUserId: Column<PlayListContentRow>;
+    IsActive: Column<PlayListContentRow>;
 }
 
-export class PlayListcontentColumns extends ColumnsBase<PlayListcontentRow> {
-    static readonly columnsKey = 'Playlist.PlayListcontent';
-    static readonly Fields = fieldsProxy<PlayListcontentColumns>();
+export class PlayListContentColumns extends ColumnsBase<PlayListContentRow> {
+    static readonly columnsKey = 'Playlist.PlayListContent';
+    static readonly Fields = fieldsProxy<PlayListContentColumns>();
 }

@@ -7,6 +7,7 @@ export interface SubjectRow {
     SortOrder?: number;
     ClassId?: number;
     MediumId?: number;
+    Weightage?: number;
     Thumbnail?: string;
     InsertDate?: string;
     InsertUserId?: number;

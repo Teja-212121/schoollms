@@ -7,11 +7,11 @@ using System.ComponentModel;
 namespace GXpert.Schools;
 
 [ConnectionKey("Default"), Module("Schools"), TableName("Schools")]
-[DisplayName("School"), InstanceName("School"), GenerateFields]
+[DisplayName("School"), InstanceName("School")]
 [ReadPermission("Administration:General")]
 [ModifyPermission("Administration:General")]
 [ServiceLookupPermission("Administration:General")]
-public sealed partial class SchoolRow : Row<SchoolRow.RowFields>, IIdRow, INameRow
+public sealed class SchoolRow : Row<SchoolRow.RowFields>, IIdRow, INameRow
 {
     const string jState = nameof(jState);
     const string jDistrict = nameof(jDistrict);
@@ -73,4 +73,28 @@ public sealed partial class SchoolRow : Row<SchoolRow.RowFields>, IIdRow, INameR
 
     [DisplayName("Taluka Title"), Expression($"{jTaluka}.[Title]")]
     public string TalukaTitle { get => fields.TalukaTitle[this]; set => fields.TalukaTitle[this] = value; }
+
+    public class RowFields : RowFieldsBase
+    {
+        public Int32Field Id;
+        public StringField Name;
+        public StringField Description;
+        public StringField EType;
+        public StringField Address;
+        public StringField City;
+        public Int32Field StateId;
+        public Int32Field DistrictId;
+        public Int32Field TalukaId;
+        public StringField LocationInfo;
+        public DateTimeField EstablishmentDate;
+        public DateTimeField InsertDate;
+        public Int32Field InsertUserId;
+        public DateTimeField UpdateDate;
+        public Int32Field UpdateUserId;
+        public BooleanField IsActive;
+
+        public StringField StateTitle;
+        public StringField DistrictTitle;
+        public StringField TalukaTitle;
+    }
 }

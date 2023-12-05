@@ -7,6 +7,8 @@ export interface ExamQuestionRow {
     QuestionId?: number;
     EDifficultyLevel?: number;
     RightAnswer?: string;
+    Marks?: number;
+    SortOrder?: number;
     ClassId?: number;
     SubjectId?: number;
     TopicId?: number;

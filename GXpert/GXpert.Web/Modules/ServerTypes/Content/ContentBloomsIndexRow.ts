@@ -4,6 +4,7 @@ export interface ContentBloomsIndexRow {
     Id?: number;
     ContentId?: number;
     BloomsIndex?: number;
+    Weightage?: number;
     InsertDate?: string;
     InsertUserId?: number;
     UpdateDate?: string;

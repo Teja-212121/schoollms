@@ -7,11 +7,11 @@ using System.ComponentModel;
 namespace GXpert.Content;
 
 [ConnectionKey("Default"), Module("Content"), TableName("Contents")]
-[DisplayName("Content"), InstanceName("Content"), GenerateFields]
+[DisplayName("Content"), InstanceName("Content")]
 [ReadPermission("Administration:General")]
 [ModifyPermission("Administration:General")]
 [ServiceLookupPermission("Administration:General")]
-public sealed partial class ContentRow : Row<ContentRow.RowFields>, IIdRow, INameRow
+public sealed class ContentRow : Row<ContentRow.RowFields>, IIdRow, INameRow
 {
     [DisplayName("Id"), Identity, IdProperty]
     public int? Id { get => fields.Id[this]; set => fields.Id[this] = value; }
@@ -87,4 +87,34 @@ public sealed partial class ContentRow : Row<ContentRow.RowFields>, IIdRow, INam
 
     [DisplayName("Is Active"), NotNull]
     public bool? IsActive { get => fields.IsActive[this]; set => fields.IsActive[this] = value; }
+
+    public class RowFields : RowFieldsBase
+    {
+        public Int32Field Id;
+        public StringField Title;
+        public StringField Description;
+        public Int16Field EContentType;
+        public StringField FileKeyUrl;
+        public StringField Iv;
+        public StringField FilePath;
+        public StringField FilePathFallBack1;
+        public StringField FilePathFallBack2;
+        public StringField MediaInfo;
+        public StringField ThumbNail;
+        public StringField Poster;
+        public Int32Field Length;
+        public Int32Field Size;
+        public Int32Field NumberOfPages;
+        public Int32Field LikesCount;
+        public Int32Field DisLikesCount;
+        public Int32Field HandRaiseCount;
+        public StringField SearchTags;
+        public Int16Field EDifficultyLevel;
+        public DateTimeField InsertDate;
+        public Int32Field InsertUserId;
+        public DateTimeField UpdateDate;
+        public Int32Field UpdateUserId;
+        public BooleanField IsActive;
+
+    }
 }

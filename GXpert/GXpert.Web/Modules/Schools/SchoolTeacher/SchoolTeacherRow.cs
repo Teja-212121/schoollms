@@ -7,11 +7,11 @@ using System.ComponentModel;
 namespace GXpert.Schools;
 
 [ConnectionKey("Default"), Module("Schools"), TableName("SchoolTeachers")]
-[DisplayName("School Teacher"), InstanceName("School Teacher"), GenerateFields]
+[DisplayName("School Teacher"), InstanceName("School Teacher")]
 [ReadPermission("Administration:General")]
 [ModifyPermission("Administration:General")]
 [ServiceLookupPermission("Administration:General")]
-public sealed partial class SchoolTeacherRow : Row<SchoolTeacherRow.RowFields>, IIdRow, INameRow
+public sealed class SchoolTeacherRow : Row<SchoolTeacherRow.RowFields>, IIdRow, INameRow
 {
     const string jTeacher = nameof(jTeacher);
     const string jSchool = nameof(jSchool);
@@ -25,7 +25,8 @@ public sealed partial class SchoolTeacherRow : Row<SchoolTeacherRow.RowFields>, 
     [DisplayName("Teacher"), NotNull, ForeignKey("Teachers", "Id"), LeftJoin(jTeacher), TextualField(nameof(TeacherPrn))]
     public int? TeacherId { get => fields.TeacherId[this]; set => fields.TeacherId[this] = value; }
 
-    [DisplayName("School"), NotNull, ForeignKey("Schools", "Id"), LeftJoin(jSchool), TextualField(nameof(SchoolName))]
+    [DisplayName("School"), NotNull, ForeignKey(typeof(SchoolRow)), LeftJoin(jSchool), TextualField(nameof(SchoolName))]
+    [ServiceLookupEditor(typeof(SchoolRow))]
     public int? SchoolId { get => fields.SchoolId[this]; set => fields.SchoolId[this] = value; }
 
     [DisplayName("Class"), NotNull, ForeignKey("Classes", "Id"), LeftJoin(jClass), TextualField(nameof(ClassTitle))]
@@ -59,7 +60,7 @@ public sealed partial class SchoolTeacherRow : Row<SchoolTeacherRow.RowFields>, 
     [DisplayName("Teacher Prn"), Expression($"{jTeacher}.[PRN]")]
     public string TeacherPrn { get => fields.TeacherPrn[this]; set => fields.TeacherPrn[this] = value; }
 
-    [DisplayName("School Name"), Expression($"{jSchool}.[Name]")]
+    [DisplayName("School Name"), Origin(jSchool, nameof(SchoolRow.Name))]
     public string SchoolName { get => fields.SchoolName[this]; set => fields.SchoolName[this] = value; }
 
     [DisplayName("Class Title"), Expression($"{jClass}.[Title]")]
@@ -70,4 +71,26 @@ public sealed partial class SchoolTeacherRow : Row<SchoolTeacherRow.RowFields>, 
 
     [DisplayName("Academic Year Name"), Expression($"{jAcademicYear}.[Name]")]
     public string AcademicYearName { get => fields.AcademicYearName[this]; set => fields.AcademicYearName[this] = value; }
+
+    public class RowFields : RowFieldsBase
+    {
+        public Int32Field Id;
+        public Int32Field TeacherId;
+        public Int32Field SchoolId;
+        public Int32Field ClassId;
+        public Int32Field SubjectId;
+        public StringField Description;
+        public Int32Field AcademicYearId;
+        public DateTimeField InsertDate;
+        public Int32Field InsertUserId;
+        public DateTimeField UpdateDate;
+        public Int32Field UpdateUserId;
+        public BooleanField IsActive;
+
+        public StringField TeacherPrn;
+        public StringField SchoolName;
+        public StringField ClassTitle;
+        public StringField SubjectTitle;
+        public StringField AcademicYearName;
+    }
 }

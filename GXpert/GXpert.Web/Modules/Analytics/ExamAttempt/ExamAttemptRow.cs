@@ -7,11 +7,11 @@ using System.ComponentModel;
 namespace GXpert.Analytics;
 
 [ConnectionKey("Default"), Module("Analytics"), TableName("ExamAttempts")]
-[DisplayName("Exam Attempt"), InstanceName("Exam Attempt"), GenerateFields]
+[DisplayName("Exam Attempt"), InstanceName("Exam Attempt")]
 [ReadPermission("Administration:General")]
 [ModifyPermission("Administration:General")]
 [ServiceLookupPermission("Administration:General")]
-public sealed partial class ExamAttemptRow : Row<ExamAttemptRow.RowFields>, IIdRow, INameRow
+public sealed class ExamAttemptRow : Row<ExamAttemptRow.RowFields>, IIdRow, INameRow
 {
     const string jExam = nameof(jExam);
     const string jStudent = nameof(jStudent);
@@ -78,4 +78,29 @@ public sealed partial class ExamAttemptRow : Row<ExamAttemptRow.RowFields>, IIdR
 
     [DisplayName("Activation Device Id"), Expression($"{jActivation}.[DeviceId]")]
     public string ActivationDeviceId { get => fields.ActivationDeviceId[this]; set => fields.ActivationDeviceId[this] = value; }
+
+    public class RowFields : RowFieldsBase
+    {
+        public Int32Field Id;
+        public Int32Field ExamId;
+        public Int32Field StudentId;
+        public Int32Field TeacherId;
+        public Int16Field EStatus;
+        public Int32Field TimeSpent;
+        public Int32Field PlayListId;
+        public StringField StudentAnswerSheetUpload;
+        public StringField TeacherCheckedPaperUpload;
+        public Int32Field ActivationId;
+        public DateTimeField InsertDate;
+        public Int32Field InsertUserId;
+        public DateTimeField UpdateDate;
+        public Int32Field UpdateUserId;
+        public BooleanField IsActive;
+
+        public StringField ExamTitle;
+        public StringField StudentPrn;
+        public StringField TeacherPrn;
+        public StringField PlayListTitle;
+        public StringField ActivationDeviceId;
+    }
 }

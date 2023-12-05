@@ -7,11 +7,11 @@ using System.ComponentModel;
 namespace GXpert.Syllabus;
 
 [ConnectionKey("Default"), Module("Syllabus"), TableName("Topics")]
-[DisplayName("Topic"), InstanceName("Topic"), GenerateFields]
+[DisplayName("Topic"), InstanceName("Topic")]
 [ReadPermission("Administration:General")]
 [ModifyPermission("Administration:General")]
 [ServiceLookupPermission("Administration:General")]
-public sealed partial class TopicRow : Row<TopicRow.RowFields>, IIdRow, INameRow
+public sealed class TopicRow : Row<TopicRow.RowFields>, IIdRow, INameRow
 {
     const string jClass = nameof(jClass);
     const string jMedium = nameof(jMedium);
@@ -29,13 +29,16 @@ public sealed partial class TopicRow : Row<TopicRow.RowFields>, IIdRow, INameRow
     [DisplayName("Sort Order"), NotNull]
     public short? SortOrder { get => fields.SortOrder[this]; set => fields.SortOrder[this] = value; }
 
-    [DisplayName("Class"), NotNull, ForeignKey("Classes", "Id"), LeftJoin(jClass), TextualField(nameof(ClassTitle))]
+    [DisplayName("Class"), NotNull, ForeignKey(typeof(ClassRow)), LeftJoin(jClass), TextualField(nameof(ClassTitle))]
+    [ServiceLookupEditor(typeof(ClassRow))]
     public int? ClassId { get => fields.ClassId[this]; set => fields.ClassId[this] = value; }
 
-    [DisplayName("Medium"), NotNull, ForeignKey("Mediums", "Id"), LeftJoin(jMedium), TextualField(nameof(MediumTitle))]
+    [DisplayName("Medium"), NotNull, ForeignKey(typeof(MediumRow)), LeftJoin(jMedium), TextualField(nameof(MediumTitle))]
+    [ServiceLookupEditor(typeof(MediumRow))]
     public int? MediumId { get => fields.MediumId[this]; set => fields.MediumId[this] = value; }
 
-    [DisplayName("Subject"), NotNull, ForeignKey("Subjects", "Id"), LeftJoin(jSubject), TextualField(nameof(SubjectTitle))]
+    [DisplayName("Subject"), NotNull, ForeignKey(typeof(SubjectRow)), LeftJoin(jSubject), TextualField(nameof(SubjectTitle))]
+    [ServiceLookupEditor(typeof(SubjectRow))]
     public int? SubjectId { get => fields.SubjectId[this]; set => fields.SubjectId[this] = value; }
 
     [DisplayName("Weightage"), NotNull]
@@ -59,12 +62,34 @@ public sealed partial class TopicRow : Row<TopicRow.RowFields>, IIdRow, INameRow
     [DisplayName("Is Active"), NotNull]
     public bool? IsActive { get => fields.IsActive[this]; set => fields.IsActive[this] = value; }
 
-    [DisplayName("Class Title"), Expression($"{jClass}.[Title]")]
+    [DisplayName("Class Title"), Origin(jClass, nameof(ClassRow.Title))]
     public string ClassTitle { get => fields.ClassTitle[this]; set => fields.ClassTitle[this] = value; }
 
-    [DisplayName("Medium Title"), Expression($"{jMedium}.[Title]")]
+    [DisplayName("Medium Title"), Origin(jMedium, nameof(MediumRow.Title))]
     public string MediumTitle { get => fields.MediumTitle[this]; set => fields.MediumTitle[this] = value; }
 
-    [DisplayName("Subject Title"), Expression($"{jSubject}.[Title]")]
+    [DisplayName("Subject Title"), Origin(jSubject, nameof(SubjectRow.Title))]
     public string SubjectTitle { get => fields.SubjectTitle[this]; set => fields.SubjectTitle[this] = value; }
+
+    public class RowFields : RowFieldsBase
+    {
+        public Int32Field Id;
+        public StringField Title;
+        public StringField Description;
+        public Int16Field SortOrder;
+        public Int32Field ClassId;
+        public Int32Field MediumId;
+        public Int32Field SubjectId;
+        public SingleField Weightage;
+        public StringField Thumbnail;
+        public DateTimeField InsertDate;
+        public Int32Field InsertUserId;
+        public DateTimeField UpdateDate;
+        public Int32Field UpdateUserId;
+        public BooleanField IsActive;
+
+        public StringField ClassTitle;
+        public StringField MediumTitle;
+        public StringField SubjectTitle;
+    }
 }

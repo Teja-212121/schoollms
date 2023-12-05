@@ -7,11 +7,11 @@ using System.ComponentModel;
 namespace GXpert.Settings;
 
 [ConnectionKey("Default"), Module("Settings"), TableName("Storage")]
-[DisplayName("Storage"), InstanceName("Storage"), GenerateFields]
+[DisplayName("Storage"), InstanceName("Storage")]
 [ReadPermission("Administration:General")]
 [ModifyPermission("Administration:General")]
 [ServiceLookupPermission("Administration:General")]
-public sealed partial class StorageRow : Row<StorageRow.RowFields>, IIdRow, INameRow
+public sealed class StorageRow : Row<StorageRow.RowFields>, IIdRow, INameRow
 {
     [DisplayName("Id"), Identity, IdProperty]
     public int? Id { get => fields.Id[this]; set => fields.Id[this] = value; }
@@ -57,4 +57,24 @@ public sealed partial class StorageRow : Row<StorageRow.RowFields>, IIdRow, INam
 
     [DisplayName("Is Active"), NotNull]
     public bool? IsActive { get => fields.IsActive[this]; set => fields.IsActive[this] = value; }
+
+    public class RowFields : RowFieldsBase
+    {
+        public Int32Field Id;
+        public StringField AccessKeyId;
+        public StringField SecretAccessKey;
+        public StringField Endpoint;
+        public StringField Region;
+        public StringField BucketName;
+        public Int16Field S3Types;
+        public BooleanField IsDefault;
+        public StringField UrlPreview;
+        public StringField UploadPath;
+        public DateTimeField InsertDate;
+        public Int32Field InsertUserId;
+        public DateTimeField UpdateDate;
+        public Int32Field UpdateUserId;
+        public BooleanField IsActive;
+
+    }
 }

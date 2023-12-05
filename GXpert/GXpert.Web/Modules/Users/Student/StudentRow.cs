@@ -7,11 +7,11 @@ using System.ComponentModel;
 namespace GXpert.Users;
 
 [ConnectionKey("Default"), Module("Users"), TableName("Students")]
-[DisplayName("Student"), InstanceName("Student"), GenerateFields]
+[DisplayName("Student"), InstanceName("Student")]
 [ReadPermission("Administration:General")]
 [ModifyPermission("Administration:General")]
 [ServiceLookupPermission("Administration:General")]
-public sealed partial class StudentRow : Row<StudentRow.RowFields>, IIdRow, INameRow
+public sealed class StudentRow : Row<StudentRow.RowFields>, IIdRow, INameRow
 {
     const string jUser = nameof(jUser);
     const string jState = nameof(jState);
@@ -85,4 +85,31 @@ public sealed partial class StudentRow : Row<StudentRow.RowFields>, IIdRow, INam
 
     [DisplayName("School Name"), Expression($"{jSchool}.[Name]")]
     public string SchoolName { get => fields.SchoolName[this]; set => fields.SchoolName[this] = value; }
+
+    public class RowFields : RowFieldsBase
+    {
+        public Int32Field Id;
+        public StringField Prn;
+        public StringField Name;
+        public StringField Email;
+        public StringField Mobile;
+        public Int32Field UserId;
+        public StringField Description;
+        public Int32Field StateId;
+        public Int32Field DistrictId;
+        public Int32Field TalukaId;
+        public DateTimeField Dob;
+        public Int32Field SchoolId;
+        public DateTimeField InsertDate;
+        public Int32Field InsertUserId;
+        public DateTimeField UpdateDate;
+        public Int32Field UpdateUserId;
+        public BooleanField IsActive;
+
+        public StringField Username;
+        public StringField StateTitle;
+        public StringField DistrictTitle;
+        public StringField TalukaTitle;
+        public StringField SchoolName;
+    }
 }

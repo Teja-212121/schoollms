@@ -8,6 +8,7 @@ export interface AssignmentEvaluationRow {
     SubjectId?: number;
     TopicId?: number;
     BloomsIndex?: number;
+    BloomsWeightage?: number;
     InsertDate?: string;
     InsertUserId?: number;
     UpdateDate?: string;

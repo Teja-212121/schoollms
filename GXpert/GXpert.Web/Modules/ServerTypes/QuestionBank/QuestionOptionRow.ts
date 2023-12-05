@@ -5,6 +5,8 @@ export interface QuestionOptionRow {
     QuestionId?: number;
     OptionText?: string;
     IsCorrect?: boolean;
+    SortOrder?: number;
+    Weightage?: number;
     InsertDate?: string;
     InsertUserId?: number;
     UpdateDate?: string;

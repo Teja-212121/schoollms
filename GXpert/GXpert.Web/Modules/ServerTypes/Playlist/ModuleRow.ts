@@ -5,6 +5,7 @@ export interface ModuleRow {
     Title?: string;
     Description?: string;
     ParentId?: number;
+    SortOrder?: number;
     InsertDate?: string;
     InsertUserId?: number;
     UpdateDate?: string;

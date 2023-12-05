@@ -1,6 +1,6 @@
 ﻿import { initFullHeightGridPage } from '@serenity-is/corelib';
-import { PlayListcontentGrid } from './PlayListcontentGrid';
+import { PlayListContentGrid } from './PlayListContentGrid';
 
 export default function pageInit() {
-    initFullHeightGridPage(new PlayListcontentGrid($('#GridDiv')).element);
+    initFullHeightGridPage(new PlayListContentGrid($('#GridDiv')).element);
 }

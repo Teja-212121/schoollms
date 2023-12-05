@@ -1,6 +1,6 @@
 ﻿import { fieldsProxy } from "@serenity-is/corelib";
 
-export interface PlayListcontentRow {
+export interface PlayListContentRow {
     Id?: number;
     PlayListId?: number;
     ContentId?: number;
@@ -8,6 +8,7 @@ export interface PlayListcontentRow {
     LiveSessionId?: number;
     AssignmentId?: number;
     ModuleId?: number;
+    SortOrder?: number;
     EPublishStatus?: number;
     InsertDate?: string;
     InsertUserId?: number;
@@ -22,13 +23,13 @@ export interface PlayListcontentRow {
     ModuleTitle?: string;
 }
 
-export abstract class PlayListcontentRow {
+export abstract class PlayListContentRow {
     static readonly idProperty = 'Id';
-    static readonly localTextPrefix = 'Playlist.PlayListcontent';
+    static readonly localTextPrefix = 'Playlist.PlayListContent';
     static readonly deletePermission = 'Administration:General';
     static readonly insertPermission = 'Administration:General';
     static readonly readPermission = 'Administration:General';
     static readonly updatePermission = 'Administration:General';
 
-    static readonly Fields = fieldsProxy<PlayListcontentRow>();
+    static readonly Fields = fieldsProxy<PlayListContentRow>();
 }

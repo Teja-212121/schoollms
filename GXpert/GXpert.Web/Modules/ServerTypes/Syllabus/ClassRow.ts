@@ -5,6 +5,7 @@ export interface ClassRow {
     Title?: string;
     Description?: string;
     SortOrder?: number;
+    Weightage?: number;
     Thumbnail?: string;
     InsertDate?: string;
     InsertUserId?: number;

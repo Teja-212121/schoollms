@@ -7,11 +7,11 @@ using System.ComponentModel;
 namespace GXpert.LiveSessions;
 
 [ConnectionKey("Default"), Module("LiveSessions"), TableName("Polls")]
-[DisplayName("Poll"), InstanceName("Poll"), GenerateFields]
+[DisplayName("Poll"), InstanceName("Poll")]
 [ReadPermission("Administration:General")]
 [ModifyPermission("Administration:General")]
 [ServiceLookupPermission("Administration:General")]
-public sealed partial class PollRow : Row<PollRow.RowFields>, IIdRow, INameRow
+public sealed class PollRow : Row<PollRow.RowFields>, IIdRow, INameRow
 {
     const string jLiveSessionLog = nameof(jLiveSessionLog);
     const string jBloomsTaxonomy = nameof(jBloomsTaxonomy);
@@ -83,4 +83,31 @@ public sealed partial class PollRow : Row<PollRow.RowFields>, IIdRow, INameRow
 
     [DisplayName("Blooms Taxonomy Coginitive Skill"), Expression($"{jBloomsTaxonomy}.[CoginitiveSkill]")]
     public string BloomsTaxonomyCoginitiveSkill { get => fields.BloomsTaxonomyCoginitiveSkill[this]; set => fields.BloomsTaxonomyCoginitiveSkill[this] = value; }
+
+    public class RowFields : RowFieldsBase
+    {
+        public Int32Field Id;
+        public StringField Question;
+        public Int16Field EQuestionType;
+        public StringField Option1;
+        public StringField Option2;
+        public StringField Option3;
+        public StringField Option4;
+        public StringField Option5;
+        public StringField RightAnswer;
+        public Int32Field LiveSessionLogId;
+        public Int16Field TotalAttempts;
+        public SingleField AverageResponseTime;
+        public Int16Field NumberOfCorrect;
+        public Int16Field NumberOfWrong;
+        public Int32Field BloomsTaxonomyId;
+        public SingleField Weightage;
+        public DateTimeField InsertDate;
+        public Int32Field InsertUserId;
+        public DateTimeField UpdateDate;
+        public Int32Field UpdateUserId;
+        public BooleanField IsActive;
+
+        public StringField BloomsTaxonomyCoginitiveSkill;
+    }
 }

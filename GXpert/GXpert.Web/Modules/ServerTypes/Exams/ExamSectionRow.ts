@@ -6,6 +6,7 @@ export interface ExamSectionRow {
     Title?: string;
     Instructions?: string;
     DurationInSeconds?: number;
+    SortOrder?: number;
     ParentId?: number;
     NumberOfQuestions?: number;
     NumberOfMandatoryQuestions?: number;

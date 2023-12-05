@@ -8,10 +8,12 @@ export interface QuestionRow {
     EQuestionType?: number;
     EDifficultyLevel?: number;
     QuestionCommonDataId?: number;
+    QuestionCommonDataSortOrder?: number;
     ClassId?: number;
     SubjectId?: number;
     TopicId?: number;
     BloomsIndex?: number;
+    BloomsWeightage?: number;
     InsertDate?: string;
     InsertUserId?: number;
     UpdateDate?: string;

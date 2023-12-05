@@ -1,6 +1,6 @@
 {
   "Extends": "defaults@6.6.0",
-  "EnableGenerateFields": true,
+  "EnableGenerateFields": false,
   "RootNamespace": "GXpert",
   "UpgradeInfo": {
     "InitialType": "Premium",

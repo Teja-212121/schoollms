@@ -7,10 +7,10 @@ using System.ComponentModel;
 namespace GXpert.Attendance;
 
 [ConnectionKey("Default"), Module("Attendance"), TableName("RaisehandRecordedSessions")]
-[DisplayName("Raise Hand Recorded Session"), InstanceName("Raise Hand Recorded Session"), GenerateFields]
+[DisplayName("Raise Hand Recorded Session"), InstanceName("Raise Hand Recorded Session")]
 [ReadPermission("Administration:General")]
 [ModifyPermission("Administration:General")]
-public sealed partial class RaiseHandRecordedSessionRow : Row<RaiseHandRecordedSessionRow.RowFields>, IIdRow
+public sealed class RaiseHandRecordedSessionRow : Row<RaiseHandRecordedSessionRow.RowFields>, IIdRow
 {
     const string jContent = nameof(jContent);
     const string jStudent = nameof(jStudent);
@@ -62,4 +62,24 @@ public sealed partial class RaiseHandRecordedSessionRow : Row<RaiseHandRecordedS
 
     [DisplayName("Activation Device Id"), Expression($"{jActivation}.[DeviceId]")]
     public string ActivationDeviceId { get => fields.ActivationDeviceId[this]; set => fields.ActivationDeviceId[this] = value; }
+
+    public class RowFields : RowFieldsBase
+    {
+        public Int32Field Id;
+        public Int32Field ContentId;
+        public Int32Field StudentId;
+        public Int32Field PlayListId;
+        public Int32Field PlayListContentId;
+        public Int32Field ActivationId;
+        public DateTimeField InsertDate;
+        public Int32Field InsertUserId;
+        public DateTimeField UpdateDate;
+        public Int32Field UpdateUserId;
+        public BooleanField IsActive;
+
+        public StringField ContentTitle;
+        public StringField StudentPrn;
+        public StringField PlayListTitle;
+        public StringField ActivationDeviceId;
+    }
 }

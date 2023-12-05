@@ -7,11 +7,11 @@ using System.ComponentModel;
 namespace GXpert.Activation;
 
 [ConnectionKey("Default"), Module("Activation"), TableName("SerialKeys")]
-[DisplayName("Serial Key"), InstanceName("Serial Key"), GenerateFields]
+[DisplayName("Serial Key"), InstanceName("Serial Key")]
 [ReadPermission("Administration:General")]
 [ModifyPermission("Administration:General")]
 [ServiceLookupPermission("Administration:General")]
-public sealed partial class SerialKeyRow : Row<SerialKeyRow.RowFields>, IIdRow, INameRow
+public sealed class SerialKeyRow : Row<SerialKeyRow.RowFields>, IIdRow, INameRow
 {
     const string jPlayList = nameof(jPlayList);
 
@@ -56,4 +56,23 @@ public sealed partial class SerialKeyRow : Row<SerialKeyRow.RowFields>, IIdRow, 
 
     [DisplayName("Play List Title"), Expression($"{jPlayList}.[Title]")]
     public string PlayListTitle { get => fields.PlayListTitle[this]; set => fields.PlayListTitle[this] = value; }
+
+    public class RowFields : RowFieldsBase
+    {
+        public Int32Field Id;
+        public StringField SerialKey;
+        public Int32Field PlayListId;
+        public Int16Field ValidityType;
+        public Int16Field ValidityInDays;
+        public DateTimeField ValidDate;
+        public StringField Note;
+        public Int16Field EStatus;
+        public DateTimeField InsertDate;
+        public Int32Field InsertUserId;
+        public DateTimeField UpdateDate;
+        public Int32Field UpdateUserId;
+        public Int16Field IsActive;
+
+        public StringField PlayListTitle;
+    }
 }

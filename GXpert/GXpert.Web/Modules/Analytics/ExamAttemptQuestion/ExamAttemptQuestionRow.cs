@@ -7,11 +7,11 @@ using System.ComponentModel;
 namespace GXpert.Analytics;
 
 [ConnectionKey("Default"), Module("Analytics"), TableName("ExamAttemptQuestions")]
-[DisplayName("Exam Attempt Question"), InstanceName("Exam Attempt Question"), GenerateFields]
+[DisplayName("Exam Attempt Question"), InstanceName("Exam Attempt Question")]
 [ReadPermission("Administration:General")]
 [ModifyPermission("Administration:General")]
 [ServiceLookupPermission("Administration:General")]
-public sealed partial class ExamAttemptQuestionRow : Row<ExamAttemptQuestionRow.RowFields>, IIdRow, INameRow
+public sealed class ExamAttemptQuestionRow : Row<ExamAttemptQuestionRow.RowFields>, IIdRow, INameRow
 {
     const string jExamAttempt = nameof(jExamAttempt);
     const string jExamQuestion = nameof(jExamQuestion);
@@ -62,4 +62,24 @@ public sealed partial class ExamAttemptQuestionRow : Row<ExamAttemptQuestionRow.
 
     [DisplayName("Exam Question Right Answer"), Expression($"{jExamQuestion}.[RightAnswer]")]
     public string ExamQuestionRightAnswer { get => fields.ExamQuestionRightAnswer[this]; set => fields.ExamQuestionRightAnswer[this] = value; }
+
+    public class RowFields : RowFieldsBase
+    {
+        public Int32Field Id;
+        public Int32Field ExamAttemptId;
+        public Int32Field ExamQuestionId;
+        public StringField OptionSelected;
+        public Int32Field MarksObtained;
+        public Int16Field Attemptstatus;
+        public Int32Field OutOfmarks;
+        public StringField Result;
+        public DateTimeField InsertDate;
+        public Int32Field InsertUserId;
+        public DateTimeField UpdateDate;
+        public Int32Field UpdateUserId;
+        public BooleanField IsActive;
+
+        public StringField ExamAttemptStudentAnswerSheetUpload;
+        public StringField ExamQuestionRightAnswer;
+    }
 }

@@ -7,11 +7,11 @@ using System.ComponentModel;
 namespace GXpert.Exams;
 
 [ConnectionKey("Default"), Module("Exams"), TableName("Exams")]
-[DisplayName("Exam"), InstanceName("Exam"), GenerateFields]
+[DisplayName("Exam"), InstanceName("Exam")]
 [ReadPermission("Administration:General")]
 [ModifyPermission("Administration:General")]
 [ServiceLookupPermission("Administration:General")]
-public sealed partial class ExamRow : Row<ExamRow.RowFields>, IIdRow, INameRow
+public sealed class ExamRow : Row<ExamRow.RowFields>, IIdRow, INameRow
 {
     [DisplayName("Id"), Identity, IdProperty]
     public int? Id { get => fields.Id[this]; set => fields.Id[this] = value; }
@@ -78,4 +78,31 @@ public sealed partial class ExamRow : Row<ExamRow.RowFields>, IIdRow, INameRow
 
     [DisplayName("Is Active"), NotNull]
     public bool? IsActive { get => fields.IsActive[this]; set => fields.IsActive[this] = value; }
+
+    public class RowFields : RowFieldsBase
+    {
+        public Int32Field Id;
+        public StringField Title;
+        public Int16Field EExamType;
+        public Int16Field EExamState;
+        public StringField QuestionPaperPath;
+        public StringField ModelAnswerPaperPath;
+        public Int32Field ExamDuration;
+        public SingleField MaxMarks;
+        public SingleField NegativeMarks;
+        public Int16Field EExamNavigation;
+        public Int16Field ESectionNavigation;
+        public Int16Field EQuestionNavigation;
+        public Int16Field EResultType;
+        public Int16Field EOptionDisplayType;
+        public BooleanField HasNegativeMarketing;
+        public StringField Instructions;
+        public StringField SearchTags;
+        public DateTimeField InsertDate;
+        public Int32Field InsertUserId;
+        public DateTimeField UpdateDate;
+        public Int32Field UpdateUserId;
+        public BooleanField IsActive;
+
+    }
 }

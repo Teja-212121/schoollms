@@ -7,11 +7,11 @@ using System.ComponentModel;
 namespace GXpert.Attendance;
 
 [ConnectionKey("Default"), Module("Attendance"), TableName("PollResponses")]
-[DisplayName("Poll Response"), InstanceName("Poll Response"), GenerateFields]
+[DisplayName("Poll Response"), InstanceName("Poll Response")]
 [ReadPermission("Administration:General")]
 [ModifyPermission("Administration:General")]
 [ServiceLookupPermission("Administration:General")]
-public sealed partial class PollResponseRow : Row<PollResponseRow.RowFields>, IIdRow, INameRow
+public sealed class PollResponseRow : Row<PollResponseRow.RowFields>, IIdRow, INameRow
 {
     const string jPoll = nameof(jPoll);
     const string jStudent = nameof(jStudent);
@@ -65,4 +65,25 @@ public sealed partial class PollResponseRow : Row<PollResponseRow.RowFields>, II
 
     [DisplayName("Activation Device Id"), Expression($"{jActivation}.[DeviceId]")]
     public string ActivationDeviceId { get => fields.ActivationDeviceId[this]; set => fields.ActivationDeviceId[this] = value; }
+
+    public class RowFields : RowFieldsBase
+    {
+        public Int32Field Id;
+        public Int32Field PollId;
+        public Int32Field StudentId;
+        public StringField Response;
+        public Int32Field ResponseTimeInSeconds;
+        public Int32Field Score;
+        public Int32Field LiveSessionLogId;
+        public Int32Field ActivationId;
+        public DateTimeField InsertDate;
+        public Int32Field InsertUserId;
+        public DateTimeField UpdateDate;
+        public Int32Field UpdateUserId;
+        public BooleanField IsActive;
+
+        public StringField PollQuestion;
+        public StringField StudentPrn;
+        public StringField ActivationDeviceId;
+    }
 }

@@ -8,6 +8,8 @@ export interface ExamRow {
     QuestionPaperPath?: string;
     ModelAnswerPaperPath?: string;
     ExamDuration?: number;
+    MaxMarks?: number;
+    NegativeMarks?: number;
     EExamNavigation?: number;
     ESectionNavigation?: number;
     EQuestionNavigation?: number;

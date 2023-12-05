@@ -7,10 +7,10 @@ using System.ComponentModel;
 namespace GXpert.Content;
 
 [ConnectionKey("Default"), Module("Content"), TableName("ContentBloomsIndex")]
-[DisplayName("Content Blooms Index"), InstanceName("Content Blooms Index"), GenerateFields]
+[DisplayName("Content Blooms Index"), InstanceName("Content Blooms Index")]
 [ReadPermission("Administration:General")]
 [ModifyPermission("Administration:General")]
-public sealed partial class ContentBloomsIndexRow : Row<ContentBloomsIndexRow.RowFields>, IIdRow
+public sealed class ContentBloomsIndexRow : Row<ContentBloomsIndexRow.RowFields>, IIdRow
 {
     const string jContent = nameof(jContent);
     const string jBloomsIndex = nameof(jBloomsIndex);
@@ -49,4 +49,20 @@ public sealed partial class ContentBloomsIndexRow : Row<ContentBloomsIndexRow.Ro
 
     [DisplayName("Blooms Index Coginitive Skill"), Expression($"{jBloomsIndex}.[CoginitiveSkill]")]
     public string BloomsIndexCoginitiveSkill { get => fields.BloomsIndexCoginitiveSkill[this]; set => fields.BloomsIndexCoginitiveSkill[this] = value; }
+
+    public class RowFields : RowFieldsBase
+    {
+        public Int32Field Id;
+        public Int32Field ContentId;
+        public Int32Field BloomsIndex;
+        public SingleField Weightage;
+        public DateTimeField InsertDate;
+        public Int32Field InsertUserId;
+        public DateTimeField UpdateDate;
+        public Int32Field UpdateUserId;
+        public BooleanField IsActive;
+
+        public StringField ContentTitle;
+        public StringField BloomsIndexCoginitiveSkill;
+    }
 }

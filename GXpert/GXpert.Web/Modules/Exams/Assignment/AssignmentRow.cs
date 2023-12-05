@@ -7,11 +7,11 @@ using System.ComponentModel;
 namespace GXpert.Exams;
 
 [ConnectionKey("Default"), Module("Exams"), TableName("Assignments")]
-[DisplayName("Assignment"), InstanceName("Assignment"), GenerateFields]
+[DisplayName("Assignment"), InstanceName("Assignment")]
 [ReadPermission("Administration:General")]
 [ModifyPermission("Administration:General")]
 [ServiceLookupPermission("Administration:General")]
-public sealed partial class AssignmentRow : Row<AssignmentRow.RowFields>, IIdRow, INameRow
+public sealed class AssignmentRow : Row<AssignmentRow.RowFields>, IIdRow, INameRow
 {
     const string jClass = nameof(jClass);
     const string jSubject = nameof(jSubject);
@@ -54,4 +54,22 @@ public sealed partial class AssignmentRow : Row<AssignmentRow.RowFields>, IIdRow
 
     [DisplayName("Subject Title"), Expression($"{jSubject}.[Title]")]
     public string SubjectTitle { get => fields.SubjectTitle[this]; set => fields.SubjectTitle[this] = value; }
+
+    public class RowFields : RowFieldsBase
+    {
+        public Int32Field Id;
+        public StringField Title;
+        public StringField Description;
+        public StringField File;
+        public Int32Field ClassId;
+        public Int32Field SubjectId;
+        public DateTimeField InsertDate;
+        public Int32Field InsertUserId;
+        public DateTimeField UpdateDate;
+        public Int32Field UpdateUserId;
+        public BooleanField IsActive;
+
+        public StringField ClassTitle;
+        public StringField SubjectTitle;
+    }
 }

@@ -7,11 +7,11 @@ using System.ComponentModel;
 namespace GXpert.Exams;
 
 [ConnectionKey("Default"), Module("Exams"), TableName("AssignmentEvaluation")]
-[DisplayName("Assignment Evaluation"), InstanceName("Assignment Evaluation"), GenerateFields]
+[DisplayName("Assignment Evaluation"), InstanceName("Assignment Evaluation")]
 [ReadPermission("Administration:General")]
 [ModifyPermission("Administration:General")]
 [ServiceLookupPermission("Administration:General")]
-public sealed partial class AssignmentEvaluationRow : Row<AssignmentEvaluationRow.RowFields>, IIdRow, INameRow
+public sealed class AssignmentEvaluationRow : Row<AssignmentEvaluationRow.RowFields>, IIdRow, INameRow
 {
     const string jAssignment = nameof(jAssignment);
     const string jClass = nameof(jClass);
@@ -74,4 +74,27 @@ public sealed partial class AssignmentEvaluationRow : Row<AssignmentEvaluationRo
 
     [DisplayName("Blooms Index Coginitive Skill"), Expression($"{jBloomsIndex}.[CoginitiveSkill]")]
     public string BloomsIndexCoginitiveSkill { get => fields.BloomsIndexCoginitiveSkill[this]; set => fields.BloomsIndexCoginitiveSkill[this] = value; }
+
+    public class RowFields : RowFieldsBase
+    {
+        public Int32Field Id;
+        public Int32Field AssignmentId;
+        public StringField EvalutionCriteria;
+        public Int32Field ClassId;
+        public Int32Field SubjectId;
+        public Int32Field TopicId;
+        public Int32Field BloomsIndex;
+        public SingleField BloomsWeightage;
+        public DateTimeField InsertDate;
+        public Int32Field InsertUserId;
+        public DateTimeField UpdateDate;
+        public Int32Field UpdateUserId;
+        public BooleanField IsActive;
+
+        public StringField AssignmentTitle;
+        public StringField ClassTitle;
+        public StringField SubjectTitle;
+        public StringField TopicTitle;
+        public StringField BloomsIndexCoginitiveSkill;
+    }
 }

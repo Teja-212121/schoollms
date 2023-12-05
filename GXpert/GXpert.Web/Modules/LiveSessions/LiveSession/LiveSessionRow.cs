@@ -7,11 +7,11 @@ using System.ComponentModel;
 namespace GXpert.LiveSessions;
 
 [ConnectionKey("Default"), Module("LiveSessions"), TableName("LiveSessions")]
-[DisplayName("Live Session"), InstanceName("Live Session"), GenerateFields]
+[DisplayName("Live Session"), InstanceName("Live Session")]
 [ReadPermission("Administration:General")]
 [ModifyPermission("Administration:General")]
 [ServiceLookupPermission("Administration:General")]
-public sealed partial class LiveSessionRow : Row<LiveSessionRow.RowFields>, IIdRow, INameRow
+public sealed class LiveSessionRow : Row<LiveSessionRow.RowFields>, IIdRow, INameRow
 {
     [DisplayName("Id"), Identity, IdProperty]
     public int? Id { get => fields.Id[this]; set => fields.Id[this] = value; }
@@ -48,4 +48,21 @@ public sealed partial class LiveSessionRow : Row<LiveSessionRow.RowFields>, IIdR
 
     [DisplayName("Is Active"), NotNull]
     public bool? IsActive { get => fields.IsActive[this]; set => fields.IsActive[this] = value; }
+
+    public class RowFields : RowFieldsBase
+    {
+        public Int32Field Id;
+        public StringField MeetingId;
+        public Int16Field LiveProvider;
+        public StringField Password;
+        public StringField Secret;
+        public StringField LiveAdditionalInfo;
+        public StringField SearchTags;
+        public DateTimeField InsertDate;
+        public Int32Field InsertUserId;
+        public DateTimeField UpdateDate;
+        public Int32Field UpdateUserId;
+        public BooleanField IsActive;
+
+    }
 }

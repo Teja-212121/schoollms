@@ -7,11 +7,11 @@ using System.ComponentModel;
 namespace GXpert.Masters;
 
 [ConnectionKey("Default"), Module("Masters"), TableName("Talukas")]
-[DisplayName("Taluka"), InstanceName("Taluka"), GenerateFields]
+[DisplayName("Taluka"), InstanceName("Taluka")]
 [ReadPermission("Administration:General")]
 [ModifyPermission("Administration:General")]
 [ServiceLookupPermission("Administration:General")]
-public sealed partial class TalukaRow : Row<TalukaRow.RowFields>, IIdRow, INameRow
+public sealed class TalukaRow : Row<TalukaRow.RowFields>, IIdRow, INameRow
 {
     const string jState = nameof(jState);
     const string jDistrict = nameof(jDistrict);
@@ -53,4 +53,21 @@ public sealed partial class TalukaRow : Row<TalukaRow.RowFields>, IIdRow, INameR
 
     [DisplayName("District Title"), Origin(jDistrict, nameof(DistrictRow.Title))]
     public string DistrictTitle { get => fields.DistrictTitle[this]; set => fields.DistrictTitle[this] = value; }
+
+    public class RowFields : RowFieldsBase
+    {
+        public Int32Field Id;
+        public StringField Title;
+        public Int32Field StateId;
+        public Int32Field DistrictId;
+        public StringField ShortName;
+        public DateTimeField InsertDate;
+        public Int32Field InsertUserId;
+        public DateTimeField UpdateDate;
+        public Int32Field UpdateUserId;
+        public BooleanField IsActive;
+
+        public StringField StateTitle;
+        public StringField DistrictTitle;
+    }
 }

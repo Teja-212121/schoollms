@@ -7,11 +7,11 @@ using System.ComponentModel;
 namespace GXpert.Syllabus;
 
 [ConnectionKey("Default"), Module("Syllabus"), TableName("Mediums")]
-[DisplayName("Medium"), InstanceName("Medium"), GenerateFields]
+[DisplayName("Medium"), InstanceName("Medium")]
 [ReadPermission("Administration:General")]
 [ModifyPermission("Administration:General")]
 [ServiceLookupPermission("Administration:General")]
-public sealed partial class MediumRow : Row<MediumRow.RowFields>, IIdRow, INameRow
+public sealed class MediumRow : Row<MediumRow.RowFields>, IIdRow, INameRow
 {
     [DisplayName("Id"), Identity, IdProperty]
     public int? Id { get => fields.Id[this]; set => fields.Id[this] = value; }
@@ -36,4 +36,17 @@ public sealed partial class MediumRow : Row<MediumRow.RowFields>, IIdRow, INameR
 
     [DisplayName("Is Active"), NotNull]
     public bool? IsActive { get => fields.IsActive[this]; set => fields.IsActive[this] = value; }
+
+    public class RowFields : RowFieldsBase
+    {
+        public Int32Field Id;
+        public StringField Title;
+        public StringField Description;
+        public DateTimeField InsertDate;
+        public Int32Field InsertUserId;
+        public DateTimeField UpdateDate;
+        public Int32Field UpdateUserId;
+        public BooleanField IsActive;
+
+    }
 }

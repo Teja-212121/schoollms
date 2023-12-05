@@ -7,10 +7,10 @@ using System.ComponentModel;
 namespace GXpert.Analytics;
 
 [ConnectionKey("Default"), Module("Analytics"), TableName("AnalyticsLog")]
-[DisplayName("Analytics Log"), InstanceName("Analytics Log"), GenerateFields]
+[DisplayName("Analytics Log"), InstanceName("Analytics Log")]
 [ReadPermission("Administration:General")]
 [ModifyPermission("Administration:General")]
-public sealed partial class AnalyticsLogRow : Row<AnalyticsLogRow.RowFields>, IIdRow
+public sealed class AnalyticsLogRow : Row<AnalyticsLogRow.RowFields>, IIdRow
 {
     const string jContent = nameof(jContent);
     const string jActivation = nameof(jActivation);
@@ -60,4 +60,24 @@ public sealed partial class AnalyticsLogRow : Row<AnalyticsLogRow.RowFields>, II
 
     [DisplayName("Student Prn"), Expression($"{jStudent}.[PRN]")]
     public string StudentPrn { get => fields.StudentPrn[this]; set => fields.StudentPrn[this] = value; }
+
+    public class RowFields : RowFieldsBase
+    {
+        public Int32Field Id;
+        public Int32Field ContentId;
+        public Int32Field ActivationId;
+        public Int32Field StudentId;
+        public DateTimeField StartDatetime;
+        public DateTimeField EndDateTime;
+        public Int32Field TimeSpent;
+        public DateTimeField InsertDate;
+        public Int32Field InsertUserId;
+        public DateTimeField UpdateDate;
+        public Int32Field UpdateUserId;
+        public BooleanField IsActive;
+
+        public StringField ContentTitle;
+        public StringField ActivationDeviceId;
+        public StringField StudentPrn;
+    }
 }

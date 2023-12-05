@@ -7,11 +7,11 @@ using System.ComponentModel;
 namespace GXpert.Attendance;
 
 [ConnectionKey("Default"), Module("Attendance"), TableName("AssignmentAttempts")]
-[DisplayName("Assignment Attempt"), InstanceName("Assignment Attempt"), GenerateFields]
+[DisplayName("Assignment Attempt"), InstanceName("Assignment Attempt")]
 [ReadPermission("Administration:General")]
 [ModifyPermission("Administration:General")]
 [ServiceLookupPermission("Administration:General")]
-public sealed partial class AssignmentAttemptRow : Row<AssignmentAttemptRow.RowFields>, IIdRow, INameRow
+public sealed class AssignmentAttemptRow : Row<AssignmentAttemptRow.RowFields>, IIdRow, INameRow
 {
     const string jAssignment = nameof(jAssignment);
     const string jStudent = nameof(jStudent);
@@ -72,4 +72,27 @@ public sealed partial class AssignmentAttemptRow : Row<AssignmentAttemptRow.RowF
 
     [DisplayName("Activation Device Id"), Expression($"{jActivation}.[DeviceId]")]
     public string ActivationDeviceId { get => fields.ActivationDeviceId[this]; set => fields.ActivationDeviceId[this] = value; }
+
+    public class RowFields : RowFieldsBase
+    {
+        public Int32Field Id;
+        public Int32Field AssignmentId;
+        public Int32Field StudentId;
+        public StringField FileUploaded;
+        public StringField EStatus;
+        public Int32Field TeacherId;
+        public Int32Field PlayListId;
+        public Int32Field ActivationId;
+        public DateTimeField InsertDate;
+        public Int32Field InsertUserId;
+        public DateTimeField UpdateDate;
+        public Int32Field UpdateUserId;
+        public BooleanField IsActive;
+
+        public StringField AssignmentTitle;
+        public StringField StudentPrn;
+        public StringField TeacherPrn;
+        public StringField PlayListTitle;
+        public StringField ActivationDeviceId;
+    }
 }

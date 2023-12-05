@@ -7,11 +7,11 @@ using System.ComponentModel;
 namespace GXpert.Exams;
 
 [ConnectionKey("Default"), Module("Exams"), TableName("ExamQuestions")]
-[DisplayName("Exam Question"), InstanceName("Exam Question"), GenerateFields]
+[DisplayName("Exam Question"), InstanceName("Exam Question")]
 [ReadPermission("Administration:General")]
 [ModifyPermission("Administration:General")]
 [ServiceLookupPermission("Administration:General")]
-public sealed partial class ExamQuestionRow : Row<ExamQuestionRow.RowFields>, IIdRow, INameRow
+public sealed class ExamQuestionRow : Row<ExamQuestionRow.RowFields>, IIdRow, INameRow
 {
     const string jExam = nameof(jExam);
     const string jExamSection = nameof(jExamSection);
@@ -87,4 +87,31 @@ public sealed partial class ExamQuestionRow : Row<ExamQuestionRow.RowFields>, II
 
     [DisplayName("Topic Title"), Expression($"{jTopic}.[Title]")]
     public string TopicTitle { get => fields.TopicTitle[this]; set => fields.TopicTitle[this] = value; }
+
+    public class RowFields : RowFieldsBase
+    {
+        public Int32Field Id;
+        public Int32Field ExamId;
+        public Int32Field ExamSectionId;
+        public Int64Field QuestionId;
+        public Int16Field EDifficultyLevel;
+        public StringField RightAnswer;
+        public SingleField Marks;
+        public SingleField SortOrder;
+        public Int32Field ClassId;
+        public Int32Field SubjectId;
+        public Int32Field TopicId;
+        public DateTimeField InsertDate;
+        public Int32Field InsertUserId;
+        public DateTimeField UpdateDate;
+        public Int32Field UpdateUserId;
+        public BooleanField IsActive;
+
+        public StringField ExamTitle;
+        public StringField ExamSectionTitle;
+        public StringField QuestionText;
+        public StringField ClassTitle;
+        public StringField SubjectTitle;
+        public StringField TopicTitle;
+    }
 }

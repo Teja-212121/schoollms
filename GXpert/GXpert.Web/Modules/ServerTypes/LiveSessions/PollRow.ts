@@ -12,9 +12,11 @@ export interface PollRow {
     RightAnswer?: string;
     LiveSessionLogId?: number;
     TotalAttempts?: number;
+    AverageResponseTime?: number;
     NumberOfCorrect?: number;
     NumberOfWrong?: number;
     BloomsTaxonomyId?: number;
+    Weightage?: number;
     InsertDate?: string;
     InsertUserId?: number;
     UpdateDate?: string;

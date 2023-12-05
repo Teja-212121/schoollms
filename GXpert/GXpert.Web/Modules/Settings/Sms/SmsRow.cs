@@ -7,11 +7,11 @@ using System.ComponentModel;
 namespace GXpert.Settings;
 
 [ConnectionKey("Default"), Module("Settings"), TableName("SMS")]
-[DisplayName("Sms"), InstanceName("Sms"), GenerateFields]
+[DisplayName("Sms"), InstanceName("Sms")]
 [ReadPermission("Administration:General")]
 [ModifyPermission("Administration:General")]
 [ServiceLookupPermission("Administration:General")]
-public sealed partial class SmsRow : Row<SmsRow.RowFields>, IIdRow, INameRow
+public sealed class SmsRow : Row<SmsRow.RowFields>, IIdRow, INameRow
 {
     [DisplayName("Id"), Identity, IdProperty]
     public int? Id { get => fields.Id[this]; set => fields.Id[this] = value; }
@@ -42,4 +42,19 @@ public sealed partial class SmsRow : Row<SmsRow.RowFields>, IIdRow, INameRow
 
     [DisplayName("Is Active"), NotNull]
     public bool? IsActive { get => fields.IsActive[this]; set => fields.IsActive[this] = value; }
+
+    public class RowFields : RowFieldsBase
+    {
+        public Int32Field Id;
+        public StringField ApiKey;
+        public StringField Sender;
+        public StringField EntityId;
+        public StringField TemplateId;
+        public DateTimeField InsertDate;
+        public Int32Field InsertUserId;
+        public DateTimeField UpdateDate;
+        public Int32Field UpdateUserId;
+        public BooleanField IsActive;
+
+    }
 }

@@ -7,11 +7,11 @@ using System.ComponentModel;
 namespace GXpert.Schools;
 
 [ConnectionKey("Default"), Module("Schools"), TableName("SchoolClasses")]
-[DisplayName("School Class"), InstanceName("School Class"), GenerateFields]
+[DisplayName("School Class"), InstanceName("School Class")]
 [ReadPermission("Administration:General")]
 [ModifyPermission("Administration:General")]
 [ServiceLookupPermission("Administration:General")]
-public sealed partial class SchoolClassRow : Row<SchoolClassRow.RowFields>, IIdRow, INameRow
+public sealed class SchoolClassRow : Row<SchoolClassRow.RowFields>, IIdRow, INameRow
 {
     const string jClass = nameof(jClass);
     const string jMedium = nameof(jMedium);
@@ -66,4 +66,25 @@ public sealed partial class SchoolClassRow : Row<SchoolClassRow.RowFields>, IIdR
 
     [DisplayName("Academic Year Name"), Expression($"{jAcademicYear}.[Name]")]
     public string AcademicYearName { get => fields.AcademicYearName[this]; set => fields.AcademicYearName[this] = value; }
+
+    public class RowFields : RowFieldsBase
+    {
+        public Int32Field Id;
+        public Int32Field ClassId;
+        public StringField Division;
+        public Int32Field MediumId;
+        public Int32Field ClassTeacherId;
+        public StringField Title;
+        public Int32Field AcademicYearId;
+        public DateTimeField InsertDate;
+        public Int32Field InsertUserId;
+        public DateTimeField UpdateDate;
+        public Int32Field UpdateUserId;
+        public BooleanField IsActive;
+
+        public StringField ClassTitle;
+        public StringField MediumTitle;
+        public StringField ClassTeacherPrn;
+        public StringField AcademicYearName;
+    }
 }

@@ -7,10 +7,10 @@ using System.ComponentModel;
 namespace GXpert.Analytics;
 
 [ConnectionKey("Default"), Module("Analytics"), TableName("AssignedexamsTeachers")]
-[DisplayName("Assigned Exam Teachers"), InstanceName("Assigned Exam Teachers"), GenerateFields]
+[DisplayName("Assigned Exam Teachers"), InstanceName("Assigned Exam Teachers")]
 [ReadPermission("Administration:General")]
 [ModifyPermission("Administration:General")]
-public sealed partial class AssignedExamTeachersRow : Row<AssignedExamTeachersRow.RowFields>, IIdRow
+public sealed class AssignedExamTeachersRow : Row<AssignedExamTeachersRow.RowFields>, IIdRow
 {
     const string jExam = nameof(jExam);
     const string jPlayList = nameof(jPlayList);
@@ -51,4 +51,21 @@ public sealed partial class AssignedExamTeachersRow : Row<AssignedExamTeachersRo
 
     [DisplayName("Teacher Prn"), Expression($"{jTeacher}.[PRN]")]
     public string TeacherPrn { get => fields.TeacherPrn[this]; set => fields.TeacherPrn[this] = value; }
+
+    public class RowFields : RowFieldsBase
+    {
+        public Int32Field Id;
+        public Int32Field ExamId;
+        public Int32Field PlayListId;
+        public Int32Field TeacherId;
+        public DateTimeField InsertDate;
+        public Int32Field InsertUserId;
+        public DateTimeField UpdateDate;
+        public Int32Field UpdateUserId;
+        public BooleanField IsActive;
+
+        public StringField ExamTitle;
+        public StringField PlayListTitle;
+        public StringField TeacherPrn;
+    }
 }

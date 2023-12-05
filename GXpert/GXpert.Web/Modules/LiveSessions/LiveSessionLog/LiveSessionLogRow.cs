@@ -7,10 +7,10 @@ using System.ComponentModel;
 namespace GXpert.LiveSessions;
 
 [ConnectionKey("Default"), Module("LiveSessions"), TableName("LiveSessionLog")]
-[DisplayName("Live Session Log"), InstanceName("Live Session Log"), GenerateFields]
+[DisplayName("Live Session Log"), InstanceName("Live Session Log")]
 [ReadPermission("Administration:General")]
 [ModifyPermission("Administration:General")]
-public sealed partial class LiveSessionLogRow : Row<LiveSessionLogRow.RowFields>, IIdRow
+public sealed class LiveSessionLogRow : Row<LiveSessionLogRow.RowFields>, IIdRow
 {
     const string jTeacher = nameof(jTeacher);
     const string jClass = nameof(jClass);
@@ -60,4 +60,24 @@ public sealed partial class LiveSessionLogRow : Row<LiveSessionLogRow.RowFields>
 
     [DisplayName("Subject Title"), Expression($"{jSubject}.[Title]")]
     public string SubjectTitle { get => fields.SubjectTitle[this]; set => fields.SubjectTitle[this] = value; }
+
+    public class RowFields : RowFieldsBase
+    {
+        public Int32Field Id;
+        public DateTimeField Date;
+        public DateTimeField StartTime;
+        public DateTimeField EndTime;
+        public Int32Field TeacherId;
+        public Int32Field ClassId;
+        public Int32Field SubjectId;
+        public DateTimeField InsertDate;
+        public Int32Field InsertUserId;
+        public DateTimeField UpdateDate;
+        public Int32Field UpdateUserId;
+        public BooleanField IsActive;
+
+        public StringField TeacherPrn;
+        public StringField ClassTitle;
+        public StringField SubjectTitle;
+    }
 }

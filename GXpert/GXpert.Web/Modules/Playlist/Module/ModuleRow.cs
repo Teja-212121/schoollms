@@ -7,11 +7,11 @@ using System.ComponentModel;
 namespace GXpert.Playlist;
 
 [ConnectionKey("Default"), Module("Playlist"), TableName("Modules")]
-[DisplayName("Module"), InstanceName("Module"), GenerateFields]
+[DisplayName("Module"), InstanceName("Module")]
 [ReadPermission("Administration:General")]
 [ModifyPermission("Administration:General")]
 [ServiceLookupPermission("Administration:General")]
-public sealed partial class ModuleRow : Row<ModuleRow.RowFields>, IIdRow, INameRow
+public sealed class ModuleRow : Row<ModuleRow.RowFields>, IIdRow, INameRow
 {
     const string jParent = nameof(jParent);
 
@@ -48,4 +48,20 @@ public sealed partial class ModuleRow : Row<ModuleRow.RowFields>, IIdRow, INameR
 
     [DisplayName("Parent Title"), Origin(jParent, nameof(ModuleRow.Title))]
     public string ParentTitle { get => fields.ParentTitle[this]; set => fields.ParentTitle[this] = value; }
+
+    public class RowFields : RowFieldsBase
+    {
+        public Int32Field Id;
+        public StringField Title;
+        public StringField Description;
+        public Int32Field ParentId;
+        public SingleField SortOrder;
+        public DateTimeField InsertDate;
+        public Int32Field InsertUserId;
+        public DateTimeField UpdateDate;
+        public Int32Field UpdateUserId;
+        public BooleanField IsActive;
+
+        public StringField ParentTitle;
+    }
 }

@@ -7,11 +7,11 @@ using System.ComponentModel;
 namespace GXpert.Exams;
 
 [ConnectionKey("Default"), Module("Exams"), TableName("ExamSections")]
-[DisplayName("Exam Section"), InstanceName("Exam Section"), GenerateFields]
+[DisplayName("Exam Section"), InstanceName("Exam Section")]
 [ReadPermission("Administration:General")]
 [ModifyPermission("Administration:General")]
 [ServiceLookupPermission("Administration:General")]
-public sealed partial class ExamSectionRow : Row<ExamSectionRow.RowFields>, IIdRow, INameRow
+public sealed class ExamSectionRow : Row<ExamSectionRow.RowFields>, IIdRow, INameRow
 {
     const string jExam = nameof(jExam);
     const string jParent = nameof(jParent);
@@ -68,4 +68,26 @@ public sealed partial class ExamSectionRow : Row<ExamSectionRow.RowFields>, IIdR
 
     [DisplayName("Parent Title"), Origin(jParent, nameof(ExamSectionRow.Title))]
     public string ParentTitle { get => fields.ParentTitle[this]; set => fields.ParentTitle[this] = value; }
+
+    public class RowFields : RowFieldsBase
+    {
+        public Int32Field Id;
+        public Int32Field ExamId;
+        public StringField Title;
+        public StringField Instructions;
+        public Int32Field DurationInSeconds;
+        public SingleField SortOrder;
+        public Int32Field ParentId;
+        public Int32Field NumberOfQuestions;
+        public Int32Field NumberOfMandatoryQuestions;
+        public StringField SearchTags;
+        public DateTimeField InsertDate;
+        public Int32Field InsertUserId;
+        public DateTimeField UpdateDate;
+        public Int32Field UpdateUserId;
+        public BooleanField IsActive;
+
+        public StringField ExamTitle;
+        public StringField ParentTitle;
+    }
 }

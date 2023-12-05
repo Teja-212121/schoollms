@@ -7,11 +7,11 @@ using System.ComponentModel;
 namespace GXpert.QuestionBank;
 
 [ConnectionKey("Default"), Module("QuestionBank"), TableName("Questions")]
-[DisplayName("Question"), InstanceName("Question"), GenerateFields]
+[DisplayName("Question"), InstanceName("Question")]
 [ReadPermission("Administration:General")]
 [ModifyPermission("Administration:General")]
 [ServiceLookupPermission("Administration:General")]
-public sealed partial class QuestionRow : Row<QuestionRow.RowFields>, IIdRow, INameRow
+public sealed class QuestionRow : Row<QuestionRow.RowFields>, IIdRow, INameRow
 {
     const string jQuestionCommonData = nameof(jQuestionCommonData);
     const string jClass = nameof(jClass);
@@ -89,4 +89,32 @@ public sealed partial class QuestionRow : Row<QuestionRow.RowFields>, IIdRow, IN
 
     [DisplayName("Blooms Index Coginitive Skill"), Expression($"{jBloomsIndex}.[CoginitiveSkill]")]
     public string BloomsIndexCoginitiveSkill { get => fields.BloomsIndexCoginitiveSkill[this]; set => fields.BloomsIndexCoginitiveSkill[this] = value; }
+
+    public class RowFields : RowFieldsBase
+    {
+        public Int64Field Id;
+        public StringField QuestionText;
+        public StringField Explaination;
+        public BooleanField IsSubjective;
+        public Int16Field EQuestionType;
+        public Int16Field EDifficultyLevel;
+        public Int32Field QuestionCommonDataId;
+        public SingleField QuestionCommonDataSortOrder;
+        public Int32Field ClassId;
+        public Int32Field SubjectId;
+        public Int32Field TopicId;
+        public Int32Field BloomsIndex;
+        public SingleField BloomsWeightage;
+        public DateTimeField InsertDate;
+        public Int32Field InsertUserId;
+        public DateTimeField UpdateDate;
+        public Int32Field UpdateUserId;
+        public BooleanField IsActive;
+
+        public StringField QuestionCommonDataCommonDataTitle;
+        public StringField ClassTitle;
+        public StringField SubjectTitle;
+        public StringField TopicTitle;
+        public StringField BloomsIndexCoginitiveSkill;
+    }
 }

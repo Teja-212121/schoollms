@@ -3,13 +3,13 @@ using Serenity.Web;
 
 namespace GXpert.Playlist.Pages;
 
-[PageAuthorize(typeof(PlayListcontentRow))]
-public class PlayListcontentPage : Controller
+[PageAuthorize(typeof(PlayListContentRow))]
+public class PlayListContentPage : Controller
 {
-    [Route("Playlist/PlayListcontent")]
+    [Route("Playlist/PlayListContent")]
     public ActionResult Index()
     {
-        return this.GridPage("@/Playlist/PlayListcontent/PlayListcontentPage",
-            PlayListcontentRow.Fields.PageTitle());
+        return this.GridPage("@/Playlist/PlayListContent/PlayListContentPage",
+            PlayListContentRow.Fields.PageTitle());
     }
 }

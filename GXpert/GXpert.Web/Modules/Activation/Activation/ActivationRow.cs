@@ -7,11 +7,11 @@ using System.ComponentModel;
 namespace GXpert.Activation;
 
 [ConnectionKey("Default"), Module("Activation"), TableName("Activations")]
-[DisplayName("Activation"), InstanceName("Activation"), GenerateFields]
+[DisplayName("Activation"), InstanceName("Activation")]
 [ReadPermission("Administration:General")]
 [ModifyPermission("Administration:General")]
 [ServiceLookupPermission("Administration:General")]
-public sealed partial class ActivationRow : Row<ActivationRow.RowFields>, IIdRow, INameRow
+public sealed class ActivationRow : Row<ActivationRow.RowFields>, IIdRow, INameRow
 {
     const string jPlayList = nameof(jPlayList);
     const string jTeacher = nameof(jTeacher);
@@ -68,4 +68,26 @@ public sealed partial class ActivationRow : Row<ActivationRow.RowFields>, IIdRow
 
     [DisplayName("Activation Log Code"), Origin(jActivationLog, nameof(ActivationLogRow.Code))]
     public string ActivationLogCode { get => fields.ActivationLogCode[this]; set => fields.ActivationLogCode[this] = value; }
+
+    public class RowFields : RowFieldsBase
+    {
+        public Int32Field Id;
+        public Int32Field PlayListId;
+        public Int32Field TeacherId;
+        public Int32Field ActivationLogId;
+        public StringField DeviceId;
+        public StringField DeviceDetails;
+        public DateTimeField ActivationDate;
+        public DateTimeField ExpiryDate;
+        public Int16Field EStatus;
+        public DateTimeField InsertDate;
+        public Int32Field InsertUserId;
+        public DateTimeField UpdateDate;
+        public Int32Field UpdateUserId;
+        public Int16Field IsActive;
+
+        public StringField PlayListTitle;
+        public StringField TeacherPrn;
+        public StringField ActivationLogCode;
+    }
 }

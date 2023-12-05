@@ -7,11 +7,11 @@ using System.ComponentModel;
 namespace GXpert.Schools;
 
 [ConnectionKey("Default"), Module("Schools"), TableName("SchoolTimeTable")]
-[DisplayName("School Time Table"), InstanceName("School Time Table"), GenerateFields]
+[DisplayName("School Time Table"), InstanceName("School Time Table")]
 [ReadPermission("Administration:General")]
 [ModifyPermission("Administration:General")]
 [ServiceLookupPermission("Administration:General")]
-public sealed partial class SchoolTimeTableRow : Row<SchoolTimeTableRow.RowFields>, IIdRow, INameRow
+public sealed class SchoolTimeTableRow : Row<SchoolTimeTableRow.RowFields>, IIdRow, INameRow
 {
     const string jSchoolClass = nameof(jSchoolClass);
     const string jTeacher = nameof(jTeacher);
@@ -61,4 +61,24 @@ public sealed partial class SchoolTimeTableRow : Row<SchoolTimeTableRow.RowField
 
     [DisplayName("Teacher Prn"), Expression($"{jTeacher}.[PRN]")]
     public string TeacherPrn { get => fields.TeacherPrn[this]; set => fields.TeacherPrn[this] = value; }
+
+    public class RowFields : RowFieldsBase
+    {
+        public Int32Field Id;
+        public DateTimeField Date;
+        public DateTimeField StartTime;
+        public DateTimeField EndTime;
+        public Int32Field PeriodIndex;
+        public Int32Field SchoolClassId;
+        public Int32Field TeacherId;
+        public StringField EType;
+        public DateTimeField InsertDate;
+        public Int32Field InsertUserId;
+        public DateTimeField UpdateDate;
+        public Int32Field UpdateUserId;
+        public BooleanField IsActive;
+
+        public StringField SchoolClassDivision;
+        public StringField TeacherPrn;
+    }
 }

@@ -7,10 +7,10 @@ using System.ComponentModel;
 namespace GXpert.Playlist;
 
 [ConnectionKey("Default"), Module("Playlist"), TableName("PlayListContents")]
-[DisplayName("Play Listcontent"), InstanceName("Play Listcontent"), GenerateFields]
+[DisplayName("Play List Content"), InstanceName("Play List Content")]
 [ReadPermission("Administration:General")]
 [ModifyPermission("Administration:General")]
-public sealed partial class PlayListcontentRow : Row<PlayListcontentRow.RowFields>, IIdRow
+public sealed class PlayListContentRow : Row<PlayListContentRow.RowFields>, IIdRow
 {
     const string jPlayList = nameof(jPlayList);
     const string jContent = nameof(jContent);
@@ -22,8 +22,7 @@ public sealed partial class PlayListcontentRow : Row<PlayListcontentRow.RowField
     [DisplayName("Id"), Identity, IdProperty]
     public int? Id { get => fields.Id[this]; set => fields.Id[this] = value; }
 
-    [DisplayName("Play List"), ForeignKey(typeof(PlayListRow)), LeftJoin(jPlayList), TextualField(nameof(PlayListTitle))]
-    [ServiceLookupEditor(typeof(PlayListRow))]
+    [DisplayName("Play List"), ForeignKey("PlayLists", "Id"), LeftJoin(jPlayList), TextualField(nameof(PlayListTitle))]
     public int? PlayListId { get => fields.PlayListId[this]; set => fields.PlayListId[this] = value; }
 
     [DisplayName("Content"), NotNull, ForeignKey("Contents", "Id"), LeftJoin(jContent), TextualField(nameof(ContentTitle))]
@@ -38,8 +37,7 @@ public sealed partial class PlayListcontentRow : Row<PlayListcontentRow.RowField
     [DisplayName("Assignment"), NotNull, ForeignKey("Assignments", "Id"), LeftJoin(jAssignment), TextualField(nameof(AssignmentTitle))]
     public int? AssignmentId { get => fields.AssignmentId[this]; set => fields.AssignmentId[this] = value; }
 
-    [DisplayName("Module"), ForeignKey(typeof(ModuleRow)), LeftJoin(jModule), TextualField(nameof(ModuleTitle))]
-    [ServiceLookupEditor(typeof(ModuleRow))]
+    [DisplayName("Module"), ForeignKey("Modules", "Id"), LeftJoin(jModule), TextualField(nameof(ModuleTitle))]
     public int? ModuleId { get => fields.ModuleId[this]; set => fields.ModuleId[this] = value; }
 
     [DisplayName("Sort Order"), NotNull]
@@ -63,7 +61,7 @@ public sealed partial class PlayListcontentRow : Row<PlayListcontentRow.RowField
     [DisplayName("Is Active"), NotNull]
     public bool? IsActive { get => fields.IsActive[this]; set => fields.IsActive[this] = value; }
 
-    [DisplayName("Play List Title"), Origin(jPlayList, nameof(PlayListRow.Title))]
+    [DisplayName("Play List Title"), Expression($"{jPlayList}.[Title]")]
     public string PlayListTitle { get => fields.PlayListTitle[this]; set => fields.PlayListTitle[this] = value; }
 
     [DisplayName("Content Title"), Expression($"{jContent}.[Title]")]
@@ -78,6 +76,31 @@ public sealed partial class PlayListcontentRow : Row<PlayListcontentRow.RowField
     [DisplayName("Assignment Title"), Expression($"{jAssignment}.[Title]")]
     public string AssignmentTitle { get => fields.AssignmentTitle[this]; set => fields.AssignmentTitle[this] = value; }
 
-    [DisplayName("Module Title"), Origin(jModule, nameof(ModuleRow.Title))]
+    [DisplayName("Module Title"), Expression($"{jModule}.[Title]")]
     public string ModuleTitle { get => fields.ModuleTitle[this]; set => fields.ModuleTitle[this] = value; }
+
+    public class RowFields : RowFieldsBase
+    {
+        public Int32Field Id;
+        public Int32Field PlayListId;
+        public Int32Field ContentId;
+        public Int32Field ExamId;
+        public Int32Field LiveSessionId;
+        public Int32Field AssignmentId;
+        public Int32Field ModuleId;
+        public SingleField SortOrder;
+        public Int16Field EPublishStatus;
+        public DateTimeField InsertDate;
+        public Int32Field InsertUserId;
+        public DateTimeField UpdateDate;
+        public Int32Field UpdateUserId;
+        public BooleanField IsActive;
+
+        public StringField PlayListTitle;
+        public StringField ContentTitle;
+        public StringField ExamTitle;
+        public StringField LiveSessionMeetingId;
+        public StringField AssignmentTitle;
+        public StringField ModuleTitle;
+    }
 }

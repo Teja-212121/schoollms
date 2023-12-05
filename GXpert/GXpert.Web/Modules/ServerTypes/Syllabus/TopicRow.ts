@@ -8,6 +8,7 @@ export interface TopicRow {
     ClassId?: number;
     MediumId?: number;
     SubjectId?: number;
+    Weightage?: number;
     Thumbnail?: string;
     InsertDate?: string;
     InsertUserId?: number;

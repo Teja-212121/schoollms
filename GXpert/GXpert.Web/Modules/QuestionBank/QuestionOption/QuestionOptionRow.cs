@@ -7,11 +7,11 @@ using System.ComponentModel;
 namespace GXpert.QuestionBank;
 
 [ConnectionKey("Default"), Module("QuestionBank"), TableName("QuestionOptions")]
-[DisplayName("Question Option"), InstanceName("Question Option"), GenerateFields]
+[DisplayName("Question Option"), InstanceName("Question Option")]
 [ReadPermission("Administration:General")]
 [ModifyPermission("Administration:General")]
 [ServiceLookupPermission("Administration:General")]
-public sealed partial class QuestionOptionRow : Row<QuestionOptionRow.RowFields>, IIdRow, INameRow
+public sealed class QuestionOptionRow : Row<QuestionOptionRow.RowFields>, IIdRow, INameRow
 {
     const string jQuestion = nameof(jQuestion);
 
@@ -51,4 +51,21 @@ public sealed partial class QuestionOptionRow : Row<QuestionOptionRow.RowFields>
 
     [DisplayName("Question Question Text"), Origin(jQuestion, nameof(QuestionRow.QuestionText))]
     public string QuestionText { get => fields.QuestionText[this]; set => fields.QuestionText[this] = value; }
+
+    public class RowFields : RowFieldsBase
+    {
+        public Int64Field Id;
+        public Int64Field QuestionId;
+        public StringField OptionText;
+        public BooleanField IsCorrect;
+        public SingleField SortOrder;
+        public SingleField Weightage;
+        public DateTimeField InsertDate;
+        public Int32Field InsertUserId;
+        public DateTimeField UpdateDate;
+        public Int32Field UpdateUserId;
+        public BooleanField IsActive;
+
+        public StringField QuestionText;
+    }
 }

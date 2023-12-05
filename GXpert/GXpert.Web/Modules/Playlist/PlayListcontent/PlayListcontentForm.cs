@@ -3,9 +3,9 @@ using System;
 
 namespace GXpert.Playlist.Forms;
 
-[FormScript("Playlist.PlayListcontent")]
-[BasedOnRow(typeof(PlayListcontentRow), CheckNames = true)]
-public class PlayListcontentForm
+[FormScript("Playlist.PlayListContent")]
+[BasedOnRow(typeof(PlayListContentRow), CheckNames = true)]
+public class PlayListContentForm
 {
     public int PlayListId { get; set; }
     public int ContentId { get; set; }

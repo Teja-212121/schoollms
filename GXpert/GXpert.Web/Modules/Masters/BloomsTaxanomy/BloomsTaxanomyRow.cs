@@ -7,11 +7,11 @@ using System.ComponentModel;
 namespace GXpert.Masters;
 
 [ConnectionKey("Default"), Module("Masters"), TableName("BloomsTaxanomy")]
-[DisplayName("Blooms Taxanomy"), InstanceName("Blooms Taxanomy"), GenerateFields]
+[DisplayName("Blooms Taxanomy"), InstanceName("Blooms Taxanomy")]
 [ReadPermission("Administration:General")]
 [ModifyPermission("Administration:General")]
 [ServiceLookupPermission("Administration:General")]
-public sealed partial class BloomsTaxanomyRow : Row<BloomsTaxanomyRow.RowFields>, IIdRow, INameRow
+public sealed class BloomsTaxanomyRow : Row<BloomsTaxanomyRow.RowFields>, IIdRow, INameRow
 {
     [DisplayName("Id"), Identity, IdProperty]
     public int? Id { get => fields.Id[this]; set => fields.Id[this] = value; }
@@ -36,4 +36,17 @@ public sealed partial class BloomsTaxanomyRow : Row<BloomsTaxanomyRow.RowFields>
 
     [DisplayName("Is Active"), NotNull]
     public bool? IsActive { get => fields.IsActive[this]; set => fields.IsActive[this] = value; }
+
+    public class RowFields : RowFieldsBase
+    {
+        public Int32Field Id;
+        public StringField CoginitiveSkill;
+        public Int32Field SortOrder;
+        public DateTimeField InsertDate;
+        public Int32Field InsertUserId;
+        public DateTimeField UpdateDate;
+        public Int32Field UpdateUserId;
+        public BooleanField IsActive;
+
+    }
 }

@@ -7,10 +7,10 @@ using System.ComponentModel;
 namespace GXpert.Content;
 
 [ConnectionKey("Default"), Module("Content"), TableName("ContentTopics")]
-[DisplayName("Content Topic"), InstanceName("Content Topic"), GenerateFields]
+[DisplayName("Content Topic"), InstanceName("Content Topic")]
 [ReadPermission("Administration:General")]
 [ModifyPermission("Administration:General")]
-public sealed partial class ContentTopicRow : Row<ContentTopicRow.RowFields>, IIdRow
+public sealed class ContentTopicRow : Row<ContentTopicRow.RowFields>, IIdRow
 {
     const string jContent = nameof(jContent);
     const string jClass = nameof(jClass);
@@ -69,4 +69,26 @@ public sealed partial class ContentTopicRow : Row<ContentTopicRow.RowFields>, II
 
     [DisplayName("Medium Title"), Expression($"{jMedium}.[Title]")]
     public string MediumTitle { get => fields.MediumTitle[this]; set => fields.MediumTitle[this] = value; }
+
+    public class RowFields : RowFieldsBase
+    {
+        public Int32Field Id;
+        public Int32Field ContentId;
+        public Int32Field ClassId;
+        public Int32Field SubjectId;
+        public Int32Field TopicId;
+        public Int32Field MediumId;
+        public Int16Field SortOrder;
+        public DateTimeField InsertDate;
+        public Int32Field InsertUserId;
+        public DateTimeField UpdateDate;
+        public Int32Field UpdateUserId;
+        public BooleanField IsActive;
+
+        public StringField ContentTitle;
+        public StringField ClassTitle;
+        public StringField SubjectTitle;
+        public StringField TopicTitle;
+        public StringField MediumTitle;
+    }
 }

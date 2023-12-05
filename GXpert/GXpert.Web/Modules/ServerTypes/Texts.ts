@@ -361,6 +361,7 @@ namespace GXpert.Texts {
                 export const IsActive: string;
                 export const UpdateDate: string;
                 export const UpdateUserId: string;
+                export const Weightage: string;
             }
 
             namespace ContentTopic {
@@ -407,6 +408,7 @@ namespace GXpert.Texts {
                 export const AssignmentTitle: string;
                 export const BloomsIndex: string;
                 export const BloomsIndexCoginitiveSkill: string;
+                export const BloomsWeightage: string;
                 export const ClassId: string;
                 export const ClassTitle: string;
                 export const EvalutionCriteria: string;
@@ -437,7 +439,9 @@ namespace GXpert.Texts {
                 export const InsertUserId: string;
                 export const Instructions: string;
                 export const IsActive: string;
+                export const MaxMarks: string;
                 export const ModelAnswerPaperPath: string;
+                export const NegativeMarks: string;
                 export const QuestionPaperPath: string;
                 export const SearchTags: string;
                 export const Title: string;
@@ -457,9 +461,11 @@ namespace GXpert.Texts {
                 export const InsertDate: string;
                 export const InsertUserId: string;
                 export const IsActive: string;
+                export const Marks: string;
                 export const QuestionId: string;
                 export const QuestionText: string;
                 export const RightAnswer: string;
+                export const SortOrder: string;
                 export const SubjectId: string;
                 export const SubjectTitle: string;
                 export const TopicId: string;
@@ -482,6 +488,7 @@ namespace GXpert.Texts {
                 export const ParentId: string;
                 export const ParentTitle: string;
                 export const SearchTags: string;
+                export const SortOrder: string;
                 export const Title: string;
                 export const UpdateDate: string;
                 export const UpdateUserId: string;
@@ -524,6 +531,7 @@ namespace GXpert.Texts {
             }
 
             namespace Poll {
+                export const AverageResponseTime: string;
                 export const BloomsTaxonomyCoginitiveSkill: string;
                 export const BloomsTaxonomyId: string;
                 export const EQuestionType: string;
@@ -544,6 +552,7 @@ namespace GXpert.Texts {
                 export const TotalAttempts: string;
                 export const UpdateDate: string;
                 export const UpdateUserId: string;
+                export const Weightage: string;
             }
         }
 
@@ -623,6 +632,7 @@ namespace GXpert.Texts {
                 export const IsActive: string;
                 export const ParentId: string;
                 export const ParentTitle: string;
+                export const SortOrder: string;
                 export const Title: string;
                 export const UpdateDate: string;
                 export const UpdateUserId: string;
@@ -645,7 +655,7 @@ namespace GXpert.Texts {
                 export const UpdateUserId: string;
             }
 
-            namespace PlayListcontent {
+            namespace PlayListContent {
                 export const AssignmentId: string;
                 export const AssignmentTitle: string;
                 export const ContentId: string;
@@ -663,6 +673,7 @@ namespace GXpert.Texts {
                 export const ModuleTitle: string;
                 export const PlayListId: string;
                 export const PlayListTitle: string;
+                export const SortOrder: string;
                 export const UpdateDate: string;
                 export const UpdateUserId: string;
             }
@@ -684,6 +695,7 @@ namespace GXpert.Texts {
             namespace Question {
                 export const BloomsIndex: string;
                 export const BloomsIndexCoginitiveSkill: string;
+                export const BloomsWeightage: string;
                 export const ClassId: string;
                 export const ClassTitle: string;
                 export const EDifficultyLevel: string;
@@ -696,6 +708,7 @@ namespace GXpert.Texts {
                 export const IsSubjective: string;
                 export const QuestionCommonDataCommonDataTitle: string;
                 export const QuestionCommonDataId: string;
+                export const QuestionCommonDataSortOrder: string;
                 export const QuestionText: string;
                 export const SubjectId: string;
                 export const SubjectTitle: string;
@@ -714,8 +727,10 @@ namespace GXpert.Texts {
                 export const OptionText: string;
                 export const QuestionId: string;
                 export const QuestionText: string;
+                export const SortOrder: string;
                 export const UpdateDate: string;
                 export const UpdateUserId: string;
+                export const Weightage: string;
             }
         }
 
@@ -899,6 +914,7 @@ namespace GXpert.Texts {
                 export const Title: string;
                 export const UpdateDate: string;
                 export const UpdateUserId: string;
+                export const Weightage: string;
             }
 
             namespace Medium {
@@ -927,6 +943,7 @@ namespace GXpert.Texts {
                 export const Title: string;
                 export const UpdateDate: string;
                 export const UpdateUserId: string;
+                export const Weightage: string;
             }
 
             namespace Topic {
@@ -946,6 +963,7 @@ namespace GXpert.Texts {
                 export const Title: string;
                 export const UpdateDate: string;
                 export const UpdateUserId: string;
+                export const Weightage: string;
             }
         }
 
@@ -1156,7 +1174,7 @@ namespace GXpert.Texts {
             Playlist: {
                 Module: {},
                 PlayList: {},
-                PlayListcontent: {}
+                PlayListContent: {}
             },
             QuestionBank: {
                 CommonData: {},

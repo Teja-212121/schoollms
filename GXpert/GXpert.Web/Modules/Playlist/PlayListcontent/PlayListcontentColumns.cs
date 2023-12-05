@@ -4,9 +4,9 @@ using System.ComponentModel;
 
 namespace GXpert.Playlist.Columns;
 
-[ColumnsScript("Playlist.PlayListcontent")]
-[BasedOnRow(typeof(PlayListcontentRow), CheckNames = true)]
-public class PlayListcontentColumns
+[ColumnsScript("Playlist.PlayListContent")]
+[BasedOnRow(typeof(PlayListContentRow), CheckNames = true)]
+public class PlayListContentColumns
 {
     [EditLink, DisplayName("Db.Shared.RecordId"), AlignRight]
     public int Id { get; set; }
