@@ -1,0 +1,26 @@
+{
+  "name": "gxpert.web",
+  "dependencies": {
+    "@serenity-is/corelib": "8.0.1",
+    "@serenity-is/sleekgrid": "1.6.3",
+    "@types/jquery": "2.0.48",
+    "@types/jquery.validation": "1.16.7",
+    "chart.js": "4.4.0",
+    "daterangepicker": "3.1.0",
+    "jsvectormap": "1.5.3",
+    "jsx-dom": "8.0.7",
+    "moment": "2.29.4",
+    "preact": "10.19.1"
+  },
+  "devDependencies": {
+    "@serenity-is/tsbuild": "8.0.1"
+  },
+  "scripts": {
+    "build": "npm run tsbuild",
+    "prepare": "dotnet build -target:RestoreTypings",
+    "tsbuild": "node ./tsbuild.js",
+    "tsbuild:watch": "node ./tsbuild.js --watch"
+  },
+  "private": true,
+  "type": "module"
+}
