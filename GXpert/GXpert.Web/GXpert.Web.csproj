@@ -19,7 +19,7 @@
     <PackageReference Include="FluentMigrator.Runner" Version="3.3.2" />
     <PackageReference Include="Microsoft.Data.Sqlite" Version="8.0.0" />
     <PackageReference Include="Microsoft.Data.SqlClient" Version="5.1.2" />
-    <PackageReference Include="Microsoft.TypeScript.MSBuild" Version="5.2.2" PrivateAssets="all" IncludeAssets="runtime; build; native; contentfiles; analyzers" />
+    <PackageReference Include="Microsoft.TypeScript.MSBuild" Version="5.3.2" PrivateAssets="all" IncludeAssets="runtime; build; native; contentfiles; analyzers" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Serenity.Assets" Version="8.0.3" />
