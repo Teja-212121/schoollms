@@ -10,11 +10,6 @@ export interface SchoolClassColumns {
     ClassTeacherPrn: Column<SchoolClassRow>;
     Title: Column<SchoolClassRow>;
     AcademicYearName: Column<SchoolClassRow>;
-    InsertDate: Column<SchoolClassRow>;
-    InsertUserId: Column<SchoolClassRow>;
-    UpdateDate: Column<SchoolClassRow>;
-    UpdateUserId: Column<SchoolClassRow>;
-    IsActive: Column<SchoolClassRow>;
 }
 
 export class SchoolClassColumns extends ColumnsBase<SchoolClassRow> {

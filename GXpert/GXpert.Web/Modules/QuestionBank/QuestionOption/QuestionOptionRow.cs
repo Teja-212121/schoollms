@@ -23,7 +23,7 @@ public sealed class QuestionOptionRow : LoggingRow<QuestionOptionRow.RowFields>,
     [ServiceLookupEditor(typeof(QuestionRow))]
     public long? QuestionId { get => fields.QuestionId[this]; set => fields.QuestionId[this] = value; }
 
-    [DisplayName("Option Text"), NotNull, QuickSearch, NameProperty]
+    [DisplayName("Option Text"), NotNull, QuickSearch, NameProperty, HtmlContentEditor(Rows = 3)]
     public string OptionText { get => fields.OptionText[this]; set => fields.OptionText[this] = value; }
 
     [DisplayName("Is Correct")]

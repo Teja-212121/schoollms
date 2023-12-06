@@ -9,13 +9,13 @@ export interface SubjectRow {
     MediumId?: number;
     Weightage?: number;
     Thumbnail?: string;
-    InsertDate?: string;
-    InsertUserId?: number;
-    UpdateDate?: string;
-    UpdateUserId?: number;
     IsActive?: boolean;
     ClassTitle?: string;
     MediumTitle?: string;
+    InsertUserId?: number;
+    InsertDate?: string;
+    UpdateUserId?: number;
+    UpdateDate?: string;
 }
 
 export abstract class SubjectRow {

@@ -1,6 +1,7 @@
-﻿using Serenity.ComponentModel;
+using Serenity.ComponentModel;
 using Serenity.Data;
 using Serenity.Data.Mapping;
+using Serenity.Extensions.Entities;
 using System;
 using System.ComponentModel;
 
@@ -11,7 +12,8 @@ namespace GXpert.Schools;
 [ReadPermission("Administration:General")]
 [ModifyPermission("Administration:General")]
 [ServiceLookupPermission("Administration:General")]
-public sealed class SchoolRow : Row<SchoolRow.RowFields>, IIdRow, INameRow
+[LookupScript("Schools.School")]
+public sealed class SchoolRow : LoggingRow<SchoolRow.RowFields>, IIdRow, INameRow
 {
     const string jState = nameof(jState);
     const string jDistrict = nameof(jDistrict);
@@ -36,12 +38,15 @@ public sealed class SchoolRow : Row<SchoolRow.RowFields>, IIdRow, INameRow
     public string City { get => fields.City[this]; set => fields.City[this] = value; }
 
     [DisplayName("State"), NotNull, ForeignKey("States", "Id"), LeftJoin(jState), TextualField(nameof(StateTitle))]
+    [LookupEditor("Masters.State")]
     public int? StateId { get => fields.StateId[this]; set => fields.StateId[this] = value; }
 
     [DisplayName("District"), NotNull, ForeignKey("Districts", "Id"), LeftJoin(jDistrict), TextualField(nameof(DistrictTitle))]
+    [LookupEditor("Masters.District")]
     public int? DistrictId { get => fields.DistrictId[this]; set => fields.DistrictId[this] = value; }
 
     [DisplayName("Taluka"), NotNull, ForeignKey("Talukas", "Id"), LeftJoin(jTaluka), TextualField(nameof(TalukaTitle))]
+    [LookupEditor("Masters.Taluka")]
     public int? TalukaId { get => fields.TalukaId[this]; set => fields.TalukaId[this] = value; }
 
     [DisplayName("Location Info"), Size(2000)]
@@ -50,19 +55,7 @@ public sealed class SchoolRow : Row<SchoolRow.RowFields>, IIdRow, INameRow
     [DisplayName("Establishment Date")]
     public DateTime? EstablishmentDate { get => fields.EstablishmentDate[this]; set => fields.EstablishmentDate[this] = value; }
 
-    [DisplayName("Insert Date"), NotNull]
-    public DateTime? InsertDate { get => fields.InsertDate[this]; set => fields.InsertDate[this] = value; }
-
-    [DisplayName("Insert User Id"), NotNull]
-    public int? InsertUserId { get => fields.InsertUserId[this]; set => fields.InsertUserId[this] = value; }
-
-    [DisplayName("Update Date")]
-    public DateTime? UpdateDate { get => fields.UpdateDate[this]; set => fields.UpdateDate[this] = value; }
-
-    [DisplayName("Update User Id")]
-    public int? UpdateUserId { get => fields.UpdateUserId[this]; set => fields.UpdateUserId[this] = value; }
-
-    [DisplayName("Is Active"), NotNull]
+    [DisplayName("Is Active"), DefaultValue(1)]
     public bool? IsActive { get => fields.IsActive[this]; set => fields.IsActive[this] = value; }
 
     [DisplayName("State Title"), Expression($"{jState}.[Title]")]
@@ -74,7 +67,7 @@ public sealed class SchoolRow : Row<SchoolRow.RowFields>, IIdRow, INameRow
     [DisplayName("Taluka Title"), Expression($"{jTaluka}.[Title]")]
     public string TalukaTitle { get => fields.TalukaTitle[this]; set => fields.TalukaTitle[this] = value; }
 
-    public class RowFields : RowFieldsBase
+    public class RowFields : LoggingRowFields
     {
         public Int32Field Id;
         public StringField Name;
@@ -87,10 +80,6 @@ public sealed class SchoolRow : Row<SchoolRow.RowFields>, IIdRow, INameRow
         public Int32Field TalukaId;
         public StringField LocationInfo;
         public DateTimeField EstablishmentDate;
-        public DateTimeField InsertDate;
-        public Int32Field InsertUserId;
-        public DateTimeField UpdateDate;
-        public Int32Field UpdateUserId;
         public BooleanField IsActive;
 
         public StringField StateTitle;

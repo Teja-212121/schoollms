@@ -1,6 +1,7 @@
 using Serenity.ComponentModel;
 using Serenity.Data;
 using Serenity.Data.Mapping;
+using Serenity.Extensions.Entities;
 using System;
 using System.ComponentModel;
 
@@ -11,7 +12,7 @@ namespace GXpert.Playlist;
 [ReadPermission("Administration:General")]
 [ModifyPermission("Administration:General")]
 [LookupScript("Playlist.PlayListContent")]
-public sealed class PlayListContentRow : Row<PlayListContentRow.RowFields>, IIdRow
+public sealed class PlayListContentRow : LoggingRow<PlayListContentRow.RowFields>, IIdRow
 {
     const string jPlayList = nameof(jPlayList);
     const string jContent = nameof(jContent);
@@ -24,28 +25,29 @@ public sealed class PlayListContentRow : Row<PlayListContentRow.RowFields>, IIdR
     public int? Id { get => fields.Id[this]; set => fields.Id[this] = value; }
 
     [DisplayName("Play List"), ForeignKey(typeof(PlayListRow)), LeftJoin(jPlayList), TextualField(nameof(PlayListTitle))]
-    [ServiceLookupEditor(typeof(PlayListRow), Service = "Playlist/PlayList/List")]
+    [LookupEditor("Playlist.PlayList")]
     public int? PlayListId { get => fields.PlayListId[this]; set => fields.PlayListId[this] = value; }
 
     [DisplayName("Content"), NotNull, ForeignKey(typeof(Content.ContentRow)), LeftJoin(jContent), TextualField(nameof(ContentTitle))]
-    [ServiceLookupEditor(typeof(Content.ContentRow), Service = "Content/Content/List")]
+    [LookupEditor("Content.Content")]
     public int? ContentId { get => fields.ContentId[this]; set => fields.ContentId[this] = value; }
 
     [DisplayName("Exam"), NotNull, ForeignKey(typeof(Exams.ExamRow)), LeftJoin(jExam), TextualField(nameof(ExamTitle))]
-    [ServiceLookupEditor(typeof(Exams.ExamRow), Service = "Exams/Exam/List")]
+    [LookupEditor("Exams.Exam")]
     public int? ExamId { get => fields.ExamId[this]; set => fields.ExamId[this] = value; }
 
     [DisplayName("Live Session"), ForeignKey(typeof(LiveSessions.LiveSessionRow)), LeftJoin(jLiveSession)]
     [TextualField(nameof(LiveSessionMeetingId))]
-    [ServiceLookupEditor(typeof(LiveSessions.LiveSessionRow), Service = "LiveSessions/LiveSession/List")]
+    [LookupEditor("LiveSessions.LiveSession")]
     public int? LiveSessionId { get => fields.LiveSessionId[this]; set => fields.LiveSessionId[this] = value; }
 
     [DisplayName("Assignment"), NotNull, ForeignKey(typeof(Exams.AssignmentRow)), LeftJoin(jAssignment)]
-    [TextualField(nameof(AssignmentTitle)), ServiceLookupEditor(typeof(Exams.AssignmentRow), Service = "Exams/Assignment/List")]
+    [TextualField(nameof(AssignmentTitle))]
+    [LookupEditor("Exams.Assignment")]
     public int? AssignmentId { get => fields.AssignmentId[this]; set => fields.AssignmentId[this] = value; }
 
     [DisplayName("Module"), ForeignKey(typeof(ModuleRow)), LeftJoin(jModule), TextualField(nameof(ModuleTitle))]
-    [ServiceLookupEditor(typeof(ModuleRow), Service = "Playlist/Module/List")]
+    [ServiceLookupEditor(typeof(ModuleRow))]
     public int? ModuleId { get => fields.ModuleId[this]; set => fields.ModuleId[this] = value; }
 
     [DisplayName("Sort Order"), NotNull]
@@ -54,19 +56,7 @@ public sealed class PlayListContentRow : Row<PlayListContentRow.RowFields>, IIdR
     [DisplayName("E Publish Status"), Column("ePublishStatus"), NotNull]
     public short? EPublishStatus { get => fields.EPublishStatus[this]; set => fields.EPublishStatus[this] = value; }
 
-    [DisplayName("Insert Date"), NotNull]
-    public DateTime? InsertDate { get => fields.InsertDate[this]; set => fields.InsertDate[this] = value; }
-
-    [DisplayName("Insert User Id"), NotNull]
-    public int? InsertUserId { get => fields.InsertUserId[this]; set => fields.InsertUserId[this] = value; }
-
-    [DisplayName("Update Date")]
-    public DateTime? UpdateDate { get => fields.UpdateDate[this]; set => fields.UpdateDate[this] = value; }
-
-    [DisplayName("Update User Id")]
-    public int? UpdateUserId { get => fields.UpdateUserId[this]; set => fields.UpdateUserId[this] = value; }
-
-    [DisplayName("Is Active"), NotNull]
+    [DisplayName("Is Active"), DefaultValue(1)]
     public bool? IsActive { get => fields.IsActive[this]; set => fields.IsActive[this] = value; }
 
     [DisplayName("Play List Title"), Origin(jPlayList, nameof(PlayListRow.Title))]
@@ -87,7 +77,7 @@ public sealed class PlayListContentRow : Row<PlayListContentRow.RowFields>, IIdR
     [DisplayName("Module Title"), Origin(jModule, nameof(ModuleRow.Title))]
     public string ModuleTitle { get => fields.ModuleTitle[this]; set => fields.ModuleTitle[this] = value; }
 
-    public class RowFields : RowFieldsBase
+    public class RowFields : LoggingRowFields
     {
         public Int32Field Id;
         public Int32Field PlayListId;
@@ -98,10 +88,6 @@ public sealed class PlayListContentRow : Row<PlayListContentRow.RowFields>, IIdR
         public Int32Field ModuleId;
         public SingleField SortOrder;
         public Int16Field EPublishStatus;
-        public DateTimeField InsertDate;
-        public Int32Field InsertUserId;
-        public DateTimeField UpdateDate;
-        public Int32Field UpdateUserId;
         public BooleanField IsActive;
 
         public StringField PlayListTitle;

@@ -1,6 +1,7 @@
-﻿using Serenity.ComponentModel;
+using Serenity.ComponentModel;
 using Serenity.Data;
 using Serenity.Data.Mapping;
+using Serenity.Extensions.Entities;
 using System;
 using System.ComponentModel;
 
@@ -11,7 +12,7 @@ namespace GXpert.Schools;
 [ReadPermission("Administration:General")]
 [ModifyPermission("Administration:General")]
 [ServiceLookupPermission("Administration:General")]
-public sealed class SchoolClassRow : Row<SchoolClassRow.RowFields>, IIdRow, INameRow
+public sealed class SchoolClassRow : LoggingRow<SchoolClassRow.RowFields>, IIdRow, INameRow
 {
     const string jClass = nameof(jClass);
     const string jMedium = nameof(jMedium);
@@ -22,15 +23,18 @@ public sealed class SchoolClassRow : Row<SchoolClassRow.RowFields>, IIdRow, INam
     public int? Id { get => fields.Id[this]; set => fields.Id[this] = value; }
 
     [DisplayName("Class"), NotNull, ForeignKey("Classes", "Id"), LeftJoin(jClass), TextualField(nameof(ClassTitle))]
+    [LookupEditor("Syllabus.Class")]
     public int? ClassId { get => fields.ClassId[this]; set => fields.ClassId[this] = value; }
 
     [DisplayName("Division"), Size(255), QuickSearch, NameProperty]
     public string Division { get => fields.Division[this]; set => fields.Division[this] = value; }
 
     [DisplayName("Medium"), ForeignKey("Mediums", "Id"), LeftJoin(jMedium), TextualField(nameof(MediumTitle))]
+    [LookupEditor("Syllabus.Medium")]
     public int? MediumId { get => fields.MediumId[this]; set => fields.MediumId[this] = value; }
 
     [DisplayName("Class Teacher"), ForeignKey("Teachers", "Id"), LeftJoin(jClassTeacher), TextualField(nameof(ClassTeacherPrn))]
+    [LookupEditor("Users.Teacher")]
     public int? ClassTeacherId { get => fields.ClassTeacherId[this]; set => fields.ClassTeacherId[this] = value; }
 
     [DisplayName("Title"), Size(255)]
@@ -38,21 +42,10 @@ public sealed class SchoolClassRow : Row<SchoolClassRow.RowFields>, IIdRow, INam
 
     [DisplayName("Academic Year"), NotNull, ForeignKey("AcademicYears", "Id"), LeftJoin(jAcademicYear)]
     [TextualField(nameof(AcademicYearName))]
+    [LookupEditor("Masters.AcademicYear")]
     public int? AcademicYearId { get => fields.AcademicYearId[this]; set => fields.AcademicYearId[this] = value; }
 
-    [DisplayName("Insert Date"), NotNull]
-    public DateTime? InsertDate { get => fields.InsertDate[this]; set => fields.InsertDate[this] = value; }
-
-    [DisplayName("Insert User Id"), NotNull]
-    public int? InsertUserId { get => fields.InsertUserId[this]; set => fields.InsertUserId[this] = value; }
-
-    [DisplayName("Update Date")]
-    public DateTime? UpdateDate { get => fields.UpdateDate[this]; set => fields.UpdateDate[this] = value; }
-
-    [DisplayName("Update User Id")]
-    public int? UpdateUserId { get => fields.UpdateUserId[this]; set => fields.UpdateUserId[this] = value; }
-
-    [DisplayName("Is Active"), NotNull]
+    [DisplayName("Is Active"), DefaultValue(1)]
     public bool? IsActive { get => fields.IsActive[this]; set => fields.IsActive[this] = value; }
 
     [DisplayName("Class Title"), Expression($"{jClass}.[Title]")]
@@ -67,7 +60,7 @@ public sealed class SchoolClassRow : Row<SchoolClassRow.RowFields>, IIdRow, INam
     [DisplayName("Academic Year Name"), Expression($"{jAcademicYear}.[Name]")]
     public string AcademicYearName { get => fields.AcademicYearName[this]; set => fields.AcademicYearName[this] = value; }
 
-    public class RowFields : RowFieldsBase
+    public class RowFields : LoggingRowFields
     {
         public Int32Field Id;
         public Int32Field ClassId;
@@ -76,10 +69,6 @@ public sealed class SchoolClassRow : Row<SchoolClassRow.RowFields>, IIdRow, INam
         public Int32Field ClassTeacherId;
         public StringField Title;
         public Int32Field AcademicYearId;
-        public DateTimeField InsertDate;
-        public Int32Field InsertUserId;
-        public DateTimeField UpdateDate;
-        public Int32Field UpdateUserId;
         public BooleanField IsActive;
 
         public StringField ClassTitle;

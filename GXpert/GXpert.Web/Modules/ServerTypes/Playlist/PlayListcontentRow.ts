@@ -10,10 +10,6 @@ export interface PlayListContentRow {
     ModuleId?: number;
     SortOrder?: number;
     EPublishStatus?: number;
-    InsertDate?: string;
-    InsertUserId?: number;
-    UpdateDate?: string;
-    UpdateUserId?: number;
     IsActive?: boolean;
     PlayListTitle?: string;
     ContentTitle?: string;
@@ -21,6 +17,10 @@ export interface PlayListContentRow {
     LiveSessionMeetingId?: string;
     AssignmentTitle?: string;
     ModuleTitle?: string;
+    InsertUserId?: number;
+    InsertDate?: string;
+    UpdateUserId?: number;
+    UpdateDate?: string;
 }
 
 export abstract class PlayListContentRow {

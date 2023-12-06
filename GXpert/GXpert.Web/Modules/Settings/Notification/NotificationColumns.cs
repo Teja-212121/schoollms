@@ -1,4 +1,4 @@
-﻿using Serenity.ComponentModel;
+using Serenity.ComponentModel;
 using System;
 using System.ComponentModel;
 
@@ -19,9 +19,4 @@ public class NotificationColumns
     public DateTime SentOnUtc { get; set; }
     public bool HasError { get; set; }
     public string Result { get; set; }
-    public DateTime InsertDate { get; set; }
-    public int InsertUserId { get; set; }
-    public DateTime UpdateDate { get; set; }
-    public int UpdateUserId { get; set; }
-    public bool IsActive { get; set; }
 }

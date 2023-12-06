@@ -1,4 +1,4 @@
-﻿using Serenity.ComponentModel;
+using Serenity.ComponentModel;
 using System;
 
 namespace GXpert.Schools.Forms;
@@ -17,9 +17,4 @@ public class SchoolForm
     public int TalukaId { get; set; }
     public string LocationInfo { get; set; }
     public DateTime EstablishmentDate { get; set; }
-    public DateTime InsertDate { get; set; }
-    public int InsertUserId { get; set; }
-    public DateTime UpdateDate { get; set; }
-    public int UpdateUserId { get; set; }
-    public bool IsActive { get; set; }
 }

@@ -24,10 +24,10 @@ public sealed class QuestionRow : LoggingRow<QuestionRow.RowFields>, IIdRow, INa
     [DisplayName("Id"), Identity, IdProperty]
     public long? Id { get => fields.Id[this]; set => fields.Id[this] = value; }
 
-    [DisplayName("Question Text"), NotNull, QuickSearch, NameProperty]
+    [DisplayName("Question Text"), NotNull, QuickSearch, NameProperty, HtmlContentEditor(Rows = 3)]
     public string QuestionText { get => fields.QuestionText[this]; set => fields.QuestionText[this] = value; }
 
-    [DisplayName("Explaination")]
+    [DisplayName("Explaination"), HtmlContentEditor(Rows = 3)]
     public string Explaination { get => fields.Explaination[this]; set => fields.Explaination[this] = value; }
 
     [DisplayName("Is Subjective"), NotNull]

@@ -1,6 +1,7 @@
 using Serenity.ComponentModel;
 using Serenity.Data;
 using Serenity.Data.Mapping;
+using Serenity.Extensions.Entities;
 using System;
 using System.ComponentModel;
 
@@ -12,7 +13,7 @@ namespace GXpert.Syllabus;
 [ModifyPermission("Administration:General")]
 [ServiceLookupPermission("Administration:General")]
 [LookupScript("Syllabus.Topic")]
-public sealed class TopicRow : Row<TopicRow.RowFields>, IIdRow, INameRow
+public sealed class TopicRow : LoggingRow<TopicRow.RowFields>, IIdRow, INameRow
 {
     const string jClass = nameof(jClass);
     const string jMedium = nameof(jMedium);
@@ -48,19 +49,7 @@ public sealed class TopicRow : Row<TopicRow.RowFields>, IIdRow, INameRow
     [DisplayName("Thumbnail"), Size(500), NotNull]
     public string Thumbnail { get => fields.Thumbnail[this]; set => fields.Thumbnail[this] = value; }
 
-    [DisplayName("Insert Date"), NotNull]
-    public DateTime? InsertDate { get => fields.InsertDate[this]; set => fields.InsertDate[this] = value; }
-
-    [DisplayName("Insert User Id"), NotNull]
-    public int? InsertUserId { get => fields.InsertUserId[this]; set => fields.InsertUserId[this] = value; }
-
-    [DisplayName("Update Date"), NotNull]
-    public DateTime? UpdateDate { get => fields.UpdateDate[this]; set => fields.UpdateDate[this] = value; }
-
-    [DisplayName("Update User Id"), NotNull]
-    public int? UpdateUserId { get => fields.UpdateUserId[this]; set => fields.UpdateUserId[this] = value; }
-
-    [DisplayName("Is Active"), NotNull]
+    [DisplayName("Is Active"), DefaultValue(1)]
     public bool? IsActive { get => fields.IsActive[this]; set => fields.IsActive[this] = value; }
 
     [DisplayName("Class Title"), Origin(jClass, nameof(ClassRow.Title))]
@@ -72,7 +61,7 @@ public sealed class TopicRow : Row<TopicRow.RowFields>, IIdRow, INameRow
     [DisplayName("Subject Title"), Origin(jSubject, nameof(SubjectRow.Title))]
     public string SubjectTitle { get => fields.SubjectTitle[this]; set => fields.SubjectTitle[this] = value; }
 
-    public class RowFields : RowFieldsBase
+    public class RowFields : LoggingRowFields
     {
         public Int32Field Id;
         public StringField Title;
@@ -83,10 +72,6 @@ public sealed class TopicRow : Row<TopicRow.RowFields>, IIdRow, INameRow
         public Int32Field SubjectId;
         public SingleField Weightage;
         public StringField Thumbnail;
-        public DateTimeField InsertDate;
-        public Int32Field InsertUserId;
-        public DateTimeField UpdateDate;
-        public Int32Field UpdateUserId;
         public BooleanField IsActive;
 
         public StringField ClassTitle;

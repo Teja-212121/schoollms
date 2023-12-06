@@ -12,11 +12,6 @@ export interface PlayListContentColumns {
     ModuleTitle: Column<PlayListContentRow>;
     SortOrder: Column<PlayListContentRow>;
     EPublishStatus: Column<PlayListContentRow>;
-    InsertDate: Column<PlayListContentRow>;
-    InsertUserId: Column<PlayListContentRow>;
-    UpdateDate: Column<PlayListContentRow>;
-    UpdateUserId: Column<PlayListContentRow>;
-    IsActive: Column<PlayListContentRow>;
 }
 
 export class PlayListContentColumns extends ColumnsBase<PlayListContentRow> {

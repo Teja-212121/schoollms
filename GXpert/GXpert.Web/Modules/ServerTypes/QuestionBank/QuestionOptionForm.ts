@@ -1,8 +1,8 @@
-﻿import { ServiceLookupEditor, StringEditor, BooleanEditor, DecimalEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
+﻿import { ServiceLookupEditor, HtmlContentEditor, BooleanEditor, DecimalEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
 
 export interface QuestionOptionForm {
     QuestionId: ServiceLookupEditor;
-    OptionText: StringEditor;
+    OptionText: HtmlContentEditor;
     IsCorrect: BooleanEditor;
     SortOrder: DecimalEditor;
     Weightage: DecimalEditor;
@@ -19,7 +19,7 @@ export class QuestionOptionForm extends PrefixedContext {
             QuestionOptionForm.init = true;
 
             var w0 = ServiceLookupEditor;
-            var w1 = StringEditor;
+            var w1 = HtmlContentEditor;
             var w2 = BooleanEditor;
             var w3 = DecimalEditor;
 

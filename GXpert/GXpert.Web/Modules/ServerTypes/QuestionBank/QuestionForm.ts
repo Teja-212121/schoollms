@@ -1,8 +1,8 @@
-﻿import { StringEditor, BooleanEditor, IntegerEditor, ServiceLookupEditor, DecimalEditor, LookupEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
+﻿import { HtmlContentEditor, BooleanEditor, IntegerEditor, ServiceLookupEditor, DecimalEditor, LookupEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
 
 export interface QuestionForm {
-    QuestionText: StringEditor;
-    Explaination: StringEditor;
+    QuestionText: HtmlContentEditor;
+    Explaination: HtmlContentEditor;
     IsSubjective: BooleanEditor;
     EQuestionType: IntegerEditor;
     EDifficultyLevel: IntegerEditor;
@@ -25,7 +25,7 @@ export class QuestionForm extends PrefixedContext {
         if (!QuestionForm.init)  {
             QuestionForm.init = true;
 
-            var w0 = StringEditor;
+            var w0 = HtmlContentEditor;
             var w1 = BooleanEditor;
             var w2 = IntegerEditor;
             var w3 = ServiceLookupEditor;

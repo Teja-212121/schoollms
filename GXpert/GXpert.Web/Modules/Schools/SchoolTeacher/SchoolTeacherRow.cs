@@ -1,6 +1,7 @@
-﻿using Serenity.ComponentModel;
+using Serenity.ComponentModel;
 using Serenity.Data;
 using Serenity.Data.Mapping;
+using Serenity.Extensions.Entities;
 using System;
 using System.ComponentModel;
 
@@ -11,7 +12,7 @@ namespace GXpert.Schools;
 [ReadPermission("Administration:General")]
 [ModifyPermission("Administration:General")]
 [ServiceLookupPermission("Administration:General")]
-public sealed class SchoolTeacherRow : Row<SchoolTeacherRow.RowFields>, IIdRow, INameRow
+public sealed class SchoolTeacherRow : LoggingRow<SchoolTeacherRow.RowFields>, IIdRow, INameRow
 {
     const string jTeacher = nameof(jTeacher);
     const string jSchool = nameof(jSchool);
@@ -23,6 +24,7 @@ public sealed class SchoolTeacherRow : Row<SchoolTeacherRow.RowFields>, IIdRow, 
     public int? Id { get => fields.Id[this]; set => fields.Id[this] = value; }
 
     [DisplayName("Teacher"), NotNull, ForeignKey("Teachers", "Id"), LeftJoin(jTeacher), TextualField(nameof(TeacherPrn))]
+    [LookupEditor("Users.Teacher")]
     public int? TeacherId { get => fields.TeacherId[this]; set => fields.TeacherId[this] = value; }
 
     [DisplayName("School"), NotNull, ForeignKey(typeof(SchoolRow)), LeftJoin(jSchool), TextualField(nameof(SchoolName))]
@@ -30,9 +32,11 @@ public sealed class SchoolTeacherRow : Row<SchoolTeacherRow.RowFields>, IIdRow, 
     public int? SchoolId { get => fields.SchoolId[this]; set => fields.SchoolId[this] = value; }
 
     [DisplayName("Class"), NotNull, ForeignKey("Classes", "Id"), LeftJoin(jClass), TextualField(nameof(ClassTitle))]
+    [LookupEditor("Syllabus.Class")]
     public int? ClassId { get => fields.ClassId[this]; set => fields.ClassId[this] = value; }
 
     [DisplayName("Subject"), ForeignKey("Subjects", "Id"), LeftJoin(jSubject), TextualField(nameof(SubjectTitle))]
+    [LookupEditor("Syllabus.Subject")]
     public int? SubjectId { get => fields.SubjectId[this]; set => fields.SubjectId[this] = value; }
 
     [DisplayName("Description"), Size(255), QuickSearch, NameProperty]
@@ -40,21 +44,10 @@ public sealed class SchoolTeacherRow : Row<SchoolTeacherRow.RowFields>, IIdRow, 
 
     [DisplayName("Academic Year"), NotNull, ForeignKey("AcademicYears", "Id"), LeftJoin(jAcademicYear)]
     [TextualField(nameof(AcademicYearName))]
+    [LookupEditor("Masters.AcademicYear")]
     public int? AcademicYearId { get => fields.AcademicYearId[this]; set => fields.AcademicYearId[this] = value; }
 
-    [DisplayName("Insert Date"), NotNull]
-    public DateTime? InsertDate { get => fields.InsertDate[this]; set => fields.InsertDate[this] = value; }
-
-    [DisplayName("Insert User Id"), NotNull]
-    public int? InsertUserId { get => fields.InsertUserId[this]; set => fields.InsertUserId[this] = value; }
-
-    [DisplayName("Update Date")]
-    public DateTime? UpdateDate { get => fields.UpdateDate[this]; set => fields.UpdateDate[this] = value; }
-
-    [DisplayName("Update User Id")]
-    public int? UpdateUserId { get => fields.UpdateUserId[this]; set => fields.UpdateUserId[this] = value; }
-
-    [DisplayName("Is Active"), NotNull]
+    [DisplayName("Is Active"), DefaultValue(1)]
     public bool? IsActive { get => fields.IsActive[this]; set => fields.IsActive[this] = value; }
 
     [DisplayName("Teacher Prn"), Expression($"{jTeacher}.[PRN]")]
@@ -72,7 +65,7 @@ public sealed class SchoolTeacherRow : Row<SchoolTeacherRow.RowFields>, IIdRow, 
     [DisplayName("Academic Year Name"), Expression($"{jAcademicYear}.[Name]")]
     public string AcademicYearName { get => fields.AcademicYearName[this]; set => fields.AcademicYearName[this] = value; }
 
-    public class RowFields : RowFieldsBase
+    public class RowFields : LoggingRowFields
     {
         public Int32Field Id;
         public Int32Field TeacherId;
@@ -81,10 +74,6 @@ public sealed class SchoolTeacherRow : Row<SchoolTeacherRow.RowFields>, IIdRow, 
         public Int32Field SubjectId;
         public StringField Description;
         public Int32Field AcademicYearId;
-        public DateTimeField InsertDate;
-        public Int32Field InsertUserId;
-        public DateTimeField UpdateDate;
-        public Int32Field UpdateUserId;
         public BooleanField IsActive;
 
         public StringField TeacherPrn;

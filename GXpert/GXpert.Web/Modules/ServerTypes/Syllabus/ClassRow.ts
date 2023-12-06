@@ -7,11 +7,11 @@ export interface ClassRow {
     SortOrder?: number;
     Weightage?: number;
     Thumbnail?: string;
-    InsertDate?: string;
-    InsertUserId?: number;
-    UpdateDate?: string;
-    UpdateUserId?: number;
     IsActive?: boolean;
+    InsertUserId?: number;
+    InsertDate?: string;
+    UpdateUserId?: number;
+    UpdateDate?: string;
 }
 
 export abstract class ClassRow {

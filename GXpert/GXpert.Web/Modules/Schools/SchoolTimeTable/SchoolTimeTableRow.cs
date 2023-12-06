@@ -1,6 +1,7 @@
-﻿using Serenity.ComponentModel;
+using Serenity.ComponentModel;
 using Serenity.Data;
 using Serenity.Data.Mapping;
+using Serenity.Extensions.Entities;
 using System;
 using System.ComponentModel;
 
@@ -11,7 +12,7 @@ namespace GXpert.Schools;
 [ReadPermission("Administration:General")]
 [ModifyPermission("Administration:General")]
 [ServiceLookupPermission("Administration:General")]
-public sealed class SchoolTimeTableRow : Row<SchoolTimeTableRow.RowFields>, IIdRow, INameRow
+public sealed class SchoolTimeTableRow : LoggingRow<SchoolTimeTableRow.RowFields>, IIdRow, INameRow
 {
     const string jSchoolClass = nameof(jSchoolClass);
     const string jTeacher = nameof(jTeacher);
@@ -36,24 +37,13 @@ public sealed class SchoolTimeTableRow : Row<SchoolTimeTableRow.RowFields>, IIdR
     public int? SchoolClassId { get => fields.SchoolClassId[this]; set => fields.SchoolClassId[this] = value; }
 
     [DisplayName("Teacher"), ForeignKey("Teachers", "Id"), LeftJoin(jTeacher), TextualField(nameof(TeacherPrn))]
+    [LookupEditor("Users.Teacher")]
     public int? TeacherId { get => fields.TeacherId[this]; set => fields.TeacherId[this] = value; }
 
     [DisplayName("E Type"), Column("eType"), Size(50), QuickSearch, NameProperty]
     public string EType { get => fields.EType[this]; set => fields.EType[this] = value; }
 
-    [DisplayName("Insert Date"), NotNull]
-    public DateTime? InsertDate { get => fields.InsertDate[this]; set => fields.InsertDate[this] = value; }
-
-    [DisplayName("Insert User Id"), NotNull]
-    public int? InsertUserId { get => fields.InsertUserId[this]; set => fields.InsertUserId[this] = value; }
-
-    [DisplayName("Update Date")]
-    public DateTime? UpdateDate { get => fields.UpdateDate[this]; set => fields.UpdateDate[this] = value; }
-
-    [DisplayName("Update User Id")]
-    public int? UpdateUserId { get => fields.UpdateUserId[this]; set => fields.UpdateUserId[this] = value; }
-
-    [DisplayName("Is Active"), NotNull]
+    [DisplayName("Is Active"), DefaultValue(1)]
     public bool? IsActive { get => fields.IsActive[this]; set => fields.IsActive[this] = value; }
 
     [DisplayName("School Class Division"), Origin(jSchoolClass, nameof(SchoolClassRow.Division))]
@@ -62,7 +52,7 @@ public sealed class SchoolTimeTableRow : Row<SchoolTimeTableRow.RowFields>, IIdR
     [DisplayName("Teacher Prn"), Expression($"{jTeacher}.[PRN]")]
     public string TeacherPrn { get => fields.TeacherPrn[this]; set => fields.TeacherPrn[this] = value; }
 
-    public class RowFields : RowFieldsBase
+    public class RowFields : LoggingRowFields
     {
         public Int32Field Id;
         public DateTimeField Date;
@@ -72,10 +62,6 @@ public sealed class SchoolTimeTableRow : Row<SchoolTimeTableRow.RowFields>, IIdR
         public Int32Field SchoolClassId;
         public Int32Field TeacherId;
         public StringField EType;
-        public DateTimeField InsertDate;
-        public Int32Field InsertUserId;
-        public DateTimeField UpdateDate;
-        public Int32Field UpdateUserId;
         public BooleanField IsActive;
 
         public StringField SchoolClassDivision;

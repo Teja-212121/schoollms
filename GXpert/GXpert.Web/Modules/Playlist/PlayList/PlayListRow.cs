@@ -1,6 +1,7 @@
 using Serenity.ComponentModel;
 using Serenity.Data;
 using Serenity.Data.Mapping;
+using Serenity.Extensions.Entities;
 using System;
 using System.ComponentModel;
 
@@ -12,7 +13,7 @@ namespace GXpert.Playlist;
 [ModifyPermission("Administration:General")]
 [ServiceLookupPermission("Administration:General")]
 [LookupScript("Playlist.PlayList")]
-public sealed class PlayListRow : Row<PlayListRow.RowFields>, IIdRow, INameRow
+public sealed class PlayListRow : LoggingRow<PlayListRow.RowFields>, IIdRow, INameRow
 {
     const string jClass = nameof(jClass);
     const string jSubject = nameof(jSubject);
@@ -28,27 +29,18 @@ public sealed class PlayListRow : Row<PlayListRow.RowFields>, IIdRow, INameRow
     public string Description { get => fields.Description[this]; set => fields.Description[this] = value; }
 
     [DisplayName("Class"), NotNull, ForeignKey("Classes", "Id"), LeftJoin(jClass), TextualField(nameof(ClassTitle))]
+    [LookupEditor("Syllabus.Class")]
     public int? ClassId { get => fields.ClassId[this]; set => fields.ClassId[this] = value; }
 
     [DisplayName("Subject"), NotNull, ForeignKey("Subjects", "Id"), LeftJoin(jSubject), TextualField(nameof(SubjectTitle))]
+    [LookupEditor("Syllabus.Subject")]
     public int? SubjectId { get => fields.SubjectId[this]; set => fields.SubjectId[this] = value; }
 
     [DisplayName("Teacher"), NotNull, ForeignKey("Teachers", "Id"), LeftJoin(jTeacher), TextualField(nameof(TeacherPrn))]
+    [LookupEditor("Users.Teacher")]
     public int? TeacherId { get => fields.TeacherId[this]; set => fields.TeacherId[this] = value; }
 
-    [DisplayName("Insert Date"), NotNull]
-    public DateTime? InsertDate { get => fields.InsertDate[this]; set => fields.InsertDate[this] = value; }
-
-    [DisplayName("Insert User Id"), NotNull]
-    public int? InsertUserId { get => fields.InsertUserId[this]; set => fields.InsertUserId[this] = value; }
-
-    [DisplayName("Update Date")]
-    public DateTime? UpdateDate { get => fields.UpdateDate[this]; set => fields.UpdateDate[this] = value; }
-
-    [DisplayName("Update User Id")]
-    public int? UpdateUserId { get => fields.UpdateUserId[this]; set => fields.UpdateUserId[this] = value; }
-
-    [DisplayName("Is Active"), NotNull]
+    [DisplayName("Is Active"), DefaultValue(1)]
     public bool? IsActive { get => fields.IsActive[this]; set => fields.IsActive[this] = value; }
 
     [DisplayName("Class Title"), Expression($"{jClass}.[Title]")]
@@ -60,7 +52,7 @@ public sealed class PlayListRow : Row<PlayListRow.RowFields>, IIdRow, INameRow
     [DisplayName("Teacher Prn"), Expression($"{jTeacher}.[PRN]")]
     public string TeacherPrn { get => fields.TeacherPrn[this]; set => fields.TeacherPrn[this] = value; }
 
-    public class RowFields : RowFieldsBase
+    public class RowFields : LoggingRowFields
     {
         public Int32Field Id;
         public StringField Title;
@@ -68,10 +60,6 @@ public sealed class PlayListRow : Row<PlayListRow.RowFields>, IIdRow, INameRow
         public Int32Field ClassId;
         public Int32Field SubjectId;
         public Int32Field TeacherId;
-        public DateTimeField InsertDate;
-        public Int32Field InsertUserId;
-        public DateTimeField UpdateDate;
-        public Int32Field UpdateUserId;
         public BooleanField IsActive;
 
         public StringField ClassTitle;

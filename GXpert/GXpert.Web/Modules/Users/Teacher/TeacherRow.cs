@@ -44,18 +44,22 @@ public sealed class TeacherRow : LoggingRow<TeacherRow.RowFields>, IIdRow, IName
     public string Description { get => fields.Description[this]; set => fields.Description[this] = value; }
 
     [DisplayName("State"), ForeignKey("States", "Id"), LeftJoin(jState), TextualField(nameof(StateTitle))]
+    [LookupEditor("Masters.State")]
     public int? StateId { get => fields.StateId[this]; set => fields.StateId[this] = value; }
 
     [DisplayName("District"), ForeignKey("Districts", "Id"), LeftJoin(jDistrict), TextualField(nameof(DistrictTitle))]
+    [LookupEditor("Masters.District")]
     public int? DistrictId { get => fields.DistrictId[this]; set => fields.DistrictId[this] = value; }
 
     [DisplayName("Taluka"), ForeignKey("Talukas", "Id"), LeftJoin(jTaluka), TextualField(nameof(TalukaTitle))]
+    [LookupEditor("Masters.Taluka")]
     public int? TalukaId { get => fields.TalukaId[this]; set => fields.TalukaId[this] = value; }
 
     [DisplayName("Dob"), Column("DOB")]
     public DateTime? Dob { get => fields.Dob[this]; set => fields.Dob[this] = value; }
 
     [DisplayName("School"), ForeignKey("Schools", "Id"), LeftJoin(jSchool), TextualField(nameof(SchoolName))]
+    [LookupEditor("Schools.School")]
     public int? SchoolId { get => fields.SchoolId[this]; set => fields.SchoolId[this] = value; }
 
     [DisplayName("Is Active"), DefaultValue(1)]

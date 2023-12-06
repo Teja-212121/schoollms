@@ -11,11 +11,6 @@ export interface SubjectColumns {
     MediumTitle: Column<SubjectRow>;
     Weightage: Column<SubjectRow>;
     Thumbnail: Column<SubjectRow>;
-    InsertDate: Column<SubjectRow>;
-    InsertUserId: Column<SubjectRow>;
-    UpdateDate: Column<SubjectRow>;
-    UpdateUserId: Column<SubjectRow>;
-    IsActive: Column<SubjectRow>;
 }
 
 export class SubjectColumns extends ColumnsBase<SubjectRow> {

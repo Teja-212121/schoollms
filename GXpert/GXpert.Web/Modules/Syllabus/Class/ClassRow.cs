@@ -1,6 +1,7 @@
 using Serenity.ComponentModel;
 using Serenity.Data;
 using Serenity.Data.Mapping;
+using Serenity.Extensions.Entities;
 using System;
 using System.ComponentModel;
 
@@ -12,7 +13,7 @@ namespace GXpert.Syllabus;
 [ModifyPermission("Administration:General")]
 [ServiceLookupPermission("Administration:General")]
 [LookupScript("Syllabus.Class")]
-public sealed class ClassRow : Row<ClassRow.RowFields>, IIdRow, INameRow
+public sealed class ClassRow : LoggingRow<ClassRow.RowFields>, IIdRow, INameRow
 {
     [DisplayName("Id"), Identity, IdProperty]
     public int? Id { get => fields.Id[this]; set => fields.Id[this] = value; }
@@ -32,22 +33,10 @@ public sealed class ClassRow : Row<ClassRow.RowFields>, IIdRow, INameRow
     [DisplayName("Thumbnail"), Size(500)]
     public string Thumbnail { get => fields.Thumbnail[this]; set => fields.Thumbnail[this] = value; }
 
-    [DisplayName("Insert Date"), NotNull]
-    public DateTime? InsertDate { get => fields.InsertDate[this]; set => fields.InsertDate[this] = value; }
-
-    [DisplayName("Insert User Id"), NotNull]
-    public int? InsertUserId { get => fields.InsertUserId[this]; set => fields.InsertUserId[this] = value; }
-
-    [DisplayName("Update Date")]
-    public DateTime? UpdateDate { get => fields.UpdateDate[this]; set => fields.UpdateDate[this] = value; }
-
-    [DisplayName("Update User Id")]
-    public int? UpdateUserId { get => fields.UpdateUserId[this]; set => fields.UpdateUserId[this] = value; }
-
-    [DisplayName("Is Active"), NotNull]
+    [DisplayName("Is Active"), DefaultValue(1)]
     public bool? IsActive { get => fields.IsActive[this]; set => fields.IsActive[this] = value; }
 
-    public class RowFields : RowFieldsBase
+    public class RowFields : LoggingRowFields
     {
         public Int32Field Id;
         public StringField Title;
@@ -55,10 +44,6 @@ public sealed class ClassRow : Row<ClassRow.RowFields>, IIdRow, INameRow
         public Int16Field SortOrder;
         public SingleField Weightage;
         public StringField Thumbnail;
-        public DateTimeField InsertDate;
-        public Int32Field InsertUserId;
-        public DateTimeField UpdateDate;
-        public Int32Field UpdateUserId;
         public BooleanField IsActive;
 
     }
