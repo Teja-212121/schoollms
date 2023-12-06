@@ -1,4 +1,4 @@
-using Serenity.Navigation;
+﻿using Serenity.Navigation;
 using MyPages = GXpert.Playlist.Pages;
 
 [assembly: NavigationLink(int.MaxValue, "Playlist/Play List", typeof(MyPages.PlayListPage), icon: null)]

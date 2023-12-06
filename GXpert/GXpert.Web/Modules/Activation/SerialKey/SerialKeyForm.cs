@@ -1,4 +1,4 @@
-﻿using Serenity.ComponentModel;
+using Serenity.ComponentModel;
 using System;
 
 namespace GXpert.Activation.Forms;
@@ -14,9 +14,4 @@ public class SerialKeyForm
     public DateTime ValidDate { get; set; }
     public string Note { get; set; }
     public short EStatus { get; set; }
-    public DateTime InsertDate { get; set; }
-    public int InsertUserId { get; set; }
-    public DateTime UpdateDate { get; set; }
-    public int UpdateUserId { get; set; }
-    public short IsActive { get; set; }
 }

@@ -1,12 +1,12 @@
-﻿import { IntegerEditor, DecimalEditor, DateEditor, BooleanEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
+﻿import { ServiceLookupEditor, DecimalEditor, IntegerEditor, DateEditor, BooleanEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
 
 export interface PlayListContentForm {
-    PlayListId: IntegerEditor;
-    ContentId: IntegerEditor;
-    ExamId: IntegerEditor;
-    LiveSessionId: IntegerEditor;
-    AssignmentId: IntegerEditor;
-    ModuleId: IntegerEditor;
+    PlayListId: ServiceLookupEditor;
+    ContentId: ServiceLookupEditor;
+    ExamId: ServiceLookupEditor;
+    LiveSessionId: ServiceLookupEditor;
+    AssignmentId: ServiceLookupEditor;
+    ModuleId: ServiceLookupEditor;
     SortOrder: DecimalEditor;
     EPublishStatus: IntegerEditor;
     InsertDate: DateEditor;
@@ -26,10 +26,11 @@ export class PlayListContentForm extends PrefixedContext {
         if (!PlayListContentForm.init)  {
             PlayListContentForm.init = true;
 
-            var w0 = IntegerEditor;
+            var w0 = ServiceLookupEditor;
             var w1 = DecimalEditor;
-            var w2 = DateEditor;
-            var w3 = BooleanEditor;
+            var w2 = IntegerEditor;
+            var w3 = DateEditor;
+            var w4 = BooleanEditor;
 
             initFormType(PlayListContentForm, [
                 'PlayListId', w0,
@@ -39,12 +40,12 @@ export class PlayListContentForm extends PrefixedContext {
                 'AssignmentId', w0,
                 'ModuleId', w0,
                 'SortOrder', w1,
-                'EPublishStatus', w0,
-                'InsertDate', w2,
-                'InsertUserId', w0,
-                'UpdateDate', w2,
-                'UpdateUserId', w0,
-                'IsActive', w3
+                'EPublishStatus', w2,
+                'InsertDate', w3,
+                'InsertUserId', w2,
+                'UpdateDate', w3,
+                'UpdateUserId', w2,
+                'IsActive', w4
             ]);
         }
     }

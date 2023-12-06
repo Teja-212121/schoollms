@@ -1,4 +1,4 @@
-﻿import { StringEditor, IntegerEditor, DateEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
+﻿import { StringEditor, IntegerEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
 
 export interface ActivationLogForm {
     Code: StringEditor;
@@ -9,11 +9,6 @@ export interface ActivationLogForm {
     DeviceDetails: StringEditor;
     EStatus: IntegerEditor;
     Note: StringEditor;
-    InsertDate: DateEditor;
-    InsertUserId: IntegerEditor;
-    UpdateDate: DateEditor;
-    UpdateUserId: IntegerEditor;
-    IsActive: IntegerEditor;
 }
 
 export class ActivationLogForm extends PrefixedContext {
@@ -28,7 +23,6 @@ export class ActivationLogForm extends PrefixedContext {
 
             var w0 = StringEditor;
             var w1 = IntegerEditor;
-            var w2 = DateEditor;
 
             initFormType(ActivationLogForm, [
                 'Code', w0,
@@ -38,12 +32,7 @@ export class ActivationLogForm extends PrefixedContext {
                 'DeviceId', w0,
                 'DeviceDetails', w0,
                 'EStatus', w1,
-                'Note', w0,
-                'InsertDate', w2,
-                'InsertUserId', w1,
-                'UpdateDate', w2,
-                'UpdateUserId', w1,
-                'IsActive', w1
+                'Note', w0
             ]);
         }
     }

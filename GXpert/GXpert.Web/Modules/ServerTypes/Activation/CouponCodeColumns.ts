@@ -13,11 +13,6 @@ export interface CouponCodeColumns {
     ValidDate: Column<CouponCodeRow>;
     ConsumedCount: Column<CouponCodeRow>;
     CouponValidityDate: Column<CouponCodeRow>;
-    InsertDate: Column<CouponCodeRow>;
-    InsertUserId: Column<CouponCodeRow>;
-    UpdateDate: Column<CouponCodeRow>;
-    UpdateUserId: Column<CouponCodeRow>;
-    IsActive: Column<CouponCodeRow>;
 }
 
 export class CouponCodeColumns extends ColumnsBase<CouponCodeRow> {

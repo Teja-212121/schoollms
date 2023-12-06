@@ -1,4 +1,4 @@
-﻿import { fieldsProxy } from "@serenity-is/corelib";
+﻿import { getLookup, getLookupAsync, fieldsProxy } from "@serenity-is/corelib";
 
 export interface CouponCodeRow {
     Id?: number;
@@ -11,18 +11,24 @@ export interface CouponCodeRow {
     ValidDate?: string;
     ConsumedCount?: number;
     CouponValidityDate?: string;
-    InsertDate?: string;
-    InsertUserId?: number;
-    UpdateDate?: string;
-    UpdateUserId?: number;
     IsActive?: number;
     PlayListTitle?: string;
+    InsertUserId?: number;
+    InsertDate?: string;
+    UpdateUserId?: number;
+    UpdateDate?: string;
 }
 
 export abstract class CouponCodeRow {
     static readonly idProperty = 'Id';
     static readonly nameProperty = 'Code';
     static readonly localTextPrefix = 'Activation.CouponCode';
+    static readonly lookupKey = 'Activation.CouponCode';
+
+    /** @deprecated use getLookupAsync instead */
+    static getLookup() { return getLookup<CouponCodeRow>('Activation.CouponCode') }
+    static async getLookupAsync() { return getLookupAsync<CouponCodeRow>('Activation.CouponCode') }
+
     static readonly deletePermission = 'Administration:General';
     static readonly insertPermission = 'Administration:General';
     static readonly readPermission = 'Administration:General';

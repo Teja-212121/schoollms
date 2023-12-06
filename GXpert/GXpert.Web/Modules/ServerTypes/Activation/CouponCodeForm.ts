@@ -10,11 +10,6 @@ export interface CouponCodeForm {
     ValidDate: DateEditor;
     ConsumedCount: IntegerEditor;
     CouponValidityDate: DateEditor;
-    InsertDate: DateEditor;
-    InsertUserId: IntegerEditor;
-    UpdateDate: DateEditor;
-    UpdateUserId: IntegerEditor;
-    IsActive: IntegerEditor;
 }
 
 export class CouponCodeForm extends PrefixedContext {
@@ -40,12 +35,7 @@ export class CouponCodeForm extends PrefixedContext {
                 'ValidityInDays', w1,
                 'ValidDate', w2,
                 'ConsumedCount', w1,
-                'CouponValidityDate', w2,
-                'InsertDate', w2,
-                'InsertUserId', w1,
-                'UpdateDate', w2,
-                'UpdateUserId', w1,
-                'IsActive', w1
+                'CouponValidityDate', w2
             ]);
         }
     }

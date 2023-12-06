@@ -1,6 +1,7 @@
-﻿using Serenity.ComponentModel;
+using Serenity.ComponentModel;
 using Serenity.Data;
 using Serenity.Data.Mapping;
+using Serenity.Extensions.Entities;
 using System;
 using System.ComponentModel;
 
@@ -11,7 +12,8 @@ namespace GXpert.Activation;
 [ReadPermission("Administration:General")]
 [ModifyPermission("Administration:General")]
 [ServiceLookupPermission("Administration:General")]
-public sealed class SerialKeyRow : Row<SerialKeyRow.RowFields>, IIdRow, INameRow
+[LookupScript("Activation.SerialKey")]
+public sealed class SerialKeyRow : LoggingRow<SerialKeyRow.RowFields>, IIdRow, INameRow
 {
     const string jPlayList = nameof(jPlayList);
 
@@ -39,25 +41,13 @@ public sealed class SerialKeyRow : Row<SerialKeyRow.RowFields>, IIdRow, INameRow
     [DisplayName("E Status"), Column("eStatus")]
     public short? EStatus { get => fields.EStatus[this]; set => fields.EStatus[this] = value; }
 
-    [DisplayName("Insert Date"), NotNull]
-    public DateTime? InsertDate { get => fields.InsertDate[this]; set => fields.InsertDate[this] = value; }
-
-    [DisplayName("Insert User Id"), NotNull]
-    public int? InsertUserId { get => fields.InsertUserId[this]; set => fields.InsertUserId[this] = value; }
-
-    [DisplayName("Update Date")]
-    public DateTime? UpdateDate { get => fields.UpdateDate[this]; set => fields.UpdateDate[this] = value; }
-
-    [DisplayName("Update User Id")]
-    public int? UpdateUserId { get => fields.UpdateUserId[this]; set => fields.UpdateUserId[this] = value; }
-
-    [DisplayName("Is Active"), NotNull]
+    [DisplayName("Is Active"), DefaultValue(1)]
     public short? IsActive { get => fields.IsActive[this]; set => fields.IsActive[this] = value; }
 
     [DisplayName("Play List Title"), Expression($"{jPlayList}.[Title]")]
     public string PlayListTitle { get => fields.PlayListTitle[this]; set => fields.PlayListTitle[this] = value; }
 
-    public class RowFields : RowFieldsBase
+    public class RowFields : LoggingRowFields
     {
         public Int32Field Id;
         public StringField SerialKey;
@@ -67,10 +57,6 @@ public sealed class SerialKeyRow : Row<SerialKeyRow.RowFields>, IIdRow, INameRow
         public DateTimeField ValidDate;
         public StringField Note;
         public Int16Field EStatus;
-        public DateTimeField InsertDate;
-        public Int32Field InsertUserId;
-        public DateTimeField UpdateDate;
-        public Int32Field UpdateUserId;
         public Int16Field IsActive;
 
         public StringField PlayListTitle;

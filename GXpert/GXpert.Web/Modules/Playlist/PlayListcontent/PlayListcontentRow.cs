@@ -22,22 +22,29 @@ public sealed class PlayListContentRow : Row<PlayListContentRow.RowFields>, IIdR
     [DisplayName("Id"), Identity, IdProperty]
     public int? Id { get => fields.Id[this]; set => fields.Id[this] = value; }
 
-    [DisplayName("Play List"), ForeignKey("PlayLists", "Id"), LeftJoin(jPlayList), TextualField(nameof(PlayListTitle))]
+    [DisplayName("Play List"), ForeignKey(typeof(PlayListRow)), LeftJoin(jPlayList), TextualField(nameof(PlayListTitle))]
+    [ServiceLookupEditor(typeof(PlayListRow), Service = "Playlist/PlayList/List")]
     public int? PlayListId { get => fields.PlayListId[this]; set => fields.PlayListId[this] = value; }
 
-    [DisplayName("Content"), NotNull, ForeignKey("Contents", "Id"), LeftJoin(jContent), TextualField(nameof(ContentTitle))]
+    [DisplayName("Content"), NotNull, ForeignKey(typeof(Content.ContentRow)), LeftJoin(jContent), TextualField(nameof(ContentTitle))]
+    [ServiceLookupEditor(typeof(Content.ContentRow), Service = "Content/Content/List")]
     public int? ContentId { get => fields.ContentId[this]; set => fields.ContentId[this] = value; }
 
-    [DisplayName("Exam"), NotNull, ForeignKey("Exams", "Id"), LeftJoin(jExam), TextualField(nameof(ExamTitle))]
+    [DisplayName("Exam"), NotNull, ForeignKey(typeof(Exams.ExamRow)), LeftJoin(jExam), TextualField(nameof(ExamTitle))]
+    [ServiceLookupEditor(typeof(Exams.ExamRow), Service = "Exams/Exam/List")]
     public int? ExamId { get => fields.ExamId[this]; set => fields.ExamId[this] = value; }
 
-    [DisplayName("Live Session"), ForeignKey("LiveSessions", "Id"), LeftJoin(jLiveSession), TextualField(nameof(LiveSessionMeetingId))]
+    [DisplayName("Live Session"), ForeignKey(typeof(LiveSessions.LiveSessionRow)), LeftJoin(jLiveSession)]
+    [TextualField(nameof(LiveSessionMeetingId))]
+    [ServiceLookupEditor(typeof(LiveSessions.LiveSessionRow), Service = "LiveSessions/LiveSession/List")]
     public int? LiveSessionId { get => fields.LiveSessionId[this]; set => fields.LiveSessionId[this] = value; }
 
-    [DisplayName("Assignment"), NotNull, ForeignKey("Assignments", "Id"), LeftJoin(jAssignment), TextualField(nameof(AssignmentTitle))]
+    [DisplayName("Assignment"), NotNull, ForeignKey(typeof(Exams.AssignmentRow)), LeftJoin(jAssignment)]
+    [TextualField(nameof(AssignmentTitle)), ServiceLookupEditor(typeof(Exams.AssignmentRow), Service = "Exams/Assignment/List")]
     public int? AssignmentId { get => fields.AssignmentId[this]; set => fields.AssignmentId[this] = value; }
 
-    [DisplayName("Module"), ForeignKey("Modules", "Id"), LeftJoin(jModule), TextualField(nameof(ModuleTitle))]
+    [DisplayName("Module"), ForeignKey(typeof(ModuleRow)), LeftJoin(jModule), TextualField(nameof(ModuleTitle))]
+    [ServiceLookupEditor(typeof(ModuleRow), Service = "Playlist/Module/List")]
     public int? ModuleId { get => fields.ModuleId[this]; set => fields.ModuleId[this] = value; }
 
     [DisplayName("Sort Order"), NotNull]
@@ -61,22 +68,22 @@ public sealed class PlayListContentRow : Row<PlayListContentRow.RowFields>, IIdR
     [DisplayName("Is Active"), NotNull]
     public bool? IsActive { get => fields.IsActive[this]; set => fields.IsActive[this] = value; }
 
-    [DisplayName("Play List Title"), Expression($"{jPlayList}.[Title]")]
+    [DisplayName("Play List Title"), Origin(jPlayList, nameof(PlayListRow.Title))]
     public string PlayListTitle { get => fields.PlayListTitle[this]; set => fields.PlayListTitle[this] = value; }
 
-    [DisplayName("Content Title"), Expression($"{jContent}.[Title]")]
+    [DisplayName("Content Title"), Origin(jContent, nameof(Content.ContentRow.Title))]
     public string ContentTitle { get => fields.ContentTitle[this]; set => fields.ContentTitle[this] = value; }
 
-    [DisplayName("Exam Title"), Expression($"{jExam}.[Title]")]
+    [DisplayName("Exam Title"), Origin(jExam, nameof(Exams.ExamRow.Title))]
     public string ExamTitle { get => fields.ExamTitle[this]; set => fields.ExamTitle[this] = value; }
 
-    [DisplayName("Live Session Meeting Id"), Expression($"{jLiveSession}.[MeetingId]")]
+    [DisplayName("Live Session Meeting Id"), Origin(jLiveSession, nameof(LiveSessions.LiveSessionRow.MeetingId))]
     public string LiveSessionMeetingId { get => fields.LiveSessionMeetingId[this]; set => fields.LiveSessionMeetingId[this] = value; }
 
-    [DisplayName("Assignment Title"), Expression($"{jAssignment}.[Title]")]
+    [DisplayName("Assignment Title"), Origin(jAssignment, nameof(Exams.AssignmentRow.Title))]
     public string AssignmentTitle { get => fields.AssignmentTitle[this]; set => fields.AssignmentTitle[this] = value; }
 
-    [DisplayName("Module Title"), Expression($"{jModule}.[Title]")]
+    [DisplayName("Module Title"), Origin(jModule, nameof(ModuleRow.Title))]
     public string ModuleTitle { get => fields.ModuleTitle[this]; set => fields.ModuleTitle[this] = value; }
 
     public class RowFields : RowFieldsBase

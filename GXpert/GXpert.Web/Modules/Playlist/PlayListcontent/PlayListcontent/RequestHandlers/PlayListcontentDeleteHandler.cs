@@ -1,15 +1,15 @@
 ﻿using Serenity.Services;
 using MyRequest = Serenity.Services.DeleteRequest;
 using MyResponse = Serenity.Services.DeleteResponse;
-using MyRow = GXpert.Playlist.PlayListcontentRow;
+using MyRow = GXpert.Playlist.PlayListContentRow;
 
 namespace GXpert.Playlist;
 
-public interface IPlayListcontentDeleteHandler : IDeleteHandler<MyRow, MyRequest, MyResponse> { }
+public interface IPlayListContentDeleteHandler : IDeleteHandler<MyRow, MyRequest, MyResponse> { }
 
-public class PlayListcontentDeleteHandler : DeleteRequestHandler<MyRow, MyRequest, MyResponse>, IPlayListcontentDeleteHandler
+public class PlayListContentDeleteHandler : DeleteRequestHandler<MyRow, MyRequest, MyResponse>, IPlayListContentDeleteHandler
 {
-    public PlayListcontentDeleteHandler(IRequestContext context)
+    public PlayListContentDeleteHandler(IRequestContext context)
             : base(context)
     {
     }

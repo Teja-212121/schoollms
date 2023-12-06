@@ -8,11 +8,6 @@ export interface SerialKeyForm {
     ValidDate: DateEditor;
     Note: StringEditor;
     EStatus: IntegerEditor;
-    InsertDate: DateEditor;
-    InsertUserId: IntegerEditor;
-    UpdateDate: DateEditor;
-    UpdateUserId: IntegerEditor;
-    IsActive: IntegerEditor;
 }
 
 export class SerialKeyForm extends PrefixedContext {
@@ -36,12 +31,7 @@ export class SerialKeyForm extends PrefixedContext {
                 'ValidityInDays', w1,
                 'ValidDate', w2,
                 'Note', w0,
-                'EStatus', w1,
-                'InsertDate', w2,
-                'InsertUserId', w1,
-                'UpdateDate', w2,
-                'UpdateUserId', w1,
-                'IsActive', w1
+                'EStatus', w1
             ]);
         }
     }

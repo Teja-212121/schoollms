@@ -1,6 +1,7 @@
-﻿using Serenity.ComponentModel;
+using Serenity.ComponentModel;
 using Serenity.Data;
 using Serenity.Data.Mapping;
+using Serenity.Extensions.Entities;
 using System;
 using System.ComponentModel;
 
@@ -11,7 +12,8 @@ namespace GXpert.Activation;
 [ReadPermission("Administration:General")]
 [ModifyPermission("Administration:General")]
 [ServiceLookupPermission("Administration:General")]
-public sealed class ActivationRow : Row<ActivationRow.RowFields>, IIdRow, INameRow
+[LookupScript("Activation.Activation")]
+public sealed class ActivationRow : LoggingRow<ActivationRow.RowFields>, IIdRow, INameRow
 {
     const string jPlayList = nameof(jPlayList);
     const string jTeacher = nameof(jTeacher);
@@ -44,20 +46,8 @@ public sealed class ActivationRow : Row<ActivationRow.RowFields>, IIdRow, INameR
 
     [DisplayName("E Status"), Column("eStatus")]
     public short? EStatus { get => fields.EStatus[this]; set => fields.EStatus[this] = value; }
-
-    [DisplayName("Insert Date"), NotNull]
-    public DateTime? InsertDate { get => fields.InsertDate[this]; set => fields.InsertDate[this] = value; }
-
-    [DisplayName("Insert User Id"), NotNull]
-    public int? InsertUserId { get => fields.InsertUserId[this]; set => fields.InsertUserId[this] = value; }
-
-    [DisplayName("Update Date")]
-    public DateTime? UpdateDate { get => fields.UpdateDate[this]; set => fields.UpdateDate[this] = value; }
-
-    [DisplayName("Update User Id")]
-    public int? UpdateUserId { get => fields.UpdateUserId[this]; set => fields.UpdateUserId[this] = value; }
-
-    [DisplayName("Is Active"), NotNull]
+    
+    [DisplayName("Is Active"), DefaultValue(1)]
     public short? IsActive { get => fields.IsActive[this]; set => fields.IsActive[this] = value; }
 
     [DisplayName("Play List Title"), Expression($"{jPlayList}.[Title]")]
@@ -69,7 +59,7 @@ public sealed class ActivationRow : Row<ActivationRow.RowFields>, IIdRow, INameR
     [DisplayName("Activation Log Code"), Origin(jActivationLog, nameof(ActivationLogRow.Code))]
     public string ActivationLogCode { get => fields.ActivationLogCode[this]; set => fields.ActivationLogCode[this] = value; }
 
-    public class RowFields : RowFieldsBase
+    public class RowFields : LoggingRowFields
     {
         public Int32Field Id;
         public Int32Field PlayListId;
@@ -80,10 +70,6 @@ public sealed class ActivationRow : Row<ActivationRow.RowFields>, IIdRow, INameR
         public DateTimeField ActivationDate;
         public DateTimeField ExpiryDate;
         public Int16Field EStatus;
-        public DateTimeField InsertDate;
-        public Int32Field InsertUserId;
-        public DateTimeField UpdateDate;
-        public Int32Field UpdateUserId;
         public Int16Field IsActive;
 
         public StringField PlayListTitle;

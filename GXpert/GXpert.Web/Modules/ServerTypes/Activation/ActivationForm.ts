@@ -9,11 +9,6 @@ export interface ActivationForm {
     ActivationDate: DateEditor;
     ExpiryDate: DateEditor;
     EStatus: IntegerEditor;
-    InsertDate: DateEditor;
-    InsertUserId: IntegerEditor;
-    UpdateDate: DateEditor;
-    UpdateUserId: IntegerEditor;
-    IsActive: IntegerEditor;
 }
 
 export class ActivationForm extends PrefixedContext {
@@ -39,12 +34,7 @@ export class ActivationForm extends PrefixedContext {
                 'DeviceDetails', w2,
                 'ActivationDate', w3,
                 'ExpiryDate', w3,
-                'EStatus', w0,
-                'InsertDate', w3,
-                'InsertUserId', w0,
-                'UpdateDate', w3,
-                'UpdateUserId', w0,
-                'IsActive', w0
+                'EStatus', w0
             ]);
         }
     }

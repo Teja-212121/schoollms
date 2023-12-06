@@ -1,15 +1,15 @@
 ﻿using Serenity.Services;
-using MyRequest = Serenity.Services.SaveRequest<GXpert.Playlist.PlayListcontentRow>;
+using MyRequest = Serenity.Services.SaveRequest<GXpert.Playlist.PlayListContentRow>;
 using MyResponse = Serenity.Services.SaveResponse;
-using MyRow = GXpert.Playlist.PlayListcontentRow;
+using MyRow = GXpert.Playlist.PlayListContentRow;
 
 namespace GXpert.Playlist;
 
-public interface IPlayListcontentSaveHandler : ISaveHandler<MyRow, MyRequest, MyResponse> { }
+public interface IPlayListContentSaveHandler : ISaveHandler<MyRow, MyRequest, MyResponse> { }
 
-public class PlayListcontentSaveHandler : SaveRequestHandler<MyRow, MyRequest, MyResponse>, IPlayListcontentSaveHandler
+public class PlayListContentSaveHandler : SaveRequestHandler<MyRow, MyRequest, MyResponse>, IPlayListContentSaveHandler
 {
-    public PlayListcontentSaveHandler(IRequestContext context)
+    public PlayListContentSaveHandler(IRequestContext context)
             : base(context)
     {
     }
