@@ -1,4 +1,4 @@
-﻿import { ServiceLookupEditor, StringEditor, IntegerEditor, DecimalEditor, DateEditor, BooleanEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
+﻿import { ServiceLookupEditor, StringEditor, IntegerEditor, DecimalEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
 
 export interface ExamSectionForm {
     ExamId: ServiceLookupEditor;
@@ -10,11 +10,6 @@ export interface ExamSectionForm {
     NumberOfQuestions: IntegerEditor;
     NumberOfMandatoryQuestions: IntegerEditor;
     SearchTags: StringEditor;
-    InsertDate: DateEditor;
-    InsertUserId: IntegerEditor;
-    UpdateDate: DateEditor;
-    UpdateUserId: IntegerEditor;
-    IsActive: BooleanEditor;
 }
 
 export class ExamSectionForm extends PrefixedContext {
@@ -31,8 +26,6 @@ export class ExamSectionForm extends PrefixedContext {
             var w1 = StringEditor;
             var w2 = IntegerEditor;
             var w3 = DecimalEditor;
-            var w4 = DateEditor;
-            var w5 = BooleanEditor;
 
             initFormType(ExamSectionForm, [
                 'ExamId', w0,
@@ -43,12 +36,7 @@ export class ExamSectionForm extends PrefixedContext {
                 'ParentId', w0,
                 'NumberOfQuestions', w2,
                 'NumberOfMandatoryQuestions', w2,
-                'SearchTags', w1,
-                'InsertDate', w4,
-                'InsertUserId', w2,
-                'UpdateDate', w4,
-                'UpdateUserId', w2,
-                'IsActive', w5
+                'SearchTags', w1
             ]);
         }
     }

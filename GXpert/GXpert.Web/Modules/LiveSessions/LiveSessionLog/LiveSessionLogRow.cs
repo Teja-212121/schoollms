@@ -1,6 +1,7 @@
 using Serenity.ComponentModel;
 using Serenity.Data;
 using Serenity.Data.Mapping;
+using Serenity.Extensions.Entities;
 using System;
 using System.ComponentModel;
 
@@ -11,7 +12,7 @@ namespace GXpert.LiveSessions;
 [ReadPermission("Administration:General")]
 [ModifyPermission("Administration:General")]
 [LookupScript("LiveSessions.LiveSessionLog")]
-public sealed class LiveSessionLogRow : Row<LiveSessionLogRow.RowFields>, IIdRow
+public sealed class LiveSessionLogRow : LoggingRow<LiveSessionLogRow.RowFields>, IIdRow
 {
     const string jTeacher = nameof(jTeacher);
     const string jClass = nameof(jClass);
@@ -30,27 +31,18 @@ public sealed class LiveSessionLogRow : Row<LiveSessionLogRow.RowFields>, IIdRow
     public DateTime? EndTime { get => fields.EndTime[this]; set => fields.EndTime[this] = value; }
 
     [DisplayName("Teacher"), NotNull, ForeignKey("Teachers", "Id"), LeftJoin(jTeacher), TextualField(nameof(TeacherPrn))]
+    [LookupEditor("Users.Teacher")]
     public int? TeacherId { get => fields.TeacherId[this]; set => fields.TeacherId[this] = value; }
 
     [DisplayName("Class"), NotNull, ForeignKey("Classes", "Id"), LeftJoin(jClass), TextualField(nameof(ClassTitle))]
+    [LookupEditor("Syllabus.Class")]
     public int? ClassId { get => fields.ClassId[this]; set => fields.ClassId[this] = value; }
 
     [DisplayName("Subject"), NotNull, ForeignKey("Subjects", "Id"), LeftJoin(jSubject), TextualField(nameof(SubjectTitle))]
+    [LookupEditor("Syllabus.Subject")]
     public int? SubjectId { get => fields.SubjectId[this]; set => fields.SubjectId[this] = value; }
 
-    [DisplayName("Insert Date"), NotNull]
-    public DateTime? InsertDate { get => fields.InsertDate[this]; set => fields.InsertDate[this] = value; }
-
-    [DisplayName("Insert User Id"), NotNull]
-    public int? InsertUserId { get => fields.InsertUserId[this]; set => fields.InsertUserId[this] = value; }
-
-    [DisplayName("Update Date")]
-    public DateTime? UpdateDate { get => fields.UpdateDate[this]; set => fields.UpdateDate[this] = value; }
-
-    [DisplayName("Update User Id")]
-    public int? UpdateUserId { get => fields.UpdateUserId[this]; set => fields.UpdateUserId[this] = value; }
-
-    [DisplayName("Is Active"), NotNull]
+    [DisplayName("Is Active"), DefaultValue(1)]
     public bool? IsActive { get => fields.IsActive[this]; set => fields.IsActive[this] = value; }
 
     [DisplayName("Teacher Prn"), Expression($"{jTeacher}.[PRN]")]
@@ -62,7 +54,7 @@ public sealed class LiveSessionLogRow : Row<LiveSessionLogRow.RowFields>, IIdRow
     [DisplayName("Subject Title"), Expression($"{jSubject}.[Title]")]
     public string SubjectTitle { get => fields.SubjectTitle[this]; set => fields.SubjectTitle[this] = value; }
 
-    public class RowFields : RowFieldsBase
+    public class RowFields : LoggingRowFields
     {
         public Int32Field Id;
         public DateTimeField Date;
@@ -71,10 +63,6 @@ public sealed class LiveSessionLogRow : Row<LiveSessionLogRow.RowFields>, IIdRow
         public Int32Field TeacherId;
         public Int32Field ClassId;
         public Int32Field SubjectId;
-        public DateTimeField InsertDate;
-        public Int32Field InsertUserId;
-        public DateTimeField UpdateDate;
-        public Int32Field UpdateUserId;
         public BooleanField IsActive;
 
         public StringField TeacherPrn;

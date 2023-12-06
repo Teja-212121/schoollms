@@ -11,11 +11,6 @@ export interface AssignmentEvaluationColumns {
     TopicTitle: Column<AssignmentEvaluationRow>;
     BloomsIndexCoginitiveSkill: Column<AssignmentEvaluationRow>;
     BloomsWeightage: Column<AssignmentEvaluationRow>;
-    InsertDate: Column<AssignmentEvaluationRow>;
-    InsertUserId: Column<AssignmentEvaluationRow>;
-    UpdateDate: Column<AssignmentEvaluationRow>;
-    UpdateUserId: Column<AssignmentEvaluationRow>;
-    IsActive: Column<AssignmentEvaluationRow>;
 }
 
 export class AssignmentEvaluationColumns extends ColumnsBase<AssignmentEvaluationRow> {

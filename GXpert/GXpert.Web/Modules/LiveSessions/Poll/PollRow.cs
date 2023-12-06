@@ -1,6 +1,7 @@
 using Serenity.ComponentModel;
 using Serenity.Data;
 using Serenity.Data.Mapping;
+using Serenity.Extensions.Entities;
 using System;
 using System.ComponentModel;
 
@@ -12,7 +13,7 @@ namespace GXpert.LiveSessions;
 [ModifyPermission("Administration:General")]
 [ServiceLookupPermission("Administration:General")]
 [LookupScript("LiveSessions.Poll")]
-public sealed class PollRow : Row<PollRow.RowFields>, IIdRow, INameRow
+public sealed class PollRow : LoggingRow<PollRow.RowFields>, IIdRow, INameRow
 {
     const string jLiveSessionLog = nameof(jLiveSessionLog);
     const string jBloomsTaxonomy = nameof(jBloomsTaxonomy);
@@ -62,30 +63,19 @@ public sealed class PollRow : Row<PollRow.RowFields>, IIdRow, INameRow
 
     [DisplayName("Blooms Taxonomy"), NotNull, ForeignKey("BloomsTaxanomy", "Id"), LeftJoin(jBloomsTaxonomy)]
     [TextualField(nameof(BloomsTaxonomyCoginitiveSkill))]
+    [LookupEditor("Masters.BloomsTaxanomy")]
     public int? BloomsTaxonomyId { get => fields.BloomsTaxonomyId[this]; set => fields.BloomsTaxonomyId[this] = value; }
 
     [DisplayName("Weightage"), NotNull]
     public float? Weightage { get => fields.Weightage[this]; set => fields.Weightage[this] = value; }
 
-    [DisplayName("Insert Date"), NotNull]
-    public DateTime? InsertDate { get => fields.InsertDate[this]; set => fields.InsertDate[this] = value; }
-
-    [DisplayName("Insert User Id"), NotNull]
-    public int? InsertUserId { get => fields.InsertUserId[this]; set => fields.InsertUserId[this] = value; }
-
-    [DisplayName("Update Date")]
-    public DateTime? UpdateDate { get => fields.UpdateDate[this]; set => fields.UpdateDate[this] = value; }
-
-    [DisplayName("Update User Id")]
-    public int? UpdateUserId { get => fields.UpdateUserId[this]; set => fields.UpdateUserId[this] = value; }
-
-    [DisplayName("Is Active"), NotNull]
+    [DisplayName("Is Active"), DefaultValue(1)]
     public bool? IsActive { get => fields.IsActive[this]; set => fields.IsActive[this] = value; }
 
     [DisplayName("Blooms Taxonomy Coginitive Skill"), Expression($"{jBloomsTaxonomy}.[CoginitiveSkill]")]
     public string BloomsTaxonomyCoginitiveSkill { get => fields.BloomsTaxonomyCoginitiveSkill[this]; set => fields.BloomsTaxonomyCoginitiveSkill[this] = value; }
 
-    public class RowFields : RowFieldsBase
+    public class RowFields : LoggingRowFields
     {
         public Int32Field Id;
         public StringField Question;
@@ -103,10 +93,6 @@ public sealed class PollRow : Row<PollRow.RowFields>, IIdRow, INameRow
         public Int16Field NumberOfWrong;
         public Int32Field BloomsTaxonomyId;
         public SingleField Weightage;
-        public DateTimeField InsertDate;
-        public Int32Field InsertUserId;
-        public DateTimeField UpdateDate;
-        public Int32Field UpdateUserId;
         public BooleanField IsActive;
 
         public StringField BloomsTaxonomyCoginitiveSkill;

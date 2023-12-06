@@ -1,6 +1,7 @@
-﻿using Serenity.ComponentModel;
+using Serenity.ComponentModel;
 using Serenity.Data;
 using Serenity.Data.Mapping;
+using Serenity.Extensions.Entities;
 using System;
 using System.ComponentModel;
 
@@ -11,7 +12,7 @@ namespace GXpert.Exams;
 [ReadPermission("Administration:General")]
 [ModifyPermission("Administration:General")]
 [ServiceLookupPermission("Administration:General")]
-public sealed class ExamSectionRow : Row<ExamSectionRow.RowFields>, IIdRow, INameRow
+public sealed class ExamSectionRow : LoggingRow<ExamSectionRow.RowFields>, IIdRow, INameRow
 {
     const string jExam = nameof(jExam);
     const string jParent = nameof(jParent);
@@ -48,19 +49,7 @@ public sealed class ExamSectionRow : Row<ExamSectionRow.RowFields>, IIdRow, INam
     [DisplayName("Search Tags"), Size(1000)]
     public string SearchTags { get => fields.SearchTags[this]; set => fields.SearchTags[this] = value; }
 
-    [DisplayName("Insert Date"), NotNull]
-    public DateTime? InsertDate { get => fields.InsertDate[this]; set => fields.InsertDate[this] = value; }
-
-    [DisplayName("Insert User Id"), NotNull]
-    public int? InsertUserId { get => fields.InsertUserId[this]; set => fields.InsertUserId[this] = value; }
-
-    [DisplayName("Update Date")]
-    public DateTime? UpdateDate { get => fields.UpdateDate[this]; set => fields.UpdateDate[this] = value; }
-
-    [DisplayName("Update User Id")]
-    public int? UpdateUserId { get => fields.UpdateUserId[this]; set => fields.UpdateUserId[this] = value; }
-
-    [DisplayName("Is Active"), NotNull]
+    [DisplayName("Is Active"), DefaultValue(1)]
     public bool? IsActive { get => fields.IsActive[this]; set => fields.IsActive[this] = value; }
 
     [DisplayName("Exam Title"), Origin(jExam, nameof(ExamRow.Title))]
@@ -69,7 +58,7 @@ public sealed class ExamSectionRow : Row<ExamSectionRow.RowFields>, IIdRow, INam
     [DisplayName("Parent Title"), Origin(jParent, nameof(ExamSectionRow.Title))]
     public string ParentTitle { get => fields.ParentTitle[this]; set => fields.ParentTitle[this] = value; }
 
-    public class RowFields : RowFieldsBase
+    public class RowFields : LoggingRowFields
     {
         public Int32Field Id;
         public Int32Field ExamId;
@@ -81,10 +70,6 @@ public sealed class ExamSectionRow : Row<ExamSectionRow.RowFields>, IIdRow, INam
         public Int32Field NumberOfQuestions;
         public Int32Field NumberOfMandatoryQuestions;
         public StringField SearchTags;
-        public DateTimeField InsertDate;
-        public Int32Field InsertUserId;
-        public DateTimeField UpdateDate;
-        public Int32Field UpdateUserId;
         public BooleanField IsActive;
 
         public StringField ExamTitle;

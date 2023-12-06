@@ -12,10 +12,6 @@ export interface ExamQuestionRow {
     ClassId?: number;
     SubjectId?: number;
     TopicId?: number;
-    InsertDate?: string;
-    InsertUserId?: number;
-    UpdateDate?: string;
-    UpdateUserId?: number;
     IsActive?: boolean;
     ExamTitle?: string;
     ExamSectionTitle?: string;
@@ -23,6 +19,10 @@ export interface ExamQuestionRow {
     ClassTitle?: string;
     SubjectTitle?: string;
     TopicTitle?: string;
+    InsertUserId?: number;
+    InsertDate?: string;
+    UpdateUserId?: number;
+    UpdateDate?: string;
 }
 
 export abstract class ExamQuestionRow {

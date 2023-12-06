@@ -8,11 +8,11 @@ export interface LiveSessionRow {
     Secret?: string;
     LiveAdditionalInfo?: string;
     SearchTags?: string;
-    InsertDate?: string;
-    InsertUserId?: number;
-    UpdateDate?: string;
-    UpdateUserId?: number;
     IsActive?: boolean;
+    InsertUserId?: number;
+    InsertDate?: string;
+    UpdateUserId?: number;
+    UpdateDate?: string;
 }
 
 export abstract class LiveSessionRow {

@@ -1,6 +1,7 @@
 using Serenity.ComponentModel;
 using Serenity.Data;
 using Serenity.Data.Mapping;
+using Serenity.Extensions.Entities;
 using System;
 using System.ComponentModel;
 
@@ -12,7 +13,7 @@ namespace GXpert.Exams;
 [ModifyPermission("Administration:General")]
 [ServiceLookupPermission("Administration:General")]
 [LookupScript("Exams.ExamQuestion")]
-public sealed class ExamQuestionRow : Row<ExamQuestionRow.RowFields>, IIdRow, INameRow
+public sealed class ExamQuestionRow : LoggingRow<ExamQuestionRow.RowFields>, IIdRow, INameRow
 {
     const string jExam = nameof(jExam);
     const string jExamSection = nameof(jExamSection);
@@ -33,6 +34,7 @@ public sealed class ExamQuestionRow : Row<ExamQuestionRow.RowFields>, IIdRow, IN
     public int? ExamSectionId { get => fields.ExamSectionId[this]; set => fields.ExamSectionId[this] = value; }
 
     [DisplayName("Question"), NotNull, ForeignKey("Questions", "Id"), LeftJoin(jQuestion), TextualField(nameof(QuestionText))]
+    [LookupEditor("QuestionBank.Question")]
     public long? QuestionId { get => fields.QuestionId[this]; set => fields.QuestionId[this] = value; }
 
     [DisplayName("E Difficulty Level"), NotNull]
@@ -48,27 +50,18 @@ public sealed class ExamQuestionRow : Row<ExamQuestionRow.RowFields>, IIdRow, IN
     public float? SortOrder { get => fields.SortOrder[this]; set => fields.SortOrder[this] = value; }
 
     [DisplayName("Class"), NotNull, ForeignKey("Classes", "Id"), LeftJoin(jClass), TextualField(nameof(ClassTitle))]
+    [LookupEditor("Syllabus.Class")]
     public int? ClassId { get => fields.ClassId[this]; set => fields.ClassId[this] = value; }
 
     [DisplayName("Subject"), NotNull, ForeignKey("Subjects", "Id"), LeftJoin(jSubject), TextualField(nameof(SubjectTitle))]
+    [LookupEditor("Syllabus.Subject")]
     public int? SubjectId { get => fields.SubjectId[this]; set => fields.SubjectId[this] = value; }
 
     [DisplayName("Topic"), ForeignKey("Topics", "Id"), LeftJoin(jTopic), TextualField(nameof(TopicTitle))]
+    [LookupEditor("Syllabus.Topic")]
     public int? TopicId { get => fields.TopicId[this]; set => fields.TopicId[this] = value; }
 
-    [DisplayName("Insert Date"), NotNull]
-    public DateTime? InsertDate { get => fields.InsertDate[this]; set => fields.InsertDate[this] = value; }
-
-    [DisplayName("Insert User Id"), NotNull]
-    public int? InsertUserId { get => fields.InsertUserId[this]; set => fields.InsertUserId[this] = value; }
-
-    [DisplayName("Update Date"), NotNull]
-    public DateTime? UpdateDate { get => fields.UpdateDate[this]; set => fields.UpdateDate[this] = value; }
-
-    [DisplayName("Update User Id"), NotNull]
-    public int? UpdateUserId { get => fields.UpdateUserId[this]; set => fields.UpdateUserId[this] = value; }
-
-    [DisplayName("Is Active"), NotNull]
+    [DisplayName("Is Active"), DefaultValue(1)]
     public bool? IsActive { get => fields.IsActive[this]; set => fields.IsActive[this] = value; }
 
     [DisplayName("Exam Title"), Origin(jExam, nameof(ExamRow.Title))]
@@ -89,7 +82,7 @@ public sealed class ExamQuestionRow : Row<ExamQuestionRow.RowFields>, IIdRow, IN
     [DisplayName("Topic Title"), Expression($"{jTopic}.[Title]")]
     public string TopicTitle { get => fields.TopicTitle[this]; set => fields.TopicTitle[this] = value; }
 
-    public class RowFields : RowFieldsBase
+    public class RowFields : LoggingRowFields
     {
         public Int32Field Id;
         public Int32Field ExamId;
@@ -102,10 +95,6 @@ public sealed class ExamQuestionRow : Row<ExamQuestionRow.RowFields>, IIdRow, IN
         public Int32Field ClassId;
         public Int32Field SubjectId;
         public Int32Field TopicId;
-        public DateTimeField InsertDate;
-        public Int32Field InsertUserId;
-        public DateTimeField UpdateDate;
-        public Int32Field UpdateUserId;
         public BooleanField IsActive;
 
         public StringField ExamTitle;

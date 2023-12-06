@@ -1,6 +1,7 @@
-﻿using Serenity.ComponentModel;
+using Serenity.ComponentModel;
 using Serenity.Data;
 using Serenity.Data.Mapping;
+using Serenity.Extensions.Entities;
 using System;
 using System.ComponentModel;
 
@@ -11,7 +12,8 @@ namespace GXpert.Exams;
 [ReadPermission("Administration:General")]
 [ModifyPermission("Administration:General")]
 [ServiceLookupPermission("Administration:General")]
-public sealed class AssignmentEvaluationRow : Row<AssignmentEvaluationRow.RowFields>, IIdRow, INameRow
+[LookupScript("Exams.AssignmentEvaluation")]
+public sealed class AssignmentEvaluationRow : LoggingRow<AssignmentEvaluationRow.RowFields>, IIdRow, INameRow
 {
     const string jAssignment = nameof(jAssignment);
     const string jClass = nameof(jClass);
@@ -30,34 +32,26 @@ public sealed class AssignmentEvaluationRow : Row<AssignmentEvaluationRow.RowFie
     public string EvalutionCriteria { get => fields.EvalutionCriteria[this]; set => fields.EvalutionCriteria[this] = value; }
 
     [DisplayName("Class"), NotNull, ForeignKey("Classes", "Id"), LeftJoin(jClass), TextualField(nameof(ClassTitle))]
+    [LookupEditor("Syllabus.Class")]
     public int? ClassId { get => fields.ClassId[this]; set => fields.ClassId[this] = value; }
 
     [DisplayName("Subject"), NotNull, ForeignKey("Subjects", "Id"), LeftJoin(jSubject), TextualField(nameof(SubjectTitle))]
+    [LookupEditor("Syllabus.Subject")]
     public int? SubjectId { get => fields.SubjectId[this]; set => fields.SubjectId[this] = value; }
 
     [DisplayName("Topic"), NotNull, ForeignKey("Topics", "Id"), LeftJoin(jTopic), TextualField(nameof(TopicTitle))]
+    [LookupEditor("Syllabus.Topic")]
     public int? TopicId { get => fields.TopicId[this]; set => fields.TopicId[this] = value; }
 
     [DisplayName("Blooms Index"), NotNull, ForeignKey("BloomsTaxanomy", "Id"), LeftJoin(jBloomsIndex)]
     [TextualField(nameof(BloomsIndexCoginitiveSkill))]
+    [LookupEditor("Masters.BloomsTaxanomy")]
     public int? BloomsIndex { get => fields.BloomsIndex[this]; set => fields.BloomsIndex[this] = value; }
 
     [DisplayName("Blooms Weightage")]
     public float? BloomsWeightage { get => fields.BloomsWeightage[this]; set => fields.BloomsWeightage[this] = value; }
 
-    [DisplayName("Insert Date"), NotNull]
-    public DateTime? InsertDate { get => fields.InsertDate[this]; set => fields.InsertDate[this] = value; }
-
-    [DisplayName("Insert User Id"), NotNull]
-    public int? InsertUserId { get => fields.InsertUserId[this]; set => fields.InsertUserId[this] = value; }
-
-    [DisplayName("Update Date")]
-    public DateTime? UpdateDate { get => fields.UpdateDate[this]; set => fields.UpdateDate[this] = value; }
-
-    [DisplayName("Update User Id")]
-    public int? UpdateUserId { get => fields.UpdateUserId[this]; set => fields.UpdateUserId[this] = value; }
-
-    [DisplayName("Is Active"), NotNull]
+    [DisplayName("Is Active"), DefaultValue(1)]
     public bool? IsActive { get => fields.IsActive[this]; set => fields.IsActive[this] = value; }
 
     [DisplayName("Assignment Title"), Origin(jAssignment, nameof(AssignmentRow.Title))]
@@ -75,7 +69,7 @@ public sealed class AssignmentEvaluationRow : Row<AssignmentEvaluationRow.RowFie
     [DisplayName("Blooms Index Coginitive Skill"), Expression($"{jBloomsIndex}.[CoginitiveSkill]")]
     public string BloomsIndexCoginitiveSkill { get => fields.BloomsIndexCoginitiveSkill[this]; set => fields.BloomsIndexCoginitiveSkill[this] = value; }
 
-    public class RowFields : RowFieldsBase
+    public class RowFields : LoggingRowFields
     {
         public Int32Field Id;
         public Int32Field AssignmentId;
@@ -85,10 +79,6 @@ public sealed class AssignmentEvaluationRow : Row<AssignmentEvaluationRow.RowFie
         public Int32Field TopicId;
         public Int32Field BloomsIndex;
         public SingleField BloomsWeightage;
-        public DateTimeField InsertDate;
-        public Int32Field InsertUserId;
-        public DateTimeField UpdateDate;
-        public Int32Field UpdateUserId;
         public BooleanField IsActive;
 
         public StringField AssignmentTitle;

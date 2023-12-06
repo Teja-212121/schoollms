@@ -1,4 +1,4 @@
-﻿import { ServiceLookupEditor, StringEditor, BooleanEditor, DecimalEditor, DateEditor, IntegerEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
+﻿import { ServiceLookupEditor, StringEditor, BooleanEditor, DecimalEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
 
 export interface QuestionOptionForm {
     QuestionId: ServiceLookupEditor;
@@ -6,11 +6,6 @@ export interface QuestionOptionForm {
     IsCorrect: BooleanEditor;
     SortOrder: DecimalEditor;
     Weightage: DecimalEditor;
-    InsertDate: DateEditor;
-    InsertUserId: IntegerEditor;
-    UpdateDate: DateEditor;
-    UpdateUserId: IntegerEditor;
-    IsActive: BooleanEditor;
 }
 
 export class QuestionOptionForm extends PrefixedContext {
@@ -27,20 +22,13 @@ export class QuestionOptionForm extends PrefixedContext {
             var w1 = StringEditor;
             var w2 = BooleanEditor;
             var w3 = DecimalEditor;
-            var w4 = DateEditor;
-            var w5 = IntegerEditor;
 
             initFormType(QuestionOptionForm, [
                 'QuestionId', w0,
                 'OptionText', w1,
                 'IsCorrect', w2,
                 'SortOrder', w3,
-                'Weightage', w3,
-                'InsertDate', w4,
-                'InsertUserId', w5,
-                'UpdateDate', w4,
-                'UpdateUserId', w5,
-                'IsActive', w2
+                'Weightage', w3
             ]);
         }
     }

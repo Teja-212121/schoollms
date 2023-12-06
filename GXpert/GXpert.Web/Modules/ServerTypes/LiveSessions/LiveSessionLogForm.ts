@@ -1,17 +1,12 @@
-﻿import { DateEditor, IntegerEditor, BooleanEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
+﻿import { DateEditor, LookupEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
 
 export interface LiveSessionLogForm {
     Date: DateEditor;
     StartTime: DateEditor;
     EndTime: DateEditor;
-    TeacherId: IntegerEditor;
-    ClassId: IntegerEditor;
-    SubjectId: IntegerEditor;
-    InsertDate: DateEditor;
-    InsertUserId: IntegerEditor;
-    UpdateDate: DateEditor;
-    UpdateUserId: IntegerEditor;
-    IsActive: BooleanEditor;
+    TeacherId: LookupEditor;
+    ClassId: LookupEditor;
+    SubjectId: LookupEditor;
 }
 
 export class LiveSessionLogForm extends PrefixedContext {
@@ -25,8 +20,7 @@ export class LiveSessionLogForm extends PrefixedContext {
             LiveSessionLogForm.init = true;
 
             var w0 = DateEditor;
-            var w1 = IntegerEditor;
-            var w2 = BooleanEditor;
+            var w1 = LookupEditor;
 
             initFormType(LiveSessionLogForm, [
                 'Date', w0,
@@ -34,12 +28,7 @@ export class LiveSessionLogForm extends PrefixedContext {
                 'EndTime', w0,
                 'TeacherId', w1,
                 'ClassId', w1,
-                'SubjectId', w1,
-                'InsertDate', w0,
-                'InsertUserId', w1,
-                'UpdateDate', w0,
-                'UpdateUserId', w1,
-                'IsActive', w2
+                'SubjectId', w1
             ]);
         }
     }

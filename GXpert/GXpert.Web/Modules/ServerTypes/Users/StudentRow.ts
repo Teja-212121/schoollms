@@ -13,16 +13,16 @@ export interface StudentRow {
     TalukaId?: number;
     Dob?: string;
     SchoolId?: number;
-    InsertDate?: string;
-    InsertUserId?: number;
-    UpdateDate?: string;
-    UpdateUserId?: number;
     IsActive?: boolean;
     Username?: string;
     StateTitle?: string;
     DistrictTitle?: string;
     TalukaTitle?: string;
     SchoolName?: string;
+    InsertUserId?: number;
+    InsertDate?: string;
+    UpdateUserId?: number;
+    UpdateDate?: string;
 }
 
 export abstract class StudentRow {

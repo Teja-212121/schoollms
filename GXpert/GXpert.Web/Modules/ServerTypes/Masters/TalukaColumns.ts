@@ -8,11 +8,6 @@ export interface TalukaColumns {
     StateTitle: Column<TalukaRow>;
     DistrictTitle: Column<TalukaRow>;
     ShortName: Column<TalukaRow>;
-    InsertDate: Column<TalukaRow>;
-    InsertUserId: Column<TalukaRow>;
-    UpdateDate: Column<TalukaRow>;
-    UpdateUserId: Column<TalukaRow>;
-    IsActive: Column<TalukaRow>;
 }
 
 export class TalukaColumns extends ColumnsBase<TalukaRow> {

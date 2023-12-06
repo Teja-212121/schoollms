@@ -1,6 +1,7 @@
 using Serenity.ComponentModel;
 using Serenity.Data;
 using Serenity.Data.Mapping;
+using Serenity.Extensions.Entities;
 using System;
 using System.ComponentModel;
 
@@ -13,7 +14,7 @@ namespace GXpert.Exams;
 [ServiceLookupPermission("Administration:General")]
 [LookupScript("Exams.Exam")]
 
-public sealed class ExamRow : Row<ExamRow.RowFields>, IIdRow, INameRow
+public sealed class ExamRow : LoggingRow<ExamRow.RowFields>, IIdRow, INameRow
 {
     [DisplayName("Id"), Identity, IdProperty]
     public int? Id { get => fields.Id[this]; set => fields.Id[this] = value; }
@@ -66,22 +67,10 @@ public sealed class ExamRow : Row<ExamRow.RowFields>, IIdRow, INameRow
     [DisplayName("Search Tags"), Size(1000)]
     public string SearchTags { get => fields.SearchTags[this]; set => fields.SearchTags[this] = value; }
 
-    [DisplayName("Insert Date"), NotNull]
-    public DateTime? InsertDate { get => fields.InsertDate[this]; set => fields.InsertDate[this] = value; }
-
-    [DisplayName("Insert User Id"), NotNull]
-    public int? InsertUserId { get => fields.InsertUserId[this]; set => fields.InsertUserId[this] = value; }
-
-    [DisplayName("Update Date")]
-    public DateTime? UpdateDate { get => fields.UpdateDate[this]; set => fields.UpdateDate[this] = value; }
-
-    [DisplayName("Update User Id")]
-    public int? UpdateUserId { get => fields.UpdateUserId[this]; set => fields.UpdateUserId[this] = value; }
-
-    [DisplayName("Is Active"), NotNull]
+    [DisplayName("Is Active"), DefaultValue(1)]
     public bool? IsActive { get => fields.IsActive[this]; set => fields.IsActive[this] = value; }
 
-    public class RowFields : RowFieldsBase
+    public class RowFields : LoggingRowFields
     {
         public Int32Field Id;
         public StringField Title;
@@ -100,10 +89,6 @@ public sealed class ExamRow : Row<ExamRow.RowFields>, IIdRow, INameRow
         public BooleanField HasNegativeMarketing;
         public StringField Instructions;
         public StringField SearchTags;
-        public DateTimeField InsertDate;
-        public Int32Field InsertUserId;
-        public DateTimeField UpdateDate;
-        public Int32Field UpdateUserId;
         public BooleanField IsActive;
 
     }

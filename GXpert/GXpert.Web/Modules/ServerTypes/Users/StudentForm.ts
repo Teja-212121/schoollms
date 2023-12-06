@@ -1,4 +1,4 @@
-﻿import { StringEditor, LookupEditor, IntegerEditor, DateEditor, BooleanEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
+﻿import { StringEditor, LookupEditor, IntegerEditor, DateEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
 
 export interface StudentForm {
     Prn: StringEditor;
@@ -12,11 +12,6 @@ export interface StudentForm {
     TalukaId: IntegerEditor;
     Dob: DateEditor;
     SchoolId: IntegerEditor;
-    InsertDate: DateEditor;
-    InsertUserId: IntegerEditor;
-    UpdateDate: DateEditor;
-    UpdateUserId: IntegerEditor;
-    IsActive: BooleanEditor;
 }
 
 export class StudentForm extends PrefixedContext {
@@ -33,7 +28,6 @@ export class StudentForm extends PrefixedContext {
             var w1 = LookupEditor;
             var w2 = IntegerEditor;
             var w3 = DateEditor;
-            var w4 = BooleanEditor;
 
             initFormType(StudentForm, [
                 'Prn', w0,
@@ -46,12 +40,7 @@ export class StudentForm extends PrefixedContext {
                 'DistrictId', w2,
                 'TalukaId', w2,
                 'Dob', w3,
-                'SchoolId', w2,
-                'InsertDate', w3,
-                'InsertUserId', w2,
-                'UpdateDate', w3,
-                'UpdateUserId', w2,
-                'IsActive', w4
+                'SchoolId', w2
             ]);
         }
     }

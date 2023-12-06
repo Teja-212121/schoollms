@@ -1,6 +1,7 @@
 using Serenity.ComponentModel;
 using Serenity.Data;
 using Serenity.Data.Mapping;
+using Serenity.Extensions.Entities;
 using System;
 using System.ComponentModel;
 
@@ -12,7 +13,7 @@ namespace GXpert.Users;
 [ModifyPermission("Administration:General")]
 [ServiceLookupPermission("Administration:General")]
 [LookupScript("Users.Student")]
-public sealed class StudentRow : Row<StudentRow.RowFields>, IIdRow, INameRow
+public sealed class StudentRow : LoggingRow<StudentRow.RowFields>, IIdRow, INameRow
 {
     const string jUser = nameof(jUser);
     const string jState = nameof(jState);
@@ -57,19 +58,7 @@ public sealed class StudentRow : Row<StudentRow.RowFields>, IIdRow, INameRow
     [DisplayName("School"), ForeignKey("Schools", "Id"), LeftJoin(jSchool), TextualField(nameof(SchoolName))]
     public int? SchoolId { get => fields.SchoolId[this]; set => fields.SchoolId[this] = value; }
 
-    [DisplayName("Insert Date"), NotNull]
-    public DateTime? InsertDate { get => fields.InsertDate[this]; set => fields.InsertDate[this] = value; }
-
-    [DisplayName("Insert User Id"), NotNull]
-    public int? InsertUserId { get => fields.InsertUserId[this]; set => fields.InsertUserId[this] = value; }
-
-    [DisplayName("Update Date")]
-    public DateTime? UpdateDate { get => fields.UpdateDate[this]; set => fields.UpdateDate[this] = value; }
-
-    [DisplayName("Update User Id")]
-    public int? UpdateUserId { get => fields.UpdateUserId[this]; set => fields.UpdateUserId[this] = value; }
-
-    [DisplayName("Is Active"), NotNull]
+    [DisplayName("Is Active"), DefaultValue(1)]
     public bool? IsActive { get => fields.IsActive[this]; set => fields.IsActive[this] = value; }
 
     [DisplayName("User Username"), Origin(jUser, nameof(Administration.UserRow.Username))]
@@ -87,7 +76,7 @@ public sealed class StudentRow : Row<StudentRow.RowFields>, IIdRow, INameRow
     [DisplayName("School Name"), Expression($"{jSchool}.[Name]")]
     public string SchoolName { get => fields.SchoolName[this]; set => fields.SchoolName[this] = value; }
 
-    public class RowFields : RowFieldsBase
+    public class RowFields : LoggingRowFields
     {
         public Int32Field Id;
         public StringField Prn;
@@ -101,10 +90,6 @@ public sealed class StudentRow : Row<StudentRow.RowFields>, IIdRow, INameRow
         public Int32Field TalukaId;
         public DateTimeField Dob;
         public Int32Field SchoolId;
-        public DateTimeField InsertDate;
-        public Int32Field InsertUserId;
-        public DateTimeField UpdateDate;
-        public Int32Field UpdateUserId;
         public BooleanField IsActive;
 
         public StringField Username;

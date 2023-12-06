@@ -12,7 +12,6 @@ namespace GXpert.Attendance;
 [ReadPermission("Administration:General")]
 [ModifyPermission("Administration:General")]
 [ServiceLookupPermission("Administration:General")]
-[LookupScript("Exams.AssignmentEvaluation")]
 public sealed class AssignmentAttemptRow : LoggingRow<AssignmentAttemptRow.RowFields>, IIdRow, INameRow
 {
     const string jAssignment = nameof(jAssignment);

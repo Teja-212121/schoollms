@@ -1,18 +1,13 @@
-﻿import { ServiceLookupEditor, StringEditor, IntegerEditor, DecimalEditor, DateEditor, BooleanEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
+﻿import { ServiceLookupEditor, StringEditor, LookupEditor, DecimalEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
 
 export interface AssignmentEvaluationForm {
     AssignmentId: ServiceLookupEditor;
     EvalutionCriteria: StringEditor;
-    ClassId: IntegerEditor;
-    SubjectId: IntegerEditor;
-    TopicId: IntegerEditor;
-    BloomsIndex: IntegerEditor;
+    ClassId: LookupEditor;
+    SubjectId: LookupEditor;
+    TopicId: LookupEditor;
+    BloomsIndex: LookupEditor;
     BloomsWeightage: DecimalEditor;
-    InsertDate: DateEditor;
-    InsertUserId: IntegerEditor;
-    UpdateDate: DateEditor;
-    UpdateUserId: IntegerEditor;
-    IsActive: BooleanEditor;
 }
 
 export class AssignmentEvaluationForm extends PrefixedContext {
@@ -27,10 +22,8 @@ export class AssignmentEvaluationForm extends PrefixedContext {
 
             var w0 = ServiceLookupEditor;
             var w1 = StringEditor;
-            var w2 = IntegerEditor;
+            var w2 = LookupEditor;
             var w3 = DecimalEditor;
-            var w4 = DateEditor;
-            var w5 = BooleanEditor;
 
             initFormType(AssignmentEvaluationForm, [
                 'AssignmentId', w0,
@@ -39,12 +32,7 @@ export class AssignmentEvaluationForm extends PrefixedContext {
                 'SubjectId', w2,
                 'TopicId', w2,
                 'BloomsIndex', w2,
-                'BloomsWeightage', w3,
-                'InsertDate', w4,
-                'InsertUserId', w2,
-                'UpdateDate', w4,
-                'UpdateUserId', w2,
-                'IsActive', w5
+                'BloomsWeightage', w3
             ]);
         }
     }

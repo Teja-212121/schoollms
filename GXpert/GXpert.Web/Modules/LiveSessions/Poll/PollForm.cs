@@ -1,4 +1,4 @@
-﻿using Serenity.ComponentModel;
+using Serenity.ComponentModel;
 using System;
 
 namespace GXpert.LiveSessions.Forms;
@@ -22,9 +22,4 @@ public class PollForm
     public short NumberOfWrong { get; set; }
     public int BloomsTaxonomyId { get; set; }
     public float Weightage { get; set; }
-    public DateTime InsertDate { get; set; }
-    public int InsertUserId { get; set; }
-    public DateTime UpdateDate { get; set; }
-    public int UpdateUserId { get; set; }
-    public bool IsActive { get; set; }
 }

@@ -1,6 +1,7 @@
-﻿using Serenity.ComponentModel;
+using Serenity.ComponentModel;
 using Serenity.Data;
 using Serenity.Data.Mapping;
+using Serenity.Extensions.Entities;
 using System;
 using System.ComponentModel;
 
@@ -11,7 +12,7 @@ namespace GXpert.QuestionBank;
 [ReadPermission("Administration:General")]
 [ModifyPermission("Administration:General")]
 [ServiceLookupPermission("Administration:General")]
-public sealed class QuestionOptionRow : Row<QuestionOptionRow.RowFields>, IIdRow, INameRow
+public sealed class QuestionOptionRow : LoggingRow<QuestionOptionRow.RowFields>, IIdRow, INameRow
 {
     const string jQuestion = nameof(jQuestion);
 
@@ -34,25 +35,13 @@ public sealed class QuestionOptionRow : Row<QuestionOptionRow.RowFields>, IIdRow
     [DisplayName("Weightage")]
     public float? Weightage { get => fields.Weightage[this]; set => fields.Weightage[this] = value; }
 
-    [DisplayName("Insert Date"), NotNull]
-    public DateTime? InsertDate { get => fields.InsertDate[this]; set => fields.InsertDate[this] = value; }
-
-    [DisplayName("Insert User Id"), NotNull]
-    public int? InsertUserId { get => fields.InsertUserId[this]; set => fields.InsertUserId[this] = value; }
-
-    [DisplayName("Update Date")]
-    public DateTime? UpdateDate { get => fields.UpdateDate[this]; set => fields.UpdateDate[this] = value; }
-
-    [DisplayName("Update User Id")]
-    public int? UpdateUserId { get => fields.UpdateUserId[this]; set => fields.UpdateUserId[this] = value; }
-
-    [DisplayName("Is Active"), NotNull]
+    [DisplayName("Is Active"), DefaultValue(1)]
     public bool? IsActive { get => fields.IsActive[this]; set => fields.IsActive[this] = value; }
 
     [DisplayName("Question Question Text"), Origin(jQuestion, nameof(QuestionRow.QuestionText))]
     public string QuestionText { get => fields.QuestionText[this]; set => fields.QuestionText[this] = value; }
 
-    public class RowFields : RowFieldsBase
+    public class RowFields : LoggingRowFields
     {
         public Int64Field Id;
         public Int64Field QuestionId;
@@ -60,10 +49,6 @@ public sealed class QuestionOptionRow : Row<QuestionOptionRow.RowFields>, IIdRow
         public BooleanField IsCorrect;
         public SingleField SortOrder;
         public SingleField Weightage;
-        public DateTimeField InsertDate;
-        public Int32Field InsertUserId;
-        public DateTimeField UpdateDate;
-        public Int32Field UpdateUserId;
         public BooleanField IsActive;
 
         public StringField QuestionText;
