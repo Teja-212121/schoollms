@@ -1,4 +1,4 @@
-﻿import { fieldsProxy } from "@serenity-is/corelib";
+﻿import { getLookup, getLookupAsync, fieldsProxy } from "@serenity-is/corelib";
 
 export interface PollRow {
     Id?: number;
@@ -29,6 +29,12 @@ export abstract class PollRow {
     static readonly idProperty = 'Id';
     static readonly nameProperty = 'Question';
     static readonly localTextPrefix = 'LiveSessions.Poll';
+    static readonly lookupKey = 'LiveSessions.Poll';
+
+    /** @deprecated use getLookupAsync instead */
+    static getLookup() { return getLookup<PollRow>('LiveSessions.Poll') }
+    static async getLookupAsync() { return getLookupAsync<PollRow>('LiveSessions.Poll') }
+
     static readonly deletePermission = 'Administration:General';
     static readonly insertPermission = 'Administration:General';
     static readonly readPermission = 'Administration:General';

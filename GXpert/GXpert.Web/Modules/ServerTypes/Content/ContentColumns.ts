@@ -23,11 +23,6 @@ export interface ContentColumns {
     HandRaiseCount: Column<ContentRow>;
     SearchTags: Column<ContentRow>;
     EDifficultyLevel: Column<ContentRow>;
-    InsertDate: Column<ContentRow>;
-    InsertUserId: Column<ContentRow>;
-    UpdateDate: Column<ContentRow>;
-    UpdateUserId: Column<ContentRow>;
-    IsActive: Column<ContentRow>;
 }
 
 export class ContentColumns extends ColumnsBase<ContentRow> {

@@ -1,4 +1,4 @@
-﻿using Serenity.ComponentModel;
+using Serenity.ComponentModel;
 using Serenity.Data;
 using Serenity.Data.Mapping;
 using System;
@@ -10,6 +10,7 @@ namespace GXpert.Playlist;
 [DisplayName("Play List Content"), InstanceName("Play List Content")]
 [ReadPermission("Administration:General")]
 [ModifyPermission("Administration:General")]
+[LookupScript("Playlist.PlayListContent")]
 public sealed class PlayListContentRow : Row<PlayListContentRow.RowFields>, IIdRow
 {
     const string jPlayList = nameof(jPlayList);

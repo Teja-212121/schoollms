@@ -1,11 +1,11 @@
-﻿import { IntegerEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
+﻿import { LookupEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
 
 export interface RaiseHandRecordedSessionForm {
-    ContentId: IntegerEditor;
-    StudentId: IntegerEditor;
-    PlayListId: IntegerEditor;
-    PlayListContentId: IntegerEditor;
-    ActivationId: IntegerEditor;
+    ContentId: LookupEditor;
+    StudentId: LookupEditor;
+    PlayListId: LookupEditor;
+    PlayListContentId: LookupEditor;
+    ActivationId: LookupEditor;
 }
 
 export class RaiseHandRecordedSessionForm extends PrefixedContext {
@@ -18,7 +18,7 @@ export class RaiseHandRecordedSessionForm extends PrefixedContext {
         if (!RaiseHandRecordedSessionForm.init)  {
             RaiseHandRecordedSessionForm.init = true;
 
-            var w0 = IntegerEditor;
+            var w0 = LookupEditor;
 
             initFormType(RaiseHandRecordedSessionForm, [
                 'ContentId', w0,

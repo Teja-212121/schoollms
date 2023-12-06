@@ -5,13 +5,13 @@ export interface ContentBloomsIndexRow {
     ContentId?: number;
     BloomsIndex?: number;
     Weightage?: number;
-    InsertDate?: string;
-    InsertUserId?: number;
-    UpdateDate?: string;
-    UpdateUserId?: number;
     IsActive?: boolean;
     ContentTitle?: string;
     BloomsIndexCoginitiveSkill?: string;
+    InsertUserId?: number;
+    InsertDate?: string;
+    UpdateUserId?: number;
+    UpdateDate?: string;
 }
 
 export abstract class ContentBloomsIndexRow {

@@ -23,18 +23,23 @@ public sealed class RaiseHandRecordedSessionRow : LoggingRow<RaiseHandRecordedSe
     public int? Id { get => fields.Id[this]; set => fields.Id[this] = value; }
 
     [DisplayName("Content"), NotNull, ForeignKey("Contents", "Id"), LeftJoin(jContent), TextualField(nameof(ContentTitle))]
+    [LookupEditor("Content.Content")]
     public int? ContentId { get => fields.ContentId[this]; set => fields.ContentId[this] = value; }
 
     [DisplayName("Student"), NotNull, ForeignKey("Students", "Id"), LeftJoin(jStudent), TextualField(nameof(StudentPrn))]
+    [LookupEditor("Users.Student")]
     public int? StudentId { get => fields.StudentId[this]; set => fields.StudentId[this] = value; }
 
     [DisplayName("Play List"), NotNull, ForeignKey("PlayLists", "Id"), LeftJoin(jPlayList), TextualField(nameof(PlayListTitle))]
+    [LookupEditor("Playlist.PlayList")]
     public int? PlayListId { get => fields.PlayListId[this]; set => fields.PlayListId[this] = value; }
 
     [DisplayName("Play List Content"), NotNull, ForeignKey("PlayListContents", "Id"), LeftJoin(jPlayListContent)]
+    [LookupEditor("Playlist.PlayListContent")]
     public int? PlayListContentId { get => fields.PlayListContentId[this]; set => fields.PlayListContentId[this] = value; }
 
     [DisplayName("Activation"), NotNull, ForeignKey("Activations", "Id"), LeftJoin(jActivation), TextualField(nameof(ActivationDeviceId))]
+    [LookupEditor("Activation.Activation")]
     public int? ActivationId { get => fields.ActivationId[this]; set => fields.ActivationId[this] = value; }
 
     [DisplayName("Is Active"), DefaultValue(1)]

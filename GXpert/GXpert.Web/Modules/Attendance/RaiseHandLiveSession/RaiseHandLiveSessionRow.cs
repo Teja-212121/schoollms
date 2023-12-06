@@ -22,9 +22,11 @@ public sealed class RaiseHandLiveSessionRow : LoggingRow<RaiseHandLiveSessionRow
     public int? Id { get => fields.Id[this]; set => fields.Id[this] = value; }
 
     [DisplayName("Live Sessionlog"), Column("liveSessionlogId"), NotNull, ForeignKey("LiveSessionLog", "Id"), LeftJoin(jLiveSessionlog)]
+    [LookupEditor("LiveSessions.LiveSessionLog")]
     public int? LiveSessionlogId { get => fields.LiveSessionlogId[this]; set => fields.LiveSessionlogId[this] = value; }
 
     [DisplayName("Student"), NotNull, ForeignKey("Students", "Id"), LeftJoin(jStudent), TextualField(nameof(StudentPrn))]
+    [LookupEditor("Users.Student")]
     public int? StudentId { get => fields.StudentId[this]; set => fields.StudentId[this] = value; }
 
     [DisplayName("Session Time")]
@@ -34,9 +36,11 @@ public sealed class RaiseHandLiveSessionRow : LoggingRow<RaiseHandLiveSessionRow
     public short? HandRaiseStatus { get => fields.HandRaiseStatus[this]; set => fields.HandRaiseStatus[this] = value; }
 
     [DisplayName("Play List"), NotNull, ForeignKey("PlayLists", "Id"), LeftJoin(jPlayList), TextualField(nameof(PlayListTitle))]
+    [LookupEditor("Playlist.PlayList")]
     public int? PlayListId { get => fields.PlayListId[this]; set => fields.PlayListId[this] = value; }
 
     [DisplayName("Activation"), NotNull, ForeignKey("Activations", "Id"), LeftJoin(jActivation), TextualField(nameof(ActivationDeviceId))]
+    [LookupEditor("Activation.Activation")]
     public int? ActivationId { get => fields.ActivationId[this]; set => fields.ActivationId[this] = value; }
 
     [DisplayName("Is Active"), DefaultValue(1)]

@@ -1,6 +1,7 @@
-﻿using Serenity.ComponentModel;
+using Serenity.ComponentModel;
 using Serenity.Data;
 using Serenity.Data.Mapping;
+using Serenity.Extensions.Entities;
 using System;
 using System.ComponentModel;
 
@@ -10,7 +11,7 @@ namespace GXpert.Content;
 [DisplayName("Content Topic"), InstanceName("Content Topic")]
 [ReadPermission("Administration:General")]
 [ModifyPermission("Administration:General")]
-public sealed class ContentTopicRow : Row<ContentTopicRow.RowFields>, IIdRow
+public sealed class ContentTopicRow : LoggingRow<ContentTopicRow.RowFields>, IIdRow
 {
     const string jContent = nameof(jContent);
     const string jClass = nameof(jClass);
@@ -26,33 +27,25 @@ public sealed class ContentTopicRow : Row<ContentTopicRow.RowFields>, IIdRow
     public int? ContentId { get => fields.ContentId[this]; set => fields.ContentId[this] = value; }
 
     [DisplayName("Class"), NotNull, ForeignKey("Classes", "Id"), LeftJoin(jClass), TextualField(nameof(ClassTitle))]
+    [LookupEditor("Syllabus.Class")]
     public int? ClassId { get => fields.ClassId[this]; set => fields.ClassId[this] = value; }
 
     [DisplayName("Subject"), ForeignKey("Subjects", "Id"), LeftJoin(jSubject), TextualField(nameof(SubjectTitle))]
+    [LookupEditor("Syllabus.Subject")]
     public int? SubjectId { get => fields.SubjectId[this]; set => fields.SubjectId[this] = value; }
 
     [DisplayName("Topic"), ForeignKey("Topics", "Id"), LeftJoin(jTopic), TextualField(nameof(TopicTitle))]
+    [LookupEditor("Syllabus.Topic")]
     public int? TopicId { get => fields.TopicId[this]; set => fields.TopicId[this] = value; }
 
     [DisplayName("Medium"), ForeignKey("Mediums", "Id"), LeftJoin(jMedium), TextualField(nameof(MediumTitle))]
+    [LookupEditor("Syllabus.Medium")]
     public int? MediumId { get => fields.MediumId[this]; set => fields.MediumId[this] = value; }
 
     [DisplayName("Sort Order"), NotNull]
     public short? SortOrder { get => fields.SortOrder[this]; set => fields.SortOrder[this] = value; }
 
-    [DisplayName("Insert Date"), NotNull]
-    public DateTime? InsertDate { get => fields.InsertDate[this]; set => fields.InsertDate[this] = value; }
-
-    [DisplayName("Insert User Id"), NotNull]
-    public int? InsertUserId { get => fields.InsertUserId[this]; set => fields.InsertUserId[this] = value; }
-
-    [DisplayName("Update Date")]
-    public DateTime? UpdateDate { get => fields.UpdateDate[this]; set => fields.UpdateDate[this] = value; }
-
-    [DisplayName("Update User Id")]
-    public int? UpdateUserId { get => fields.UpdateUserId[this]; set => fields.UpdateUserId[this] = value; }
-
-    [DisplayName("Is Active"), NotNull]
+    [DisplayName("Is Active"), DefaultValue(1)]
     public bool? IsActive { get => fields.IsActive[this]; set => fields.IsActive[this] = value; }
 
     [DisplayName("Content Title"), Origin(jContent, nameof(ContentRow.Title))]
@@ -70,7 +63,7 @@ public sealed class ContentTopicRow : Row<ContentTopicRow.RowFields>, IIdRow
     [DisplayName("Medium Title"), Expression($"{jMedium}.[Title]")]
     public string MediumTitle { get => fields.MediumTitle[this]; set => fields.MediumTitle[this] = value; }
 
-    public class RowFields : RowFieldsBase
+    public class RowFields : LoggingRowFields
     {
         public Int32Field Id;
         public Int32Field ContentId;
@@ -79,10 +72,6 @@ public sealed class ContentTopicRow : Row<ContentTopicRow.RowFields>, IIdRow
         public Int32Field TopicId;
         public Int32Field MediumId;
         public Int16Field SortOrder;
-        public DateTimeField InsertDate;
-        public Int32Field InsertUserId;
-        public DateTimeField UpdateDate;
-        public Int32Field UpdateUserId;
         public BooleanField IsActive;
 
         public StringField ContentTitle;

@@ -1,4 +1,4 @@
-﻿using Serenity.ComponentModel;
+using Serenity.ComponentModel;
 using Serenity.Data;
 using Serenity.Data.Mapping;
 using System;
@@ -11,6 +11,7 @@ namespace GXpert.Masters;
 [ReadPermission("Administration:General")]
 [ModifyPermission("Administration:General")]
 [ServiceLookupPermission("Administration:General")]
+[LookupScript("Masters.BloomsTaxanomy")]
 public sealed class BloomsTaxanomyRow : Row<BloomsTaxanomyRow.RowFields>, IIdRow, INameRow
 {
     [DisplayName("Id"), Identity, IdProperty]

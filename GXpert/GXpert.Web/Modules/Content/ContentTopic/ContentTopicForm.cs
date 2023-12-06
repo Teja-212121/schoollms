@@ -1,4 +1,4 @@
-﻿using Serenity.ComponentModel;
+using Serenity.ComponentModel;
 using System;
 
 namespace GXpert.Content.Forms;
@@ -13,9 +13,4 @@ public class ContentTopicForm
     public int TopicId { get; set; }
     public int MediumId { get; set; }
     public short SortOrder { get; set; }
-    public DateTime InsertDate { get; set; }
-    public int InsertUserId { get; set; }
-    public DateTime UpdateDate { get; set; }
-    public int UpdateUserId { get; set; }
-    public bool IsActive { get; set; }
 }

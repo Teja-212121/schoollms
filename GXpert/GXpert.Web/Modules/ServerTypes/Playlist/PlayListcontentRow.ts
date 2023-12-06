@@ -1,4 +1,4 @@
-﻿import { fieldsProxy } from "@serenity-is/corelib";
+﻿import { getLookup, getLookupAsync, fieldsProxy } from "@serenity-is/corelib";
 
 export interface PlayListContentRow {
     Id?: number;
@@ -26,6 +26,12 @@ export interface PlayListContentRow {
 export abstract class PlayListContentRow {
     static readonly idProperty = 'Id';
     static readonly localTextPrefix = 'Playlist.PlayListContent';
+    static readonly lookupKey = 'Playlist.PlayListContent';
+
+    /** @deprecated use getLookupAsync instead */
+    static getLookup() { return getLookup<PlayListContentRow>('Playlist.PlayListContent') }
+    static async getLookupAsync() { return getLookupAsync<PlayListContentRow>('Playlist.PlayListContent') }
+
     static readonly deletePermission = 'Administration:General';
     static readonly insertPermission = 'Administration:General';
     static readonly readPermission = 'Administration:General';

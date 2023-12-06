@@ -23,9 +23,11 @@ public sealed class PollResponseRow : LoggingRow<PollResponseRow.RowFields>, IId
     public int? Id { get => fields.Id[this]; set => fields.Id[this] = value; }
 
     [DisplayName("Poll"), NotNull, ForeignKey("Polls", "Id"), LeftJoin(jPoll), TextualField(nameof(PollQuestion))]
+    [LookupEditor("LiveSessions.Poll")]
     public int? PollId { get => fields.PollId[this]; set => fields.PollId[this] = value; }
 
     [DisplayName("Student"), NotNull, ForeignKey("Students", "Id"), LeftJoin(jStudent), TextualField(nameof(StudentPrn))]
+    [LookupEditor("Users.Student")]
     public int? StudentId { get => fields.StudentId[this]; set => fields.StudentId[this] = value; }
 
     [DisplayName("Response"), Size(255), QuickSearch, NameProperty]
@@ -38,9 +40,11 @@ public sealed class PollResponseRow : LoggingRow<PollResponseRow.RowFields>, IId
     public int? Score { get => fields.Score[this]; set => fields.Score[this] = value; }
 
     [DisplayName("Live Session Log"), NotNull, ForeignKey("LiveSessionLog", "Id"), LeftJoin(jLiveSessionLog)]
+    [LookupEditor("LiveSessions.LiveSessionLog")]
     public int? LiveSessionLogId { get => fields.LiveSessionLogId[this]; set => fields.LiveSessionLogId[this] = value; }
 
     [DisplayName("Activation"), NotNull, ForeignKey("Activations", "Id"), LeftJoin(jActivation), TextualField(nameof(ActivationDeviceId))]
+    [LookupEditor("Activation.Activation")]
     public int? ActivationId { get => fields.ActivationId[this]; set => fields.ActivationId[this] = value; }
 
     [DisplayName("Is Active"), DefaultValue(1)]

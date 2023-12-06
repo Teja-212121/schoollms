@@ -7,11 +7,6 @@ export interface ContentBloomsIndexColumns {
     ContentTitle: Column<ContentBloomsIndexRow>;
     BloomsIndexCoginitiveSkill: Column<ContentBloomsIndexRow>;
     Weightage: Column<ContentBloomsIndexRow>;
-    InsertDate: Column<ContentBloomsIndexRow>;
-    InsertUserId: Column<ContentBloomsIndexRow>;
-    UpdateDate: Column<ContentBloomsIndexRow>;
-    UpdateUserId: Column<ContentBloomsIndexRow>;
-    IsActive: Column<ContentBloomsIndexRow>;
 }
 
 export class ContentBloomsIndexColumns extends ColumnsBase<ContentBloomsIndexRow> {

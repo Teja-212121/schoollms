@@ -1,4 +1,4 @@
-﻿using Serenity.ComponentModel;
+using Serenity.ComponentModel;
 using Serenity.Data;
 using Serenity.Data.Mapping;
 using System;
@@ -10,6 +10,7 @@ namespace GXpert.LiveSessions;
 [DisplayName("Live Session Log"), InstanceName("Live Session Log")]
 [ReadPermission("Administration:General")]
 [ModifyPermission("Administration:General")]
+[LookupScript("LiveSessions.LiveSessionLog")]
 public sealed class LiveSessionLogRow : Row<LiveSessionLogRow.RowFields>, IIdRow
 {
     const string jTeacher = nameof(jTeacher);

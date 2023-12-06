@@ -1,4 +1,4 @@
-﻿using Serenity.ComponentModel;
+using Serenity.ComponentModel;
 using Serenity.Data;
 using Serenity.Data.Mapping;
 using System;
@@ -11,6 +11,7 @@ namespace GXpert.Syllabus;
 [ReadPermission("Administration:General")]
 [ModifyPermission("Administration:General")]
 [ServiceLookupPermission("Administration:General")]
+[LookupScript("Syllabus.Subject")]
 public sealed class SubjectRow : Row<SubjectRow.RowFields>, IIdRow, INameRow
 {
     const string jClass = nameof(jClass);
