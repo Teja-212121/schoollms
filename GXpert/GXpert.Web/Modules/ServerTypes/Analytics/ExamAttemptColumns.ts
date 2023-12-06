@@ -13,11 +13,6 @@ export interface ExamAttemptColumns {
     StudentAnswerSheetUpload: Column<ExamAttemptRow>;
     TeacherCheckedPaperUpload: Column<ExamAttemptRow>;
     ActivationDeviceId: Column<ExamAttemptRow>;
-    InsertDate: Column<ExamAttemptRow>;
-    InsertUserId: Column<ExamAttemptRow>;
-    UpdateDate: Column<ExamAttemptRow>;
-    UpdateUserId: Column<ExamAttemptRow>;
-    IsActive: Column<ExamAttemptRow>;
 }
 
 export class ExamAttemptColumns extends ColumnsBase<ExamAttemptRow> {

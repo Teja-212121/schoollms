@@ -1,6 +1,7 @@
-﻿using Serenity.ComponentModel;
+using Serenity.ComponentModel;
 using Serenity.Data;
 using Serenity.Data.Mapping;
+using Serenity.Extensions.Entities;
 using System;
 using System.ComponentModel;
 
@@ -11,7 +12,7 @@ namespace GXpert.Attendance;
 [ReadPermission("Administration:General")]
 [ModifyPermission("Administration:General")]
 [ServiceLookupPermission("Administration:General")]
-public sealed class PollResponseRow : Row<PollResponseRow.RowFields>, IIdRow, INameRow
+public sealed class PollResponseRow : LoggingRow<PollResponseRow.RowFields>, IIdRow, INameRow
 {
     const string jPoll = nameof(jPoll);
     const string jStudent = nameof(jStudent);
@@ -42,19 +43,7 @@ public sealed class PollResponseRow : Row<PollResponseRow.RowFields>, IIdRow, IN
     [DisplayName("Activation"), NotNull, ForeignKey("Activations", "Id"), LeftJoin(jActivation), TextualField(nameof(ActivationDeviceId))]
     public int? ActivationId { get => fields.ActivationId[this]; set => fields.ActivationId[this] = value; }
 
-    [DisplayName("Insert Date"), NotNull]
-    public DateTime? InsertDate { get => fields.InsertDate[this]; set => fields.InsertDate[this] = value; }
-
-    [DisplayName("Insert User Id"), NotNull]
-    public int? InsertUserId { get => fields.InsertUserId[this]; set => fields.InsertUserId[this] = value; }
-
-    [DisplayName("Update Date")]
-    public DateTime? UpdateDate { get => fields.UpdateDate[this]; set => fields.UpdateDate[this] = value; }
-
-    [DisplayName("Update User Id")]
-    public int? UpdateUserId { get => fields.UpdateUserId[this]; set => fields.UpdateUserId[this] = value; }
-
-    [DisplayName("Is Active"), NotNull]
+    [DisplayName("Is Active"), DefaultValue(1)]
     public bool? IsActive { get => fields.IsActive[this]; set => fields.IsActive[this] = value; }
 
     [DisplayName("Poll Question"), Expression($"{jPoll}.[Question]")]
@@ -66,7 +55,7 @@ public sealed class PollResponseRow : Row<PollResponseRow.RowFields>, IIdRow, IN
     [DisplayName("Activation Device Id"), Expression($"{jActivation}.[DeviceId]")]
     public string ActivationDeviceId { get => fields.ActivationDeviceId[this]; set => fields.ActivationDeviceId[this] = value; }
 
-    public class RowFields : RowFieldsBase
+    public class RowFields : LoggingRowFields
     {
         public Int32Field Id;
         public Int32Field PollId;
@@ -76,10 +65,6 @@ public sealed class PollResponseRow : Row<PollResponseRow.RowFields>, IIdRow, IN
         public Int32Field Score;
         public Int32Field LiveSessionLogId;
         public Int32Field ActivationId;
-        public DateTimeField InsertDate;
-        public Int32Field InsertUserId;
-        public DateTimeField UpdateDate;
-        public Int32Field UpdateUserId;
         public BooleanField IsActive;
 
         public StringField PollQuestion;

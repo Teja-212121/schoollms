@@ -1,4 +1,4 @@
-﻿import { IntegerEditor, StringEditor, DateEditor, BooleanEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
+﻿import { IntegerEditor, StringEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
 
 export interface PollResponseForm {
     PollId: IntegerEditor;
@@ -8,11 +8,6 @@ export interface PollResponseForm {
     Score: IntegerEditor;
     LiveSessionLogId: IntegerEditor;
     ActivationId: IntegerEditor;
-    InsertDate: DateEditor;
-    InsertUserId: IntegerEditor;
-    UpdateDate: DateEditor;
-    UpdateUserId: IntegerEditor;
-    IsActive: BooleanEditor;
 }
 
 export class PollResponseForm extends PrefixedContext {
@@ -27,8 +22,6 @@ export class PollResponseForm extends PrefixedContext {
 
             var w0 = IntegerEditor;
             var w1 = StringEditor;
-            var w2 = DateEditor;
-            var w3 = BooleanEditor;
 
             initFormType(PollResponseForm, [
                 'PollId', w0,
@@ -37,12 +30,7 @@ export class PollResponseForm extends PrefixedContext {
                 'ResponseTimeInSeconds', w0,
                 'Score', w0,
                 'LiveSessionLogId', w0,
-                'ActivationId', w0,
-                'InsertDate', w2,
-                'InsertUserId', w0,
-                'UpdateDate', w2,
-                'UpdateUserId', w0,
-                'IsActive', w3
+                'ActivationId', w0
             ]);
         }
     }

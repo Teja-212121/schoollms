@@ -1,6 +1,7 @@
-﻿using Serenity.ComponentModel;
+using Serenity.ComponentModel;
 using Serenity.Data;
 using Serenity.Data.Mapping;
+using Serenity.Extensions.Entities;
 using System;
 using System.ComponentModel;
 
@@ -10,7 +11,7 @@ namespace GXpert.Attendance;
 [DisplayName("Assignment Attempt Evaluation"), InstanceName("Assignment Attempt Evaluation")]
 [ReadPermission("Administration:General")]
 [ModifyPermission("Administration:General")]
-public sealed class AssignmentAttemptEvaluationRow : Row<AssignmentAttemptEvaluationRow.RowFields>, IIdRow
+public sealed class AssignmentAttemptEvaluationRow : LoggingRow<AssignmentAttemptEvaluationRow.RowFields>, IIdRow
 {
     const string jAssignment = nameof(jAssignment);
     const string jAssignmentAttempt = nameof(jAssignmentAttempt);
@@ -20,6 +21,7 @@ public sealed class AssignmentAttemptEvaluationRow : Row<AssignmentAttemptEvalua
     public int? Id { get => fields.Id[this]; set => fields.Id[this] = value; }
 
     [DisplayName("Assignment"), NotNull, ForeignKey("Assignments", "Id"), LeftJoin(jAssignment), TextualField(nameof(AssignmentTitle))]
+    [LookupEditor("Exams.Assignment")]
     public int? AssignmentId { get => fields.AssignmentId[this]; set => fields.AssignmentId[this] = value; }
 
     [DisplayName("Assignment Attempt"), NotNull, ForeignKey(typeof(AssignmentAttemptRow)), LeftJoin(jAssignmentAttempt)]
@@ -28,6 +30,7 @@ public sealed class AssignmentAttemptEvaluationRow : Row<AssignmentAttemptEvalua
 
     [DisplayName("Assignment Evaluation"), ForeignKey("AssignmentEvaluation", "Id"), LeftJoin(jAssignmentEvaluation)]
     [TextualField(nameof(AssignmentEvaluationEvalutionCriteria))]
+    [LookupEditor("Exams.AssignmentEvaluation")]
     public int? AssignmentEvaluationId { get => fields.AssignmentEvaluationId[this]; set => fields.AssignmentEvaluationId[this] = value; }
 
     [DisplayName("Marks Obtained"), NotNull]
@@ -36,19 +39,7 @@ public sealed class AssignmentAttemptEvaluationRow : Row<AssignmentAttemptEvalua
     [DisplayName("Evaluation Status"), NotNull]
     public short? EvaluationStatus { get => fields.EvaluationStatus[this]; set => fields.EvaluationStatus[this] = value; }
 
-    [DisplayName("Insert Date"), NotNull]
-    public DateTime? InsertDate { get => fields.InsertDate[this]; set => fields.InsertDate[this] = value; }
-
-    [DisplayName("Insert User Id"), NotNull]
-    public int? InsertUserId { get => fields.InsertUserId[this]; set => fields.InsertUserId[this] = value; }
-
-    [DisplayName("Update Date")]
-    public DateTime? UpdateDate { get => fields.UpdateDate[this]; set => fields.UpdateDate[this] = value; }
-
-    [DisplayName("Update User Id")]
-    public int? UpdateUserId { get => fields.UpdateUserId[this]; set => fields.UpdateUserId[this] = value; }
-
-    [DisplayName("Is Active"), NotNull]
+    [DisplayName("Is Active"), DefaultValue(1)]
     public bool? IsActive { get => fields.IsActive[this]; set => fields.IsActive[this] = value; }
 
     [DisplayName("Assignment Title"), Expression($"{jAssignment}.[Title]")]
@@ -60,7 +51,7 @@ public sealed class AssignmentAttemptEvaluationRow : Row<AssignmentAttemptEvalua
     [DisplayName("Assignment Evaluation Evalution Criteria"), Expression($"{jAssignmentEvaluation}.[EvalutionCriteria]")]
     public string AssignmentEvaluationEvalutionCriteria { get => fields.AssignmentEvaluationEvalutionCriteria[this]; set => fields.AssignmentEvaluationEvalutionCriteria[this] = value; }
 
-    public class RowFields : RowFieldsBase
+    public class RowFields : LoggingRowFields
     {
         public Int32Field Id;
         public Int32Field AssignmentId;
@@ -68,10 +59,6 @@ public sealed class AssignmentAttemptEvaluationRow : Row<AssignmentAttemptEvalua
         public Int32Field AssignmentEvaluationId;
         public Int32Field MarksObtained;
         public Int16Field EvaluationStatus;
-        public DateTimeField InsertDate;
-        public Int32Field InsertUserId;
-        public DateTimeField UpdateDate;
-        public Int32Field UpdateUserId;
         public BooleanField IsActive;
 
         public StringField AssignmentTitle;

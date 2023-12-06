@@ -1,4 +1,4 @@
-﻿import { IntegerEditor, DateEditor, BooleanEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
+﻿import { IntegerEditor, DateEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
 
 export interface RaiseHandLiveSessionForm {
     LiveSessionlogId: IntegerEditor;
@@ -7,11 +7,6 @@ export interface RaiseHandLiveSessionForm {
     HandRaiseStatus: IntegerEditor;
     PlayListId: IntegerEditor;
     ActivationId: IntegerEditor;
-    InsertDate: DateEditor;
-    InsertUserId: IntegerEditor;
-    UpdateDate: DateEditor;
-    UpdateUserId: IntegerEditor;
-    IsActive: BooleanEditor;
 }
 
 export class RaiseHandLiveSessionForm extends PrefixedContext {
@@ -26,7 +21,6 @@ export class RaiseHandLiveSessionForm extends PrefixedContext {
 
             var w0 = IntegerEditor;
             var w1 = DateEditor;
-            var w2 = BooleanEditor;
 
             initFormType(RaiseHandLiveSessionForm, [
                 'LiveSessionlogId', w0,
@@ -34,12 +28,7 @@ export class RaiseHandLiveSessionForm extends PrefixedContext {
                 'SessionTime', w1,
                 'HandRaiseStatus', w0,
                 'PlayListId', w0,
-                'ActivationId', w0,
-                'InsertDate', w1,
-                'InsertUserId', w0,
-                'UpdateDate', w1,
-                'UpdateUserId', w0,
-                'IsActive', w2
+                'ActivationId', w0
             ]);
         }
     }

@@ -1,4 +1,4 @@
-﻿using Serenity.ComponentModel;
+using Serenity.ComponentModel;
 using Serenity.Data;
 using Serenity.Data.Mapping;
 using System;
@@ -11,6 +11,7 @@ namespace GXpert.Users;
 [ReadPermission("Administration:General")]
 [ModifyPermission("Administration:General")]
 [ServiceLookupPermission("Administration:General")]
+[LookupScript("Users.Student")]
 public sealed class StudentRow : Row<StudentRow.RowFields>, IIdRow, INameRow
 {
     const string jUser = nameof(jUser);

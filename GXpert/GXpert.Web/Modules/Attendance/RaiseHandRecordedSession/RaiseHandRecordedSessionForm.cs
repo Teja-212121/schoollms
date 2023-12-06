@@ -1,4 +1,4 @@
-﻿using Serenity.ComponentModel;
+using Serenity.ComponentModel;
 using System;
 
 namespace GXpert.Attendance.Forms;
@@ -12,9 +12,4 @@ public class RaiseHandRecordedSessionForm
     public int PlayListId { get; set; }
     public int PlayListContentId { get; set; }
     public int ActivationId { get; set; }
-    public DateTime InsertDate { get; set; }
-    public int InsertUserId { get; set; }
-    public DateTime UpdateDate { get; set; }
-    public int UpdateUserId { get; set; }
-    public bool IsActive { get; set; }
 }

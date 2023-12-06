@@ -1,6 +1,7 @@
-﻿using Serenity.ComponentModel;
+using Serenity.ComponentModel;
 using Serenity.Data;
 using Serenity.Data.Mapping;
+using Serenity.Extensions.Entities;
 using System;
 using System.ComponentModel;
 
@@ -11,7 +12,7 @@ namespace GXpert.Analytics;
 [ReadPermission("Administration:General")]
 [ModifyPermission("Administration:General")]
 [ServiceLookupPermission("Administration:General")]
-public sealed class ExamAttemptQuestionRow : Row<ExamAttemptQuestionRow.RowFields>, IIdRow, INameRow
+public sealed class ExamAttemptQuestionRow : LoggingRow<ExamAttemptQuestionRow.RowFields>, IIdRow, INameRow
 {
     const string jExamAttempt = nameof(jExamAttempt);
     const string jExamQuestion = nameof(jExamQuestion);
@@ -25,6 +26,7 @@ public sealed class ExamAttemptQuestionRow : Row<ExamAttemptQuestionRow.RowField
 
     [DisplayName("Exam Question"), NotNull, ForeignKey("ExamQuestions", "Id"), LeftJoin(jExamQuestion)]
     [TextualField(nameof(ExamQuestionRightAnswer))]
+    [LookupEditor("Exams.ExamQuestion")]
     public int? ExamQuestionId { get => fields.ExamQuestionId[this]; set => fields.ExamQuestionId[this] = value; }
 
     [DisplayName("Option Selected"), Size(255), QuickSearch, NameProperty]
@@ -42,19 +44,7 @@ public sealed class ExamAttemptQuestionRow : Row<ExamAttemptQuestionRow.RowField
     [DisplayName("Result"), Size(50)]
     public string Result { get => fields.Result[this]; set => fields.Result[this] = value; }
 
-    [DisplayName("Insert Date"), NotNull]
-    public DateTime? InsertDate { get => fields.InsertDate[this]; set => fields.InsertDate[this] = value; }
-
-    [DisplayName("Insert User Id"), NotNull]
-    public int? InsertUserId { get => fields.InsertUserId[this]; set => fields.InsertUserId[this] = value; }
-
-    [DisplayName("Update Date"), NotNull]
-    public DateTime? UpdateDate { get => fields.UpdateDate[this]; set => fields.UpdateDate[this] = value; }
-
-    [DisplayName("Update User Id"), NotNull]
-    public int? UpdateUserId { get => fields.UpdateUserId[this]; set => fields.UpdateUserId[this] = value; }
-
-    [DisplayName("Is Active"), NotNull]
+    [DisplayName("Is Active"), DefaultValue(1)]
     public bool? IsActive { get => fields.IsActive[this]; set => fields.IsActive[this] = value; }
 
     [DisplayName("Exam Attempt Student Answer Sheet Upload"), Origin(jExamAttempt, nameof(ExamAttemptRow.StudentAnswerSheetUpload))]
@@ -63,7 +53,7 @@ public sealed class ExamAttemptQuestionRow : Row<ExamAttemptQuestionRow.RowField
     [DisplayName("Exam Question Right Answer"), Expression($"{jExamQuestion}.[RightAnswer]")]
     public string ExamQuestionRightAnswer { get => fields.ExamQuestionRightAnswer[this]; set => fields.ExamQuestionRightAnswer[this] = value; }
 
-    public class RowFields : RowFieldsBase
+    public class RowFields : LoggingRowFields
     {
         public Int32Field Id;
         public Int32Field ExamAttemptId;
@@ -73,10 +63,6 @@ public sealed class ExamAttemptQuestionRow : Row<ExamAttemptQuestionRow.RowField
         public Int16Field Attemptstatus;
         public Int32Field OutOfmarks;
         public StringField Result;
-        public DateTimeField InsertDate;
-        public Int32Field InsertUserId;
-        public DateTimeField UpdateDate;
-        public Int32Field UpdateUserId;
         public BooleanField IsActive;
 
         public StringField ExamAttemptStudentAnswerSheetUpload;

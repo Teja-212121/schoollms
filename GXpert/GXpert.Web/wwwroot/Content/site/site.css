@@ -1,5 +1,6 @@
 .s-site-logo-img {
-  content: url(../../Serenity.Assets/logo/white-128.png);
+  content: url(../../Content/images/GXpert-v2.png);
+  background-color: white;
 }
 
 .s-UserPermissionDialog > .size,

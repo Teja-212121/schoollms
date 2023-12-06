@@ -7,15 +7,15 @@ export interface RaiseHandRecordedSessionRow {
     PlayListId?: number;
     PlayListContentId?: number;
     ActivationId?: number;
-    InsertDate?: string;
-    InsertUserId?: number;
-    UpdateDate?: string;
-    UpdateUserId?: number;
     IsActive?: boolean;
     ContentTitle?: string;
     StudentPrn?: string;
     PlayListTitle?: string;
     ActivationDeviceId?: string;
+    InsertUserId?: number;
+    InsertDate?: string;
+    UpdateUserId?: number;
+    UpdateDate?: string;
 }
 
 export abstract class RaiseHandRecordedSessionRow {

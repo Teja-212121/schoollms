@@ -11,11 +11,6 @@ export interface ExamAttemptQuestionColumns {
     Attemptstatus: Column<ExamAttemptQuestionRow>;
     OutOfmarks: Column<ExamAttemptQuestionRow>;
     Result: Column<ExamAttemptQuestionRow>;
-    InsertDate: Column<ExamAttemptQuestionRow>;
-    InsertUserId: Column<ExamAttemptQuestionRow>;
-    UpdateDate: Column<ExamAttemptQuestionRow>;
-    UpdateUserId: Column<ExamAttemptQuestionRow>;
-    IsActive: Column<ExamAttemptQuestionRow>;
 }
 
 export class ExamAttemptQuestionColumns extends ColumnsBase<ExamAttemptQuestionRow> {

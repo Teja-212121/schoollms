@@ -24,6 +24,7 @@ public sealed class CouponCodeRow : LoggingRow<CouponCodeRow.RowFields>, IIdRow,
     public string Code { get => fields.Code[this]; set => fields.Code[this] = value; }
 
     [DisplayName("Play List"), NotNull, ForeignKey("PlayLists", "Id"), LeftJoin(jPlayList), TextualField(nameof(PlayListTitle))]
+    [LookupEditor("Playlist.PlayList")]
     public int? PlayListId { get => fields.PlayListId[this]; set => fields.PlayListId[this] = value; }
 
     [DisplayName("Validity Type")]

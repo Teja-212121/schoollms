@@ -1,8 +1,8 @@
-﻿import { StringEditor, IntegerEditor, DateEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
+﻿import { StringEditor, LookupEditor, IntegerEditor, DateEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
 
 export interface SerialKeyForm {
     SerialKey: StringEditor;
-    PlayListId: IntegerEditor;
+    PlayListId: LookupEditor;
     ValidityType: IntegerEditor;
     ValidityInDays: IntegerEditor;
     ValidDate: DateEditor;
@@ -21,17 +21,18 @@ export class SerialKeyForm extends PrefixedContext {
             SerialKeyForm.init = true;
 
             var w0 = StringEditor;
-            var w1 = IntegerEditor;
-            var w2 = DateEditor;
+            var w1 = LookupEditor;
+            var w2 = IntegerEditor;
+            var w3 = DateEditor;
 
             initFormType(SerialKeyForm, [
                 'SerialKey', w0,
                 'PlayListId', w1,
-                'ValidityType', w1,
-                'ValidityInDays', w1,
-                'ValidDate', w2,
+                'ValidityType', w2,
+                'ValidityInDays', w2,
+                'ValidDate', w3,
                 'Note', w0,
-                'EStatus', w1
+                'EStatus', w2
             ]);
         }
     }

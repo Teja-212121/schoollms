@@ -1,4 +1,4 @@
-﻿using Serenity.ComponentModel;
+using Serenity.ComponentModel;
 using System;
 
 namespace GXpert.Analytics.Forms;
@@ -14,9 +14,4 @@ public class ExamAttemptQuestionForm
     public short Attemptstatus { get; set; }
     public int OutOfmarks { get; set; }
     public string Result { get; set; }
-    public DateTime InsertDate { get; set; }
-    public int InsertUserId { get; set; }
-    public DateTime UpdateDate { get; set; }
-    public int UpdateUserId { get; set; }
-    public bool IsActive { get; set; }
 }

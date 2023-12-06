@@ -1,4 +1,4 @@
-﻿using Serenity.ComponentModel;
+using Serenity.ComponentModel;
 using Serenity.Data;
 using Serenity.Data.Mapping;
 using System;
@@ -11,6 +11,7 @@ namespace GXpert.Exams;
 [ReadPermission("Administration:General")]
 [ModifyPermission("Administration:General")]
 [ServiceLookupPermission("Administration:General")]
+[LookupScript("Exams.ExamQuestion")]
 public sealed class ExamQuestionRow : Row<ExamQuestionRow.RowFields>, IIdRow, INameRow
 {
     const string jExam = nameof(jExam);

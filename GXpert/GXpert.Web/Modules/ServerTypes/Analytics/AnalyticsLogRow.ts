@@ -8,14 +8,14 @@ export interface AnalyticsLogRow {
     StartDatetime?: string;
     EndDateTime?: string;
     TimeSpent?: number;
-    InsertDate?: string;
-    InsertUserId?: number;
-    UpdateDate?: string;
-    UpdateUserId?: number;
     IsActive?: boolean;
     ContentTitle?: string;
     ActivationDeviceId?: string;
     StudentPrn?: string;
+    InsertUserId?: number;
+    InsertDate?: string;
+    UpdateUserId?: number;
+    UpdateDate?: string;
 }
 
 export abstract class AnalyticsLogRow {

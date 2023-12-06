@@ -1,6 +1,7 @@
-﻿using Serenity.ComponentModel;
+using Serenity.ComponentModel;
 using Serenity.Data;
 using Serenity.Data.Mapping;
+using Serenity.Extensions.Entities;
 using System;
 using System.ComponentModel;
 
@@ -10,7 +11,7 @@ namespace GXpert.Analytics;
 [DisplayName("Analytics Log"), InstanceName("Analytics Log")]
 [ReadPermission("Administration:General")]
 [ModifyPermission("Administration:General")]
-public sealed class AnalyticsLogRow : Row<AnalyticsLogRow.RowFields>, IIdRow
+public sealed class AnalyticsLogRow : LoggingRow<AnalyticsLogRow.RowFields>, IIdRow
 {
     const string jContent = nameof(jContent);
     const string jActivation = nameof(jActivation);
@@ -20,12 +21,15 @@ public sealed class AnalyticsLogRow : Row<AnalyticsLogRow.RowFields>, IIdRow
     public int? Id { get => fields.Id[this]; set => fields.Id[this] = value; }
 
     [DisplayName("Content"), NotNull, ForeignKey("Contents", "Id"), LeftJoin(jContent), TextualField(nameof(ContentTitle))]
+    [LookupEditor("Content.Content")]
     public int? ContentId { get => fields.ContentId[this]; set => fields.ContentId[this] = value; }
 
     [DisplayName("Activation"), NotNull, ForeignKey("Activations", "Id"), LeftJoin(jActivation), TextualField(nameof(ActivationDeviceId))]
+    [LookupEditor("Activation.Activation")]
     public int? ActivationId { get => fields.ActivationId[this]; set => fields.ActivationId[this] = value; }
 
     [DisplayName("Student"), NotNull, ForeignKey("Students", "Id"), LeftJoin(jStudent), TextualField(nameof(StudentPrn))]
+    [LookupEditor("Users.Student")]
     public int? StudentId { get => fields.StudentId[this]; set => fields.StudentId[this] = value; }
 
     [DisplayName("Start Datetime"), NotNull]
@@ -37,19 +41,7 @@ public sealed class AnalyticsLogRow : Row<AnalyticsLogRow.RowFields>, IIdRow
     [DisplayName("Time Spent"), NotNull]
     public int? TimeSpent { get => fields.TimeSpent[this]; set => fields.TimeSpent[this] = value; }
 
-    [DisplayName("Insert Date"), NotNull]
-    public DateTime? InsertDate { get => fields.InsertDate[this]; set => fields.InsertDate[this] = value; }
-
-    [DisplayName("Insert User Id"), NotNull]
-    public int? InsertUserId { get => fields.InsertUserId[this]; set => fields.InsertUserId[this] = value; }
-
-    [DisplayName("Update Date"), NotNull]
-    public DateTime? UpdateDate { get => fields.UpdateDate[this]; set => fields.UpdateDate[this] = value; }
-
-    [DisplayName("Update User Id"), NotNull]
-    public int? UpdateUserId { get => fields.UpdateUserId[this]; set => fields.UpdateUserId[this] = value; }
-
-    [DisplayName("Is Active"), NotNull]
+    [DisplayName("Is Active"), DefaultValue(1)]
     public bool? IsActive { get => fields.IsActive[this]; set => fields.IsActive[this] = value; }
 
     [DisplayName("Content Title"), Expression($"{jContent}.[Title]")]
@@ -61,7 +53,7 @@ public sealed class AnalyticsLogRow : Row<AnalyticsLogRow.RowFields>, IIdRow
     [DisplayName("Student Prn"), Expression($"{jStudent}.[PRN]")]
     public string StudentPrn { get => fields.StudentPrn[this]; set => fields.StudentPrn[this] = value; }
 
-    public class RowFields : RowFieldsBase
+    public class RowFields : LoggingRowFields
     {
         public Int32Field Id;
         public Int32Field ContentId;
@@ -70,10 +62,6 @@ public sealed class AnalyticsLogRow : Row<AnalyticsLogRow.RowFields>, IIdRow
         public DateTimeField StartDatetime;
         public DateTimeField EndDateTime;
         public Int32Field TimeSpent;
-        public DateTimeField InsertDate;
-        public Int32Field InsertUserId;
-        public DateTimeField UpdateDate;
-        public Int32Field UpdateUserId;
         public BooleanField IsActive;
 
         public StringField ContentTitle;

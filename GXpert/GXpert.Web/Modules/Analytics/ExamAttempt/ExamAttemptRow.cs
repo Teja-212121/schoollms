@@ -1,6 +1,7 @@
-﻿using Serenity.ComponentModel;
+using Serenity.ComponentModel;
 using Serenity.Data;
 using Serenity.Data.Mapping;
+using Serenity.Extensions.Entities;
 using System;
 using System.ComponentModel;
 
@@ -11,7 +12,7 @@ namespace GXpert.Analytics;
 [ReadPermission("Administration:General")]
 [ModifyPermission("Administration:General")]
 [ServiceLookupPermission("Administration:General")]
-public sealed class ExamAttemptRow : Row<ExamAttemptRow.RowFields>, IIdRow, INameRow
+public sealed class ExamAttemptRow : LoggingRow<ExamAttemptRow.RowFields>, IIdRow, INameRow
 {
     const string jExam = nameof(jExam);
     const string jStudent = nameof(jStudent);
@@ -23,12 +24,15 @@ public sealed class ExamAttemptRow : Row<ExamAttemptRow.RowFields>, IIdRow, INam
     public int? Id { get => fields.Id[this]; set => fields.Id[this] = value; }
 
     [DisplayName("Exam"), NotNull, ForeignKey("Exams", "Id"), LeftJoin(jExam), TextualField(nameof(ExamTitle))]
+    [LookupEditor("Exams.Exam")]
     public int? ExamId { get => fields.ExamId[this]; set => fields.ExamId[this] = value; }
 
     [DisplayName("Student"), NotNull, ForeignKey("Students", "Id"), LeftJoin(jStudent), TextualField(nameof(StudentPrn))]
+    [LookupEditor("Users.Student")]
     public int? StudentId { get => fields.StudentId[this]; set => fields.StudentId[this] = value; }
 
     [DisplayName("Teacher"), NotNull, ForeignKey("Teachers", "Id"), LeftJoin(jTeacher), TextualField(nameof(TeacherPrn))]
+    [LookupEditor("Users.Teacher")]
     public int? TeacherId { get => fields.TeacherId[this]; set => fields.TeacherId[this] = value; }
 
     [DisplayName("E Status"), Column("eStatus"), NotNull]
@@ -38,6 +42,7 @@ public sealed class ExamAttemptRow : Row<ExamAttemptRow.RowFields>, IIdRow, INam
     public int? TimeSpent { get => fields.TimeSpent[this]; set => fields.TimeSpent[this] = value; }
 
     [DisplayName("Play List"), NotNull, ForeignKey("PlayLists", "Id"), LeftJoin(jPlayList), TextualField(nameof(PlayListTitle))]
+    [LookupEditor("Playlist.PlayList")]
     public int? PlayListId { get => fields.PlayListId[this]; set => fields.PlayListId[this] = value; }
 
     [DisplayName("Student Answer Sheet Upload"), QuickSearch, NameProperty]
@@ -47,21 +52,10 @@ public sealed class ExamAttemptRow : Row<ExamAttemptRow.RowFields>, IIdRow, INam
     public string TeacherCheckedPaperUpload { get => fields.TeacherCheckedPaperUpload[this]; set => fields.TeacherCheckedPaperUpload[this] = value; }
 
     [DisplayName("Activation"), NotNull, ForeignKey("Activations", "Id"), LeftJoin(jActivation), TextualField(nameof(ActivationDeviceId))]
+    [LookupEditor("Activation.Activation")]
     public int? ActivationId { get => fields.ActivationId[this]; set => fields.ActivationId[this] = value; }
 
-    [DisplayName("Insert Date"), NotNull]
-    public DateTime? InsertDate { get => fields.InsertDate[this]; set => fields.InsertDate[this] = value; }
-
-    [DisplayName("Insert User Id"), NotNull]
-    public int? InsertUserId { get => fields.InsertUserId[this]; set => fields.InsertUserId[this] = value; }
-
-    [DisplayName("Update Date"), NotNull]
-    public DateTime? UpdateDate { get => fields.UpdateDate[this]; set => fields.UpdateDate[this] = value; }
-
-    [DisplayName("Update User Id"), NotNull]
-    public int? UpdateUserId { get => fields.UpdateUserId[this]; set => fields.UpdateUserId[this] = value; }
-
-    [DisplayName("Is Active"), NotNull]
+    [DisplayName("Is Active"), DefaultValue(1)]
     public bool? IsActive { get => fields.IsActive[this]; set => fields.IsActive[this] = value; }
 
     [DisplayName("Exam Title"), Expression($"{jExam}.[Title]")]
@@ -79,7 +73,7 @@ public sealed class ExamAttemptRow : Row<ExamAttemptRow.RowFields>, IIdRow, INam
     [DisplayName("Activation Device Id"), Expression($"{jActivation}.[DeviceId]")]
     public string ActivationDeviceId { get => fields.ActivationDeviceId[this]; set => fields.ActivationDeviceId[this] = value; }
 
-    public class RowFields : RowFieldsBase
+    public class RowFields : LoggingRowFields
     {
         public Int32Field Id;
         public Int32Field ExamId;
@@ -91,10 +85,6 @@ public sealed class ExamAttemptRow : Row<ExamAttemptRow.RowFields>, IIdRow, INam
         public StringField StudentAnswerSheetUpload;
         public StringField TeacherCheckedPaperUpload;
         public Int32Field ActivationId;
-        public DateTimeField InsertDate;
-        public Int32Field InsertUserId;
-        public DateTimeField UpdateDate;
-        public Int32Field UpdateUserId;
         public BooleanField IsActive;
 
         public StringField ExamTitle;

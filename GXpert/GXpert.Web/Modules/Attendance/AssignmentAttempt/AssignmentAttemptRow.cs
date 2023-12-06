@@ -1,6 +1,7 @@
-﻿using Serenity.ComponentModel;
+using Serenity.ComponentModel;
 using Serenity.Data;
 using Serenity.Data.Mapping;
+using Serenity.Extensions.Entities;
 using System;
 using System.ComponentModel;
 
@@ -11,7 +12,8 @@ namespace GXpert.Attendance;
 [ReadPermission("Administration:General")]
 [ModifyPermission("Administration:General")]
 [ServiceLookupPermission("Administration:General")]
-public sealed class AssignmentAttemptRow : Row<AssignmentAttemptRow.RowFields>, IIdRow, INameRow
+[LookupScript("Exams.AssignmentEvaluation")]
+public sealed class AssignmentAttemptRow : LoggingRow<AssignmentAttemptRow.RowFields>, IIdRow, INameRow
 {
     const string jAssignment = nameof(jAssignment);
     const string jStudent = nameof(jStudent);
@@ -23,9 +25,11 @@ public sealed class AssignmentAttemptRow : Row<AssignmentAttemptRow.RowFields>, 
     public int? Id { get => fields.Id[this]; set => fields.Id[this] = value; }
 
     [DisplayName("Assignment"), NotNull, ForeignKey("Assignments", "Id"), LeftJoin(jAssignment), TextualField(nameof(AssignmentTitle))]
+    [LookupEditor("Exams.Assignment")]
     public int? AssignmentId { get => fields.AssignmentId[this]; set => fields.AssignmentId[this] = value; }
 
     [DisplayName("Student"), ForeignKey("Students", "Id"), LeftJoin(jStudent), TextualField(nameof(StudentPrn))]
+    [LookupEditor("Users.Student")]
     public int? StudentId { get => fields.StudentId[this]; set => fields.StudentId[this] = value; }
 
     [DisplayName("File Uploaded"), NotNull, QuickSearch, NameProperty]
@@ -35,27 +39,18 @@ public sealed class AssignmentAttemptRow : Row<AssignmentAttemptRow.RowFields>, 
     public string EStatus { get => fields.EStatus[this]; set => fields.EStatus[this] = value; }
 
     [DisplayName("Teacher"), ForeignKey("Teachers", "Id"), LeftJoin(jTeacher), TextualField(nameof(TeacherPrn))]
+    [LookupEditor("Users.Teacher")]
     public int? TeacherId { get => fields.TeacherId[this]; set => fields.TeacherId[this] = value; }
 
     [DisplayName("Play List"), NotNull, ForeignKey("PlayLists", "Id"), LeftJoin(jPlayList), TextualField(nameof(PlayListTitle))]
+    [LookupEditor("Playlist.PlayList")]
     public int? PlayListId { get => fields.PlayListId[this]; set => fields.PlayListId[this] = value; }
 
     [DisplayName("Activation"), NotNull, ForeignKey("Activations", "Id"), LeftJoin(jActivation), TextualField(nameof(ActivationDeviceId))]
+    [LookupEditor("Activation.Activation")]
     public int? ActivationId { get => fields.ActivationId[this]; set => fields.ActivationId[this] = value; }
 
-    [DisplayName("Insert Date"), NotNull]
-    public DateTime? InsertDate { get => fields.InsertDate[this]; set => fields.InsertDate[this] = value; }
-
-    [DisplayName("Insert User Id"), NotNull]
-    public int? InsertUserId { get => fields.InsertUserId[this]; set => fields.InsertUserId[this] = value; }
-
-    [DisplayName("Update Date")]
-    public DateTime? UpdateDate { get => fields.UpdateDate[this]; set => fields.UpdateDate[this] = value; }
-
-    [DisplayName("Update User Id")]
-    public int? UpdateUserId { get => fields.UpdateUserId[this]; set => fields.UpdateUserId[this] = value; }
-
-    [DisplayName("Is Active"), NotNull]
+    [DisplayName("Is Active"), DefaultValue(1)]
     public bool? IsActive { get => fields.IsActive[this]; set => fields.IsActive[this] = value; }
 
     [DisplayName("Assignment Title"), Expression($"{jAssignment}.[Title]")]
@@ -73,7 +68,7 @@ public sealed class AssignmentAttemptRow : Row<AssignmentAttemptRow.RowFields>, 
     [DisplayName("Activation Device Id"), Expression($"{jActivation}.[DeviceId]")]
     public string ActivationDeviceId { get => fields.ActivationDeviceId[this]; set => fields.ActivationDeviceId[this] = value; }
 
-    public class RowFields : RowFieldsBase
+    public class RowFields : LoggingRowFields
     {
         public Int32Field Id;
         public Int32Field AssignmentId;
@@ -83,10 +78,6 @@ public sealed class AssignmentAttemptRow : Row<AssignmentAttemptRow.RowFields>, 
         public Int32Field TeacherId;
         public Int32Field PlayListId;
         public Int32Field ActivationId;
-        public DateTimeField InsertDate;
-        public Int32Field InsertUserId;
-        public DateTimeField UpdateDate;
-        public Int32Field UpdateUserId;
         public BooleanField IsActive;
 
         public StringField AssignmentTitle;

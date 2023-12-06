@@ -1,8 +1,8 @@
-﻿import { IntegerEditor, ServiceLookupEditor, StringEditor, DateEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
+﻿import { LookupEditor, ServiceLookupEditor, StringEditor, DateEditor, IntegerEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
 
 export interface ActivationForm {
-    PlayListId: IntegerEditor;
-    TeacherId: IntegerEditor;
+    PlayListId: LookupEditor;
+    TeacherId: LookupEditor;
     ActivationLogId: ServiceLookupEditor;
     DeviceId: StringEditor;
     DeviceDetails: StringEditor;
@@ -21,10 +21,11 @@ export class ActivationForm extends PrefixedContext {
         if (!ActivationForm.init)  {
             ActivationForm.init = true;
 
-            var w0 = IntegerEditor;
+            var w0 = LookupEditor;
             var w1 = ServiceLookupEditor;
             var w2 = StringEditor;
             var w3 = DateEditor;
+            var w4 = IntegerEditor;
 
             initFormType(ActivationForm, [
                 'PlayListId', w0,
@@ -34,7 +35,7 @@ export class ActivationForm extends PrefixedContext {
                 'DeviceDetails', w2,
                 'ActivationDate', w3,
                 'ExpiryDate', w3,
-                'EStatus', w0
+                'EStatus', w4
             ]);
         }
     }

@@ -1,8 +1,8 @@
-﻿import { StringEditor, IntegerEditor, DateEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
+﻿import { StringEditor, LookupEditor, IntegerEditor, DateEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
 
 export interface CouponCodeForm {
     Code: StringEditor;
-    PlayListId: IntegerEditor;
+    PlayListId: LookupEditor;
     ValidityType: IntegerEditor;
     CountType: IntegerEditor;
     Count: IntegerEditor;
@@ -23,19 +23,20 @@ export class CouponCodeForm extends PrefixedContext {
             CouponCodeForm.init = true;
 
             var w0 = StringEditor;
-            var w1 = IntegerEditor;
-            var w2 = DateEditor;
+            var w1 = LookupEditor;
+            var w2 = IntegerEditor;
+            var w3 = DateEditor;
 
             initFormType(CouponCodeForm, [
                 'Code', w0,
                 'PlayListId', w1,
-                'ValidityType', w1,
-                'CountType', w1,
-                'Count', w1,
-                'ValidityInDays', w1,
-                'ValidDate', w2,
-                'ConsumedCount', w1,
-                'CouponValidityDate', w2
+                'ValidityType', w2,
+                'CountType', w2,
+                'Count', w2,
+                'ValidityInDays', w2,
+                'ValidDate', w3,
+                'ConsumedCount', w2,
+                'CouponValidityDate', w3
             ]);
         }
     }

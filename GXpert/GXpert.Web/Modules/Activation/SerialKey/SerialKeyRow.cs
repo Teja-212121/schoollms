@@ -24,6 +24,7 @@ public sealed class SerialKeyRow : LoggingRow<SerialKeyRow.RowFields>, IIdRow, I
     public string SerialKey { get => fields.SerialKey[this]; set => fields.SerialKey[this] = value; }
 
     [DisplayName("Play List"), NotNull, ForeignKey("PlayLists", "Id"), LeftJoin(jPlayList), TextualField(nameof(PlayListTitle))]
+    [LookupEditor("Playlist.PlayList")]
     public int? PlayListId { get => fields.PlayListId[this]; set => fields.PlayListId[this] = value; }
 
     [DisplayName("Validity Type")]
