@@ -11,6 +11,11 @@ export interface SchoolTimeTableColumns {
     SchoolClassDivision: Column<SchoolTimeTableRow>;
     TeacherPrn: Column<SchoolTimeTableRow>;
     EType: Column<SchoolTimeTableRow>;
+    InsertDate: Column<SchoolTimeTableRow>;
+    InsertUserId: Column<SchoolTimeTableRow>;
+    UpdateDate: Column<SchoolTimeTableRow>;
+    UpdateUserId: Column<SchoolTimeTableRow>;
+    IsActive: Column<SchoolTimeTableRow>;
 }
 
 export class SchoolTimeTableColumns extends ColumnsBase<SchoolTimeTableRow> {

@@ -15,6 +15,11 @@ export interface StudentColumns {
     TalukaTitle: Column<StudentRow>;
     Dob: Column<StudentRow>;
     SchoolName: Column<StudentRow>;
+    InsertDate: Column<StudentRow>;
+    InsertUserId: Column<StudentRow>;
+    UpdateDate: Column<StudentRow>;
+    UpdateUserId: Column<StudentRow>;
+    IsActive: Column<StudentRow>;
 }
 
 export class StudentColumns extends ColumnsBase<StudentRow> {

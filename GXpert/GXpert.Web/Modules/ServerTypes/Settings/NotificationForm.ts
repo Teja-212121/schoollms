@@ -9,6 +9,11 @@ export interface NotificationForm {
     SentOnUtc: DateEditor;
     HasError: BooleanEditor;
     Result: StringEditor;
+    InsertDate: DateEditor;
+    InsertUserId: IntegerEditor;
+    UpdateDate: DateEditor;
+    UpdateUserId: IntegerEditor;
+    IsActive: BooleanEditor;
 }
 
 export class NotificationForm extends PrefixedContext {
@@ -34,7 +39,12 @@ export class NotificationForm extends PrefixedContext {
                 'SentTries', w2,
                 'SentOnUtc', w1,
                 'HasError', w3,
-                'Result', w0
+                'Result', w0,
+                'InsertDate', w1,
+                'InsertUserId', w2,
+                'UpdateDate', w1,
+                'UpdateUserId', w2,
+                'IsActive', w3
             ]);
         }
     }

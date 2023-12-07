@@ -1,6 +1,7 @@
 using Serenity.Navigation;
 using MyPages = GXpert.QuestionBank.Pages;
 
-[assembly: NavigationLink(int.MaxValue, "QuestionBank/Question", typeof(MyPages.QuestionPage), icon: null)]
-[assembly: NavigationLink(int.MaxValue, "QuestionBank/Question Option", typeof(MyPages.QuestionOptionPage), icon: null)]
-[assembly: NavigationLink(int.MaxValue, "QuestionBank/Common Data", typeof(MyPages.CommonDataPage), icon: null)]
+[assembly: NavigationMenu(7000, "QuestionBank", icon: "fa fa-question")]
+[assembly: NavigationLink(7001, "QuestionBank/Question", typeof(MyPages.QuestionPage), icon: "fa-circle-o")]
+[assembly: NavigationLink(7002, "QuestionBank/Question Option", typeof(MyPages.QuestionOptionPage), icon: "fa-circle-o")]
+[assembly: NavigationLink(7003, "QuestionBank/Common Data", typeof(MyPages.CommonDataPage), icon: "fa-circle-o")]

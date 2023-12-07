@@ -1,4 +1,4 @@
-﻿import { DateEditor, IntegerEditor, ServiceLookupEditor, LookupEditor, StringEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
+﻿import { DateEditor, IntegerEditor, ServiceLookupEditor, StringEditor, BooleanEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
 
 export interface SchoolTimeTableForm {
     Date: DateEditor;
@@ -6,8 +6,13 @@ export interface SchoolTimeTableForm {
     EndTime: DateEditor;
     PeriodIndex: IntegerEditor;
     SchoolClassId: ServiceLookupEditor;
-    TeacherId: LookupEditor;
+    TeacherId: IntegerEditor;
     EType: StringEditor;
+    InsertDate: DateEditor;
+    InsertUserId: IntegerEditor;
+    UpdateDate: DateEditor;
+    UpdateUserId: IntegerEditor;
+    IsActive: BooleanEditor;
 }
 
 export class SchoolTimeTableForm extends PrefixedContext {
@@ -23,8 +28,8 @@ export class SchoolTimeTableForm extends PrefixedContext {
             var w0 = DateEditor;
             var w1 = IntegerEditor;
             var w2 = ServiceLookupEditor;
-            var w3 = LookupEditor;
-            var w4 = StringEditor;
+            var w3 = StringEditor;
+            var w4 = BooleanEditor;
 
             initFormType(SchoolTimeTableForm, [
                 'Date', w0,
@@ -32,8 +37,13 @@ export class SchoolTimeTableForm extends PrefixedContext {
                 'EndTime', w0,
                 'PeriodIndex', w1,
                 'SchoolClassId', w2,
-                'TeacherId', w3,
-                'EType', w4
+                'TeacherId', w1,
+                'EType', w3,
+                'InsertDate', w0,
+                'InsertUserId', w1,
+                'UpdateDate', w0,
+                'UpdateUserId', w1,
+                'IsActive', w4
             ]);
         }
     }

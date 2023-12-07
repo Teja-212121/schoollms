@@ -9,6 +9,11 @@ export interface QuestionOptionColumns {
     IsCorrect: Column<QuestionOptionRow>;
     SortOrder: Column<QuestionOptionRow>;
     Weightage: Column<QuestionOptionRow>;
+    InsertDate: Column<QuestionOptionRow>;
+    InsertUserId: Column<QuestionOptionRow>;
+    UpdateDate: Column<QuestionOptionRow>;
+    UpdateUserId: Column<QuestionOptionRow>;
+    IsActive: Column<QuestionOptionRow>;
 }
 
 export class QuestionOptionColumns extends ColumnsBase<QuestionOptionRow> {

@@ -13,6 +13,11 @@ export interface StorageColumns {
     IsDefault: Column<StorageRow>;
     UrlPreview: Column<StorageRow>;
     UploadPath: Column<StorageRow>;
+    InsertDate: Column<StorageRow>;
+    InsertUserId: Column<StorageRow>;
+    UpdateDate: Column<StorageRow>;
+    UpdateUserId: Column<StorageRow>;
+    IsActive: Column<StorageRow>;
 }
 
 export class StorageColumns extends ColumnsBase<StorageRow> {

@@ -12,6 +12,11 @@ export interface ActivationLogColumns {
     DeviceDetails: Column<ActivationLogRow>;
     EStatus: Column<ActivationLogRow>;
     Note: Column<ActivationLogRow>;
+    InsertDate: Column<ActivationLogRow>;
+    InsertUserId: Column<ActivationLogRow>;
+    UpdateDate: Column<ActivationLogRow>;
+    UpdateUserId: Column<ActivationLogRow>;
+    IsActive: Column<ActivationLogRow>;
 }
 
 export class ActivationLogColumns extends ColumnsBase<ActivationLogRow> {

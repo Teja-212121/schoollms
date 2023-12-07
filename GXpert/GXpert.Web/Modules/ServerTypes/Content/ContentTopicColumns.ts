@@ -10,6 +10,11 @@ export interface ContentTopicColumns {
     TopicTitle: Column<ContentTopicRow>;
     MediumTitle: Column<ContentTopicRow>;
     SortOrder: Column<ContentTopicRow>;
+    InsertDate: Column<ContentTopicRow>;
+    InsertUserId: Column<ContentTopicRow>;
+    UpdateDate: Column<ContentTopicRow>;
+    UpdateUserId: Column<ContentTopicRow>;
+    IsActive: Column<ContentTopicRow>;
 }
 
 export class ContentTopicColumns extends ColumnsBase<ContentTopicRow> {

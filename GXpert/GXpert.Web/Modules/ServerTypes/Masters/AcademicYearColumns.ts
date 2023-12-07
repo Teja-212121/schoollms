@@ -8,6 +8,11 @@ export interface AcademicYearColumns {
     Description: Column<AcademicYearRow>;
     StartDate: Column<AcademicYearRow>;
     EndDate: Column<AcademicYearRow>;
+    InsertDate: Column<AcademicYearRow>;
+    InsertUserId: Column<AcademicYearRow>;
+    UpdateDate: Column<AcademicYearRow>;
+    UpdateUserId: Column<AcademicYearRow>;
+    IsActive: Column<AcademicYearRow>;
 }
 
 export class AcademicYearColumns extends ColumnsBase<AcademicYearRow> {

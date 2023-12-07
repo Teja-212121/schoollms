@@ -6,11 +6,11 @@ export interface SmsRow {
     Sender?: string;
     EntityId?: string;
     TemplateId?: string;
-    IsActive?: boolean;
-    InsertUserId?: number;
     InsertDate?: string;
-    UpdateUserId?: number;
+    InsertUserId?: number;
     UpdateDate?: string;
+    UpdateUserId?: number;
+    IsActive?: boolean;
 }
 
 export abstract class SmsRow {

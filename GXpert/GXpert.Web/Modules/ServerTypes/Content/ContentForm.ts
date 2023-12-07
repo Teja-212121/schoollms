@@ -1,4 +1,4 @@
-﻿import { StringEditor, IntegerEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
+﻿import { StringEditor, IntegerEditor, DateEditor, BooleanEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
 
 export interface ContentForm {
     Title: StringEditor;
@@ -20,6 +20,11 @@ export interface ContentForm {
     HandRaiseCount: IntegerEditor;
     SearchTags: StringEditor;
     EDifficultyLevel: IntegerEditor;
+    InsertDate: DateEditor;
+    InsertUserId: IntegerEditor;
+    UpdateDate: DateEditor;
+    UpdateUserId: IntegerEditor;
+    IsActive: BooleanEditor;
 }
 
 export class ContentForm extends PrefixedContext {
@@ -34,6 +39,8 @@ export class ContentForm extends PrefixedContext {
 
             var w0 = StringEditor;
             var w1 = IntegerEditor;
+            var w2 = DateEditor;
+            var w3 = BooleanEditor;
 
             initFormType(ContentForm, [
                 'Title', w0,
@@ -54,7 +61,12 @@ export class ContentForm extends PrefixedContext {
                 'DisLikesCount', w1,
                 'HandRaiseCount', w1,
                 'SearchTags', w0,
-                'EDifficultyLevel', w1
+                'EDifficultyLevel', w1,
+                'InsertDate', w2,
+                'InsertUserId', w1,
+                'UpdateDate', w2,
+                'UpdateUserId', w1,
+                'IsActive', w3
             ]);
         }
     }

@@ -20,6 +20,11 @@ export interface ExamColumns {
     HasNegativeMarketing: Column<ExamRow>;
     Instructions: Column<ExamRow>;
     SearchTags: Column<ExamRow>;
+    InsertDate: Column<ExamRow>;
+    InsertUserId: Column<ExamRow>;
+    UpdateDate: Column<ExamRow>;
+    UpdateUserId: Column<ExamRow>;
+    IsActive: Column<ExamRow>;
 }
 
 export class ExamColumns extends ColumnsBase<ExamRow> {

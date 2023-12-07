@@ -6,6 +6,11 @@ export interface MediumColumns {
     Id: Column<MediumRow>;
     Title: Column<MediumRow>;
     Description: Column<MediumRow>;
+    InsertDate: Column<MediumRow>;
+    InsertUserId: Column<MediumRow>;
+    UpdateDate: Column<MediumRow>;
+    UpdateUserId: Column<MediumRow>;
+    IsActive: Column<MediumRow>;
 }
 
 export class MediumColumns extends ColumnsBase<MediumRow> {

@@ -10,6 +10,11 @@ export interface LiveSessionLogColumns {
     TeacherPrn: Column<LiveSessionLogRow>;
     ClassTitle: Column<LiveSessionLogRow>;
     SubjectTitle: Column<LiveSessionLogRow>;
+    InsertDate: Column<LiveSessionLogRow>;
+    InsertUserId: Column<LiveSessionLogRow>;
+    UpdateDate: Column<LiveSessionLogRow>;
+    UpdateUserId: Column<LiveSessionLogRow>;
+    IsActive: Column<LiveSessionLogRow>;
 }
 
 export class LiveSessionLogColumns extends ColumnsBase<LiveSessionLogRow> {

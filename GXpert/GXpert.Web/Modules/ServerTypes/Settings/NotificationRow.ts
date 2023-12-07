@@ -10,11 +10,11 @@ export interface NotificationRow {
     SentOnUtc?: string;
     HasError?: boolean;
     Result?: string;
-    IsActive?: boolean;
-    InsertUserId?: number;
     InsertDate?: string;
-    UpdateUserId?: number;
+    InsertUserId?: number;
     UpdateDate?: string;
+    UpdateUserId?: number;
+    IsActive?: boolean;
 }
 
 export abstract class NotificationRow {

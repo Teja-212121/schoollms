@@ -1,18 +1,23 @@
-﻿import { HtmlContentEditor, BooleanEditor, IntegerEditor, ServiceLookupEditor, DecimalEditor, LookupEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
+﻿import { StringEditor, BooleanEditor, IntegerEditor, ServiceLookupEditor, DecimalEditor, DateEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
 
 export interface QuestionForm {
-    QuestionText: HtmlContentEditor;
-    Explaination: HtmlContentEditor;
+    QuestionText: StringEditor;
+    Explaination: StringEditor;
     IsSubjective: BooleanEditor;
     EQuestionType: IntegerEditor;
     EDifficultyLevel: IntegerEditor;
     QuestionCommonDataId: ServiceLookupEditor;
     QuestionCommonDataSortOrder: DecimalEditor;
-    ClassId: LookupEditor;
-    SubjectId: LookupEditor;
-    TopicId: LookupEditor;
-    BloomsIndex: LookupEditor;
+    ClassId: IntegerEditor;
+    SubjectId: IntegerEditor;
+    TopicId: IntegerEditor;
+    BloomsIndex: IntegerEditor;
     BloomsWeightage: DecimalEditor;
+    InsertDate: DateEditor;
+    InsertUserId: IntegerEditor;
+    UpdateDate: DateEditor;
+    UpdateUserId: IntegerEditor;
+    IsActive: BooleanEditor;
 }
 
 export class QuestionForm extends PrefixedContext {
@@ -25,12 +30,12 @@ export class QuestionForm extends PrefixedContext {
         if (!QuestionForm.init)  {
             QuestionForm.init = true;
 
-            var w0 = HtmlContentEditor;
+            var w0 = StringEditor;
             var w1 = BooleanEditor;
             var w2 = IntegerEditor;
             var w3 = ServiceLookupEditor;
             var w4 = DecimalEditor;
-            var w5 = LookupEditor;
+            var w5 = DateEditor;
 
             initFormType(QuestionForm, [
                 'QuestionText', w0,
@@ -40,11 +45,16 @@ export class QuestionForm extends PrefixedContext {
                 'EDifficultyLevel', w2,
                 'QuestionCommonDataId', w3,
                 'QuestionCommonDataSortOrder', w4,
-                'ClassId', w5,
-                'SubjectId', w5,
-                'TopicId', w5,
-                'BloomsIndex', w5,
-                'BloomsWeightage', w4
+                'ClassId', w2,
+                'SubjectId', w2,
+                'TopicId', w2,
+                'BloomsIndex', w2,
+                'BloomsWeightage', w4,
+                'InsertDate', w5,
+                'InsertUserId', w2,
+                'UpdateDate', w5,
+                'UpdateUserId', w2,
+                'IsActive', w1
             ]);
         }
     }

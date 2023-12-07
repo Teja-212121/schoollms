@@ -4,11 +4,11 @@ export interface CommonDataRow {
     Id?: number;
     CommonDataTitle?: string;
     CommonData?: string;
-    IsActive?: boolean;
-    InsertUserId?: number;
     InsertDate?: string;
-    UpdateUserId?: number;
+    InsertUserId?: number;
     UpdateDate?: string;
+    UpdateUserId?: number;
+    IsActive?: boolean;
 }
 
 export abstract class CommonDataRow {

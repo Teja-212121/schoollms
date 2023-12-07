@@ -19,6 +19,11 @@ export interface PollColumns {
     NumberOfWrong: Column<PollRow>;
     BloomsTaxonomyCoginitiveSkill: Column<PollRow>;
     Weightage: Column<PollRow>;
+    InsertDate: Column<PollRow>;
+    InsertUserId: Column<PollRow>;
+    UpdateDate: Column<PollRow>;
+    UpdateUserId: Column<PollRow>;
+    IsActive: Column<PollRow>;
 }
 
 export class PollColumns extends ColumnsBase<PollRow> {

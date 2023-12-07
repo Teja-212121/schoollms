@@ -11,11 +11,11 @@ export interface StorageRow {
     IsDefault?: boolean;
     UrlPreview?: string;
     UploadPath?: string;
-    IsActive?: boolean;
-    InsertUserId?: number;
     InsertDate?: string;
-    UpdateUserId?: number;
+    InsertUserId?: number;
     UpdateDate?: string;
+    UpdateUserId?: number;
+    IsActive?: boolean;
 }
 
 export abstract class StorageRow {

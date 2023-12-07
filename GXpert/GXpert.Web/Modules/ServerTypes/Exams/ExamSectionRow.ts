@@ -11,13 +11,13 @@ export interface ExamSectionRow {
     NumberOfQuestions?: number;
     NumberOfMandatoryQuestions?: number;
     SearchTags?: string;
+    InsertDate?: string;
+    InsertUserId?: number;
+    UpdateDate?: string;
+    UpdateUserId?: number;
     IsActive?: boolean;
     ExamTitle?: string;
     ParentTitle?: string;
-    InsertUserId?: number;
-    InsertDate?: string;
-    UpdateUserId?: number;
-    UpdateDate?: string;
 }
 
 export abstract class ExamSectionRow {

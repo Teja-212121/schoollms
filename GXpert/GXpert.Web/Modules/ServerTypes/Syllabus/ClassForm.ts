@@ -1,4 +1,4 @@
-﻿import { StringEditor, IntegerEditor, DecimalEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
+﻿import { StringEditor, IntegerEditor, DecimalEditor, DateEditor, BooleanEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
 
 export interface ClassForm {
     Title: StringEditor;
@@ -6,6 +6,11 @@ export interface ClassForm {
     SortOrder: IntegerEditor;
     Weightage: DecimalEditor;
     Thumbnail: StringEditor;
+    InsertDate: DateEditor;
+    InsertUserId: IntegerEditor;
+    UpdateDate: DateEditor;
+    UpdateUserId: IntegerEditor;
+    IsActive: BooleanEditor;
 }
 
 export class ClassForm extends PrefixedContext {
@@ -21,13 +26,20 @@ export class ClassForm extends PrefixedContext {
             var w0 = StringEditor;
             var w1 = IntegerEditor;
             var w2 = DecimalEditor;
+            var w3 = DateEditor;
+            var w4 = BooleanEditor;
 
             initFormType(ClassForm, [
                 'Title', w0,
                 'Description', w0,
                 'SortOrder', w1,
                 'Weightage', w2,
-                'Thumbnail', w0
+                'Thumbnail', w0,
+                'InsertDate', w3,
+                'InsertUserId', w1,
+                'UpdateDate', w3,
+                'UpdateUserId', w1,
+                'IsActive', w4
             ]);
         }
     }

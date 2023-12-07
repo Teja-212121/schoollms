@@ -9,14 +9,14 @@ export interface PollResponseRow {
     Score?: number;
     LiveSessionLogId?: number;
     ActivationId?: number;
+    InsertDate?: string;
+    InsertUserId?: number;
+    UpdateDate?: string;
+    UpdateUserId?: number;
     IsActive?: boolean;
     PollQuestion?: string;
     StudentPrn?: string;
     ActivationDeviceId?: string;
-    InsertUserId?: number;
-    InsertDate?: string;
-    UpdateUserId?: number;
-    UpdateDate?: string;
 }
 
 export abstract class PollResponseRow {

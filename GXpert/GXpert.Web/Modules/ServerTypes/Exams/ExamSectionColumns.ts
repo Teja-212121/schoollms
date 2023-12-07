@@ -13,6 +13,11 @@ export interface ExamSectionColumns {
     NumberOfQuestions: Column<ExamSectionRow>;
     NumberOfMandatoryQuestions: Column<ExamSectionRow>;
     SearchTags: Column<ExamSectionRow>;
+    InsertDate: Column<ExamSectionRow>;
+    InsertUserId: Column<ExamSectionRow>;
+    UpdateDate: Column<ExamSectionRow>;
+    UpdateUserId: Column<ExamSectionRow>;
+    IsActive: Column<ExamSectionRow>;
 }
 
 export class ExamSectionColumns extends ColumnsBase<ExamSectionRow> {

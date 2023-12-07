@@ -1,4 +1,4 @@
-﻿import { getLookup, getLookupAsync, fieldsProxy } from "@serenity-is/corelib";
+﻿import { fieldsProxy } from "@serenity-is/corelib";
 
 export interface PlayListRow {
     Id?: number;
@@ -7,26 +7,20 @@ export interface PlayListRow {
     ClassId?: number;
     SubjectId?: number;
     TeacherId?: number;
+    InsertDate?: string;
+    InsertUserId?: number;
+    UpdateDate?: string;
+    UpdateUserId?: number;
     IsActive?: boolean;
     ClassTitle?: string;
     SubjectTitle?: string;
     TeacherPrn?: string;
-    InsertUserId?: number;
-    InsertDate?: string;
-    UpdateUserId?: number;
-    UpdateDate?: string;
 }
 
 export abstract class PlayListRow {
     static readonly idProperty = 'Id';
     static readonly nameProperty = 'Title';
     static readonly localTextPrefix = 'Playlist.PlayList';
-    static readonly lookupKey = 'Playlist.PlayList';
-
-    /** @deprecated use getLookupAsync instead */
-    static getLookup() { return getLookup<PlayListRow>('Playlist.PlayList') }
-    static async getLookupAsync() { return getLookupAsync<PlayListRow>('Playlist.PlayList') }
-
     static readonly deletePermission = 'Administration:General';
     static readonly insertPermission = 'Administration:General';
     static readonly readPermission = 'Administration:General';

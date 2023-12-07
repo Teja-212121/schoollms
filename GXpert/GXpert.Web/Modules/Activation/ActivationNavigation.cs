@@ -1,8 +1,9 @@
 using Serenity.Navigation;
 using MyPages = GXpert.Activation.Pages;
 
-[assembly: NavigationLink(int.MaxValue, "Activation/Coupon Code", typeof(MyPages.CouponCodePage), icon: null)]
-[assembly: NavigationLink(int.MaxValue, "Activation/Serial Key", typeof(MyPages.SerialKeyPage), icon: null)]
-[assembly: NavigationLink(int.MaxValue, "Activation/Activation Log", typeof(MyPages.ActivationLogPage), icon: null)]
-[assembly: NavigationLink(int.MaxValue, "Activation/Activation", typeof(MyPages.ActivationPage), icon: null)]
+[assembly: NavigationMenu(10000, "Activation", icon: "fa fa-check")]
+[assembly: NavigationLink(10001, "Activation/Coupon Code", typeof(MyPages.CouponCodePage), icon: "fa-circle-o")]
+[assembly: NavigationLink(10002, "Activation/Serial Key", typeof(MyPages.SerialKeyPage), icon: "fa-circle-o")]
+[assembly: NavigationLink(10003, "Activation/Activation Log", typeof(MyPages.ActivationLogPage), icon: "fa-circle-o")]
+[assembly: NavigationLink(10004, "Activation/Activation", typeof(MyPages.ActivationPage), icon: "fa-circle-o")]
 

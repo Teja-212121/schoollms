@@ -9,6 +9,11 @@ export interface AssignmentColumns {
     File: Column<AssignmentRow>;
     ClassTitle: Column<AssignmentRow>;
     SubjectTitle: Column<AssignmentRow>;
+    InsertDate: Column<AssignmentRow>;
+    InsertUserId: Column<AssignmentRow>;
+    UpdateDate: Column<AssignmentRow>;
+    UpdateUserId: Column<AssignmentRow>;
+    IsActive: Column<AssignmentRow>;
 }
 
 export class AssignmentColumns extends ColumnsBase<AssignmentRow> {

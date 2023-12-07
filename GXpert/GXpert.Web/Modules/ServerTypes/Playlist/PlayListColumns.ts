@@ -9,6 +9,11 @@ export interface PlayListColumns {
     ClassTitle: Column<PlayListRow>;
     SubjectTitle: Column<PlayListRow>;
     TeacherPrn: Column<PlayListRow>;
+    InsertDate: Column<PlayListRow>;
+    InsertUserId: Column<PlayListRow>;
+    UpdateDate: Column<PlayListRow>;
+    UpdateUserId: Column<PlayListRow>;
+    IsActive: Column<PlayListRow>;
 }
 
 export class PlayListColumns extends ColumnsBase<PlayListRow> {

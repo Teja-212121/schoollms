@@ -1,6 +1,7 @@
 using Serenity.Navigation;
 using MyPages = GXpert.LiveSessions.Pages;
 
-[assembly: NavigationLink(int.MaxValue, "LiveSessions/Live Session", typeof(MyPages.LiveSessionPage), icon: null)]
-[assembly: NavigationLink(int.MaxValue, "LiveSessions/Live Session Log", typeof(MyPages.LiveSessionLogPage), icon: null)]
-[assembly: NavigationLink(int.MaxValue, "LiveSessions/Poll", typeof(MyPages.PollPage), icon: null)]
+[assembly: NavigationMenu(11000, "LiveSessions", icon: "fa fa-video-camera")]
+[assembly: NavigationLink(11001, "LiveSessions/Live Session", typeof(MyPages.LiveSessionPage), icon: "fa-circle-o")]
+[assembly: NavigationLink(11002, "LiveSessions/Live Session Log", typeof(MyPages.LiveSessionLogPage), icon: "fa-circle-o")]
+[assembly: NavigationLink(11003, "LiveSessions/Poll", typeof(MyPages.PollPage), icon: "fa-circle-o")]

@@ -6,6 +6,11 @@ export interface BloomsTaxanomyColumns {
     Id: Column<BloomsTaxanomyRow>;
     CoginitiveSkill: Column<BloomsTaxanomyRow>;
     SortOrder: Column<BloomsTaxanomyRow>;
+    InsertDate: Column<BloomsTaxanomyRow>;
+    InsertUserId: Column<BloomsTaxanomyRow>;
+    UpdateDate: Column<BloomsTaxanomyRow>;
+    UpdateUserId: Column<BloomsTaxanomyRow>;
+    IsActive: Column<BloomsTaxanomyRow>;
 }
 
 export class BloomsTaxanomyColumns extends ColumnsBase<BloomsTaxanomyRow> {

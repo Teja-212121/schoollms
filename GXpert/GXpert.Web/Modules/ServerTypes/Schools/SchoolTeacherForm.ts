@@ -1,12 +1,17 @@
-﻿import { LookupEditor, ServiceLookupEditor, StringEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
+﻿import { IntegerEditor, ServiceLookupEditor, StringEditor, DateEditor, BooleanEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
 
 export interface SchoolTeacherForm {
-    TeacherId: LookupEditor;
+    TeacherId: IntegerEditor;
     SchoolId: ServiceLookupEditor;
-    ClassId: LookupEditor;
-    SubjectId: LookupEditor;
+    ClassId: IntegerEditor;
+    SubjectId: IntegerEditor;
     Description: StringEditor;
-    AcademicYearId: LookupEditor;
+    AcademicYearId: IntegerEditor;
+    InsertDate: DateEditor;
+    InsertUserId: IntegerEditor;
+    UpdateDate: DateEditor;
+    UpdateUserId: IntegerEditor;
+    IsActive: BooleanEditor;
 }
 
 export class SchoolTeacherForm extends PrefixedContext {
@@ -19,9 +24,11 @@ export class SchoolTeacherForm extends PrefixedContext {
         if (!SchoolTeacherForm.init)  {
             SchoolTeacherForm.init = true;
 
-            var w0 = LookupEditor;
+            var w0 = IntegerEditor;
             var w1 = ServiceLookupEditor;
             var w2 = StringEditor;
+            var w3 = DateEditor;
+            var w4 = BooleanEditor;
 
             initFormType(SchoolTeacherForm, [
                 'TeacherId', w0,
@@ -29,7 +36,12 @@ export class SchoolTeacherForm extends PrefixedContext {
                 'ClassId', w0,
                 'SubjectId', w0,
                 'Description', w2,
-                'AcademicYearId', w0
+                'AcademicYearId', w0,
+                'InsertDate', w3,
+                'InsertUserId', w0,
+                'UpdateDate', w3,
+                'UpdateUserId', w0,
+                'IsActive', w4
             ]);
         }
     }

@@ -11,6 +11,11 @@ export interface AssignmentAttemptColumns {
     TeacherPrn: Column<AssignmentAttemptRow>;
     PlayListTitle: Column<AssignmentAttemptRow>;
     ActivationDeviceId: Column<AssignmentAttemptRow>;
+    InsertDate: Column<AssignmentAttemptRow>;
+    InsertUserId: Column<AssignmentAttemptRow>;
+    UpdateDate: Column<AssignmentAttemptRow>;
+    UpdateUserId: Column<AssignmentAttemptRow>;
+    IsActive: Column<AssignmentAttemptRow>;
 }
 
 export class AssignmentAttemptColumns extends ColumnsBase<AssignmentAttemptRow> {

@@ -6,6 +6,11 @@ export interface StateColumns {
     Id: Column<StateRow>;
     Title: Column<StateRow>;
     ShortName: Column<StateRow>;
+    InsertDate: Column<StateRow>;
+    InsertUserId: Column<StateRow>;
+    UpdateDate: Column<StateRow>;
+    UpdateUserId: Column<StateRow>;
+    IsActive: Column<StateRow>;
 }
 
 export class StateColumns extends ColumnsBase<StateRow> {

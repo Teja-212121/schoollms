@@ -12,6 +12,11 @@ export interface ActivationColumns {
     ActivationDate: Column<ActivationRow>;
     ExpiryDate: Column<ActivationRow>;
     EStatus: Column<ActivationRow>;
+    InsertDate: Column<ActivationRow>;
+    InsertUserId: Column<ActivationRow>;
+    UpdateDate: Column<ActivationRow>;
+    UpdateUserId: Column<ActivationRow>;
+    IsActive: Column<ActivationRow>;
 }
 
 export class ActivationColumns extends ColumnsBase<ActivationRow> {

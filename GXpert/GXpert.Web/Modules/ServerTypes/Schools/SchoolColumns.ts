@@ -14,6 +14,11 @@ export interface SchoolColumns {
     TalukaTitle: Column<SchoolRow>;
     LocationInfo: Column<SchoolRow>;
     EstablishmentDate: Column<SchoolRow>;
+    InsertDate: Column<SchoolRow>;
+    InsertUserId: Column<SchoolRow>;
+    UpdateDate: Column<SchoolRow>;
+    UpdateUserId: Column<SchoolRow>;
+    IsActive: Column<SchoolRow>;
 }
 
 export class SchoolColumns extends ColumnsBase<SchoolRow> {

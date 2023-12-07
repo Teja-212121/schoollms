@@ -1,12 +1,17 @@
-﻿import { LookupEditor, DateEditor, IntegerEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
+﻿import { IntegerEditor, DateEditor, BooleanEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
 
 export interface RaiseHandLiveSessionForm {
-    LiveSessionlogId: LookupEditor;
-    StudentId: LookupEditor;
+    LiveSessionlogId: IntegerEditor;
+    StudentId: IntegerEditor;
     SessionTime: DateEditor;
     HandRaiseStatus: IntegerEditor;
-    PlayListId: LookupEditor;
-    ActivationId: LookupEditor;
+    PlayListId: IntegerEditor;
+    ActivationId: IntegerEditor;
+    InsertDate: DateEditor;
+    InsertUserId: IntegerEditor;
+    UpdateDate: DateEditor;
+    UpdateUserId: IntegerEditor;
+    IsActive: BooleanEditor;
 }
 
 export class RaiseHandLiveSessionForm extends PrefixedContext {
@@ -19,17 +24,22 @@ export class RaiseHandLiveSessionForm extends PrefixedContext {
         if (!RaiseHandLiveSessionForm.init)  {
             RaiseHandLiveSessionForm.init = true;
 
-            var w0 = LookupEditor;
+            var w0 = IntegerEditor;
             var w1 = DateEditor;
-            var w2 = IntegerEditor;
+            var w2 = BooleanEditor;
 
             initFormType(RaiseHandLiveSessionForm, [
                 'LiveSessionlogId', w0,
                 'StudentId', w0,
                 'SessionTime', w1,
-                'HandRaiseStatus', w2,
+                'HandRaiseStatus', w0,
                 'PlayListId', w0,
-                'ActivationId', w0
+                'ActivationId', w0,
+                'InsertDate', w1,
+                'InsertUserId', w0,
+                'UpdateDate', w1,
+                'UpdateUserId', w0,
+                'IsActive', w2
             ]);
         }
     }

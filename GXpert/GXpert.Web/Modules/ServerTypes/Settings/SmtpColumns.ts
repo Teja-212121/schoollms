@@ -9,6 +9,11 @@ export interface SmtpColumns {
     Username: Column<SmtpRow>;
     Password: Column<SmtpRow>;
     IsSsl: Column<SmtpRow>;
+    InsertDate: Column<SmtpRow>;
+    InsertUserId: Column<SmtpRow>;
+    UpdateDate: Column<SmtpRow>;
+    UpdateUserId: Column<SmtpRow>;
+    IsActive: Column<SmtpRow>;
 }
 
 export class SmtpColumns extends ColumnsBase<SmtpRow> {

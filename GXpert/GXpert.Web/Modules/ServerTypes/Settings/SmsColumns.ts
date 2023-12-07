@@ -8,6 +8,11 @@ export interface SmsColumns {
     Sender: Column<SmsRow>;
     EntityId: Column<SmsRow>;
     TemplateId: Column<SmsRow>;
+    InsertDate: Column<SmsRow>;
+    InsertUserId: Column<SmsRow>;
+    UpdateDate: Column<SmsRow>;
+    UpdateUserId: Column<SmsRow>;
+    IsActive: Column<SmsRow>;
 }
 
 export class SmsColumns extends ColumnsBase<SmsRow> {

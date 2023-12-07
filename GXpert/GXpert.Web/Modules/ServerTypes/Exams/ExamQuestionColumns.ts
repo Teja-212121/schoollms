@@ -14,6 +14,11 @@ export interface ExamQuestionColumns {
     ClassTitle: Column<ExamQuestionRow>;
     SubjectTitle: Column<ExamQuestionRow>;
     TopicTitle: Column<ExamQuestionRow>;
+    InsertDate: Column<ExamQuestionRow>;
+    InsertUserId: Column<ExamQuestionRow>;
+    UpdateDate: Column<ExamQuestionRow>;
+    UpdateUserId: Column<ExamQuestionRow>;
+    IsActive: Column<ExamQuestionRow>;
 }
 
 export class ExamQuestionColumns extends ColumnsBase<ExamQuestionRow> {

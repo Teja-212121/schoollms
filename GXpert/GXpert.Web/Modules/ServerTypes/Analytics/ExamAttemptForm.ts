@@ -1,15 +1,20 @@
-﻿import { LookupEditor, IntegerEditor, StringEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
+﻿import { IntegerEditor, StringEditor, DateEditor, BooleanEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
 
 export interface ExamAttemptForm {
-    ExamId: LookupEditor;
-    StudentId: LookupEditor;
-    TeacherId: LookupEditor;
+    ExamId: IntegerEditor;
+    StudentId: IntegerEditor;
+    TeacherId: IntegerEditor;
     EStatus: IntegerEditor;
     TimeSpent: IntegerEditor;
-    PlayListId: LookupEditor;
+    PlayListId: IntegerEditor;
     StudentAnswerSheetUpload: StringEditor;
     TeacherCheckedPaperUpload: StringEditor;
-    ActivationId: LookupEditor;
+    ActivationId: IntegerEditor;
+    InsertDate: DateEditor;
+    InsertUserId: IntegerEditor;
+    UpdateDate: DateEditor;
+    UpdateUserId: IntegerEditor;
+    IsActive: BooleanEditor;
 }
 
 export class ExamAttemptForm extends PrefixedContext {
@@ -22,20 +27,26 @@ export class ExamAttemptForm extends PrefixedContext {
         if (!ExamAttemptForm.init)  {
             ExamAttemptForm.init = true;
 
-            var w0 = LookupEditor;
-            var w1 = IntegerEditor;
-            var w2 = StringEditor;
+            var w0 = IntegerEditor;
+            var w1 = StringEditor;
+            var w2 = DateEditor;
+            var w3 = BooleanEditor;
 
             initFormType(ExamAttemptForm, [
                 'ExamId', w0,
                 'StudentId', w0,
                 'TeacherId', w0,
-                'EStatus', w1,
-                'TimeSpent', w1,
+                'EStatus', w0,
+                'TimeSpent', w0,
                 'PlayListId', w0,
-                'StudentAnswerSheetUpload', w2,
-                'TeacherCheckedPaperUpload', w2,
-                'ActivationId', w0
+                'StudentAnswerSheetUpload', w1,
+                'TeacherCheckedPaperUpload', w1,
+                'ActivationId', w0,
+                'InsertDate', w2,
+                'InsertUserId', w0,
+                'UpdateDate', w2,
+                'UpdateUserId', w0,
+                'IsActive', w3
             ]);
         }
     }

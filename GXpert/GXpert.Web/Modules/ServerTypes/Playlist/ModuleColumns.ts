@@ -8,6 +8,11 @@ export interface ModuleColumns {
     Description: Column<ModuleRow>;
     ParentTitle: Column<ModuleRow>;
     SortOrder: Column<ModuleRow>;
+    InsertDate: Column<ModuleRow>;
+    InsertUserId: Column<ModuleRow>;
+    UpdateDate: Column<ModuleRow>;
+    UpdateUserId: Column<ModuleRow>;
+    IsActive: Column<ModuleRow>;
 }
 
 export class ModuleColumns extends ColumnsBase<ModuleRow> {

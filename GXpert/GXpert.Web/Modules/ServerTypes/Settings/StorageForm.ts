@@ -1,4 +1,4 @@
-﻿import { StringEditor, IntegerEditor, BooleanEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
+﻿import { StringEditor, IntegerEditor, BooleanEditor, DateEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
 
 export interface StorageForm {
     AccessKeyId: StringEditor;
@@ -10,6 +10,11 @@ export interface StorageForm {
     IsDefault: BooleanEditor;
     UrlPreview: StringEditor;
     UploadPath: StringEditor;
+    InsertDate: DateEditor;
+    InsertUserId: IntegerEditor;
+    UpdateDate: DateEditor;
+    UpdateUserId: IntegerEditor;
+    IsActive: BooleanEditor;
 }
 
 export class StorageForm extends PrefixedContext {
@@ -25,6 +30,7 @@ export class StorageForm extends PrefixedContext {
             var w0 = StringEditor;
             var w1 = IntegerEditor;
             var w2 = BooleanEditor;
+            var w3 = DateEditor;
 
             initFormType(StorageForm, [
                 'AccessKeyId', w0,
@@ -35,7 +41,12 @@ export class StorageForm extends PrefixedContext {
                 'S3Types', w1,
                 'IsDefault', w2,
                 'UrlPreview', w0,
-                'UploadPath', w0
+                'UploadPath', w0,
+                'InsertDate', w3,
+                'InsertUserId', w1,
+                'UpdateDate', w3,
+                'UpdateUserId', w1,
+                'IsActive', w2
             ]);
         }
     }

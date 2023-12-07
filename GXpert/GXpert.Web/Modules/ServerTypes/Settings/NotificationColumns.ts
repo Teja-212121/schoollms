@@ -12,6 +12,11 @@ export interface NotificationColumns {
     SentOnUtc: Column<NotificationRow>;
     HasError: Column<NotificationRow>;
     Result: Column<NotificationRow>;
+    InsertDate: Column<NotificationRow>;
+    InsertUserId: Column<NotificationRow>;
+    UpdateDate: Column<NotificationRow>;
+    UpdateUserId: Column<NotificationRow>;
+    IsActive: Column<NotificationRow>;
 }
 
 export class NotificationColumns extends ColumnsBase<NotificationRow> {

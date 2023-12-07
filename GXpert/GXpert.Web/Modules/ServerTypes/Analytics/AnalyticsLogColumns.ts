@@ -10,6 +10,11 @@ export interface AnalyticsLogColumns {
     StartDatetime: Column<AnalyticsLogRow>;
     EndDateTime: Column<AnalyticsLogRow>;
     TimeSpent: Column<AnalyticsLogRow>;
+    InsertDate: Column<AnalyticsLogRow>;
+    InsertUserId: Column<AnalyticsLogRow>;
+    UpdateDate: Column<AnalyticsLogRow>;
+    UpdateUserId: Column<AnalyticsLogRow>;
+    IsActive: Column<AnalyticsLogRow>;
 }
 
 export class AnalyticsLogColumns extends ColumnsBase<AnalyticsLogRow> {

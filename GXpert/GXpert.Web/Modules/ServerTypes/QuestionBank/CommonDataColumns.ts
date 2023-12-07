@@ -6,6 +6,11 @@ export interface CommonDataColumns {
     Id: Column<CommonDataRow>;
     CommonDataTitle: Column<CommonDataRow>;
     CommonData: Column<CommonDataRow>;
+    InsertDate: Column<CommonDataRow>;
+    InsertUserId: Column<CommonDataRow>;
+    UpdateDate: Column<CommonDataRow>;
+    UpdateUserId: Column<CommonDataRow>;
+    IsActive: Column<CommonDataRow>;
 }
 
 export class CommonDataColumns extends ColumnsBase<CommonDataRow> {

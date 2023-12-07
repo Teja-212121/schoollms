@@ -8,16 +8,16 @@ export interface ContentTopicRow {
     TopicId?: number;
     MediumId?: number;
     SortOrder?: number;
+    InsertDate?: string;
+    InsertUserId?: number;
+    UpdateDate?: string;
+    UpdateUserId?: number;
     IsActive?: boolean;
     ContentTitle?: string;
     ClassTitle?: string;
     SubjectTitle?: string;
     TopicTitle?: string;
     MediumTitle?: string;
-    InsertUserId?: number;
-    InsertDate?: string;
-    UpdateUserId?: number;
-    UpdateDate?: string;
 }
 
 export abstract class ContentTopicRow {

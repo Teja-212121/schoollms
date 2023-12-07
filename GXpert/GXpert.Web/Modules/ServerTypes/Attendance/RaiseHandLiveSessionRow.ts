@@ -8,14 +8,14 @@ export interface RaiseHandLiveSessionRow {
     HandRaiseStatus?: number;
     PlayListId?: number;
     ActivationId?: number;
+    InsertDate?: string;
+    InsertUserId?: number;
+    UpdateDate?: string;
+    UpdateUserId?: number;
     IsActive?: boolean;
     StudentPrn?: string;
     PlayListTitle?: string;
     ActivationDeviceId?: string;
-    InsertUserId?: number;
-    InsertDate?: string;
-    UpdateUserId?: number;
-    UpdateDate?: string;
 }
 
 export abstract class RaiseHandLiveSessionRow {

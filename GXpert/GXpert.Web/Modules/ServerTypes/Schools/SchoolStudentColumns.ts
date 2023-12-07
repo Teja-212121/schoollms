@@ -11,6 +11,11 @@ export interface SchoolStudentColumns {
     RollNumber: Column<SchoolStudentRow>;
     Description: Column<SchoolStudentRow>;
     AcademicYearName: Column<SchoolStudentRow>;
+    InsertDate: Column<SchoolStudentRow>;
+    InsertUserId: Column<SchoolStudentRow>;
+    UpdateDate: Column<SchoolStudentRow>;
+    UpdateUserId: Column<SchoolStudentRow>;
+    IsActive: Column<SchoolStudentRow>;
 }
 
 export class SchoolStudentColumns extends ColumnsBase<SchoolStudentRow> {

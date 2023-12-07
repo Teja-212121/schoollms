@@ -10,6 +10,11 @@ export interface RaiseHandLiveSessionColumns {
     HandRaiseStatus: Column<RaiseHandLiveSessionRow>;
     PlayListTitle: Column<RaiseHandLiveSessionRow>;
     ActivationDeviceId: Column<RaiseHandLiveSessionRow>;
+    InsertDate: Column<RaiseHandLiveSessionRow>;
+    InsertUserId: Column<RaiseHandLiveSessionRow>;
+    UpdateDate: Column<RaiseHandLiveSessionRow>;
+    UpdateUserId: Column<RaiseHandLiveSessionRow>;
+    IsActive: Column<RaiseHandLiveSessionRow>;
 }
 
 export class RaiseHandLiveSessionColumns extends ColumnsBase<RaiseHandLiveSessionRow> {

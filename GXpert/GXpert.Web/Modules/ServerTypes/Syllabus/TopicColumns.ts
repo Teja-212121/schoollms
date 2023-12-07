@@ -12,6 +12,11 @@ export interface TopicColumns {
     SubjectTitle: Column<TopicRow>;
     Weightage: Column<TopicRow>;
     Thumbnail: Column<TopicRow>;
+    InsertDate: Column<TopicRow>;
+    InsertUserId: Column<TopicRow>;
+    UpdateDate: Column<TopicRow>;
+    UpdateUserId: Column<TopicRow>;
+    IsActive: Column<TopicRow>;
 }
 
 export class TopicColumns extends ColumnsBase<TopicRow> {

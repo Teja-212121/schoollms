@@ -1,4 +1,4 @@
-﻿import { StringEditor, IntegerEditor, ServiceLookupEditor, DecimalEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
+﻿import { StringEditor, IntegerEditor, ServiceLookupEditor, DecimalEditor, DateEditor, BooleanEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
 
 export interface SubjectForm {
     Title: StringEditor;
@@ -8,6 +8,11 @@ export interface SubjectForm {
     MediumId: ServiceLookupEditor;
     Weightage: DecimalEditor;
     Thumbnail: StringEditor;
+    InsertDate: DateEditor;
+    InsertUserId: IntegerEditor;
+    UpdateDate: DateEditor;
+    UpdateUserId: IntegerEditor;
+    IsActive: BooleanEditor;
 }
 
 export class SubjectForm extends PrefixedContext {
@@ -24,6 +29,8 @@ export class SubjectForm extends PrefixedContext {
             var w1 = IntegerEditor;
             var w2 = ServiceLookupEditor;
             var w3 = DecimalEditor;
+            var w4 = DateEditor;
+            var w5 = BooleanEditor;
 
             initFormType(SubjectForm, [
                 'Title', w0,
@@ -32,7 +39,12 @@ export class SubjectForm extends PrefixedContext {
                 'ClassId', w2,
                 'MediumId', w2,
                 'Weightage', w3,
-                'Thumbnail', w0
+                'Thumbnail', w0,
+                'InsertDate', w4,
+                'InsertUserId', w1,
+                'UpdateDate', w4,
+                'UpdateUserId', w1,
+                'IsActive', w5
             ]);
         }
     }

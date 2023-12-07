@@ -9,6 +9,11 @@ export interface AssignmentAttemptEvaluationColumns {
     AssignmentEvaluationEvalutionCriteria: Column<AssignmentAttemptEvaluationRow>;
     MarksObtained: Column<AssignmentAttemptEvaluationRow>;
     EvaluationStatus: Column<AssignmentAttemptEvaluationRow>;
+    InsertDate: Column<AssignmentAttemptEvaluationRow>;
+    InsertUserId: Column<AssignmentAttemptEvaluationRow>;
+    UpdateDate: Column<AssignmentAttemptEvaluationRow>;
+    UpdateUserId: Column<AssignmentAttemptEvaluationRow>;
+    IsActive: Column<AssignmentAttemptEvaluationRow>;
 }
 
 export class AssignmentAttemptEvaluationColumns extends ColumnsBase<AssignmentAttemptEvaluationRow> {
