@@ -1,9 +1,10 @@
-﻿import { fieldsProxy } from "@serenity-is/corelib";
+﻿import { getLookup, getLookupAsync, fieldsProxy } from "@serenity-is/corelib";
+import { EQuestionType } from "../Web/Enums.EQuestionType";
 
 export interface PollRow {
     Id?: number;
     Question?: string;
-    EQuestionType?: number;
+    EQuestionType?: EQuestionType;
     Option1?: string;
     Option2?: string;
     Option3?: string;
@@ -17,18 +18,24 @@ export interface PollRow {
     NumberOfWrong?: number;
     BloomsTaxonomyId?: number;
     Weightage?: number;
-    InsertDate?: string;
-    InsertUserId?: number;
-    UpdateDate?: string;
-    UpdateUserId?: number;
     IsActive?: boolean;
     BloomsTaxonomyCoginitiveSkill?: string;
+    InsertUserId?: number;
+    InsertDate?: string;
+    UpdateUserId?: number;
+    UpdateDate?: string;
 }
 
 export abstract class PollRow {
     static readonly idProperty = 'Id';
     static readonly nameProperty = 'Question';
     static readonly localTextPrefix = 'LiveSessions.Poll';
+    static readonly lookupKey = 'LiveSessions.Poll';
+
+    /** @deprecated use getLookupAsync instead */
+    static getLookup() { return getLookup<PollRow>('LiveSessions.Poll') }
+    static async getLookupAsync() { return getLookupAsync<PollRow>('LiveSessions.Poll') }
+
     static readonly deletePermission = 'Administration:General';
     static readonly insertPermission = 'Administration:General';
     static readonly readPermission = 'Administration:General';

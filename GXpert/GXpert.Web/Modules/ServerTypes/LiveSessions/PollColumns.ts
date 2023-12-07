@@ -1,5 +1,6 @@
 ﻿import { ColumnsBase, fieldsProxy } from "@serenity-is/corelib";
 import { Column } from "@serenity-is/sleekgrid";
+import { EQuestionType } from "../Web/Enums.EQuestionType";
 import { PollRow } from "./PollRow";
 
 export interface PollColumns {
@@ -19,14 +20,11 @@ export interface PollColumns {
     NumberOfWrong: Column<PollRow>;
     BloomsTaxonomyCoginitiveSkill: Column<PollRow>;
     Weightage: Column<PollRow>;
-    InsertDate: Column<PollRow>;
-    InsertUserId: Column<PollRow>;
-    UpdateDate: Column<PollRow>;
-    UpdateUserId: Column<PollRow>;
-    IsActive: Column<PollRow>;
 }
 
 export class PollColumns extends ColumnsBase<PollRow> {
     static readonly columnsKey = 'LiveSessions.Poll';
     static readonly Fields = fieldsProxy<PollColumns>();
 }
+
+[EQuestionType]; // referenced types

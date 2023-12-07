@@ -1,4 +1,4 @@
-﻿import { StringEditor, IntegerEditor, DateEditor, BooleanEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
+﻿import { StringEditor, IntegerEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
 
 export interface LiveSessionForm {
     MeetingId: StringEditor;
@@ -7,11 +7,6 @@ export interface LiveSessionForm {
     Secret: StringEditor;
     LiveAdditionalInfo: StringEditor;
     SearchTags: StringEditor;
-    InsertDate: DateEditor;
-    InsertUserId: IntegerEditor;
-    UpdateDate: DateEditor;
-    UpdateUserId: IntegerEditor;
-    IsActive: BooleanEditor;
 }
 
 export class LiveSessionForm extends PrefixedContext {
@@ -26,8 +21,6 @@ export class LiveSessionForm extends PrefixedContext {
 
             var w0 = StringEditor;
             var w1 = IntegerEditor;
-            var w2 = DateEditor;
-            var w3 = BooleanEditor;
 
             initFormType(LiveSessionForm, [
                 'MeetingId', w0,
@@ -35,12 +28,7 @@ export class LiveSessionForm extends PrefixedContext {
                 'Password', w0,
                 'Secret', w0,
                 'LiveAdditionalInfo', w0,
-                'SearchTags', w0,
-                'InsertDate', w2,
-                'InsertUserId', w1,
-                'UpdateDate', w2,
-                'UpdateUserId', w1,
-                'IsActive', w3
+                'SearchTags', w0
             ]);
         }
     }

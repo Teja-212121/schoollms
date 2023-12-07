@@ -1,4 +1,5 @@
-﻿import { fieldsProxy } from "@serenity-is/corelib";
+﻿import { getLookup, getLookupAsync, fieldsProxy } from "@serenity-is/corelib";
+import { EKeyStatus } from "../Web/Enums.EKeyStatus";
 
 export interface ActivationLogRow {
     Id?: number;
@@ -8,21 +9,27 @@ export interface ActivationLogRow {
     PlayListId?: number;
     DeviceId?: string;
     DeviceDetails?: string;
-    EStatus?: number;
+    EStatus?: EKeyStatus;
     Note?: string;
-    InsertDate?: string;
-    InsertUserId?: number;
-    UpdateDate?: string;
-    UpdateUserId?: number;
     IsActive?: number;
     TeacherPrn?: string;
     PlayListTitle?: string;
+    InsertUserId?: number;
+    InsertDate?: string;
+    UpdateUserId?: number;
+    UpdateDate?: string;
 }
 
 export abstract class ActivationLogRow {
     static readonly idProperty = 'Id';
     static readonly nameProperty = 'Code';
     static readonly localTextPrefix = 'Activation.ActivationLog';
+    static readonly lookupKey = 'Activation.ActivationLog';
+
+    /** @deprecated use getLookupAsync instead */
+    static getLookup() { return getLookup<ActivationLogRow>('Activation.ActivationLog') }
+    static async getLookupAsync() { return getLookupAsync<ActivationLogRow>('Activation.ActivationLog') }
+
     static readonly deletePermission = 'Administration:General';
     static readonly insertPermission = 'Administration:General';
     static readonly readPermission = 'Administration:General';

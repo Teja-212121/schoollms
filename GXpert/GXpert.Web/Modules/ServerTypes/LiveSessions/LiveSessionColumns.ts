@@ -10,11 +10,6 @@ export interface LiveSessionColumns {
     Secret: Column<LiveSessionRow>;
     LiveAdditionalInfo: Column<LiveSessionRow>;
     SearchTags: Column<LiveSessionRow>;
-    InsertDate: Column<LiveSessionRow>;
-    InsertUserId: Column<LiveSessionRow>;
-    UpdateDate: Column<LiveSessionRow>;
-    UpdateUserId: Column<LiveSessionRow>;
-    IsActive: Column<LiveSessionRow>;
 }
 
 export class LiveSessionColumns extends ColumnsBase<LiveSessionRow> {

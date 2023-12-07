@@ -11,11 +11,6 @@ export interface PollResponseColumns {
     Score: Column<PollResponseRow>;
     LiveSessionLogId: Column<PollResponseRow>;
     ActivationDeviceId: Column<PollResponseRow>;
-    InsertDate: Column<PollResponseRow>;
-    InsertUserId: Column<PollResponseRow>;
-    UpdateDate: Column<PollResponseRow>;
-    UpdateUserId: Column<PollResponseRow>;
-    IsActive: Column<PollResponseRow>;
 }
 
 export class PollResponseColumns extends ColumnsBase<PollResponseRow> {

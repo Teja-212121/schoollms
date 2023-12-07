@@ -1,5 +1,6 @@
 ﻿import { ColumnsBase, fieldsProxy } from "@serenity-is/corelib";
 import { Column } from "@serenity-is/sleekgrid";
+import { EContentType } from "../Web/Enums.EContentType";
 import { ContentRow } from "./ContentRow";
 
 export interface ContentColumns {
@@ -23,14 +24,11 @@ export interface ContentColumns {
     HandRaiseCount: Column<ContentRow>;
     SearchTags: Column<ContentRow>;
     EDifficultyLevel: Column<ContentRow>;
-    InsertDate: Column<ContentRow>;
-    InsertUserId: Column<ContentRow>;
-    UpdateDate: Column<ContentRow>;
-    UpdateUserId: Column<ContentRow>;
-    IsActive: Column<ContentRow>;
 }
 
 export class ContentColumns extends ColumnsBase<ContentRow> {
     static readonly columnsKey = 'Content.Content';
     static readonly Fields = fieldsProxy<ContentColumns>();
 }
+
+[EContentType]; // referenced types

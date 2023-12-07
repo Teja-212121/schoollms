@@ -1,5 +1,6 @@
 ﻿import { ColumnsBase, fieldsProxy } from "@serenity-is/corelib";
 import { Column } from "@serenity-is/sleekgrid";
+import { EKeyStatus } from "../Web/Enums.EKeyStatus";
 import { ActivationLogRow } from "./ActivationLogRow";
 
 export interface ActivationLogColumns {
@@ -12,14 +13,11 @@ export interface ActivationLogColumns {
     DeviceDetails: Column<ActivationLogRow>;
     EStatus: Column<ActivationLogRow>;
     Note: Column<ActivationLogRow>;
-    InsertDate: Column<ActivationLogRow>;
-    InsertUserId: Column<ActivationLogRow>;
-    UpdateDate: Column<ActivationLogRow>;
-    UpdateUserId: Column<ActivationLogRow>;
-    IsActive: Column<ActivationLogRow>;
 }
 
 export class ActivationLogColumns extends ColumnsBase<ActivationLogRow> {
     static readonly columnsKey = 'Activation.ActivationLog';
     static readonly Fields = fieldsProxy<ActivationLogColumns>();
 }
+
+[EKeyStatus]; // referenced types

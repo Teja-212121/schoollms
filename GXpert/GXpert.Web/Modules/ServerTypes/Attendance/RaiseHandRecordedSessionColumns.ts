@@ -9,11 +9,6 @@ export interface RaiseHandRecordedSessionColumns {
     PlayListTitle: Column<RaiseHandRecordedSessionRow>;
     PlayListContentId: Column<RaiseHandRecordedSessionRow>;
     ActivationDeviceId: Column<RaiseHandRecordedSessionRow>;
-    InsertDate: Column<RaiseHandRecordedSessionRow>;
-    InsertUserId: Column<RaiseHandRecordedSessionRow>;
-    UpdateDate: Column<RaiseHandRecordedSessionRow>;
-    UpdateUserId: Column<RaiseHandRecordedSessionRow>;
-    IsActive: Column<RaiseHandRecordedSessionRow>;
 }
 
 export class RaiseHandRecordedSessionColumns extends ColumnsBase<RaiseHandRecordedSessionRow> {

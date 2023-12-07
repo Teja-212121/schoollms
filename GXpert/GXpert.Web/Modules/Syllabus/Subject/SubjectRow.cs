@@ -18,7 +18,7 @@ public sealed class SubjectRow : LoggingRow<SubjectRow.RowFields>, IIdRow, IName
     const string jClass = nameof(jClass);
     const string jMedium = nameof(jMedium);
 
-    [DisplayName("Id"), Identity, IdProperty]
+    [DisplayName("Id"), Identity, IdProperty, LookupInclude]
     public int? Id { get => fields.Id[this]; set => fields.Id[this] = value; }
 
     [DisplayName("Title"), Size(500), NotNull, QuickSearch, NameProperty]
@@ -31,11 +31,11 @@ public sealed class SubjectRow : LoggingRow<SubjectRow.RowFields>, IIdRow, IName
     public short? SortOrder { get => fields.SortOrder[this]; set => fields.SortOrder[this] = value; }
 
     [DisplayName("Class"), NotNull, ForeignKey(typeof(ClassRow)), LeftJoin(jClass), TextualField(nameof(ClassTitle))]
-    [ServiceLookupEditor(typeof(ClassRow))]
+    [ServiceLookupEditor(typeof(ClassRow)), LookupInclude]
     public int? ClassId { get => fields.ClassId[this]; set => fields.ClassId[this] = value; }
 
     [DisplayName("Medium"), NotNull, ForeignKey(typeof(MediumRow)), LeftJoin(jMedium), TextualField(nameof(MediumTitle))]
-    [ServiceLookupEditor(typeof(MediumRow))]
+    [ServiceLookupEditor(typeof(MediumRow)), LookupInclude]
     public int? MediumId { get => fields.MediumId[this]; set => fields.MediumId[this] = value; }
 
     [DisplayName("Weightage")]

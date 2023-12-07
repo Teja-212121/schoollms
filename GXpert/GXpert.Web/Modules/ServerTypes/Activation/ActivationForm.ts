@@ -1,19 +1,15 @@
-﻿import { IntegerEditor, ServiceLookupEditor, StringEditor, DateEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
+﻿import { LookupEditor, ServiceLookupEditor, StringEditor, DateEditor, EnumEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
+import { EKeyStatus } from "../Web/Enums.EKeyStatus";
 
 export interface ActivationForm {
-    PlayListId: IntegerEditor;
-    TeacherId: IntegerEditor;
+    PlayListId: LookupEditor;
+    TeacherId: LookupEditor;
     ActivationLogId: ServiceLookupEditor;
     DeviceId: StringEditor;
     DeviceDetails: StringEditor;
     ActivationDate: DateEditor;
     ExpiryDate: DateEditor;
-    EStatus: IntegerEditor;
-    InsertDate: DateEditor;
-    InsertUserId: IntegerEditor;
-    UpdateDate: DateEditor;
-    UpdateUserId: IntegerEditor;
-    IsActive: IntegerEditor;
+    EStatus: EnumEditor;
 }
 
 export class ActivationForm extends PrefixedContext {
@@ -26,10 +22,11 @@ export class ActivationForm extends PrefixedContext {
         if (!ActivationForm.init)  {
             ActivationForm.init = true;
 
-            var w0 = IntegerEditor;
+            var w0 = LookupEditor;
             var w1 = ServiceLookupEditor;
             var w2 = StringEditor;
             var w3 = DateEditor;
+            var w4 = EnumEditor;
 
             initFormType(ActivationForm, [
                 'PlayListId', w0,
@@ -39,13 +36,10 @@ export class ActivationForm extends PrefixedContext {
                 'DeviceDetails', w2,
                 'ActivationDate', w3,
                 'ExpiryDate', w3,
-                'EStatus', w0,
-                'InsertDate', w3,
-                'InsertUserId', w0,
-                'UpdateDate', w3,
-                'UpdateUserId', w0,
-                'IsActive', w0
+                'EStatus', w4
             ]);
         }
     }
 }
+
+[EKeyStatus]; // referenced types

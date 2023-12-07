@@ -1,12 +1,14 @@
-﻿import { fieldsProxy } from "@serenity-is/corelib";
+﻿import { getLookup, getLookupAsync, fieldsProxy } from "@serenity-is/corelib";
+import { EDifficultyLevel } from "../Web/Enums.EDifficultyLevel";
+import { EQuestionType } from "../Web/Enums.EQuestionType";
 
 export interface QuestionRow {
     Id?: number;
     QuestionText?: string;
     Explaination?: string;
     IsSubjective?: boolean;
-    EQuestionType?: number;
-    EDifficultyLevel?: number;
+    EQuestionType?: EQuestionType;
+    EDifficultyLevel?: EDifficultyLevel;
     QuestionCommonDataId?: number;
     QuestionCommonDataSortOrder?: number;
     ClassId?: number;
@@ -14,22 +16,28 @@ export interface QuestionRow {
     TopicId?: number;
     BloomsIndex?: number;
     BloomsWeightage?: number;
-    InsertDate?: string;
-    InsertUserId?: number;
-    UpdateDate?: string;
-    UpdateUserId?: number;
     IsActive?: boolean;
     QuestionCommonDataCommonDataTitle?: string;
     ClassTitle?: string;
     SubjectTitle?: string;
     TopicTitle?: string;
     BloomsIndexCoginitiveSkill?: string;
+    InsertUserId?: number;
+    InsertDate?: string;
+    UpdateUserId?: number;
+    UpdateDate?: string;
 }
 
 export abstract class QuestionRow {
     static readonly idProperty = 'Id';
     static readonly nameProperty = 'QuestionText';
     static readonly localTextPrefix = 'QuestionBank.Question';
+    static readonly lookupKey = 'QuestionBank.Question';
+
+    /** @deprecated use getLookupAsync instead */
+    static getLookup() { return getLookup<QuestionRow>('QuestionBank.Question') }
+    static async getLookupAsync() { return getLookupAsync<QuestionRow>('QuestionBank.Question') }
+
     static readonly deletePermission = 'Administration:General';
     static readonly insertPermission = 'Administration:General';
     static readonly readPermission = 'Administration:General';

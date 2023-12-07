@@ -1,3 +1,4 @@
+using GXpert.Web.Enums;
 using Serenity.ComponentModel;
 using Serenity.Data;
 using Serenity.Data.Mapping;
@@ -23,10 +24,10 @@ public sealed class ExamRow : LoggingRow<ExamRow.RowFields>, IIdRow, INameRow
     public string Title { get => fields.Title[this]; set => fields.Title[this] = value; }
 
     [DisplayName("E Exam Type"), NotNull]
-    public short? EExamType { get => fields.EExamType[this]; set => fields.EExamType[this] = value; }
+    public EExamTypes? EExamType { get => (EExamTypes)fields.EExamType[this]; set => fields.EExamType[this] = (short?)value; }
 
     [DisplayName("E Exam State")]
-    public short? EExamState { get => fields.EExamState[this]; set => fields.EExamState[this] = value; }
+    public EExamState? EExamState { get => (EExamState?)fields.EExamState[this]; set => fields.EExamState[this] = (short?)value; }
 
     [DisplayName("Question Paper Path")]
     public string QuestionPaperPath { get => fields.QuestionPaperPath[this]; set => fields.QuestionPaperPath[this] = value; }
@@ -44,19 +45,19 @@ public sealed class ExamRow : LoggingRow<ExamRow.RowFields>, IIdRow, INameRow
     public float? NegativeMarks { get => fields.NegativeMarks[this]; set => fields.NegativeMarks[this] = value; }
 
     [DisplayName("E Exam Navigation")]
-    public short? EExamNavigation { get => fields.EExamNavigation[this]; set => fields.EExamNavigation[this] = value; }
+    public EQuestionNavigation? EExamNavigation { get => (EQuestionNavigation?)fields.EExamNavigation[this]; set => fields.EExamNavigation[this] = (short?)value; }
 
     [DisplayName("E Section Navigation")]
-    public short? ESectionNavigation { get => fields.ESectionNavigation[this]; set => fields.ESectionNavigation[this] = value; }
+    public EQuestionNavigation? ESectionNavigation { get => (EQuestionNavigation?)fields.ESectionNavigation[this]; set => fields.ESectionNavigation[this] = (short?)value; }
 
     [DisplayName("E Question Navigation")]
-    public short? EQuestionNavigation { get => fields.EQuestionNavigation[this]; set => fields.EQuestionNavigation[this] = value; }
+    public EQuestionNavigation? EQuestionNavigation { get => (EQuestionNavigation?)fields.EQuestionNavigation[this]; set => fields.EQuestionNavigation[this] = (short?)value; }
 
     [DisplayName("E Result Type")]
-    public short? EResultType { get => fields.EResultType[this]; set => fields.EResultType[this] = value; }
+    public EResultTypes? EResultType { get => (EResultTypes)fields.EResultType[this]; set => fields.EResultType[this] = (short?)value; }
 
     [DisplayName("E Option Display Type")]
-    public short? EOptionDisplayType { get => fields.EOptionDisplayType[this]; set => fields.EOptionDisplayType[this] = value; }
+    public EOptionDisplayTypes? EOptionDisplayType { get => (EOptionDisplayTypes?)fields.EOptionDisplayType[this]; set => fields.EOptionDisplayType[this] = (short?)value; }
 
     [DisplayName("Has Negative Marketing")]
     public bool? HasNegativeMarketing { get => fields.HasNegativeMarketing[this]; set => fields.HasNegativeMarketing[this] = value; }

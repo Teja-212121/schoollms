@@ -1,3 +1,4 @@
+using GXpert.Web.Enums;
 using Serenity.ComponentModel;
 using Serenity.Data;
 using Serenity.Data.Mapping;
@@ -42,7 +43,7 @@ public sealed class ActivationLogRow : LoggingRow<ActivationLogRow.RowFields>, I
     public string DeviceDetails { get => fields.DeviceDetails[this]; set => fields.DeviceDetails[this] = value; }
 
     [DisplayName("E Status"), Column("eStatus")]
-    public short? EStatus { get => fields.EStatus[this]; set => fields.EStatus[this] = value; }
+    public EKeyStatus? EStatus { get => (EKeyStatus?)fields.EStatus[this]; set => fields.EStatus[this] = (short?)value; }
 
     [DisplayName("Note"), Size(1000)]
     public string Note { get => fields.Note[this]; set => fields.Note[this] = value; }

@@ -7,11 +7,6 @@ export interface AssignedExamTeachersColumns {
     ExamTitle: Column<AssignedExamTeachersRow>;
     PlayListTitle: Column<AssignedExamTeachersRow>;
     TeacherPrn: Column<AssignedExamTeachersRow>;
-    InsertDate: Column<AssignedExamTeachersRow>;
-    InsertUserId: Column<AssignedExamTeachersRow>;
-    UpdateDate: Column<AssignedExamTeachersRow>;
-    UpdateUserId: Column<AssignedExamTeachersRow>;
-    IsActive: Column<AssignedExamTeachersRow>;
 }
 
 export class AssignedExamTeachersColumns extends ColumnsBase<AssignedExamTeachersRow> {

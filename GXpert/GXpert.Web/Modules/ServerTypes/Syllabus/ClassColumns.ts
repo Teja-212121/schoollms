@@ -9,11 +9,6 @@ export interface ClassColumns {
     SortOrder: Column<ClassRow>;
     Weightage: Column<ClassRow>;
     Thumbnail: Column<ClassRow>;
-    InsertDate: Column<ClassRow>;
-    InsertUserId: Column<ClassRow>;
-    UpdateDate: Column<ClassRow>;
-    UpdateUserId: Column<ClassRow>;
-    IsActive: Column<ClassRow>;
 }
 
 export class ClassColumns extends ColumnsBase<ClassRow> {

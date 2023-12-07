@@ -1,20 +1,16 @@
-﻿import { IntegerEditor, StringEditor, DateEditor, BooleanEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
+﻿import { LookupEditor, EnumEditor, IntegerEditor, StringEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
+import { EExamAttemptStatus } from "../Web/Enums.EExamAttemptStatus";
 
 export interface ExamAttemptForm {
-    ExamId: IntegerEditor;
-    StudentId: IntegerEditor;
-    TeacherId: IntegerEditor;
-    EStatus: IntegerEditor;
+    ExamId: LookupEditor;
+    StudentId: LookupEditor;
+    TeacherId: LookupEditor;
+    EStatus: EnumEditor;
     TimeSpent: IntegerEditor;
-    PlayListId: IntegerEditor;
+    PlayListId: LookupEditor;
     StudentAnswerSheetUpload: StringEditor;
     TeacherCheckedPaperUpload: StringEditor;
-    ActivationId: IntegerEditor;
-    InsertDate: DateEditor;
-    InsertUserId: IntegerEditor;
-    UpdateDate: DateEditor;
-    UpdateUserId: IntegerEditor;
-    IsActive: BooleanEditor;
+    ActivationId: LookupEditor;
 }
 
 export class ExamAttemptForm extends PrefixedContext {
@@ -27,27 +23,24 @@ export class ExamAttemptForm extends PrefixedContext {
         if (!ExamAttemptForm.init)  {
             ExamAttemptForm.init = true;
 
-            var w0 = IntegerEditor;
-            var w1 = StringEditor;
-            var w2 = DateEditor;
-            var w3 = BooleanEditor;
+            var w0 = LookupEditor;
+            var w1 = EnumEditor;
+            var w2 = IntegerEditor;
+            var w3 = StringEditor;
 
             initFormType(ExamAttemptForm, [
                 'ExamId', w0,
                 'StudentId', w0,
                 'TeacherId', w0,
-                'EStatus', w0,
-                'TimeSpent', w0,
+                'EStatus', w1,
+                'TimeSpent', w2,
                 'PlayListId', w0,
-                'StudentAnswerSheetUpload', w1,
-                'TeacherCheckedPaperUpload', w1,
-                'ActivationId', w0,
-                'InsertDate', w2,
-                'InsertUserId', w0,
-                'UpdateDate', w2,
-                'UpdateUserId', w0,
-                'IsActive', w3
+                'StudentAnswerSheetUpload', w3,
+                'TeacherCheckedPaperUpload', w3,
+                'ActivationId', w0
             ]);
         }
     }
 }
+
+[EExamAttemptStatus]; // referenced types

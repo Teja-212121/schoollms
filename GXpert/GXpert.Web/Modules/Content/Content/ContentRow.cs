@@ -1,3 +1,4 @@
+using GXpert.Web.Enums;
 using Serenity.ComponentModel;
 using Serenity.Data;
 using Serenity.Data.Mapping;
@@ -26,7 +27,7 @@ public sealed class ContentRow : LoggingRow<ContentRow.RowFields>, IIdRow, IName
     public string Description { get => fields.Description[this]; set => fields.Description[this] = value; }
 
     [DisplayName("E Content Type"), NotNull]
-    public short? EContentType { get => fields.EContentType[this]; set => fields.EContentType[this] = value; }
+    public EContentType? EContentType { get => (EContentType?)fields.EContentType[this]; set => fields.EContentType[this] = (short?)value; }
 
     [DisplayName("File Key Url"), Column("FileKeyURL"), NotNull]
     public string FileKeyUrl { get => fields.FileKeyUrl[this]; set => fields.FileKeyUrl[this] = value; }
@@ -74,7 +75,7 @@ public sealed class ContentRow : LoggingRow<ContentRow.RowFields>, IIdRow, IName
     public string SearchTags { get => fields.SearchTags[this]; set => fields.SearchTags[this] = value; }
 
     [DisplayName("E Difficulty Level"), Column("eDifficultyLevel"), NotNull]
-    public short? EDifficultyLevel { get => fields.EDifficultyLevel[this]; set => fields.EDifficultyLevel[this] = value; }
+    public EDifficultyLevel? EDifficultyLevel { get => (EDifficultyLevel?)fields.EDifficultyLevel[this]; set => fields.EDifficultyLevel[this] = (short?)value; }
 
     [DisplayName("Is Active"), DefaultValue(1)]
     public bool? IsActive { get => fields.IsActive[this]; set => fields.IsActive[this] = value; }

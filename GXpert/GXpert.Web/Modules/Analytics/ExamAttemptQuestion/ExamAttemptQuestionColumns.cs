@@ -15,6 +15,7 @@ public class ExamAttemptQuestionColumns
     [EditLink]
     public string OptionSelected { get; set; }
     public int MarksObtained { get; set; }
+    [QuickFilter]
     public short Attemptstatus { get; set; }
     public int OutOfmarks { get; set; }
     public string Result { get; set; }

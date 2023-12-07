@@ -1,3 +1,4 @@
+using GXpert.Web.Enums;
 using Serenity.ComponentModel;
 using Serenity.Data;
 using Serenity.Data.Mapping;
@@ -28,10 +29,10 @@ public sealed class CouponCodeRow : LoggingRow<CouponCodeRow.RowFields>, IIdRow,
     public int? PlayListId { get => fields.PlayListId[this]; set => fields.PlayListId[this] = value; }
 
     [DisplayName("Validity Type")]
-    public short? ValidityType { get => fields.ValidityType[this]; set => fields.ValidityType[this] = value; }
+    public EValidityType? ValidityType { get => (EValidityType?)fields.ValidityType[this]; set => fields.ValidityType[this] = (short?)value; }
 
     [DisplayName("Count Type")]
-    public short? CountType { get => fields.CountType[this]; set => fields.CountType[this] = value; }
+    public ECountType? CountType { get => (ECountType?)fields.CountType[this]; set => fields.CountType[this] = (short?)value; }
 
     [DisplayName("Count")]
     public short? Count { get => fields.Count[this]; set => fields.Count[this] = value; }

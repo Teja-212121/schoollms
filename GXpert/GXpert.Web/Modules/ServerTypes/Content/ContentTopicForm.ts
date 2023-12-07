@@ -1,17 +1,12 @@
-﻿import { ServiceLookupEditor, IntegerEditor, DateEditor, BooleanEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
+﻿import { ServiceLookupEditor, LookupEditor, IntegerEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
 
 export interface ContentTopicForm {
     ContentId: ServiceLookupEditor;
-    ClassId: IntegerEditor;
-    SubjectId: IntegerEditor;
-    TopicId: IntegerEditor;
-    MediumId: IntegerEditor;
+    ClassId: LookupEditor;
+    SubjectId: LookupEditor;
+    TopicId: LookupEditor;
+    MediumId: LookupEditor;
     SortOrder: IntegerEditor;
-    InsertDate: DateEditor;
-    InsertUserId: IntegerEditor;
-    UpdateDate: DateEditor;
-    UpdateUserId: IntegerEditor;
-    IsActive: BooleanEditor;
 }
 
 export class ContentTopicForm extends PrefixedContext {
@@ -25,9 +20,8 @@ export class ContentTopicForm extends PrefixedContext {
             ContentTopicForm.init = true;
 
             var w0 = ServiceLookupEditor;
-            var w1 = IntegerEditor;
-            var w2 = DateEditor;
-            var w3 = BooleanEditor;
+            var w1 = LookupEditor;
+            var w2 = IntegerEditor;
 
             initFormType(ContentTopicForm, [
                 'ContentId', w0,
@@ -35,12 +29,7 @@ export class ContentTopicForm extends PrefixedContext {
                 'SubjectId', w1,
                 'TopicId', w1,
                 'MediumId', w1,
-                'SortOrder', w1,
-                'InsertDate', w2,
-                'InsertUserId', w1,
-                'UpdateDate', w2,
-                'UpdateUserId', w1,
-                'IsActive', w3
+                'SortOrder', w2
             ]);
         }
     }

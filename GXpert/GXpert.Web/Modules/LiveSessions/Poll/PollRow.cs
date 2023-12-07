@@ -1,3 +1,4 @@
+using GXpert.Web.Enums;
 using Serenity.ComponentModel;
 using Serenity.Data;
 using Serenity.Data.Mapping;
@@ -25,7 +26,7 @@ public sealed class PollRow : LoggingRow<PollRow.RowFields>, IIdRow, INameRow
     public string Question { get => fields.Question[this]; set => fields.Question[this] = value; }
 
     [DisplayName("E Question Type"), Column("eQuestionType"), NotNull]
-    public short? EQuestionType { get => fields.EQuestionType[this]; set => fields.EQuestionType[this] = value; }
+    public EQuestionType? EQuestionType { get => (EQuestionType?)fields.EQuestionType[this]; set => fields.EQuestionType[this] = (short?)value; }
 
     [DisplayName("Option1"), Size(500), NotNull]
     public string Option1 { get => fields.Option1[this]; set => fields.Option1[this] = value; }

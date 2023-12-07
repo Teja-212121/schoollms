@@ -1,3 +1,4 @@
+using GXpert.Web.Enums;
 using Serenity.ComponentModel;
 using Serenity.Data;
 using Serenity.Data.Mapping;
@@ -47,8 +48,8 @@ public sealed class ActivationRow : LoggingRow<ActivationRow.RowFields>, IIdRow,
     public DateTime? ExpiryDate { get => fields.ExpiryDate[this]; set => fields.ExpiryDate[this] = value; }
 
     [DisplayName("E Status"), Column("eStatus")]
-    public short? EStatus { get => fields.EStatus[this]; set => fields.EStatus[this] = value; }
-    
+    public EKeyStatus? EStatus { get => (EKeyStatus?)fields.EStatus[this]; set => fields.EStatus[this] = (short?)value; }
+
     [DisplayName("Is Active"), DefaultValue(1)]
     public short? IsActive { get => fields.IsActive[this]; set => fields.IsActive[this] = value; }
 

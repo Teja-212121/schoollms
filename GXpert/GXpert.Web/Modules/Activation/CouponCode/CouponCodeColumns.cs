@@ -13,7 +13,9 @@ public class CouponCodeColumns
     [EditLink]
     public string Code { get; set; }
     public string PlayListTitle { get; set; }
+    [QuickFilter]
     public short ValidityType { get; set; }
+    [QuickFilter]
     public short CountType { get; set; }
     public short Count { get; set; }
     public short ValidityInDays { get; set; }

@@ -13,6 +13,7 @@ public class ContentColumns
     [EditLink]
     public string Title { get; set; }
     public string Description { get; set; }
+    [QuickFilter]
     public short EContentType { get; set; }
     public string FileKeyUrl { get; set; }
     public string Iv { get; set; }
@@ -29,5 +30,6 @@ public class ContentColumns
     public int DisLikesCount { get; set; }
     public int HandRaiseCount { get; set; }
     public string SearchTags { get; set; }
+    [QuickFilter]
     public short EDifficultyLevel { get; set; }
 }

@@ -19,7 +19,7 @@ public sealed class TopicRow : LoggingRow<TopicRow.RowFields>, IIdRow, INameRow
     const string jMedium = nameof(jMedium);
     const string jSubject = nameof(jSubject);
 
-    [DisplayName("Id"), Identity, IdProperty]
+    [DisplayName("Id"), Identity, IdProperty, LookupInclude]
     public int? Id { get => fields.Id[this]; set => fields.Id[this] = value; }
 
     [DisplayName("Title"), Size(500), NotNull, QuickSearch, NameProperty]
@@ -40,7 +40,7 @@ public sealed class TopicRow : LoggingRow<TopicRow.RowFields>, IIdRow, INameRow
     public int? MediumId { get => fields.MediumId[this]; set => fields.MediumId[this] = value; }
 
     [DisplayName("Subject"), NotNull, ForeignKey(typeof(SubjectRow)), LeftJoin(jSubject), TextualField(nameof(SubjectTitle))]
-    [ServiceLookupEditor(typeof(SubjectRow))]
+    [ServiceLookupEditor(typeof(SubjectRow), CascadeFrom = "ClassId", CascadeField = "ClassId"), LookupInclude]
     public int? SubjectId { get => fields.SubjectId[this]; set => fields.SubjectId[this] = value; }
 
     [DisplayName("Weightage"), NotNull]

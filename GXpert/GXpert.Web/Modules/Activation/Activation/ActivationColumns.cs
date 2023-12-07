@@ -16,7 +16,9 @@ public class ActivationColumns
     [EditLink]
     public string DeviceId { get; set; }
     public string DeviceDetails { get; set; }
+    [QuickFilter]
     public DateTime ActivationDate { get; set; }
     public DateTime ExpiryDate { get; set; }
+    [QuickFilter]
     public short EStatus { get; set; }
 }

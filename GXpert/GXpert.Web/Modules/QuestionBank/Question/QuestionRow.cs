@@ -1,3 +1,4 @@
+using GXpert.Web.Enums;
 using Serenity.ComponentModel;
 using Serenity.Data;
 using Serenity.Data.Mapping;
@@ -34,10 +35,10 @@ public sealed class QuestionRow : LoggingRow<QuestionRow.RowFields>, IIdRow, INa
     public bool? IsSubjective { get => fields.IsSubjective[this]; set => fields.IsSubjective[this] = value; }
 
     [DisplayName("E Question Type"), NotNull]
-    public short? EQuestionType { get => fields.EQuestionType[this]; set => fields.EQuestionType[this] = value; }
+    public EQuestionType? EQuestionType { get => (EQuestionType?)fields.EQuestionType[this]; set => fields.EQuestionType[this] = (short?)value; }
 
     [DisplayName("E Difficulty Level"), NotNull]
-    public short? EDifficultyLevel { get => fields.EDifficultyLevel[this]; set => fields.EDifficultyLevel[this] = value; }
+    public EDifficultyLevel? EDifficultyLevel { get => (EDifficultyLevel?)fields.EDifficultyLevel[this]; set => fields.EDifficultyLevel[this] = (short?)value; }
 
     [DisplayName("Question Common Data"), ForeignKey(typeof(CommonDataRow)), LeftJoin(jQuestionCommonData)]
     [TextualField(nameof(QuestionCommonDataCommonDataTitle)), ServiceLookupEditor(typeof(CommonDataRow))]

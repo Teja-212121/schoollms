@@ -9,16 +9,16 @@ export interface AssignmentAttemptRow {
     TeacherId?: number;
     PlayListId?: number;
     ActivationId?: number;
-    InsertDate?: string;
-    InsertUserId?: number;
-    UpdateDate?: string;
-    UpdateUserId?: number;
     IsActive?: boolean;
     AssignmentTitle?: string;
     StudentPrn?: string;
     TeacherPrn?: string;
     PlayListTitle?: string;
     ActivationDeviceId?: string;
+    InsertUserId?: number;
+    InsertDate?: string;
+    UpdateUserId?: number;
+    UpdateDate?: string;
 }
 
 export abstract class AssignmentAttemptRow {

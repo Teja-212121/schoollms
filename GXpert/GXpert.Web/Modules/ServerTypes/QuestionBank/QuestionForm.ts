@@ -1,23 +1,20 @@
-﻿import { StringEditor, BooleanEditor, IntegerEditor, ServiceLookupEditor, DecimalEditor, DateEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
+﻿import { HtmlContentEditor, BooleanEditor, EnumEditor, ServiceLookupEditor, DecimalEditor, LookupEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
+import { EDifficultyLevel } from "../Web/Enums.EDifficultyLevel";
+import { EQuestionType } from "../Web/Enums.EQuestionType";
 
 export interface QuestionForm {
-    QuestionText: StringEditor;
-    Explaination: StringEditor;
+    QuestionText: HtmlContentEditor;
+    Explaination: HtmlContentEditor;
     IsSubjective: BooleanEditor;
-    EQuestionType: IntegerEditor;
-    EDifficultyLevel: IntegerEditor;
+    EQuestionType: EnumEditor;
+    EDifficultyLevel: EnumEditor;
     QuestionCommonDataId: ServiceLookupEditor;
     QuestionCommonDataSortOrder: DecimalEditor;
-    ClassId: IntegerEditor;
-    SubjectId: IntegerEditor;
-    TopicId: IntegerEditor;
-    BloomsIndex: IntegerEditor;
+    ClassId: LookupEditor;
+    SubjectId: LookupEditor;
+    TopicId: LookupEditor;
+    BloomsIndex: LookupEditor;
     BloomsWeightage: DecimalEditor;
-    InsertDate: DateEditor;
-    InsertUserId: IntegerEditor;
-    UpdateDate: DateEditor;
-    UpdateUserId: IntegerEditor;
-    IsActive: BooleanEditor;
 }
 
 export class QuestionForm extends PrefixedContext {
@@ -30,12 +27,12 @@ export class QuestionForm extends PrefixedContext {
         if (!QuestionForm.init)  {
             QuestionForm.init = true;
 
-            var w0 = StringEditor;
+            var w0 = HtmlContentEditor;
             var w1 = BooleanEditor;
-            var w2 = IntegerEditor;
+            var w2 = EnumEditor;
             var w3 = ServiceLookupEditor;
             var w4 = DecimalEditor;
-            var w5 = DateEditor;
+            var w5 = LookupEditor;
 
             initFormType(QuestionForm, [
                 'QuestionText', w0,
@@ -45,17 +42,14 @@ export class QuestionForm extends PrefixedContext {
                 'EDifficultyLevel', w2,
                 'QuestionCommonDataId', w3,
                 'QuestionCommonDataSortOrder', w4,
-                'ClassId', w2,
-                'SubjectId', w2,
-                'TopicId', w2,
-                'BloomsIndex', w2,
-                'BloomsWeightage', w4,
-                'InsertDate', w5,
-                'InsertUserId', w2,
-                'UpdateDate', w5,
-                'UpdateUserId', w2,
-                'IsActive', w1
+                'ClassId', w5,
+                'SubjectId', w5,
+                'TopicId', w5,
+                'BloomsIndex', w5,
+                'BloomsWeightage', w4
             ]);
         }
     }
 }
+
+[EQuestionType, EDifficultyLevel]; // referenced types

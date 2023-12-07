@@ -1,5 +1,6 @@
 ﻿import { ColumnsBase, fieldsProxy } from "@serenity-is/corelib";
 import { Column } from "@serenity-is/sleekgrid";
+import { EQuestionType } from "../Web/Enums.EQuestionType";
 import { QuestionRow } from "./QuestionRow";
 
 export interface QuestionColumns {
@@ -16,14 +17,11 @@ export interface QuestionColumns {
     TopicTitle: Column<QuestionRow>;
     BloomsIndexCoginitiveSkill: Column<QuestionRow>;
     BloomsWeightage: Column<QuestionRow>;
-    InsertDate: Column<QuestionRow>;
-    InsertUserId: Column<QuestionRow>;
-    UpdateDate: Column<QuestionRow>;
-    UpdateUserId: Column<QuestionRow>;
-    IsActive: Column<QuestionRow>;
 }
 
 export class QuestionColumns extends ColumnsBase<QuestionRow> {
     static readonly columnsKey = 'QuestionBank.Question';
     static readonly Fields = fieldsProxy<QuestionColumns>();
 }
+
+[EQuestionType]; // referenced types

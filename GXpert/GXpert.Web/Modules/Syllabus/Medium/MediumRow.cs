@@ -15,7 +15,7 @@ namespace GXpert.Syllabus;
 [LookupScript("Syllabus.Medium")]
 public sealed class MediumRow : LoggingRow<MediumRow.RowFields>, IIdRow, INameRow
 {
-    [DisplayName("Id"), Identity, IdProperty]
+    [DisplayName("Id"), Identity, IdProperty, LookupInclude]
     public int? Id { get => fields.Id[this]; set => fields.Id[this] = value; }
 
     [DisplayName("Title"), Size(500), NotNull, QuickSearch, NameProperty]

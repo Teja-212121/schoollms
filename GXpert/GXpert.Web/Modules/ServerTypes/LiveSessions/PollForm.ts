@@ -1,8 +1,9 @@
-﻿import { StringEditor, IntegerEditor, ServiceLookupEditor, DecimalEditor, DateEditor, BooleanEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
+﻿import { StringEditor, EnumEditor, ServiceLookupEditor, IntegerEditor, DecimalEditor, LookupEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
+import { EQuestionType } from "../Web/Enums.EQuestionType";
 
 export interface PollForm {
     Question: StringEditor;
-    EQuestionType: IntegerEditor;
+    EQuestionType: EnumEditor;
     Option1: StringEditor;
     Option2: StringEditor;
     Option3: StringEditor;
@@ -14,13 +15,8 @@ export interface PollForm {
     AverageResponseTime: DecimalEditor;
     NumberOfCorrect: IntegerEditor;
     NumberOfWrong: IntegerEditor;
-    BloomsTaxonomyId: IntegerEditor;
+    BloomsTaxonomyId: LookupEditor;
     Weightage: DecimalEditor;
-    InsertDate: DateEditor;
-    InsertUserId: IntegerEditor;
-    UpdateDate: DateEditor;
-    UpdateUserId: IntegerEditor;
-    IsActive: BooleanEditor;
 }
 
 export class PollForm extends PrefixedContext {
@@ -34,11 +30,11 @@ export class PollForm extends PrefixedContext {
             PollForm.init = true;
 
             var w0 = StringEditor;
-            var w1 = IntegerEditor;
+            var w1 = EnumEditor;
             var w2 = ServiceLookupEditor;
-            var w3 = DecimalEditor;
-            var w4 = DateEditor;
-            var w5 = BooleanEditor;
+            var w3 = IntegerEditor;
+            var w4 = DecimalEditor;
+            var w5 = LookupEditor;
 
             initFormType(PollForm, [
                 'Question', w0,
@@ -50,18 +46,15 @@ export class PollForm extends PrefixedContext {
                 'Option5', w0,
                 'RightAnswer', w0,
                 'LiveSessionLogId', w2,
-                'TotalAttempts', w1,
-                'AverageResponseTime', w3,
-                'NumberOfCorrect', w1,
-                'NumberOfWrong', w1,
-                'BloomsTaxonomyId', w1,
-                'Weightage', w3,
-                'InsertDate', w4,
-                'InsertUserId', w1,
-                'UpdateDate', w4,
-                'UpdateUserId', w1,
-                'IsActive', w5
+                'TotalAttempts', w3,
+                'AverageResponseTime', w4,
+                'NumberOfCorrect', w3,
+                'NumberOfWrong', w3,
+                'BloomsTaxonomyId', w5,
+                'Weightage', w4
             ]);
         }
     }
 }
+
+[EQuestionType]; // referenced types

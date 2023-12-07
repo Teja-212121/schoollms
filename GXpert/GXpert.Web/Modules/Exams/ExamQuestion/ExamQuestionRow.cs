@@ -1,3 +1,4 @@
+using GXpert.Web.Enums;
 using Serenity.ComponentModel;
 using Serenity.Data;
 using Serenity.Data.Mapping;
@@ -38,7 +39,7 @@ public sealed class ExamQuestionRow : LoggingRow<ExamQuestionRow.RowFields>, IId
     public long? QuestionId { get => fields.QuestionId[this]; set => fields.QuestionId[this] = value; }
 
     [DisplayName("E Difficulty Level"), NotNull]
-    public short? EDifficultyLevel { get => fields.EDifficultyLevel[this]; set => fields.EDifficultyLevel[this] = value; }
+    public EDifficultyLevel? EDifficultyLevel { get => (EDifficultyLevel?)fields.EDifficultyLevel[this]; set => fields.EDifficultyLevel[this] = (short?)value; }
 
     [DisplayName("Right Answer"), Size(500), QuickSearch, NameProperty]
     public string RightAnswer { get => fields.RightAnswer[this]; set => fields.RightAnswer[this] = value; }

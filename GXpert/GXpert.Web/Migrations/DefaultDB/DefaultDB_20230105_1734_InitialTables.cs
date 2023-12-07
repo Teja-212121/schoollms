@@ -25,8 +25,8 @@ public class DefaultDB_20230105_1734_InitialTables : AutoReversingMigration
             .WithColumn("Description").AsString(2000)
             .WithColumn("InsertDate").AsDateTime().NotNullable()
             .WithColumn("InsertUserId").AsInt32().NotNullable()
-            .WithColumn("UpdateDate").AsDateTime().NotNullable()
-            .WithColumn("UpdateUserId").AsInt32().NotNullable()
+            .WithColumn("UpdateDate").AsDateTime().Nullable()
+            .WithColumn("UpdateUserId").AsInt32().Nullable()
             .WithColumn("IsActive").AsBoolean().NotNullable().WithDefaultValue(1));
 
         this.CreateTableWithId32("Subjects", "Id", s => s
@@ -59,8 +59,8 @@ public class DefaultDB_20230105_1734_InitialTables : AutoReversingMigration
             .WithColumn("Thumbnail").AsString(500)
             .WithColumn("InsertDate").AsDateTime().NotNullable()
             .WithColumn("InsertUserId").AsInt32().NotNullable()
-            .WithColumn("UpdateDate").AsDateTime().NotNullable()
-            .WithColumn("UpdateUserId").AsInt32().NotNullable()
+            .WithColumn("UpdateDate").AsDateTime().Nullable()
+            .WithColumn("UpdateUserId").AsInt32().Nullable()
             .WithColumn("IsActive").AsBoolean().NotNullable().WithDefaultValue(1));
         #endregion
 
@@ -764,7 +764,7 @@ public class DefaultDB_20230105_1734_InitialTables : AutoReversingMigration
             .WithColumn("StudentId").AsInt32().Nullable()
                 .ForeignKey("Students", "Id")
             .WithColumn("FileUploaded").AsString(int.MaxValue).NotNullable()
-            .WithColumn("eStatus").AsString().Nullable()
+            .WithColumn("eStatus").AsInt16().Nullable()
             .WithColumn("TeacherId").AsInt32().Nullable()
                 .ForeignKey("Teachers", "Id")
             .WithColumn("PlayListId").AsInt32().NotNullable()

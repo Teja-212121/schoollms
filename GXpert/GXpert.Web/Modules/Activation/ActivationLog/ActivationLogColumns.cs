@@ -17,6 +17,7 @@ public class ActivationLogColumns
     public string PlayListTitle { get; set; }
     public string DeviceId { get; set; }
     public string DeviceDetails { get; set; }
+    [QuickFilter]
     public short EStatus { get; set; }
     public string Note { get; set; }
 }

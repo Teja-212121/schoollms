@@ -1,3 +1,4 @@
+using GXpert.Web.Enums;
 using Serenity.ComponentModel;
 using Serenity.Data;
 using Serenity.Data.Mapping;
@@ -36,7 +37,7 @@ public sealed class ExamAttemptQuestionRow : LoggingRow<ExamAttemptQuestionRow.R
     public int? MarksObtained { get => fields.MarksObtained[this]; set => fields.MarksObtained[this] = value; }
 
     [DisplayName("Attemptstatus"), NotNull]
-    public short? Attemptstatus { get => fields.Attemptstatus[this]; set => fields.Attemptstatus[this] = value; }
+    public EAttemptStatus? Attemptstatus { get => (EAttemptStatus?)fields.Attemptstatus[this]; set => fields.Attemptstatus[this] = (short?)value; }
 
     [DisplayName("Out Ofmarks"), NotNull]
     public int? OutOfmarks { get => fields.OutOfmarks[this]; set => fields.OutOfmarks[this] = value; }

@@ -13,9 +13,11 @@ public class SerialKeyColumns
     [EditLink]
     public string SerialKey { get; set; }
     public string PlayListTitle { get; set; }
+    [QuickFilter]
     public short ValidityType { get; set; }
     public short ValidityInDays { get; set; }
     public DateTime ValidDate { get; set; }
     public string Note { get; set; }
+    [QuickFilter]
     public short EStatus { get; set; }
 }

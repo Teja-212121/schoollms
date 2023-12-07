@@ -1,4 +1,5 @@
 ﻿import { fieldsProxy } from "@serenity-is/corelib";
+import { EAttemptStatus } from "../Web/Enums.EAttemptStatus";
 
 export interface ExamAttemptQuestionRow {
     Id?: number;
@@ -6,16 +7,16 @@ export interface ExamAttemptQuestionRow {
     ExamQuestionId?: number;
     OptionSelected?: string;
     MarksObtained?: number;
-    Attemptstatus?: number;
+    Attemptstatus?: EAttemptStatus;
     OutOfmarks?: number;
     Result?: string;
-    InsertDate?: string;
-    InsertUserId?: number;
-    UpdateDate?: string;
-    UpdateUserId?: number;
     IsActive?: boolean;
     ExamAttemptStudentAnswerSheetUpload?: string;
     ExamQuestionRightAnswer?: string;
+    InsertUserId?: number;
+    InsertDate?: string;
+    UpdateUserId?: number;
+    UpdateDate?: string;
 }
 
 export abstract class ExamAttemptQuestionRow {

@@ -31,11 +31,11 @@ public sealed class ContentTopicRow : LoggingRow<ContentTopicRow.RowFields>, IId
     public int? ClassId { get => fields.ClassId[this]; set => fields.ClassId[this] = value; }
 
     [DisplayName("Subject"), ForeignKey("Subjects", "Id"), LeftJoin(jSubject), TextualField(nameof(SubjectTitle))]
-    [LookupEditor("Syllabus.Subject")]
+    [LookupEditor("Syllabus.Subject", CascadeFrom = "ClassId", CascadeField = "ClassId")]
     public int? SubjectId { get => fields.SubjectId[this]; set => fields.SubjectId[this] = value; }
 
     [DisplayName("Topic"), ForeignKey("Topics", "Id"), LeftJoin(jTopic), TextualField(nameof(TopicTitle))]
-    [LookupEditor("Syllabus.Topic")]
+    [LookupEditor("Syllabus.Topic", CascadeFrom = "SubjectId", CascadeField = "SubjectId")]
     public int? TopicId { get => fields.TopicId[this]; set => fields.TopicId[this] = value; }
 
     [DisplayName("Medium"), ForeignKey("Mediums", "Id"), LeftJoin(jMedium), TextualField(nameof(MediumTitle))]

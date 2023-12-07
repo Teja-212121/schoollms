@@ -1,5 +1,6 @@
 ﻿import { ColumnsBase, fieldsProxy } from "@serenity-is/corelib";
 import { Column } from "@serenity-is/sleekgrid";
+import { EDifficultyLevel } from "../Web/Enums.EDifficultyLevel";
 import { ExamQuestionRow } from "./ExamQuestionRow";
 
 export interface ExamQuestionColumns {
@@ -14,14 +15,11 @@ export interface ExamQuestionColumns {
     ClassTitle: Column<ExamQuestionRow>;
     SubjectTitle: Column<ExamQuestionRow>;
     TopicTitle: Column<ExamQuestionRow>;
-    InsertDate: Column<ExamQuestionRow>;
-    InsertUserId: Column<ExamQuestionRow>;
-    UpdateDate: Column<ExamQuestionRow>;
-    UpdateUserId: Column<ExamQuestionRow>;
-    IsActive: Column<ExamQuestionRow>;
 }
 
 export class ExamQuestionColumns extends ColumnsBase<ExamQuestionRow> {
     static readonly columnsKey = 'Exams.ExamQuestion';
     static readonly Fields = fieldsProxy<ExamQuestionColumns>();
 }
+
+[EDifficultyLevel]; // referenced types
