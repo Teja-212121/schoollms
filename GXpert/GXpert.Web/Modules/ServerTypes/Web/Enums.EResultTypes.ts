@@ -5,4 +5,4 @@ export enum EResultTypes {
     AFTER_EXAM_ON_CLIENT = 1,
     AFTER_QUESTION_ON_CLIENT = 2
 }
-Decorators.registerEnumType(EResultTypes, 'GXpert.Web.Enums.EResultTypes', 'Workspace.EResultTypes');
+Decorators.registerEnumType(EResultTypes, 'GXpert.Web.Enums.EResultTypes');

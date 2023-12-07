@@ -1,9 +1,10 @@
 ﻿import { getLookup, getLookupAsync, fieldsProxy } from "@serenity-is/corelib";
+import { ELiveProvider } from "../Web/Enums.ELiveProvider";
 
 export interface LiveSessionRow {
     Id?: number;
     MeetingId?: string;
-    LiveProvider?: number;
+    LiveProvider?: ELiveProvider;
     Password?: string;
     Secret?: string;
     LiveAdditionalInfo?: string;

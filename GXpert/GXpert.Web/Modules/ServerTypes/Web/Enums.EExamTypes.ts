@@ -5,4 +5,4 @@ export enum EExamTypes {
     SUBJECTIVE = 1,
     HYBRID = 2
 }
-Decorators.registerEnumType(EExamTypes, 'GXpert.Web.Enums.EExamTypes', 'Workspace.EExamTypes');
+Decorators.registerEnumType(EExamTypes, 'GXpert.Web.Enums.EExamTypes');

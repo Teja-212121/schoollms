@@ -1,8 +1,8 @@
 ﻿import { Decorators } from "@serenity-is/corelib";
 
 export enum EValidityType {
-    Unlimited = 1,
-    FixedDate = 2,
-    ValidityInDays = 3
+    UNLIMITED = 0,
+    FIXEDDATE = 1,
+    VALIDITYINDAYS = 2
 }
 Decorators.registerEnumType(EValidityType, 'GXpert.Web.Enums.EValidityType');

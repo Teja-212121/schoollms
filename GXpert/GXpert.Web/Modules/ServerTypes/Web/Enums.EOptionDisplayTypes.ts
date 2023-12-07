@@ -5,4 +5,4 @@ export enum EOptionDisplayTypes {
     ALPHABETIC = 1,
     ROMAN_NUMERALS = 2
 }
-Decorators.registerEnumType(EOptionDisplayTypes, 'GXpert.Web.Enums.EOptionDisplayTypes', 'Workspace.EOptionDisplayTypes');
+Decorators.registerEnumType(EOptionDisplayTypes, 'GXpert.Web.Enums.EOptionDisplayTypes');

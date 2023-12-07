@@ -1,11 +1,12 @@
 ﻿import { fieldsProxy } from "@serenity-is/corelib";
+import { EHandRaiseStatus } from "../Web/Enums.EHandRaiseStatus";
 
 export interface RaiseHandLiveSessionRow {
     Id?: number;
     LiveSessionlogId?: number;
     StudentId?: number;
     SessionTime?: string;
-    HandRaiseStatus?: number;
+    HandRaiseStatus?: EHandRaiseStatus;
     PlayListId?: number;
     ActivationId?: number;
     IsActive?: boolean;

@@ -1,3 +1,4 @@
+using GXpert.Web.Enums;
 using Serenity.ComponentModel;
 using Serenity.Data;
 using Serenity.Data.Mapping;
@@ -41,7 +42,7 @@ public sealed class SchoolTimeTableRow : LoggingRow<SchoolTimeTableRow.RowFields
     public int? TeacherId { get => fields.TeacherId[this]; set => fields.TeacherId[this] = value; }
 
     [DisplayName("E Type"), Column("eType"), Size(50), QuickSearch, NameProperty]
-    public string EType { get => fields.EType[this]; set => fields.EType[this] = value; }
+    public ESchoolTimeTableType? EType { get => (ESchoolTimeTableType?)fields.EType[this]; set => fields.EType[this] = (short?)value; }
 
     [DisplayName("Is Active"), DefaultValue(1)]
     public bool? IsActive { get => fields.IsActive[this]; set => fields.IsActive[this] = value; }
@@ -61,7 +62,7 @@ public sealed class SchoolTimeTableRow : LoggingRow<SchoolTimeTableRow.RowFields
         public Int32Field PeriodIndex;
         public Int32Field SchoolClassId;
         public Int32Field TeacherId;
-        public StringField EType;
+        public Int16Field EType;
         public BooleanField IsActive;
 
         public StringField SchoolClassDivision;

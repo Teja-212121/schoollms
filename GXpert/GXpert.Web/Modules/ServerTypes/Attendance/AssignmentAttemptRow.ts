@@ -1,11 +1,12 @@
 ﻿import { fieldsProxy } from "@serenity-is/corelib";
+import { EExamAttemptStatus } from "../Web/Enums.EExamAttemptStatus";
 
 export interface AssignmentAttemptRow {
     Id?: number;
     AssignmentId?: number;
     StudentId?: number;
     FileUploaded?: string;
-    EStatus?: string;
+    EStatus?: EExamAttemptStatus;
     TeacherId?: number;
     PlayListId?: number;
     ActivationId?: number;

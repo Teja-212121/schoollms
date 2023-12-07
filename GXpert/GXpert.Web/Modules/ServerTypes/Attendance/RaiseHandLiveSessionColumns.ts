@@ -1,5 +1,6 @@
 ﻿import { ColumnsBase, fieldsProxy } from "@serenity-is/corelib";
 import { Column } from "@serenity-is/sleekgrid";
+import { EHandRaiseStatus } from "../Web/Enums.EHandRaiseStatus";
 import { RaiseHandLiveSessionRow } from "./RaiseHandLiveSessionRow";
 
 export interface RaiseHandLiveSessionColumns {
@@ -16,3 +17,5 @@ export class RaiseHandLiveSessionColumns extends ColumnsBase<RaiseHandLiveSessio
     static readonly columnsKey = 'Attendance.RaiseHandLiveSession';
     static readonly Fields = fieldsProxy<RaiseHandLiveSessionColumns>();
 }
+
+[EHandRaiseStatus]; // referenced types

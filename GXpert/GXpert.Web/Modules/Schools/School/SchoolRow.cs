@@ -1,3 +1,4 @@
+using GXpert.Web.Enums;
 using Serenity.ComponentModel;
 using Serenity.Data;
 using Serenity.Data.Mapping;
@@ -29,7 +30,7 @@ public sealed class SchoolRow : LoggingRow<SchoolRow.RowFields>, IIdRow, INameRo
     public string Description { get => fields.Description[this]; set => fields.Description[this] = value; }
 
     [DisplayName("E Type"), Column("eType"), Size(200)]
-    public string EType { get => fields.EType[this]; set => fields.EType[this] = value; }
+    public ESchoolType? EType { get => (ESchoolType?)fields.EType[this]; set => fields.EType[this] = (short?)value; }
 
     [DisplayName("Address"), Size(1000), NotNull]
     public string Address { get => fields.Address[this]; set => fields.Address[this] = value; }
@@ -72,7 +73,7 @@ public sealed class SchoolRow : LoggingRow<SchoolRow.RowFields>, IIdRow, INameRo
         public Int32Field Id;
         public StringField Name;
         public StringField Description;
-        public StringField EType;
+        public Int16Field EType;
         public StringField Address;
         public StringField City;
         public Int32Field StateId;

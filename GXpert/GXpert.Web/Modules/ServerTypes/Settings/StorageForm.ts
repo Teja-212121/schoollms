@@ -1,4 +1,5 @@
-﻿import { StringEditor, IntegerEditor, BooleanEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
+﻿import { StringEditor, EnumEditor, BooleanEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
+import { EStorageType } from "../Web/Enums.EStorageType";
 
 export interface StorageForm {
     AccessKeyId: StringEditor;
@@ -6,7 +7,7 @@ export interface StorageForm {
     Endpoint: StringEditor;
     Region: StringEditor;
     BucketName: StringEditor;
-    S3Types: IntegerEditor;
+    S3Types: EnumEditor;
     IsDefault: BooleanEditor;
     UrlPreview: StringEditor;
     UploadPath: StringEditor;
@@ -23,7 +24,7 @@ export class StorageForm extends PrefixedContext {
             StorageForm.init = true;
 
             var w0 = StringEditor;
-            var w1 = IntegerEditor;
+            var w1 = EnumEditor;
             var w2 = BooleanEditor;
 
             initFormType(StorageForm, [
@@ -40,3 +41,5 @@ export class StorageForm extends PrefixedContext {
         }
     }
 }
+
+[EStorageType]; // referenced types

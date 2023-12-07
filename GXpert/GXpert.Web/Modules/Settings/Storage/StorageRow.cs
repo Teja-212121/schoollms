@@ -1,3 +1,4 @@
+using GXpert.Web.Enums;
 using Serenity.ComponentModel;
 using Serenity.Data;
 using Serenity.Data.Mapping;
@@ -33,7 +34,7 @@ public sealed class StorageRow : LoggingRow<StorageRow.RowFields>, IIdRow, IName
     public string BucketName { get => fields.BucketName[this]; set => fields.BucketName[this] = value; }
 
     [DisplayName("S3 Types"), NotNull]
-    public short? S3Types { get => fields.S3Types[this]; set => fields.S3Types[this] = value; }
+    public EStorageType? S3Types { get => (EStorageType?)fields.S3Types[this]; set => fields.S3Types[this] = (short?)value; }
 
     [DisplayName("Is Default")]
     public bool? IsDefault { get => fields.IsDefault[this]; set => fields.IsDefault[this] = value; }

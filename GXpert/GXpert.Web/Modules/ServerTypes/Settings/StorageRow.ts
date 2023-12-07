@@ -1,4 +1,5 @@
 ﻿import { fieldsProxy } from "@serenity-is/corelib";
+import { EStorageType } from "../Web/Enums.EStorageType";
 
 export interface StorageRow {
     Id?: number;
@@ -7,7 +8,7 @@ export interface StorageRow {
     Endpoint?: string;
     Region?: string;
     BucketName?: string;
-    S3Types?: number;
+    S3Types?: EStorageType;
     IsDefault?: boolean;
     UrlPreview?: string;
     UploadPath?: string;

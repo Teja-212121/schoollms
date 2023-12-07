@@ -1,10 +1,11 @@
-﻿import { LookupEditor, DateEditor, IntegerEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
+﻿import { LookupEditor, DateEditor, EnumEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
+import { EHandRaiseStatus } from "../Web/Enums.EHandRaiseStatus";
 
 export interface RaiseHandLiveSessionForm {
     LiveSessionlogId: LookupEditor;
     StudentId: LookupEditor;
     SessionTime: DateEditor;
-    HandRaiseStatus: IntegerEditor;
+    HandRaiseStatus: EnumEditor;
     PlayListId: LookupEditor;
     ActivationId: LookupEditor;
 }
@@ -21,7 +22,7 @@ export class RaiseHandLiveSessionForm extends PrefixedContext {
 
             var w0 = LookupEditor;
             var w1 = DateEditor;
-            var w2 = IntegerEditor;
+            var w2 = EnumEditor;
 
             initFormType(RaiseHandLiveSessionForm, [
                 'LiveSessionlogId', w0,
@@ -34,3 +35,5 @@ export class RaiseHandLiveSessionForm extends PrefixedContext {
         }
     }
 }
+
+[EHandRaiseStatus]; // referenced types

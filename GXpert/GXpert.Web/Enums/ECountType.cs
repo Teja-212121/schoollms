@@ -4,9 +4,7 @@ namespace GXpert.Web.Enums
 {
     public enum ECountType
     {
-        [Description("Unlimited")]
-        Unlimited = 1,
-        [Description("Limited")]
-        Limited = 2
+        UNLIMITED,
+        LIMITED
     }
 }

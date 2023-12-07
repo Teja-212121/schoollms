@@ -5,4 +5,4 @@ export enum EDifficultyLevel {
     MODERATE = 5,
     DIFFICULT = 10
 }
-Decorators.registerEnumType(EDifficultyLevel, 'GXpert.Web.Enums.EDifficultyLevel', 'Workspace.EDifficultyLevels');
+Decorators.registerEnumType(EDifficultyLevel, 'GXpert.Web.Enums.EDifficultyLevel');

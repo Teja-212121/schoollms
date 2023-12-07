@@ -123,7 +123,7 @@ public class DefaultDB_20230105_1734_InitialTables : AutoReversingMigration
         this.CreateTableWithId32("Schools", "Id", s => s
             .WithColumn("Name").AsString(500).NotNullable()
             .WithColumn("Description").AsString(1000).Nullable()
-            .WithColumn("eType").AsString(200).Nullable()
+            .WithColumn("eType").AsInt16().Nullable()
             .WithColumn("Address").AsString(1000).NotNullable()
             .WithColumn("City").AsString(200).NotNullable()
             .WithColumn("StateId").AsInt32().NotNullable()
@@ -250,7 +250,7 @@ public class DefaultDB_20230105_1734_InitialTables : AutoReversingMigration
                 .ForeignKey("SchoolClasses", "Id")
             .WithColumn("TeacherId").AsInt32().Nullable()
                 .ForeignKey("Teachers", "Id")
-            .WithColumn("eType").AsString(50).Nullable()
+            .WithColumn("eType").AsInt16().Nullable()
             .WithColumn("InsertDate").AsDateTime().NotNullable()
             .WithColumn("InsertUserId").AsInt32().NotNullable()
             .WithColumn("UpdateDate").AsDateTime().Nullable()

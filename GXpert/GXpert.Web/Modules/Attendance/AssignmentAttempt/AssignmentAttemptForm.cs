@@ -7,11 +7,17 @@ namespace GXpert.Attendance.Forms;
 [BasedOnRow(typeof(AssignmentAttemptRow), CheckNames = true)]
 public class AssignmentAttemptForm
 {
+    [HalfWidth]
     public int AssignmentId { get; set; }
+    [HalfWidth]
     public int StudentId { get; set; }
     public string FileUploaded { get; set; }
-    public string EStatus { get; set; }
+    [HalfWidth]
+    public short EStatus { get; set; }
+    [HalfWidth]
     public int TeacherId { get; set; }
+    [HalfWidth]
     public int PlayListId { get; set; }
+    [HalfWidth]
     public int ActivationId { get; set; }
 }

@@ -7,7 +7,10 @@ namespace GXpert.Analytics.Forms;
 [BasedOnRow(typeof(AssignedExamTeachersRow), CheckNames = true)]
 public class AssignedExamTeachersForm
 {
+    [HalfWidth]
     public int ExamId { get; set; }
+    [HalfWidth]
     public int PlayListId { get; set; }
+    [HalfWidth]
     public int TeacherId { get; set; }
 }

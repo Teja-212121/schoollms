@@ -1,5 +1,6 @@
 ﻿import { ColumnsBase, fieldsProxy } from "@serenity-is/corelib";
 import { Column } from "@serenity-is/sleekgrid";
+import { ESchoolType } from "../Web/Enums.ESchoolType";
 import { SchoolRow } from "./SchoolRow";
 
 export interface SchoolColumns {
@@ -20,3 +21,5 @@ export class SchoolColumns extends ColumnsBase<SchoolRow> {
     static readonly columnsKey = 'Schools.School';
     static readonly Fields = fieldsProxy<SchoolColumns>();
 }
+
+[ESchoolType]; // referenced types

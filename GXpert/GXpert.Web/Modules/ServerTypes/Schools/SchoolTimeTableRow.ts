@@ -1,4 +1,5 @@
 ﻿import { fieldsProxy } from "@serenity-is/corelib";
+import { ESchoolTimeTableType } from "../Web/Enums.ESchoolTimeTableType";
 
 export interface SchoolTimeTableRow {
     Id?: number;
@@ -8,7 +9,7 @@ export interface SchoolTimeTableRow {
     PeriodIndex?: number;
     SchoolClassId?: number;
     TeacherId?: number;
-    EType?: string;
+    EType?: ESchoolTimeTableType;
     IsActive?: boolean;
     SchoolClassDivision?: string;
     TeacherPrn?: string;

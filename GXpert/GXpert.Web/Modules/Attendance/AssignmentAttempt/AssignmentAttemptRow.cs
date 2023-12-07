@@ -1,3 +1,4 @@
+using GXpert.Web.Enums;
 using Serenity.ComponentModel;
 using Serenity.Data;
 using Serenity.Data.Mapping;
@@ -31,11 +32,11 @@ public sealed class AssignmentAttemptRow : LoggingRow<AssignmentAttemptRow.RowFi
     [LookupEditor("Users.Student")]
     public int? StudentId { get => fields.StudentId[this]; set => fields.StudentId[this] = value; }
 
-    [DisplayName("File Uploaded"), NotNull, QuickSearch, NameProperty]
+    [DisplayName("File Uploaded"), NotNull, QuickSearch, NameProperty, FileUploadEditor]
     public string FileUploaded { get => fields.FileUploaded[this]; set => fields.FileUploaded[this] = value; }
 
     [DisplayName("E Status"), Column("eStatus"), Size(255)]
-    public string EStatus { get => fields.EStatus[this]; set => fields.EStatus[this] = value; }
+    public EExamAttemptStatus? EStatus { get => (EExamAttemptStatus?)fields.EStatus[this]; set => fields.EStatus[this] = (short?)value; }
 
     [DisplayName("Teacher"), ForeignKey("Teachers", "Id"), LeftJoin(jTeacher), TextualField(nameof(TeacherPrn))]
     [LookupEditor("Users.Teacher")]
@@ -73,7 +74,7 @@ public sealed class AssignmentAttemptRow : LoggingRow<AssignmentAttemptRow.RowFi
         public Int32Field AssignmentId;
         public Int32Field StudentId;
         public StringField FileUploaded;
-        public StringField EStatus;
+        public Int16Field EStatus;
         public Int32Field TeacherId;
         public Int32Field PlayListId;
         public Int32Field ActivationId;

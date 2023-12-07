@@ -1,3 +1,4 @@
+using GXpert.Web.Enums;
 using Serenity.ComponentModel;
 using Serenity.Data;
 using Serenity.Data.Mapping;
@@ -33,7 +34,7 @@ public sealed class RaiseHandLiveSessionRow : LoggingRow<RaiseHandLiveSessionRow
     public DateTime? SessionTime { get => fields.SessionTime[this]; set => fields.SessionTime[this] = value; }
 
     [DisplayName("Hand Raise Status")]
-    public short? HandRaiseStatus { get => fields.HandRaiseStatus[this]; set => fields.HandRaiseStatus[this] = value; }
+    public EHandRaiseStatus? HandRaiseStatus { get => (EHandRaiseStatus?)fields.HandRaiseStatus[this]; set => fields.HandRaiseStatus[this] = (short?)value; }
 
     [DisplayName("Play List"), NotNull, ForeignKey("PlayLists", "Id"), LeftJoin(jPlayList), TextualField(nameof(PlayListTitle))]
     [LookupEditor("Playlist.PlayList")]

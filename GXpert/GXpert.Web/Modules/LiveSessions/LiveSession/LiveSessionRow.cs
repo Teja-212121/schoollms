@@ -1,3 +1,4 @@
+using GXpert.Web.Enums;
 using Serenity.ComponentModel;
 using Serenity.Data;
 using Serenity.Data.Mapping;
@@ -22,7 +23,7 @@ public sealed class LiveSessionRow : LoggingRow<LiveSessionRow.RowFields>, IIdRo
     public string MeetingId { get => fields.MeetingId[this]; set => fields.MeetingId[this] = value; }
 
     [DisplayName("Live Provider"), NotNull]
-    public short? LiveProvider { get => fields.LiveProvider[this]; set => fields.LiveProvider[this] = value; }
+    public ELiveProvider? LiveProvider { get => (ELiveProvider?)fields.LiveProvider[this]; set => fields.LiveProvider[this] = (short?)value; }
 
     [DisplayName("Password"), Size(200), NotNull]
     public string Password { get => fields.Password[this]; set => fields.Password[this] = value; }

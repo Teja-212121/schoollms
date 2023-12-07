@@ -1,8 +1,9 @@
-﻿import { StringEditor, IntegerEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
+﻿import { StringEditor, EnumEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
+import { ELiveProvider } from "../Web/Enums.ELiveProvider";
 
 export interface LiveSessionForm {
     MeetingId: StringEditor;
-    LiveProvider: IntegerEditor;
+    LiveProvider: EnumEditor;
     Password: StringEditor;
     Secret: StringEditor;
     LiveAdditionalInfo: StringEditor;
@@ -20,7 +21,7 @@ export class LiveSessionForm extends PrefixedContext {
             LiveSessionForm.init = true;
 
             var w0 = StringEditor;
-            var w1 = IntegerEditor;
+            var w1 = EnumEditor;
 
             initFormType(LiveSessionForm, [
                 'MeetingId', w0,
@@ -33,3 +34,5 @@ export class LiveSessionForm extends PrefixedContext {
         }
     }
 }
+
+[ELiveProvider]; // referenced types

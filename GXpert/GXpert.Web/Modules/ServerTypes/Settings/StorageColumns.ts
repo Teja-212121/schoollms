@@ -1,5 +1,6 @@
 ﻿import { ColumnsBase, fieldsProxy } from "@serenity-is/corelib";
 import { Column } from "@serenity-is/sleekgrid";
+import { EStorageType } from "../Web/Enums.EStorageType";
 import { StorageRow } from "./StorageRow";
 
 export interface StorageColumns {
@@ -19,3 +20,5 @@ export class StorageColumns extends ColumnsBase<StorageRow> {
     static readonly columnsKey = 'Settings.Storage';
     static readonly Fields = fieldsProxy<StorageColumns>();
 }
+
+[EStorageType]; // referenced types

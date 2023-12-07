@@ -17,5 +17,5 @@ public class SchoolTimeTableColumns
     public string SchoolClassDivision { get; set; }
     public string TeacherPrn { get; set; }
     [EditLink]
-    public string EType { get; set; }
+    public short EType { get; set; }
 }

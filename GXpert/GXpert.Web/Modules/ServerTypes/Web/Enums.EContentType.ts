@@ -1,11 +1,11 @@
 ﻿import { Decorators } from "@serenity-is/corelib";
 
 export enum EContentType {
-    Video = 1,
-    Audio = 2,
-    Pdf = 3,
-    Exam = 4,
-    Html = 5,
-    Meeting = 6
+    VIDEO = 0,
+    AUDIO = 1,
+    PDF = 2,
+    EXAM = 3,
+    HTML = 4,
+    MEETING = 5
 }
 Decorators.registerEnumType(EContentType, 'GXpert.Web.Enums.EContentType');

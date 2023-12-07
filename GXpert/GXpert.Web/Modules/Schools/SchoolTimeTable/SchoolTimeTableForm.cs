@@ -13,5 +13,5 @@ public class SchoolTimeTableForm
     public int PeriodIndex { get; set; }
     public int SchoolClassId { get; set; }
     public int TeacherId { get; set; }
-    public string EType { get; set; }
+    public short EType { get; set; }
 }

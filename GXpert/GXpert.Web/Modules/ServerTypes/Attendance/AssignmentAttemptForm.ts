@@ -1,10 +1,11 @@
-﻿import { LookupEditor, StringEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
+﻿import { LookupEditor, ImageUploadEditor, EnumEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
+import { EExamAttemptStatus } from "../Web/Enums.EExamAttemptStatus";
 
 export interface AssignmentAttemptForm {
     AssignmentId: LookupEditor;
     StudentId: LookupEditor;
-    FileUploaded: StringEditor;
-    EStatus: StringEditor;
+    FileUploaded: ImageUploadEditor;
+    EStatus: EnumEditor;
     TeacherId: LookupEditor;
     PlayListId: LookupEditor;
     ActivationId: LookupEditor;
@@ -21,13 +22,14 @@ export class AssignmentAttemptForm extends PrefixedContext {
             AssignmentAttemptForm.init = true;
 
             var w0 = LookupEditor;
-            var w1 = StringEditor;
+            var w1 = ImageUploadEditor;
+            var w2 = EnumEditor;
 
             initFormType(AssignmentAttemptForm, [
                 'AssignmentId', w0,
                 'StudentId', w0,
                 'FileUploaded', w1,
-                'EStatus', w1,
+                'EStatus', w2,
                 'TeacherId', w0,
                 'PlayListId', w0,
                 'ActivationId', w0
@@ -35,3 +37,5 @@ export class AssignmentAttemptForm extends PrefixedContext {
         }
     }
 }
+
+[EExamAttemptStatus]; // referenced types

@@ -1,5 +1,6 @@
 ﻿import { ColumnsBase, fieldsProxy } from "@serenity-is/corelib";
 import { Column } from "@serenity-is/sleekgrid";
+import { ELiveProvider } from "../Web/Enums.ELiveProvider";
 import { LiveSessionRow } from "./LiveSessionRow";
 
 export interface LiveSessionColumns {
@@ -16,3 +17,5 @@ export class LiveSessionColumns extends ColumnsBase<LiveSessionRow> {
     static readonly columnsKey = 'LiveSessions.LiveSession';
     static readonly Fields = fieldsProxy<LiveSessionColumns>();
 }
+
+[ELiveProvider]; // referenced types

@@ -2,7 +2,6 @@ using Serenity.ComponentModel;
 
 namespace GXpert.Web.Enums
 {
-    [EnumKey("Workspace.EQuestionTypes")]
     public enum EQuestionType
     {
         SINGLE_RIGHT_ANSWER,

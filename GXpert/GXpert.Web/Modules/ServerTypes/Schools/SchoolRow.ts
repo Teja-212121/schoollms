@@ -1,10 +1,11 @@
 ﻿import { getLookup, getLookupAsync, fieldsProxy } from "@serenity-is/corelib";
+import { ESchoolType } from "../Web/Enums.ESchoolType";
 
 export interface SchoolRow {
     Id?: number;
     Name?: string;
     Description?: string;
-    EType?: string;
+    EType?: ESchoolType;
     Address?: string;
     City?: string;
     StateId?: number;

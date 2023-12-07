@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace GXpert.Web.Enums
 {
-    public enum EAttemptStatus
+    public enum ELiveProvider
     {
-        ATTEMPTED,
-        NOTATTEMPTED
+        ZOOM,
+        OVEN
     }
 }

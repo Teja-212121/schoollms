@@ -9,4 +9,4 @@ export enum EQuestionType {
     MATCHING = 5,
     ORDER_OR_SEQUENCING = 6
 }
-Decorators.registerEnumType(EQuestionType, 'GXpert.Web.Enums.EQuestionType', 'Workspace.EQuestionTypes');
+Decorators.registerEnumType(EQuestionType, 'GXpert.Web.Enums.EQuestionType');

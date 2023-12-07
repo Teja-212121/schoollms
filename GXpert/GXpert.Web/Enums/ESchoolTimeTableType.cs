@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace GXpert.Web.Enums
 {
-    public enum EAttemptStatus
+    public enum ESchoolTimeTableType
     {
-        ATTEMPTED,
-        NOTATTEMPTED
+        VIRTUAL,
+        FACETOFACE
     }
 }
