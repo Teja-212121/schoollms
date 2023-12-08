@@ -17,6 +17,7 @@
   <ItemGroup>
     <PackageReference Include="EPPlus" Version="4.5.3.3" />
     <PackageReference Include="FluentMigrator.Runner" Version="3.3.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.0" />
     <PackageReference Include="Microsoft.Data.Sqlite" Version="8.0.0" />
     <PackageReference Include="Microsoft.Data.SqlClient" Version="5.1.2" />
     <PackageReference Include="Microsoft.TypeScript.MSBuild" Version="5.3.2" PrivateAssets="all" IncludeAssets="runtime; build; native; contentfiles; analyzers" />
@@ -35,6 +36,11 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="wwwroot\Content\images\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="Uploads\QuestionsDownloadImportSample.xlsx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <Target Name="NpmInstall" BeforeTargets="BeforeBuild" Condition="!Exists('node_modules\@types\jquery\index.d.ts')">
     <Message Text="Installing NPM packages..." Importance="high" />

@@ -14,7 +14,7 @@ public class AssignmentAttemptColumns
     public string StudentPrn { get; set; }
     [EditLink]
     public string FileUploaded { get; set; }
-    public shortSSS EStatus { get; set; }
+    public short EStatus { get; set; }
     public string TeacherPrn { get; set; }
     public string PlayListTitle { get; set; }
     public string ActivationDeviceId { get; set; }
