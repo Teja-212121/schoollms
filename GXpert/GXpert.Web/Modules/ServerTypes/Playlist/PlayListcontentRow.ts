@@ -1,7 +1,9 @@
 ﻿import { getLookup, getLookupAsync, fieldsProxy } from "@serenity-is/corelib";
+import { EPlayListContentType } from "../Web/Enums.EPlayListContentType";
 
 export interface PlayListContentRow {
     Id?: number;
+    EContentType?: EPlayListContentType;
     PlayListId?: number;
     ContentId?: number;
     ExamId?: number;

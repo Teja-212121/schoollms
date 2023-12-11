@@ -7,14 +7,14 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.DataProtection;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
+using Serenity.Pro.OpenIddict;
 using System.IdentityModel.Tokens.Jwt;
 using System.IO;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace GXpert.Membership.Pages;
-/*[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
-[JsonRequest, IgnoreAntiforgeryToken]*/
+[IgnoreAntiforgeryToken]
 [Route("Account/[action]")]
 public partial class AccountPage(ITwoLevelCache cache, ITextLocalizer localizer) : Controller
 {
@@ -98,74 +98,9 @@ public partial class AccountPage(ITwoLevelCache cache, ITextLocalizer localizer)
         HttpContext.RequestServices.GetService<IElevationHandler>()?.DeleteToken();
         return new RedirectResult("~/");
     }
-
-    /*[AllowAnonymous]
-    [HttpPost]
-    public async Task<IActionResult> GenerateToken(LoginRequest request,
-                        [FromServices] IUserPasswordValidator passwordValidator,
-                        [FromServices] IUserRetrieveService userRetriever,
-                        [FromServices] IEmailSender emailSender = null,
-                        [FromServices] ISMSService smsService = null)
-    {
-        bool loggedIn = false;
-        if (ModelState.IsValid)
-        {
-            if (request is null)
-                throw new ArgumentNullException(nameof(request));
-
-            if (string.IsNullOrEmpty(request.Username))
-                throw new ArgumentNullException(nameof(request.Username));
-
-            if (passwordValidator is null)
-                throw new ArgumentNullException(nameof(passwordValidator));
-
-            if (userRetriever is null)
-                throw new ArgumentNullException(nameof(userRetriever));
-
-            await Task.Run(() =>
-            {
-                var username = request.Username;
-                var result = passwordValidator.Validate(ref username, request.Password);
-                if (result == PasswordValidationResult.Valid)
-                {
-                    loggedIn = true;
-                }
-            });
-            if (loggedIn)
-            {
-                UserDefinition userDefinition = (UserDefinition)userRetriever.ByUsername(request.Username);
-                var claims = new[]
-                {
-                        new Claim(JwtRegisteredClaimNames.NameId,userDefinition.Id),
-                        new Claim(ClaimTypes.Name,request.Username),
-                        new Claim(ClaimTypes.NameIdentifier,request.Username),
-                        new Claim(JwtRegisteredClaimNames.UniqueName,request.Username),
-                        new Claim(JwtRegisteredClaimNames.Sub, request.Username),
-                        new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-                };
-
-                //var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Tokens:Key"]));
-                var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("6LftZ6gUAAAAAD1Ken7Eep9Wv3Z_WISb9lrxh_QN"));
-                var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
-
-                var token = new JwtSecurityToken("https://omrapp.azurewebsites.net", "https://omrapp.azurewebsites.net",
-                  claims,
-                  expires: DateTime.Now.AddDays(365),
-                  signingCredentials: creds);
-
-                return Ok(new { token = new JwtSecurityTokenHandler().WriteToken(token) });
-            }
-            else
-            {
-                return BadRequest(Texts.Validation.AuthenticationError);
-            }
-        }
-        return BadRequest("Could not create token");
-    }
-
+        
     [AllowAnonymous, HttpPost]
     public Result<ServiceResponse> SignUpAsStudent(SignUpRequest request, [FromServices] IOptions<EnvironmentSettings> options = null)
-
     {
         return this.UseConnection("Default", connection =>
         {
@@ -221,7 +156,6 @@ public partial class AccountPage(ITwoLevelCache cache, ITextLocalizer localizer)
                 LastDirectoryUpdate = DateTime.Now
             });
 
-
             connection.Execute(string.Format(@"INSERT INTO UserPermissions (UserId, PermissionKey, Granted)
                                                        VALUES ({0}, 'Administration:Teachers', 1)", userId));
 
@@ -266,7 +200,6 @@ public partial class AccountPage(ITwoLevelCache cache, ITextLocalizer localizer)
                 ActivateLink = activateLink,
                 LoginLink = LoginLink,
                 Password = request.Password,
-
             };
 
             var emailSubject = "Student Registration Successful";
@@ -277,7 +210,7 @@ public partial class AccountPage(ITwoLevelCache cache, ITextLocalizer localizer)
             emailModel.Username = username;
             emailModel.DisplayName = displayName;
             emailModel.Password = request.Password;
-            *//*#region Email
+            /*#region Email
             var mail = new MailRow();
             mail.Uid = Guid.NewGuid();
             mail.Subject = emailSubject;
@@ -296,11 +229,11 @@ public partial class AccountPage(ITwoLevelCache cache, ITextLocalizer localizer)
             mail.AwsPassword = AwsPassword;
             mail.MailTo = email;
             connection.Insert<MailRow>(mail);
-            #endregion*//*
+            #endregion*/
 
             uow.Commit();
 
             return new ServiceResponse();
         });
-    }*/
+    }
 }

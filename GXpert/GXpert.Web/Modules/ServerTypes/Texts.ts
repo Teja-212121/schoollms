@@ -64,6 +64,17 @@ namespace GXpert.Texts {
                 export const ValidityType: string;
             }
 
+            namespace PreDefinedKey {
+                export const EStatus: string;
+                export const Id: string;
+                export const InsertDate: string;
+                export const InsertUserId: string;
+                export const IsActive: string;
+                export const SerialKey: string;
+                export const UpdateDate: string;
+                export const UpdateUserId: string;
+            }
+
             namespace SerialKey {
                 export const EStatus: string;
                 export const Id: string;
@@ -646,6 +657,8 @@ namespace GXpert.Texts {
                 export const InsertDate: string;
                 export const InsertUserId: string;
                 export const IsActive: string;
+                export const PlayListFilePath: string;
+                export const PlayListVersion: string;
                 export const SubjectId: string;
                 export const SubjectTitle: string;
                 export const TeacherId: string;
@@ -660,6 +673,7 @@ namespace GXpert.Texts {
                 export const AssignmentTitle: string;
                 export const ContentId: string;
                 export const ContentTitle: string;
+                export const EContentType: string;
                 export const EPublishStatus: string;
                 export const ExamId: string;
                 export const ExamTitle: string;
@@ -1124,6 +1138,7 @@ namespace GXpert.Texts {
                 Activation: {},
                 ActivationLog: {},
                 CouponCode: {},
+                PreDefinedKey: {},
                 SerialKey: {}
             },
             Administration: {

@@ -40,6 +40,12 @@ public sealed class PlayListRow : LoggingRow<PlayListRow.RowFields>, IIdRow, INa
     [LookupEditor("Users.Teacher")]
     public int? TeacherId { get => fields.TeacherId[this]; set => fields.TeacherId[this] = value; }
 
+    [DisplayName("Play List File Path")]
+    public string PlayListFilePath { get => fields.PlayListFilePath[this]; set => fields.PlayListFilePath[this] = value; }
+    
+    [DisplayName("Play List Version")]
+    public int? PlayListVersion { get => fields.PlayListVersion[this]; set => fields.PlayListVersion[this] = value; }
+
     [DisplayName("Is Active"), DefaultValue(1)]
     public bool? IsActive { get => fields.IsActive[this]; set => fields.IsActive[this] = value; }
 
@@ -59,7 +65,9 @@ public sealed class PlayListRow : LoggingRow<PlayListRow.RowFields>, IIdRow, INa
         public StringField Description;
         public Int32Field ClassId;
         public Int32Field SubjectId;
-        public Int32Field TeacherId;
+        public Int32Field TeacherId; 
+        public StringField PlayListFilePath;
+        public Int32Field PlayListVersion;
         public BooleanField IsActive;
 
         public StringField ClassTitle;

@@ -7,6 +7,7 @@ namespace GXpert.Playlist.Forms;
 [BasedOnRow(typeof(PlayListContentRow), CheckNames = true)]
 public class PlayListContentForm
 {
+    public short EContentType { get; set; }
     public int PlayListId { get; set; }
     public int ContentId { get; set; }
     public int ExamId { get; set; }

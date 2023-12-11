@@ -1,6 +1,8 @@
-﻿import { LookupEditor, ServiceLookupEditor, DecimalEditor, IntegerEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
+﻿import { EnumEditor, LookupEditor, ServiceLookupEditor, DecimalEditor, IntegerEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
+import { EPlayListContentType } from "../Web/Enums.EPlayListContentType";
 
 export interface PlayListContentForm {
+    EContentType: EnumEditor;
     PlayListId: LookupEditor;
     ContentId: LookupEditor;
     ExamId: LookupEditor;
@@ -21,21 +23,25 @@ export class PlayListContentForm extends PrefixedContext {
         if (!PlayListContentForm.init)  {
             PlayListContentForm.init = true;
 
-            var w0 = LookupEditor;
-            var w1 = ServiceLookupEditor;
-            var w2 = DecimalEditor;
-            var w3 = IntegerEditor;
+            var w0 = EnumEditor;
+            var w1 = LookupEditor;
+            var w2 = ServiceLookupEditor;
+            var w3 = DecimalEditor;
+            var w4 = IntegerEditor;
 
             initFormType(PlayListContentForm, [
-                'PlayListId', w0,
-                'ContentId', w0,
-                'ExamId', w0,
-                'LiveSessionId', w0,
-                'AssignmentId', w0,
-                'ModuleId', w1,
-                'SortOrder', w2,
-                'EPublishStatus', w3
+                'EContentType', w0,
+                'PlayListId', w1,
+                'ContentId', w1,
+                'ExamId', w1,
+                'LiveSessionId', w1,
+                'AssignmentId', w1,
+                'ModuleId', w2,
+                'SortOrder', w3,
+                'EPublishStatus', w4
             ]);
         }
     }
 }
+
+[EPlayListContentType]; // referenced types

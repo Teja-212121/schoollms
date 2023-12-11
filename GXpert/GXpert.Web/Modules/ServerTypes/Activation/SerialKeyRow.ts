@@ -1,11 +1,12 @@
 ﻿import { getLookup, getLookupAsync, fieldsProxy } from "@serenity-is/corelib";
 import { EKeyStatus } from "../Web/Enums.EKeyStatus";
+import { EValidityType } from "../Web/Enums.EValidityType";
 
 export interface SerialKeyRow {
     Id?: number;
     SerialKey?: string;
     PlayListId?: number;
-    ValidityType?: number;
+    ValidityType?: EValidityType;
     ValidityInDays?: number;
     ValidDate?: string;
     Note?: string;

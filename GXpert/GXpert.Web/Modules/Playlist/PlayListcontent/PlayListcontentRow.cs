@@ -1,3 +1,4 @@
+using GXpert.Web.Enums;
 using Serenity.ComponentModel;
 using Serenity.Data;
 using Serenity.Data.Mapping;
@@ -24,15 +25,18 @@ public sealed class PlayListContentRow : LoggingRow<PlayListContentRow.RowFields
     [DisplayName("Id"), Identity, IdProperty]
     public int? Id { get => fields.Id[this]; set => fields.Id[this] = value; }
 
+    [DisplayName("E Content Type"), Column("eContentType")]
+    public EPlayListContentType? EContentType { get => (EPlayListContentType?)fields.EContentType[this]; set => fields.EContentType[this] = (short?)value; }
+
     [DisplayName("Play List"), ForeignKey(typeof(PlayListRow)), LeftJoin(jPlayList), TextualField(nameof(PlayListTitle))]
     [LookupEditor("Playlist.PlayList")]
     public int? PlayListId { get => fields.PlayListId[this]; set => fields.PlayListId[this] = value; }
 
-    [DisplayName("Content"), NotNull, ForeignKey(typeof(Content.ContentRow)), LeftJoin(jContent), TextualField(nameof(ContentTitle))]
+    [DisplayName("Content"), ForeignKey(typeof(Content.ContentRow)), LeftJoin(jContent), TextualField(nameof(ContentTitle))]
     [LookupEditor("Content.Content")]
     public int? ContentId { get => fields.ContentId[this]; set => fields.ContentId[this] = value; }
 
-    [DisplayName("Exam"), NotNull, ForeignKey(typeof(Exams.ExamRow)), LeftJoin(jExam), TextualField(nameof(ExamTitle))]
+    [DisplayName("Exam"), ForeignKey(typeof(Exams.ExamRow)), LeftJoin(jExam), TextualField(nameof(ExamTitle))]
     [LookupEditor("Exams.Exam")]
     public int? ExamId { get => fields.ExamId[this]; set => fields.ExamId[this] = value; }
 
@@ -41,7 +45,7 @@ public sealed class PlayListContentRow : LoggingRow<PlayListContentRow.RowFields
     [LookupEditor("LiveSessions.LiveSession")]
     public int? LiveSessionId { get => fields.LiveSessionId[this]; set => fields.LiveSessionId[this] = value; }
 
-    [DisplayName("Assignment"), NotNull, ForeignKey(typeof(Exams.AssignmentRow)), LeftJoin(jAssignment)]
+    [DisplayName("Assignment"), ForeignKey(typeof(Exams.AssignmentRow)), LeftJoin(jAssignment)]
     [TextualField(nameof(AssignmentTitle))]
     [LookupEditor("Exams.Assignment")]
     public int? AssignmentId { get => fields.AssignmentId[this]; set => fields.AssignmentId[this] = value; }
@@ -80,6 +84,7 @@ public sealed class PlayListContentRow : LoggingRow<PlayListContentRow.RowFields
     public class RowFields : LoggingRowFields
     {
         public Int32Field Id;
+        public Int16Field EContentType;
         public Int32Field PlayListId;
         public Int32Field ContentId;
         public Int32Field ExamId;

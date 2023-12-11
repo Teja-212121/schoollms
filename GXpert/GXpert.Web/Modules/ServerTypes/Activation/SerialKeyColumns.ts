@@ -1,6 +1,6 @@
 ﻿import { ColumnsBase, fieldsProxy } from "@serenity-is/corelib";
 import { Column } from "@serenity-is/sleekgrid";
-import { EKeyStatus } from "../Web/Enums.EKeyStatus";
+import { EValidityType } from "../Web/Enums.EValidityType";
 import { SerialKeyRow } from "./SerialKeyRow";
 
 export interface SerialKeyColumns {
@@ -19,4 +19,4 @@ export class SerialKeyColumns extends ColumnsBase<SerialKeyRow> {
     static readonly Fields = fieldsProxy<SerialKeyColumns>();
 }
 
-[EKeyStatus]; // referenced types
+[EValidityType]; // referenced types
