@@ -20,6 +20,7 @@ namespace GXpert.Texts {
                 export const IsActive: string;
                 export const PlayListId: string;
                 export const PlayListTitle: string;
+                export const SerialKeyId: string;
                 export const TeacherId: string;
                 export const TeacherPrn: string;
                 export const UpdateDate: string;

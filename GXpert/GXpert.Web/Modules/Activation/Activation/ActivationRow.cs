@@ -30,6 +30,13 @@ public sealed class ActivationRow : LoggingRow<ActivationRow.RowFields>, IIdRow,
     [DisplayName("Teacher"), NotNull, ForeignKey("Teachers", "Id"), LeftJoin(jTeacher), TextualField(nameof(TeacherPrn))]
     [LookupEditor("Users.Teacher")]
     public int? TeacherId { get => fields.TeacherId[this]; set => fields.TeacherId[this] = value; }
+    [DisplayName("Serial Key"), NotNull, ForeignKey("SerialKeys", "Id"), LeftJoin("jSerialKey"), TextualField("SerialKey")]
+    [LookupEditor("Workspace.SerialKey")]
+    public int? SerialKeyId
+    {
+        get => fields.SerialKeyId[this];
+        set => fields.SerialKeyId[this] = value;
+    }
 
     [DisplayName("Activation Log"), NotNull, ForeignKey(typeof(ActivationLogRow)), LeftJoin(jActivationLog)]
     [TextualField(nameof(ActivationLogCode)), ServiceLookupEditor(typeof(ActivationLogRow))]
@@ -74,7 +81,7 @@ public sealed class ActivationRow : LoggingRow<ActivationRow.RowFields>, IIdRow,
         public DateTimeField ExpiryDate;
         public Int16Field EStatus;
         public Int16Field IsActive;
-
+        public Int32Field SerialKeyId;
         public StringField PlayListTitle;
         public StringField TeacherPrn;
         public StringField ActivationLogCode;

@@ -37,7 +37,7 @@ public sealed class StudentRow : LoggingRow<StudentRow.RowFields>, IIdRow, IName
     public string Mobile { get => fields.Mobile[this]; set => fields.Mobile[this] = value; }
 
     [DisplayName("User"), NotNull, ForeignKey(typeof(Administration.UserRow)), LeftJoin(jUser), TextualField(nameof(Username))]
-    [LookupEditor(typeof(Administration.UserRow), Async = true)]
+    [LookupEditor("Administration.User")]
     public int? UserId { get => fields.UserId[this]; set => fields.UserId[this] = value; }
 
     [DisplayName("Description"), Size(500)]

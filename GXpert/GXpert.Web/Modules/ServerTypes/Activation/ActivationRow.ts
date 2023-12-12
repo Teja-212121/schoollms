@@ -12,6 +12,7 @@ export interface ActivationRow {
     ExpiryDate?: string;
     EStatus?: EKeyStatus;
     IsActive?: number;
+    SerialKeyId?: number;
     PlayListTitle?: string;
     TeacherPrn?: string;
     ActivationLogCode?: string;

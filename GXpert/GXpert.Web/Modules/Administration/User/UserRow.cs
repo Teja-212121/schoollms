@@ -5,7 +5,7 @@ namespace GXpert.Administration;
 [DisplayName("Users"), InstanceName("User"), GenerateFields]
 [ReadPermission(PermissionKeys.Security)]
 [ModifyPermission(PermissionKeys.Security)]
-[LookupScript(Permission = PermissionKeys.Security)]
+[LookupScript("Administration.User", Permission = PermissionKeys.Security)]
 public sealed partial class UserRow : LoggingRow<UserRow.RowFields>, IIdRow, INameRow, IIsActiveRow, IDisplayNameRow, IEmailRow, IPasswordRow
 {
     [DisplayName("User Id"), Identity, IdProperty]
