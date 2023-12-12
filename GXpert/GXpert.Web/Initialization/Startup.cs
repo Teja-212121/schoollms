@@ -10,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.IdentityModel.Tokens;
 using Serenity.Extensions.DependencyInjection;
 using Serenity.Localization;
 using Serenity.Navigation;
@@ -77,6 +78,7 @@ public partial class Startup
         ExceptionLog.Initialize(services, HostEnvironment.ApplicationName,
             Configuration["Data:Default:ConnectionString"], Configuration["Data:Default:ProviderName"], Configuration["Data:Default:Dialect"]);
 
+
         services.AddAuthentication(o =>
         {
             o.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
@@ -89,6 +91,17 @@ public partial class Startup
             o.AccessDeniedPath = new PathString("/Account/AccessDenied");
             o.ExpireTimeSpan = TimeSpan.FromMinutes(30);
             o.SlidingExpiration = true;
+        }).AddJwtBearer(cfg =>
+        {
+            cfg.RequireHttpsMetadata = false;
+            cfg.SaveToken = true;
+
+            cfg.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters()
+            {
+                ValidIssuer = "https://gxpert.in",
+                ValidAudience = "https://gxpert.in",
+                IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("6LftZ6gUAAAAAD1Ken7Eep9Wv3Z_WISb9lrxh_QN"))
+            };
         });
 
         services.AddLogging(loggingBuilder =>

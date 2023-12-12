@@ -22,7 +22,7 @@ public sealed class ActivationLogRow : LoggingRow<ActivationLogRow.RowFields>, I
     [DisplayName("Id"), Identity, IdProperty]
     public int? Id { get => fields.Id[this]; set => fields.Id[this] = value; }
 
-    [DisplayName("Code"), Size(100), NotNull, QuickSearch, NameProperty]
+    [DisplayName("Code"), Size(100), QuickSearch, NameProperty]
     public string Code { get => fields.Code[this]; set => fields.Code[this] = value; }
 
     [DisplayName("Serial Key"), Size(100), NotNull]
@@ -32,7 +32,7 @@ public sealed class ActivationLogRow : LoggingRow<ActivationLogRow.RowFields>, I
     [LookupEditor("Users.Teacher")]
     public int? TeacherId { get => fields.TeacherId[this]; set => fields.TeacherId[this] = value; }
 
-    [DisplayName("Play List"), NotNull, ForeignKey("PlayLists", "Id"), LeftJoin(jPlayList), TextualField(nameof(PlayListTitle))]
+    [DisplayName("Play List"), ForeignKey("PlayLists", "Id"), LeftJoin(jPlayList), TextualField(nameof(PlayListTitle))]
     [LookupEditor("Playlist.PlayList")]
     public int? PlayListId { get => fields.PlayListId[this]; set => fields.PlayListId[this] = value; }
 

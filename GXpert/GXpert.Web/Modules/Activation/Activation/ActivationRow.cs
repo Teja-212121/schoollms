@@ -38,7 +38,7 @@ public sealed class ActivationRow : LoggingRow<ActivationRow.RowFields>, IIdRow,
         set => fields.SerialKeyId[this] = value;
     }
 
-    [DisplayName("Activation Log"), NotNull, ForeignKey(typeof(ActivationLogRow)), LeftJoin(jActivationLog)]
+    [DisplayName("Activation Log"), ForeignKey(typeof(ActivationLogRow)), LeftJoin(jActivationLog)]
     [TextualField(nameof(ActivationLogCode)), ServiceLookupEditor(typeof(ActivationLogRow))]
     public int? ActivationLogId { get => fields.ActivationLogId[this]; set => fields.ActivationLogId[this] = value; }
 

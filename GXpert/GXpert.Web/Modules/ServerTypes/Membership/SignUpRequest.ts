@@ -5,6 +5,9 @@ export interface SignUpRequest extends ServiceRequest {
     Mobile?: string;
     Email?: string;
     Password?: string;
+    FirstName?: string;
+    LastName?: string;
+    PrnNo?: string;
     Recaptcha?: string;
     ExternalProviderToken?: string;
 }

@@ -44,10 +44,11 @@ public class ActivationLogSaveHandler : SaveRequestHandler<MyRow, MyRequest, MyR
             {
                 //throw new ValidationError("EmailInUse", Texts.Validation.CantFindUserWithEmail);
                 var user = Connection.TryFirst<UserRow>(UserRow.Fields.UserId == Convert.ToInt32(User.GetIdentifier()));
-                var teacher = Connection.TryFirst<TeacherRow>(TeacherRow.Fields.UserId == Convert.ToInt32(User.GetIdentifier()));
+                
 
                 var serialkeyrow = Connection.TryFirst<SerialKeyRow>(SerialKeyRow.Fields.SerialKey == Row.SerialKey);
                 PlayListRow playList = Connection.Single<PlayListRow>(PlayListRow.Fields.Id == serialkeyrow.PlayListId.Value);
+                var teacher = Connection.TryFirst<TeacherRow>(TeacherRow.Fields.Id == playList.TeacherId.Value);
 
                 //CHECK FOR SERIALKEY
                 var activation = Connection.TryFirst<ActivationRow>(ActivationRow.Fields.SerialKeyId == serialkeyrow.Id.Value && ActivationRow.Fields.PlayListId == serialkeyrow.PlayListId.Value && ActivationRow.Fields.TeacherId == Convert.ToInt32(User.GetIdentifier()));

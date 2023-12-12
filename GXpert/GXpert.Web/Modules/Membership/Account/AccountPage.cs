@@ -98,8 +98,69 @@ public partial class AccountPage(ITwoLevelCache cache, ITextLocalizer localizer)
         HttpContext.RequestServices.GetService<IElevationHandler>()?.DeleteToken();
         return new RedirectResult("~/");
     }
-        
-    [AllowAnonymous, HttpPost]
+
+    [HttpPost, IgnoreAntiforgeryToken, JsonRequest]
+        public async Task<IActionResult> GenerateToken(LoginRequest request,
+             [FromServices] IUserRetrieveService userRetriever,
+                [FromServices] IUserPasswordValidator passwordValidator)
+       {
+        bool loggedIn = false;
+        if (ModelState.IsValid)
+        {
+            if (request is null)
+                throw new ArgumentNullException(nameof(request));
+
+            if (string.IsNullOrEmpty(request.Username))
+                throw new ArgumentNullException(nameof(request.Username));
+
+            if (passwordValidator is null)
+                throw new ArgumentNullException(nameof(passwordValidator));
+
+            await Task.Run(() =>
+            {
+
+                var username = request.Username;
+                var result = passwordValidator.Validate(ref username, request.Password);
+                if (result == PasswordValidationResult.Valid)
+                {
+                    loggedIn = true;
+                }
+
+            });
+            if (loggedIn)
+            {
+                UserDefinition userDefinition = (UserDefinition)userRetriever.ByUsername(request.Username);
+                var claims = new[]
+                {
+                        new Claim(JwtRegisteredClaimNames.NameId,userDefinition.Id),
+                        new Claim(ClaimTypes.Name,request.Username),
+                        new Claim(ClaimTypes.NameIdentifier,request.Username),
+                        new Claim(JwtRegisteredClaimNames.UniqueName,request.Username),
+                        new Claim(JwtRegisteredClaimNames.Sub, request.Username),
+                        new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
+                    };
+
+                //var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Tokens:Key"]));
+                var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("6LftZ6gUAAAAAD1Ken7Eep9Wv3Z_WISb9lrxh_QN"));
+                var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+
+                var token = new JwtSecurityToken("https://gxpert.in", "https://gxpert.in",
+                  claims,
+                  expires: DateTime.Now.AddDays(365),
+                  signingCredentials: creds);
+
+                return Ok(new { token = new JwtSecurityTokenHandler().WriteToken(token) });
+            }
+            else
+            {
+
+                return BadRequest(Texts.Validation.AuthenticationError);
+
+            }
+        }
+        return BadRequest("Could not create token");
+        }
+    [AllowAnonymous, HttpPost,JsonRequest]
     public Result<ServiceResponse> SignUpAsStudent(SignUpRequest request, [FromServices] IOptions<EnvironmentSettings> options = null)
     {
         return this.UseConnection("Default", connection =>
@@ -167,6 +228,7 @@ public partial class AccountPage(ITwoLevelCache cache, ITextLocalizer localizer)
 
             StudentRow studentRow = new StudentRow();
             studentRow.Name = request.DisplayName;
+            studentRow.Prn = request.PrnNo;
             studentRow.Mobile = mobile;
             studentRow.Email = request.Email;
             studentRow.UserId = userId;

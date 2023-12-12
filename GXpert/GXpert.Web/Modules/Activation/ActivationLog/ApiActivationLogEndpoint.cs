@@ -15,11 +15,12 @@ namespace GXpert.Activation.Endpoints;
 
 [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
 [Route("Api/Services/Activation/ActivationLog/[action]")]
-[ConnectionKey(typeof(MyRow)), ServiceAuthorize(typeof(MyRow))]
+[ConnectionKey(typeof(MyRow)), IgnoreAntiforgeryToken]
 public class ApiActivationLogEndpoint : ServiceEndpoint
 {
+  
     [HttpPost, AuthorizeCreate(typeof(MyRow))]
-    //[AllowCookieAndOAuth, IgnoreAntiforgeryToken]
+
     public SaveResponse Create(IUnitOfWork uow, SaveRequest<MyRow> request,
         [FromServices] IActivationLogSaveHandler handler)
     {
