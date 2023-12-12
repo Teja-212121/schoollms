@@ -29,7 +29,7 @@ public sealed class SerialKeyRow : LoggingRow<SerialKeyRow.RowFields>, IIdRow, I
     public int? PlayListId { get => fields.PlayListId[this]; set => fields.PlayListId[this] = value; }
 
     [DisplayName("Validity Type")]
-    public short? ValidityType { get => fields.ValidityType[this]; set => fields.ValidityType[this] = value; }
+    public EValidityType? ValidityType { get => (EValidityType?)fields.ValidityType[this]; set => fields.ValidityType[this] = (short?)value; }
 
     [DisplayName("Validity In Days")]
     public short? ValidityInDays { get => fields.ValidityInDays[this]; set => fields.ValidityInDays[this] = value; }

@@ -7,6 +7,8 @@ export interface PlayListRow {
     ClassId?: number;
     SubjectId?: number;
     TeacherId?: number;
+    PlayListFilePath?: string;
+    PlayListVersion?: number;
     IsActive?: boolean;
     ClassTitle?: string;
     SubjectTitle?: string;
