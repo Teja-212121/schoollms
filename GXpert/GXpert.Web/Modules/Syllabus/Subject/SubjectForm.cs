@@ -8,10 +8,15 @@ namespace GXpert.Syllabus.Forms;
 public class SubjectForm
 {
     public string Title { get; set; }
+    [TextAreaEditor(Rows = 3)]
     public string Description { get; set; }
+    [HalfWidth]
     public short SortOrder { get; set; }
+    [HalfWidth]
     public int ClassId { get; set; }
+    [HalfWidth]
     public int MediumId { get; set; }
+    [HalfWidth]
     public float Weightage { get; set; }
     public string Thumbnail { get; set; }
 }

@@ -1,8 +1,8 @@
-﻿import { StringEditor, DateEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
+﻿import { StringEditor, TextAreaEditor, DateEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
 
 export interface AcademicYearForm {
     Name: StringEditor;
-    Description: StringEditor;
+    Description: TextAreaEditor;
     StartDate: DateEditor;
     EndDate: DateEditor;
 }
@@ -18,13 +18,14 @@ export class AcademicYearForm extends PrefixedContext {
             AcademicYearForm.init = true;
 
             var w0 = StringEditor;
-            var w1 = DateEditor;
+            var w1 = TextAreaEditor;
+            var w2 = DateEditor;
 
             initFormType(AcademicYearForm, [
                 'Name', w0,
-                'Description', w0,
-                'StartDate', w1,
-                'EndDate', w1
+                'Description', w1,
+                'StartDate', w2,
+                'EndDate', w2
             ]);
         }
     }

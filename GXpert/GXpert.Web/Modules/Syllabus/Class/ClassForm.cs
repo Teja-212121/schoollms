@@ -8,8 +8,11 @@ namespace GXpert.Syllabus.Forms;
 public class ClassForm
 {
     public string Title { get; set; }
+    [TextAreaEditor(Rows =3)]
     public string Description { get; set; }
+    [HalfWidth]
     public short SortOrder { get; set; }
+    [HalfWidth]
     public float Weightage { get; set; }
     public string Thumbnail { get; set; }
 }

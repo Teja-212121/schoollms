@@ -7,13 +7,14 @@ namespace GXpert.Content.Forms;
 [BasedOnRow(typeof(ContentRow), CheckNames = true)]
 public class ContentForm
 {
-    [HalfWidth]
+    
     public string Title { get; set; }
     [TextAreaEditor(Rows = 3)]
     public string Description { get; set; }
+   
+    public string FileKeyUrl { get; set; }
     [HalfWidth]
     public short EContentType { get; set; }
-    public string FileKeyUrl { get; set; }
     [HalfWidth]
     public string Iv { get; set; }
     public string FilePath { get; set; }

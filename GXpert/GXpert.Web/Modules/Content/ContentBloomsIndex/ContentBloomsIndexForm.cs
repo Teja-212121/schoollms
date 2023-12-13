@@ -7,7 +7,10 @@ namespace GXpert.Content.Forms;
 [BasedOnRow(typeof(ContentBloomsIndexRow), CheckNames = true)]
 public class ContentBloomsIndexForm
 {
+    [HalfWidth]
     public int ContentId { get; set; }
+    [HalfWidth]
     public int BloomsIndex { get; set; }
+    [HalfWidth]
     public float Weightage { get; set; }
 }

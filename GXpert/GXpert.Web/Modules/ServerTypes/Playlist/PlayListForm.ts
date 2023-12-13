@@ -1,11 +1,11 @@
-﻿import { StringEditor, LookupEditor, IntegerEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
+﻿import { StringEditor, LookupEditor, TextAreaEditor, IntegerEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
 
 export interface PlayListForm {
     Title: StringEditor;
-    Description: StringEditor;
     ClassId: LookupEditor;
     SubjectId: LookupEditor;
     TeacherId: LookupEditor;
+    Description: TextAreaEditor;
     PlayListFilePath: StringEditor;
     PlayListVersion: IntegerEditor;
 }
@@ -22,16 +22,17 @@ export class PlayListForm extends PrefixedContext {
 
             var w0 = StringEditor;
             var w1 = LookupEditor;
-            var w2 = IntegerEditor;
+            var w2 = TextAreaEditor;
+            var w3 = IntegerEditor;
 
             initFormType(PlayListForm, [
                 'Title', w0,
-                'Description', w0,
                 'ClassId', w1,
                 'SubjectId', w1,
                 'TeacherId', w1,
+                'Description', w2,
                 'PlayListFilePath', w0,
-                'PlayListVersion', w2
+                'PlayListVersion', w3
             ]);
         }
     }

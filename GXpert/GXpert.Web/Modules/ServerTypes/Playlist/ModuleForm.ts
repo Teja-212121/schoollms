@@ -1,8 +1,8 @@
-﻿import { StringEditor, ServiceLookupEditor, DecimalEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
+﻿import { StringEditor, TextAreaEditor, ServiceLookupEditor, DecimalEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
 
 export interface ModuleForm {
     Title: StringEditor;
-    Description: StringEditor;
+    Description: TextAreaEditor;
     ParentId: ServiceLookupEditor;
     SortOrder: DecimalEditor;
 }
@@ -18,14 +18,15 @@ export class ModuleForm extends PrefixedContext {
             ModuleForm.init = true;
 
             var w0 = StringEditor;
-            var w1 = ServiceLookupEditor;
-            var w2 = DecimalEditor;
+            var w1 = TextAreaEditor;
+            var w2 = ServiceLookupEditor;
+            var w3 = DecimalEditor;
 
             initFormType(ModuleForm, [
                 'Title', w0,
-                'Description', w0,
-                'ParentId', w1,
-                'SortOrder', w2
+                'Description', w1,
+                'ParentId', w2,
+                'SortOrder', w3
             ]);
         }
     }

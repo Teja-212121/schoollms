@@ -1,8 +1,8 @@
-﻿import { StringEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
+﻿import { StringEditor, TextAreaEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
 
 export interface MediumForm {
     Title: StringEditor;
-    Description: StringEditor;
+    Description: TextAreaEditor;
 }
 
 export class MediumForm extends PrefixedContext {
@@ -16,10 +16,11 @@ export class MediumForm extends PrefixedContext {
             MediumForm.init = true;
 
             var w0 = StringEditor;
+            var w1 = TextAreaEditor;
 
             initFormType(MediumForm, [
                 'Title', w0,
-                'Description', w0
+                'Description', w1
             ]);
         }
     }

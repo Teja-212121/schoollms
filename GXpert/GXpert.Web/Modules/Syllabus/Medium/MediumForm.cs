@@ -8,5 +8,6 @@ namespace GXpert.Syllabus.Forms;
 public class MediumForm
 {
     public string Title { get; set; }
+    [TextAreaEditor(Rows = 3)]
     public string Description { get; set; }
 }

@@ -5,8 +5,8 @@ import { EDifficultyLevel } from "../Web/Enums.EDifficultyLevel";
 export interface ContentForm {
     Title: StringEditor;
     Description: TextAreaEditor;
-    EContentType: EnumEditor;
     FileKeyUrl: StringEditor;
+    EContentType: EnumEditor;
     Iv: StringEditor;
     FilePath: StringEditor;
     FilePathFallBack1: StringEditor;
@@ -42,8 +42,8 @@ export class ContentForm extends PrefixedContext {
             initFormType(ContentForm, [
                 'Title', w0,
                 'Description', w1,
-                'EContentType', w2,
                 'FileKeyUrl', w0,
+                'EContentType', w2,
                 'Iv', w0,
                 'FilePath', w0,
                 'FilePathFallBack1', w0,
