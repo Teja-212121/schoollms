@@ -28,7 +28,7 @@ public static partial class Texts
 
             public static class SignUp
             {
-                public static readonly LocalText ActivateEmailSubject = "Activate Your GXpert Account";
+                public static readonly LocalText ActivateEmailSubject = "Activate Your Antargyan Account";
                 public static readonly LocalText ActivationCompleteMessage = "Your account is now activated. " +
                     "Use the e-mail and password you used while signing up to login.";
                 public static readonly LocalText FormInfo = "Enter your details to create a free account.";
@@ -46,14 +46,14 @@ public static partial class Texts
             }
         }
 
-        public static readonly LocalText SiteTitle = "GXpert";
+        public static readonly LocalText SiteTitle = "Antargyan";
     }
 
     public static class Navigation
     {
         public static readonly LocalText Dashboard = "Dashboard";
         public static readonly LocalText LogoutLink = "Logout";
-        public static readonly LocalText SiteTitle = "GXpert";
+        public static readonly LocalText SiteTitle = "Antargyan";
     }
 
     public static class Site

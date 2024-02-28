@@ -35,9 +35,6 @@
     <PackageReference Include="Serenity.Pro.OpenIddict" Version="8.0.3" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="wwwroot\Content\images\" />
-  </ItemGroup>
-  <ItemGroup>
     <None Update="Uploads\QuestionsDownloadImportSample.xlsx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

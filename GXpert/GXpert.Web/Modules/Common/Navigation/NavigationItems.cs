@@ -1,11 +1,11 @@
 using Serenity.Navigation;
 
-[assembly: NavigationGroup("GXpert", "fa-home", Default = true)]
+[assembly: NavigationGroup("Antargyan", "fa-home", Default = true)]
 
-[assembly: NavigationSection("GXpert/Demo Modules",
+[assembly: NavigationSection("Antargyan/Demo Modules",
     Include = new[] { "Northwind", "Basic Samples", "Advanced Samples", "UI Elements", "Theme Samples" })]
 
-[assembly: NavigationSection("GXpert/Pro Features",
+[assembly: NavigationSection("Antargyan/Pro Features",
     Include = new[] { "Meeting", "Organization", "Work Log" })]
 
 [assembly: NavigationGroup(9000, "Administration", icon: "fa-tools")]
