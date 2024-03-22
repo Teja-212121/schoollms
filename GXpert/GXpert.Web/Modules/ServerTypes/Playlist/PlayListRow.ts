@@ -15,6 +15,8 @@ export interface PlayListRow {
     SubjectTitle?: string;
     TeacherPrn?: string;
     CourseId?: number;
+    SemesterId?: number;
+    SemesterName?: string;
     InsertUserId?: number;
     InsertDate?: string;
     UpdateUserId?: number;

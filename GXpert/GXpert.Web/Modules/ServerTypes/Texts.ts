@@ -511,6 +511,36 @@ namespace GXpert.Texts {
 
         namespace Institute {
 
+            namespace Branch {
+                export const DepartmentId: string;
+                export const DepartmentTitle: string;
+                export const Description: string;
+                export const Id: string;
+                export const InsertDate: string;
+                export const InsertUserId: string;
+                export const InstituteId: string;
+                export const InstituteName: string;
+                export const IsActive: string;
+                export const Title: string;
+                export const UpdateDate: string;
+                export const UpdateUserId: string;
+            }
+
+            namespace Department {
+                export const Description: string;
+                export const HodId: string;
+                export const HodName: string;
+                export const Id: string;
+                export const InsertDate: string;
+                export const InsertUserId: string;
+                export const InstituteId: string;
+                export const InstituteName: string;
+                export const IsActive: string;
+                export const Title: string;
+                export const UpdateDate: string;
+                export const UpdateUserId: string;
+            }
+
             namespace Institute {
                 export const Address: string;
                 export const City: string;
@@ -774,6 +804,8 @@ namespace GXpert.Texts {
                 export const IsActive: string;
                 export const PlayListFilePath: string;
                 export const PlayListVersion: string;
+                export const SemesterId: string;
+                export const SemesterName: string;
                 export const SubjectId: string;
                 export const SubjectTitle: string;
                 export const TeacherId: string;
@@ -1125,6 +1157,52 @@ namespace GXpert.Texts {
 
         namespace Users {
 
+            namespace Hod {
+                export const DistrictId: string;
+                export const DistrictTitle: string;
+                export const Dob: string;
+                export const Email: string;
+                export const Id: string;
+                export const InsertDate: string;
+                export const InsertUserId: string;
+                export const InstituteId: string;
+                export const InstituteName: string;
+                export const IsActive: string;
+                export const Mobile: string;
+                export const Name: string;
+                export const StateId: string;
+                export const StateTitle: string;
+                export const TalukaId: string;
+                export const TalukaTitle: string;
+                export const UpdateDate: string;
+                export const UpdateUserId: string;
+                export const UserId: string;
+                export const Username: string;
+            }
+
+            namespace Principal {
+                export const DistrictId: string;
+                export const DistrictTitle: string;
+                export const Dob: string;
+                export const Email: string;
+                export const Id: string;
+                export const InsertDate: string;
+                export const InsertUserId: string;
+                export const InstituteId: string;
+                export const InstituteName: string;
+                export const IsActive: string;
+                export const Mobile: string;
+                export const Name: string;
+                export const StateId: string;
+                export const StateTitle: string;
+                export const TalukaId: string;
+                export const TalukaTitle: string;
+                export const UpdateDate: string;
+                export const UpdateUserId: string;
+                export const UserId: string;
+                export const Username: string;
+            }
+
             namespace Student {
                 export const Description: string;
                 export const DistrictId: string;
@@ -1317,6 +1395,8 @@ namespace GXpert.Texts {
                 ExamSection: {}
             },
             Institute: {
+                Branch: {},
+                Department: {},
                 Institute: {},
                 InstituteClass: {},
                 InstituteStudent: {},
@@ -1369,6 +1449,8 @@ namespace GXpert.Texts {
                 Topic: {}
             },
             Users: {
+                Hod: {},
+                Principal: {},
                 Student: {},
                 Teacher: {}
             }
