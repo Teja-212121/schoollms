@@ -10,7 +10,7 @@ public class InstituteTeacherForm
     [HalfWidth]
     public int TeacherId { get; set; }
     [HalfWidth]
-    public int SchoolId { get; set; }
+    public int InstituteId { get; set; }
     [HalfWidth]
     public int ClassId { get; set; }
     [HalfWidth]

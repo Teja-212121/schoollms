@@ -9,7 +9,7 @@ export interface InstituteTimeTableColumns {
     StartTime: Column<InstituteTimeTableRow>;
     EndTime: Column<InstituteTimeTableRow>;
     PeriodIndex: Column<InstituteTimeTableRow>;
-    SchoolClassDivision: Column<InstituteTimeTableRow>;
+    InstituteClassDivision: Column<InstituteTimeTableRow>;
     TeacherPrn: Column<InstituteTimeTableRow>;
     EType: Column<InstituteTimeTableRow>;
 }

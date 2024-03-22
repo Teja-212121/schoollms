@@ -9,7 +9,7 @@ public class InstituteStudentForm
 {
     public int StudentId { get; set; }
     [HalfWidth]
-    public int SchoolId { get; set; }
+    public int InstituteId { get; set; }
     [HalfWidth]
     public int ClassId { get; set; }
     [HalfWidth]

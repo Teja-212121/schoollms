@@ -11,7 +11,7 @@ public class InstituteTeacherColumns
     [EditLink, DisplayName("Db.Shared.RecordId"), AlignRight]
     public int Id { get; set; }
     public string TeacherPrn { get; set; }
-    public string SchoolName { get; set; }
+    public string InstituteName { get; set; }
     public string ClassTitle { get; set; }
     public string SubjectTitle { get; set; }
     [EditLink]

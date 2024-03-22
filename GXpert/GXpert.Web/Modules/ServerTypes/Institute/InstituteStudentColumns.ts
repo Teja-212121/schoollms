@@ -5,7 +5,7 @@ import { InstituteStudentRow } from "./InstituteStudentRow";
 export interface InstituteStudentColumns {
     Id: Column<InstituteStudentRow>;
     StudentPrn: Column<InstituteStudentRow>;
-    SchoolName: Column<InstituteStudentRow>;
+    InstituteName: Column<InstituteStudentRow>;
     ClassTitle: Column<InstituteStudentRow>;
     Division: Column<InstituteStudentRow>;
     RollNumber: Column<InstituteStudentRow>;

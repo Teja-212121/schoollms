@@ -16,7 +16,7 @@ public class InstituteTimeTableForm
     [HalfWidth]
     public int PeriodIndex { get; set; }
     [HalfWidth]
-    public int SchoolClassId { get; set; }
+    public int InstituteClassesId { get; set; }
     [HalfWidth]
     public int TeacherId { get; set; }
     [HalfWidth]

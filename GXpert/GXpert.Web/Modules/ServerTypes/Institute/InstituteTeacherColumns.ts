@@ -5,7 +5,7 @@ import { InstituteTeacherRow } from "./InstituteTeacherRow";
 export interface InstituteTeacherColumns {
     Id: Column<InstituteTeacherRow>;
     TeacherPrn: Column<InstituteTeacherRow>;
-    SchoolName: Column<InstituteTeacherRow>;
+    InstituteName: Column<InstituteTeacherRow>;
     ClassTitle: Column<InstituteTeacherRow>;
     SubjectTitle: Column<InstituteTeacherRow>;
     Description: Column<InstituteTeacherRow>;
