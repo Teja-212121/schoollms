@@ -12,6 +12,8 @@ public class ActivationForm
     [HalfWidth]
     public int TeacherId { get; set; }
     [HalfWidth]
+    public int StudentId { get; set; }
+    [HalfWidth]
     public int ActivationLogId { get; set; }
     [HalfWidth]
     public string DeviceId { get; set; }

@@ -7,6 +7,7 @@ export interface ActivationColumns {
     Id: Column<ActivationRow>;
     PlayListTitle: Column<ActivationRow>;
     TeacherPrn: Column<ActivationRow>;
+    StudentName: Column<ActivationRow>;
     ActivationLogCode: Column<ActivationRow>;
     DeviceId: Column<ActivationRow>;
     DeviceDetails: Column<ActivationRow>;

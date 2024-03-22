@@ -21,6 +21,8 @@ namespace GXpert.Texts {
                 export const PlayListId: string;
                 export const PlayListTitle: string;
                 export const SerialKeyId: string;
+                export const StudentId: string;
+                export const StudentName: string;
                 export const TeacherId: string;
                 export const TeacherPrn: string;
                 export const UpdateDate: string;
@@ -507,6 +509,116 @@ namespace GXpert.Texts {
             }
         }
 
+        namespace Institute {
+
+            namespace Institute {
+                export const Address: string;
+                export const City: string;
+                export const Description: string;
+                export const DistrictId: string;
+                export const DistrictTitle: string;
+                export const EType: string;
+                export const EstablishmentDate: string;
+                export const Id: string;
+                export const InsertDate: string;
+                export const InsertUserId: string;
+                export const IsActive: string;
+                export const LocationInfo: string;
+                export const Name: string;
+                export const PrincipalId: string;
+                export const PrincipalName: string;
+                export const StateId: string;
+                export const StateTitle: string;
+                export const TalukaId: string;
+                export const TalukaTitle: string;
+                export const UpdateDate: string;
+                export const UpdateUserId: string;
+            }
+
+            namespace InstituteClass {
+                export const AcademicYearId: string;
+                export const AcademicYearName: string;
+                export const ClassId: string;
+                export const ClassTeacherId: string;
+                export const ClassTeacherPrn: string;
+                export const ClassTitle: string;
+                export const CourseId: string;
+                export const CourseTitle: string;
+                export const DepartmentId: string;
+                export const DepartmentTitle: string;
+                export const Division: string;
+                export const Id: string;
+                export const InsertDate: string;
+                export const InsertUserId: string;
+                export const InstituteId: string;
+                export const InstituteName: string;
+                export const IsActive: string;
+                export const MediumId: string;
+                export const MediumTitle: string;
+                export const Title: string;
+                export const UpdateDate: string;
+                export const UpdateUserId: string;
+            }
+
+            namespace InstituteStudent {
+                export const AcademicYearId: string;
+                export const AcademicYearName: string;
+                export const ClassId: string;
+                export const ClassTitle: string;
+                export const Description: string;
+                export const Division: string;
+                export const Id: string;
+                export const InsertDate: string;
+                export const InsertUserId: string;
+                export const IsActive: string;
+                export const RollNumber: string;
+                export const SchoolId: string;
+                export const SchoolName: string;
+                export const StudentId: string;
+                export const StudentPrn: string;
+                export const UpdateDate: string;
+                export const UpdateUserId: string;
+            }
+
+            namespace InstituteTeacher {
+                export const AcademicYearId: string;
+                export const AcademicYearName: string;
+                export const ClassId: string;
+                export const ClassTitle: string;
+                export const Description: string;
+                export const Id: string;
+                export const InsertDate: string;
+                export const InsertUserId: string;
+                export const IsActive: string;
+                export const SchoolId: string;
+                export const SchoolName: string;
+                export const SubjectId: string;
+                export const SubjectTitle: string;
+                export const TeacherId: string;
+                export const TeacherPrn: string;
+                export const UpdateDate: string;
+                export const UpdateUserId: string;
+            }
+
+            namespace InstituteTimeTable {
+                export const Date: string;
+                export const EType: string;
+                export const EndTime: string;
+                export const Id: string;
+                export const InsertDate: string;
+                export const InsertUserId: string;
+                export const IsActive: string;
+                export const PeriodIndex: string;
+                export const SchoolClassDivision: string;
+                export const SchoolClassId: string;
+                export const StartTime: string;
+                export const TeacherId: string;
+                export const TeacherPrn: string;
+                export const UpdateDate: string;
+                export const UpdateUserId: string;
+            }
+        }
+
         namespace LiveSessions {
 
             namespace LiveSession {
@@ -653,6 +765,8 @@ namespace GXpert.Texts {
             namespace PlayList {
                 export const ClassId: string;
                 export const ClassTitle: string;
+                export const CourseId: string;
+                export const CourseTitle: string;
                 export const Description: string;
                 export const Id: string;
                 export const InsertDate: string;
@@ -916,6 +1030,33 @@ namespace GXpert.Texts {
             }
         }
 
+        namespace Skills {
+
+            namespace Skill {
+                export const Description: string;
+                export const Id: string;
+                export const InsertDate: string;
+                export const InsertUserId: string;
+                export const IsActive: string;
+                export const Name: string;
+                export const SkillCategoryId: string;
+                export const SkillCategoryName: string;
+                export const UpdateDate: string;
+                export const UpdateUserId: string;
+            }
+
+            namespace SkillCategory {
+                export const Description: string;
+                export const Id: string;
+                export const InsertDate: string;
+                export const InsertUserId: string;
+                export const IsActive: string;
+                export const Name: string;
+                export const UpdateDate: string;
+                export const UpdateUserId: string;
+            }
+        }
+
         namespace Syllabus {
 
             namespace Class {
@@ -1175,6 +1316,13 @@ namespace GXpert.Texts {
                 ExamQuestion: {},
                 ExamSection: {}
             },
+            Institute: {
+                Institute: {},
+                InstituteClass: {},
+                InstituteStudent: {},
+                InstituteTeacher: {},
+                InstituteTimeTable: {}
+            },
             LiveSessions: {
                 LiveSession: {},
                 LiveSessionLog: {},
@@ -1209,6 +1357,10 @@ namespace GXpert.Texts {
                 Sms: {},
                 Smtp: {},
                 Storage: {}
+            },
+            Skills: {
+                Skill: {},
+                SkillCategory: {}
             },
             Syllabus: {
                 Class: {},

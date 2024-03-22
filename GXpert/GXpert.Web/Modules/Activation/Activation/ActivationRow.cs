@@ -18,6 +18,7 @@ public sealed class ActivationRow : LoggingRow<ActivationRow.RowFields>, IIdRow,
 {
     const string jPlayList = nameof(jPlayList);
     const string jTeacher = nameof(jTeacher);
+    const string jStudent = nameof(jStudent);
     const string jActivationLog = nameof(jActivationLog);
 
     [DisplayName("Id"), Identity, IdProperty]
@@ -27,9 +28,12 @@ public sealed class ActivationRow : LoggingRow<ActivationRow.RowFields>, IIdRow,
     [LookupEditor("Playlist.PlayList")]
     public int? PlayListId { get => fields.PlayListId[this]; set => fields.PlayListId[this] = value; }
 
-    [DisplayName("Teacher"), NotNull, ForeignKey("Teachers", "Id"), LeftJoin(jTeacher), TextualField(nameof(TeacherPrn))]
+    [DisplayName("Teacher"),  ForeignKey("Teachers", "Id"), LeftJoin(jTeacher), TextualField(nameof(TeacherPrn))]
     [LookupEditor("Users.Teacher")]
     public int? TeacherId { get => fields.TeacherId[this]; set => fields.TeacherId[this] = value; }
+    [DisplayName("Student"), NotNull, ForeignKey("Students", "Id"), LeftJoin(jStudent),TextualField(nameof(StudentName))]
+    [LookupEditor("Users.Student")]
+    public int? StudentId { get => fields.StudentId[this]; set => fields.StudentId[this] = value; }
     [DisplayName("Serial Key"), NotNull, ForeignKey("SerialKeys", "Id"), LeftJoin("jSerialKey"), TextualField("SerialKey")]
     [LookupEditor("Workspace.SerialKey")]
     public int? SerialKeyId
@@ -66,6 +70,9 @@ public sealed class ActivationRow : LoggingRow<ActivationRow.RowFields>, IIdRow,
     [DisplayName("Teacher Prn"), Expression($"{jTeacher}.[PRN]")]
     public string TeacherPrn { get => fields.TeacherPrn[this]; set => fields.TeacherPrn[this] = value; }
 
+
+    [DisplayName("Student Name"), Expression($"{jStudent}.[Name]")]
+    public string StudentName { get => fields.StudentName[this]; set => fields.StudentName[this] = value; }
     [DisplayName("Activation Log Code"), Origin(jActivationLog, nameof(ActivationLogRow.Code))]
     public string ActivationLogCode { get => fields.ActivationLogCode[this]; set => fields.ActivationLogCode[this] = value; }
 
@@ -74,6 +81,7 @@ public sealed class ActivationRow : LoggingRow<ActivationRow.RowFields>, IIdRow,
         public Int32Field Id;
         public Int32Field PlayListId;
         public Int32Field TeacherId;
+        public Int32Field StudentId;
         public Int32Field ActivationLogId;
         public StringField DeviceId;
         public StringField DeviceDetails;
@@ -84,6 +92,7 @@ public sealed class ActivationRow : LoggingRow<ActivationRow.RowFields>, IIdRow,
         public Int32Field SerialKeyId;
         public StringField PlayListTitle;
         public StringField TeacherPrn;
+        public StringField StudentName;
         public StringField ActivationLogCode;
     }
 }
