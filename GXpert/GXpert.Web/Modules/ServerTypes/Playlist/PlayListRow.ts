@@ -10,9 +10,11 @@ export interface PlayListRow {
     PlayListFilePath?: string;
     PlayListVersion?: number;
     IsActive?: boolean;
+    CourseTitle?: string;
     ClassTitle?: string;
     SubjectTitle?: string;
     TeacherPrn?: string;
+    CourseId?: number;
     InsertUserId?: number;
     InsertDate?: string;
     UpdateUserId?: number;

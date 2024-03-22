@@ -18,7 +18,7 @@ public sealed class PlayListRow : LoggingRow<PlayListRow.RowFields>, IIdRow, INa
     const string jClass = nameof(jClass);
     const string jSubject = nameof(jSubject);
     const string jTeacher = nameof(jTeacher);
-
+    const string jCourse = nameof(jCourse);
     [DisplayName("Id"), Identity, IdProperty]
     public int? Id { get => fields.Id[this]; set => fields.Id[this] = value; }
 
@@ -36,9 +36,13 @@ public sealed class PlayListRow : LoggingRow<PlayListRow.RowFields>, IIdRow, INa
     [LookupEditor("Syllabus.Subject")]
     public int? SubjectId { get => fields.SubjectId[this]; set => fields.SubjectId[this] = value; }
 
-    [DisplayName("Teacher"), NotNull, ForeignKey("Teachers", "Id"), LeftJoin(jTeacher), TextualField(nameof(TeacherPrn))]
+    [DisplayName("Teacher"), ForeignKey("Teachers", "Id"), LeftJoin(jTeacher), TextualField(nameof(TeacherPrn))]
     [LookupEditor("Users.Teacher")]
     public int? TeacherId { get => fields.TeacherId[this]; set => fields.TeacherId[this] = value; }
+    [DisplayName("Course"), ForeignKey("Course", "Id"), LeftJoin(jCourse), TextualField(nameof(CourseTitle))]
+    public int? CourseId { get => fields.CourseId[this]; set => fields.CourseId[this] = value; }
+    [DisplayName("Course Title"), Expression($"{jCourse}.[Title]")]
+    public string CourseTitle { get => fields.CourseTitle[this]; set => fields.CourseTitle[this] = value; }
 
     [DisplayName("Play List File Path")]
     public string PlayListFilePath { get => fields.PlayListFilePath[this]; set => fields.PlayListFilePath[this] = value; }
@@ -69,9 +73,10 @@ public sealed class PlayListRow : LoggingRow<PlayListRow.RowFields>, IIdRow, INa
         public StringField PlayListFilePath;
         public Int32Field PlayListVersion;
         public BooleanField IsActive;
-
+        public StringField CourseTitle;
         public StringField ClassTitle;
         public StringField SubjectTitle;
         public StringField TeacherPrn;
+        public Int32Field CourseId;
     }
 }

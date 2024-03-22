@@ -21,6 +21,8 @@ namespace GXpert.Texts {
                 export const PlayListId: string;
                 export const PlayListTitle: string;
                 export const SerialKeyId: string;
+                export const StudentId: string;
+                export const StudentName: string;
                 export const TeacherId: string;
                 export const TeacherPrn: string;
                 export const UpdateDate: string;
@@ -763,6 +765,8 @@ namespace GXpert.Texts {
             namespace PlayList {
                 export const ClassId: string;
                 export const ClassTitle: string;
+                export const CourseId: string;
+                export const CourseTitle: string;
                 export const Description: string;
                 export const Id: string;
                 export const InsertDate: string;
@@ -1023,6 +1027,33 @@ namespace GXpert.Texts {
                 export const UpdateUserId: string;
                 export const UploadPath: string;
                 export const UrlPreview: string;
+            }
+        }
+
+        namespace Skills {
+
+            namespace Skill {
+                export const Description: string;
+                export const Id: string;
+                export const InsertDate: string;
+                export const InsertUserId: string;
+                export const IsActive: string;
+                export const Name: string;
+                export const SkillCategoryId: string;
+                export const SkillCategoryName: string;
+                export const UpdateDate: string;
+                export const UpdateUserId: string;
+            }
+
+            namespace SkillCategory {
+                export const Description: string;
+                export const Id: string;
+                export const InsertDate: string;
+                export const InsertUserId: string;
+                export const IsActive: string;
+                export const Name: string;
+                export const UpdateDate: string;
+                export const UpdateUserId: string;
             }
         }
 
@@ -1326,6 +1357,10 @@ namespace GXpert.Texts {
                 Sms: {},
                 Smtp: {},
                 Storage: {}
+            },
+            Skills: {
+                Skill: {},
+                SkillCategory: {}
             },
             Syllabus: {
                 Class: {},

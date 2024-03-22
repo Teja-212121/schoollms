@@ -12,6 +12,8 @@ public class ActivationColumns
     public int Id { get; set; }
     public string PlayListTitle { get; set; }
     public string TeacherPrn { get; set; }
+
+    public string StudentName { get; set; }
     public string ActivationLogCode { get; set; }
     [EditLink]
     public string DeviceId { get; set; }
