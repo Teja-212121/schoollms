@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GXpert.Web.Enums
 {
-    public enum ESchoolTimeTableType
+    public enum EInstituteTimeTableType
     {
         VIRTUAL,
         FACETOFACE

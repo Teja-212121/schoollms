@@ -10,11 +10,6 @@ export interface InstituteTeacherColumns {
     SubjectTitle: Column<InstituteTeacherRow>;
     Description: Column<InstituteTeacherRow>;
     AcademicYearName: Column<InstituteTeacherRow>;
-    InsertDate: Column<InstituteTeacherRow>;
-    InsertUserId: Column<InstituteTeacherRow>;
-    UpdateDate: Column<InstituteTeacherRow>;
-    UpdateUserId: Column<InstituteTeacherRow>;
-    IsActive: Column<InstituteTeacherRow>;
 }
 
 export class InstituteTeacherColumns extends ColumnsBase<InstituteTeacherRow> {

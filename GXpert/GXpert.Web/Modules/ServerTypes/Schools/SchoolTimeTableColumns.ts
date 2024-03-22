@@ -1,6 +1,5 @@
 ﻿import { ColumnsBase, fieldsProxy } from "@serenity-is/corelib";
 import { Column } from "@serenity-is/sleekgrid";
-import { ESchoolTimeTableType } from "../Web/Enums.ESchoolTimeTableType";
 import { SchoolTimeTableRow } from "./SchoolTimeTableRow";
 
 export interface SchoolTimeTableColumns {
@@ -18,5 +17,3 @@ export class SchoolTimeTableColumns extends ColumnsBase<SchoolTimeTableRow> {
     static readonly columnsKey = 'Schools.SchoolTimeTable';
     static readonly Fields = fieldsProxy<SchoolTimeTableColumns>();
 }
-
-[ESchoolTimeTableType]; // referenced types

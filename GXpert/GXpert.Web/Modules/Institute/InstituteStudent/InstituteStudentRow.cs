@@ -1,6 +1,7 @@
-﻿using Serenity.ComponentModel;
+using Serenity.ComponentModel;
 using Serenity.Data;
 using Serenity.Data.Mapping;
+using Serenity.Extensions.Entities;
 using System;
 using System.ComponentModel;
 
@@ -11,7 +12,7 @@ namespace GXpert.Institute;
 [ReadPermission("Administration:General")]
 [ModifyPermission("Administration:General")]
 [ServiceLookupPermission("Administration:General")]
-public sealed class InstituteStudentRow : Row<InstituteStudentRow.RowFields>, IIdRow, INameRow
+public sealed class InstituteStudentRow : LoggingRow<InstituteStudentRow.RowFields>, IIdRow, INameRow
 {
     const string jStudent = nameof(jStudent);
     const string jSchool = nameof(jSchool);
@@ -45,18 +46,6 @@ public sealed class InstituteStudentRow : Row<InstituteStudentRow.RowFields>, II
     [TextualField(nameof(AcademicYearName)), LookupEditor(typeof(Masters.AcademicYearRow), Async = true)]
     public int? AcademicYearId { get => fields.AcademicYearId[this]; set => fields.AcademicYearId[this] = value; }
 
-    [DisplayName("Insert Date"), NotNull]
-    public DateTime? InsertDate { get => fields.InsertDate[this]; set => fields.InsertDate[this] = value; }
-
-    [DisplayName("Insert User Id"), NotNull]
-    public int? InsertUserId { get => fields.InsertUserId[this]; set => fields.InsertUserId[this] = value; }
-
-    [DisplayName("Update Date")]
-    public DateTime? UpdateDate { get => fields.UpdateDate[this]; set => fields.UpdateDate[this] = value; }
-
-    [DisplayName("Update User Id")]
-    public int? UpdateUserId { get => fields.UpdateUserId[this]; set => fields.UpdateUserId[this] = value; }
-
     [DisplayName("Is Active"), NotNull]
     public bool? IsActive { get => fields.IsActive[this]; set => fields.IsActive[this] = value; }
 
@@ -72,7 +61,7 @@ public sealed class InstituteStudentRow : Row<InstituteStudentRow.RowFields>, II
     [DisplayName("Academic Year Name"), Origin(jAcademicYear, nameof(Masters.AcademicYearRow.Name))]
     public string AcademicYearName { get => fields.AcademicYearName[this]; set => fields.AcademicYearName[this] = value; }
 
-    public class RowFields : RowFieldsBase
+    public class RowFields : LoggingRowFields
     {
         public Int32Field Id;
         public Int32Field StudentId;
@@ -82,10 +71,6 @@ public sealed class InstituteStudentRow : Row<InstituteStudentRow.RowFields>, II
         public StringField RollNumber;
         public StringField Description;
         public Int32Field AcademicYearId;
-        public DateTimeField InsertDate;
-        public Int32Field InsertUserId;
-        public DateTimeField UpdateDate;
-        public Int32Field UpdateUserId;
         public BooleanField IsActive;
 
         public StringField StudentPrn;

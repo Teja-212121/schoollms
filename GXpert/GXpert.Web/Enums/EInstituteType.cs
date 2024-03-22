@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GXpert.Web.Enums
 {
-    public enum ESchoolType
+    public enum EInstituteType
     {
         GOVERNMENT,
         PRIVATE

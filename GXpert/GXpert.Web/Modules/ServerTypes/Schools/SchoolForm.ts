@@ -1,10 +1,9 @@
-﻿import { StringEditor, TextAreaEditor, EnumEditor, LookupEditor, DateEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
-import { ESchoolType } from "../Web/Enums.ESchoolType";
+﻿import { StringEditor, TextAreaEditor, IntegerEditor, LookupEditor, DateEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
 
 export interface SchoolForm {
     Name: StringEditor;
     Description: TextAreaEditor;
-    EType: EnumEditor;
+    EType: IntegerEditor;
     Address: StringEditor;
     City: StringEditor;
     StateId: LookupEditor;
@@ -26,7 +25,7 @@ export class SchoolForm extends PrefixedContext {
 
             var w0 = StringEditor;
             var w1 = TextAreaEditor;
-            var w2 = EnumEditor;
+            var w2 = IntegerEditor;
             var w3 = LookupEditor;
             var w4 = DateEditor;
 
@@ -45,5 +44,3 @@ export class SchoolForm extends PrefixedContext {
         }
     }
 }
-
-[ESchoolType]; // referenced types

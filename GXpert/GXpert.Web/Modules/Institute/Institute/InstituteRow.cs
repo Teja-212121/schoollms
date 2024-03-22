@@ -1,6 +1,8 @@
-﻿using Serenity.ComponentModel;
+using GXpert.Web.Enums;
+using Serenity.ComponentModel;
 using Serenity.Data;
 using Serenity.Data.Mapping;
+using Serenity.Extensions.Entities;
 using System;
 using System.ComponentModel;
 
@@ -11,7 +13,8 @@ namespace GXpert.Institute;
 [ReadPermission("Administration:General")]
 [ModifyPermission("Administration:General")]
 [ServiceLookupPermission("Administration:General")]
-public sealed class InstituteRow : Row<InstituteRow.RowFields>, IIdRow, INameRow
+[LookupScript("Institute.Institute")]
+public sealed class InstituteRow : LoggingRow<InstituteRow.RowFields>, IIdRow, INameRow
 {
     const string jState = nameof(jState);
     const string jDistrict = nameof(jDistrict);
@@ -28,7 +31,7 @@ public sealed class InstituteRow : Row<InstituteRow.RowFields>, IIdRow, INameRow
     public string Description { get => fields.Description[this]; set => fields.Description[this] = value; }
 
     [DisplayName("E Type"), Column("eType")]
-    public short? EType { get => fields.EType[this]; set => fields.EType[this] = value; }
+    public EInstituteType? EType { get => (EInstituteType)fields.EType[this]; set => fields.EType[this] = (short?)value; }
 
     [DisplayName("Address"), Size(1000), NotNull]
     public string Address { get => fields.Address[this]; set => fields.Address[this] = value; }
@@ -54,18 +57,6 @@ public sealed class InstituteRow : Row<InstituteRow.RowFields>, IIdRow, INameRow
     [DisplayName("Establishment Date")]
     public DateTime? EstablishmentDate { get => fields.EstablishmentDate[this]; set => fields.EstablishmentDate[this] = value; }
 
-    [DisplayName("Insert Date"), NotNull]
-    public DateTime? InsertDate { get => fields.InsertDate[this]; set => fields.InsertDate[this] = value; }
-
-    [DisplayName("Insert User Id"), NotNull]
-    public int? InsertUserId { get => fields.InsertUserId[this]; set => fields.InsertUserId[this] = value; }
-
-    [DisplayName("Update Date")]
-    public DateTime? UpdateDate { get => fields.UpdateDate[this]; set => fields.UpdateDate[this] = value; }
-
-    [DisplayName("Update User Id")]
-    public int? UpdateUserId { get => fields.UpdateUserId[this]; set => fields.UpdateUserId[this] = value; }
-
     [DisplayName("Is Active"), NotNull]
     public bool? IsActive { get => fields.IsActive[this]; set => fields.IsActive[this] = value; }
 
@@ -84,7 +75,7 @@ public sealed class InstituteRow : Row<InstituteRow.RowFields>, IIdRow, INameRow
     [DisplayName("Principal Name"), Expression($"{jPrincipal}.[Name]")]
     public string PrincipalName { get => fields.PrincipalName[this]; set => fields.PrincipalName[this] = value; }
 
-    public class RowFields : RowFieldsBase
+    public class RowFields : LoggingRowFields
     {
         public Int32Field Id;
         public StringField Name;
@@ -97,10 +88,6 @@ public sealed class InstituteRow : Row<InstituteRow.RowFields>, IIdRow, INameRow
         public Int32Field TalukaId;
         public StringField LocationInfo;
         public DateTimeField EstablishmentDate;
-        public DateTimeField InsertDate;
-        public Int32Field InsertUserId;
-        public DateTimeField UpdateDate;
-        public Int32Field UpdateUserId;
         public BooleanField IsActive;
         public Int32Field PrincipalId;
 
