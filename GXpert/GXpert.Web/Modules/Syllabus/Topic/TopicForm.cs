@@ -7,6 +7,7 @@ namespace GXpert.Syllabus.Forms;
 [BasedOnRow(typeof(TopicRow), CheckNames = true)]
 public class TopicForm
 {
+    public int CourseId { get; set; }
     public string Title { get; set; }
     [TextAreaEditor(Rows = 3)]
     public string Description { get; set; }
@@ -14,8 +15,10 @@ public class TopicForm
     public short SortOrder { get; set; }
     [HalfWidth]
     public int ClassId { get; set; }
-    [HalfWidth]
-    public int MediumId { get; set; }
+
+    public int SemesterId { get; set; }
+    /* [HalfWidth]
+     public int MediumId { get; set; }*/
     [HalfWidth]
     public int SubjectId { get; set; }
     [HalfWidth]
