@@ -10,11 +10,6 @@ export interface InstituteClassColumns {
     ClassTeacherPrn: Column<InstituteClassRow>;
     Title: Column<InstituteClassRow>;
     AcademicYearName: Column<InstituteClassRow>;
-    InsertDate: Column<InstituteClassRow>;
-    InsertUserId: Column<InstituteClassRow>;
-    UpdateDate: Column<InstituteClassRow>;
-    UpdateUserId: Column<InstituteClassRow>;
-    IsActive: Column<InstituteClassRow>;
     InstituteName: Column<InstituteClassRow>;
     DepartmentTitle: Column<InstituteClassRow>;
     CourseTitle: Column<InstituteClassRow>;

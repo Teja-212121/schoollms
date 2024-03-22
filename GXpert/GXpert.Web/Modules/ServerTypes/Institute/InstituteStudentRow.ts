@@ -3,21 +3,21 @@
 export interface InstituteStudentRow {
     Id?: number;
     StudentId?: number;
-    SchoolId?: number;
+    InstituteId?: number;
     ClassId?: number;
     Division?: string;
     RollNumber?: string;
     Description?: string;
     AcademicYearId?: number;
-    InsertDate?: string;
-    InsertUserId?: number;
-    UpdateDate?: string;
-    UpdateUserId?: number;
     IsActive?: boolean;
     StudentPrn?: string;
-    SchoolName?: string;
+    InstituteName?: string;
     ClassTitle?: string;
     AcademicYearName?: string;
+    InsertUserId?: number;
+    InsertDate?: string;
+    UpdateUserId?: number;
+    UpdateDate?: string;
 }
 
 export abstract class InstituteStudentRow {

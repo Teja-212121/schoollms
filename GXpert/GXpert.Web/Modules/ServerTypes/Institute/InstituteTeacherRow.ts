@@ -3,21 +3,21 @@
 export interface InstituteTeacherRow {
     Id?: number;
     TeacherId?: number;
-    SchoolId?: number;
+    InstituteId?: number;
     ClassId?: number;
     SubjectId?: number;
     Description?: string;
     AcademicYearId?: number;
-    InsertDate?: string;
-    InsertUserId?: number;
-    UpdateDate?: string;
-    UpdateUserId?: number;
     IsActive?: boolean;
     TeacherPrn?: string;
-    SchoolName?: string;
+    InstituteName?: string;
     ClassTitle?: string;
     SubjectTitle?: string;
     AcademicYearName?: string;
+    InsertUserId?: number;
+    InsertDate?: string;
+    UpdateUserId?: number;
+    UpdateDate?: string;
 }
 
 export abstract class InstituteTeacherRow {

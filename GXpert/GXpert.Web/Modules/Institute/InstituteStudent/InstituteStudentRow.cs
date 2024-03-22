@@ -15,7 +15,7 @@ namespace GXpert.Institute;
 public sealed class InstituteStudentRow : LoggingRow<InstituteStudentRow.RowFields>, IIdRow, INameRow
 {
     const string jStudent = nameof(jStudent);
-    const string jSchool = nameof(jSchool);
+    const string jInstitute = nameof(jInstitute);
     const string jClass = nameof(jClass);
     const string jAcademicYear = nameof(jAcademicYear);
 
@@ -26,8 +26,9 @@ public sealed class InstituteStudentRow : LoggingRow<InstituteStudentRow.RowFiel
     [LookupEditor(typeof(Users.StudentRow), Async = true)]
     public int? StudentId { get => fields.StudentId[this]; set => fields.StudentId[this] = value; }
 
-    [DisplayName("School"), NotNull, ForeignKey("Institutes", "Id"), LeftJoin(jSchool), TextualField(nameof(SchoolName))]
-    public int? SchoolId { get => fields.SchoolId[this]; set => fields.SchoolId[this] = value; }
+    [DisplayName("Institude"), NotNull, ForeignKey("Institutes", "Id"), LeftJoin(jInstitute)]
+    [LookupEditor("Institute.Institute")]
+    public int? InstituteId { get => fields.InstituteId[this]; set => fields.InstituteId[this] = value; }
 
     [DisplayName("Class"), NotNull, ForeignKey(typeof(Syllabus.ClassRow)), LeftJoin(jClass), TextualField(nameof(ClassTitle))]
     [LookupEditor(typeof(Syllabus.ClassRow), Async = true)]
@@ -52,8 +53,8 @@ public sealed class InstituteStudentRow : LoggingRow<InstituteStudentRow.RowFiel
     [DisplayName("Student Prn"), Origin(jStudent, nameof(Users.StudentRow.Prn))]
     public string StudentPrn { get => fields.StudentPrn[this]; set => fields.StudentPrn[this] = value; }
 
-    [DisplayName("School Name"), Expression($"{jSchool}.[Name]")]
-    public string SchoolName { get => fields.SchoolName[this]; set => fields.SchoolName[this] = value; }
+    [DisplayName("Institute Name"), Expression($"{jInstitute}.[Name]")]
+    public string InstituteName { get => fields.InstituteName[this]; set => fields.InstituteName[this] = value; }
 
     [DisplayName("Class Title"), Origin(jClass, nameof(Syllabus.ClassRow.Title))]
     public string ClassTitle { get => fields.ClassTitle[this]; set => fields.ClassTitle[this] = value; }
@@ -65,7 +66,7 @@ public sealed class InstituteStudentRow : LoggingRow<InstituteStudentRow.RowFiel
     {
         public Int32Field Id;
         public Int32Field StudentId;
-        public Int32Field SchoolId;
+        public Int32Field InstituteId;
         public Int32Field ClassId;
         public StringField Division;
         public StringField RollNumber;
@@ -74,7 +75,7 @@ public sealed class InstituteStudentRow : LoggingRow<InstituteStudentRow.RowFiel
         public BooleanField IsActive;
 
         public StringField StudentPrn;
-        public StringField SchoolName;
+        public StringField InstituteName;
         public StringField ClassTitle;
         public StringField AcademicYearName;
     }
