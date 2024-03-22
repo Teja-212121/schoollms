@@ -984,6 +984,8 @@ namespace GXpert.Texts {
         namespace Syllabus {
 
             namespace Class {
+                export const CourseId: string;
+                export const CourseName: string;
                 export const Description: string;
                 export const Id: string;
                 export const InsertDate: string;
@@ -1038,13 +1040,15 @@ namespace GXpert.Texts {
             namespace Subject {
                 export const ClassId: string;
                 export const ClassTitle: string;
+                export const CourseId: string;
+                export const CourseName: string;
                 export const Description: string;
                 export const Id: string;
                 export const InsertDate: string;
                 export const InsertUserId: string;
                 export const IsActive: string;
-                export const MediumId: string;
-                export const MediumTitle: string;
+                export const SemesterId: string;
+                export const SemesterName: string;
                 export const SortOrder: string;
                 export const Thumbnail: string;
                 export const Title: string;
@@ -1056,13 +1060,15 @@ namespace GXpert.Texts {
             namespace Topic {
                 export const ClassId: string;
                 export const ClassTitle: string;
+                export const CourseId: string;
+                export const CourseName: string;
                 export const Description: string;
                 export const Id: string;
                 export const InsertDate: string;
                 export const InsertUserId: string;
                 export const IsActive: string;
-                export const MediumId: string;
-                export const MediumTitle: string;
+                export const SemesterId: string;
+                export const SemesterName: string;
                 export const SortOrder: string;
                 export const SubjectId: string;
                 export const SubjectTitle: string;

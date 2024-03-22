@@ -20,5 +20,7 @@ public class InstituteClassColumns
  
     public string InstituteName { get; set; }
     public string DepartmentTitle { get; set; }
+
+    [Width(100), QuickFilter]
     public string CourseTitle { get; set; }
 }
