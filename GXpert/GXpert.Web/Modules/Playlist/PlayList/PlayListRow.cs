@@ -18,6 +18,7 @@ public sealed class PlayListRow : LoggingRow<PlayListRow.RowFields>, IIdRow, INa
     const string jClass = nameof(jClass);
     const string jSubject = nameof(jSubject);
     const string jTeacher = nameof(jTeacher);
+    const string jSemester = nameof(jSemester);
     const string jCourse = nameof(jCourse);
     [DisplayName("Id"), Identity, IdProperty]
     public int? Id { get => fields.Id[this]; set => fields.Id[this] = value; }
@@ -41,9 +42,13 @@ public sealed class PlayListRow : LoggingRow<PlayListRow.RowFields>, IIdRow, INa
     public int? TeacherId { get => fields.TeacherId[this]; set => fields.TeacherId[this] = value; }
     [DisplayName("Course"), ForeignKey("Course", "Id"), LeftJoin(jCourse), TextualField(nameof(CourseTitle))]
     public int? CourseId { get => fields.CourseId[this]; set => fields.CourseId[this] = value; }
+
+    [DisplayName("Semester"), ForeignKey("Semester", "Id"), LeftJoin(jSemester), TextualField(nameof(SemesterName))]
+    public int? SemesterId { get => fields.SemesterId[this]; set => fields.SemesterId[this] = value; }
+    [DisplayName("SemesterName"), Expression($"{jSemester}.[Title]")]
+    public string SemesterName { get => fields.SemesterName[this]; set => fields.SemesterName[this] = value; }
     [DisplayName("Course Title"), Expression($"{jCourse}.[Title]")]
     public string CourseTitle { get => fields.CourseTitle[this]; set => fields.CourseTitle[this] = value; }
-
     [DisplayName("Play List File Path")]
     public string PlayListFilePath { get => fields.PlayListFilePath[this]; set => fields.PlayListFilePath[this] = value; }
     
@@ -78,5 +83,7 @@ public sealed class PlayListRow : LoggingRow<PlayListRow.RowFields>, IIdRow, INa
         public StringField SubjectTitle;
         public StringField TeacherPrn;
         public Int32Field CourseId;
+        public Int32Field SemesterId;
+        public StringField SemesterName;
     }
 }

@@ -9,15 +9,15 @@ export interface InstituteStudentRow {
     RollNumber?: string;
     Description?: string;
     AcademicYearId?: number;
+    InsertDate?: string;
+    InsertUserId?: number;
+    UpdateDate?: string;
+    UpdateUserId?: number;
     IsActive?: boolean;
     StudentPrn?: string;
     SchoolName?: string;
     ClassTitle?: string;
     AcademicYearName?: string;
-    InsertUserId?: number;
-    InsertDate?: string;
-    UpdateUserId?: number;
-    UpdateDate?: string;
 }
 
 export abstract class InstituteStudentRow {
