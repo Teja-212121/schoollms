@@ -7,6 +7,8 @@ export interface ClassRow {
     SortOrder?: number;
     Weightage?: number;
     Thumbnail?: string;
+    CourseId?: number;
+    CourseName?: string;
     IsActive?: boolean;
     InsertUserId?: number;
     InsertDate?: string;

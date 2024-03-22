@@ -2,7 +2,7 @@
 
 export interface InstituteTeacherForm {
     TeacherId: LookupEditor;
-    SchoolId: IntegerEditor;
+    InstituteId: IntegerEditor;
     ClassId: LookupEditor;
     SubjectId: LookupEditor;
     Description: StringEditor;
@@ -32,7 +32,7 @@ export class InstituteTeacherForm extends PrefixedContext {
 
             initFormType(InstituteTeacherForm, [
                 'TeacherId', w0,
-                'SchoolId', w1,
+                'InstituteId', w1,
                 'ClassId', w0,
                 'SubjectId', w0,
                 'Description', w2,

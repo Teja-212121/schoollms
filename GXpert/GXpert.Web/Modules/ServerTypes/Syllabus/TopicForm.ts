@@ -1,11 +1,12 @@
-﻿import { StringEditor, TextAreaEditor, IntegerEditor, ServiceLookupEditor, DecimalEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
+﻿import { ServiceLookupEditor, StringEditor, TextAreaEditor, IntegerEditor, DecimalEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
 
 export interface TopicForm {
+    CourseId: ServiceLookupEditor;
     Title: StringEditor;
     Description: TextAreaEditor;
     SortOrder: IntegerEditor;
     ClassId: ServiceLookupEditor;
-    MediumId: ServiceLookupEditor;
+    SemesterId: ServiceLookupEditor;
     SubjectId: ServiceLookupEditor;
     Weightage: DecimalEditor;
     Thumbnail: StringEditor;
@@ -21,21 +22,22 @@ export class TopicForm extends PrefixedContext {
         if (!TopicForm.init)  {
             TopicForm.init = true;
 
-            var w0 = StringEditor;
-            var w1 = TextAreaEditor;
-            var w2 = IntegerEditor;
-            var w3 = ServiceLookupEditor;
+            var w0 = ServiceLookupEditor;
+            var w1 = StringEditor;
+            var w2 = TextAreaEditor;
+            var w3 = IntegerEditor;
             var w4 = DecimalEditor;
 
             initFormType(TopicForm, [
-                'Title', w0,
-                'Description', w1,
-                'SortOrder', w2,
-                'ClassId', w3,
-                'MediumId', w3,
-                'SubjectId', w3,
+                'CourseId', w0,
+                'Title', w1,
+                'Description', w2,
+                'SortOrder', w3,
+                'ClassId', w0,
+                'SemesterId', w0,
+                'SubjectId', w0,
                 'Weightage', w4,
-                'Thumbnail', w0
+                'Thumbnail', w1
             ]);
         }
     }

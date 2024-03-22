@@ -6,12 +6,14 @@ export interface SubjectRow {
     Description?: string;
     SortOrder?: number;
     ClassId?: number;
-    MediumId?: number;
+    CourseId?: number;
+    CourseName?: string;
+    SemesterId?: number;
+    SemesterName?: string;
     Weightage?: number;
     Thumbnail?: string;
     IsActive?: boolean;
     ClassTitle?: string;
-    MediumTitle?: string;
     InsertUserId?: number;
     InsertDate?: string;
     UpdateUserId?: number;

@@ -4,11 +4,12 @@ import { TopicRow } from "./TopicRow";
 
 export interface TopicColumns {
     Id: Column<TopicRow>;
+    CourseName: Column<TopicRow>;
     Title: Column<TopicRow>;
     Description: Column<TopicRow>;
     SortOrder: Column<TopicRow>;
     ClassTitle: Column<TopicRow>;
-    MediumTitle: Column<TopicRow>;
+    SemesterName: Column<TopicRow>;
     SubjectTitle: Column<TopicRow>;
     Weightage: Column<TopicRow>;
     Thumbnail: Column<TopicRow>;
