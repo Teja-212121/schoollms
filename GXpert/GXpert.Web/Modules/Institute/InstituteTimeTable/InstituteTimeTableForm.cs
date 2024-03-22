@@ -1,4 +1,4 @@
-﻿using Serenity.ComponentModel;
+using Serenity.ComponentModel;
 using System;
 
 namespace GXpert.Institute.Forms;
@@ -7,16 +7,19 @@ namespace GXpert.Institute.Forms;
 [BasedOnRow(typeof(InstituteTimeTableRow), CheckNames = true)]
 public class InstituteTimeTableForm
 {
+    [HalfWidth]
     public DateTime Date { get; set; }
+    [HalfWidth]
     public DateTime StartTime { get; set; }
+    [HalfWidth]
     public DateTime EndTime { get; set; }
+    [HalfWidth]
     public int PeriodIndex { get; set; }
+    [HalfWidth]
     public int SchoolClassId { get; set; }
+    [HalfWidth]
     public int TeacherId { get; set; }
+    [HalfWidth]
     public short EType { get; set; }
-    public DateTime InsertDate { get; set; }
-    public int InsertUserId { get; set; }
-    public DateTime UpdateDate { get; set; }
-    public int UpdateUserId { get; set; }
-    public bool IsActive { get; set; }
+    
 }

@@ -1,4 +1,4 @@
-﻿using Serenity.ComponentModel;
+using Serenity.ComponentModel;
 using System;
 using System.ComponentModel;
 
@@ -17,9 +17,5 @@ public class InstituteTimeTableColumns
     public string SchoolClassDivision { get; set; }
     public string TeacherPrn { get; set; }
     public short EType { get; set; }
-    public DateTime InsertDate { get; set; }
-    public int InsertUserId { get; set; }
-    public DateTime UpdateDate { get; set; }
-    public int UpdateUserId { get; set; }
-    public bool IsActive { get; set; }
+    
 }
