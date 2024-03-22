@@ -8,6 +8,10 @@ export interface InstituteClassRow {
     ClassTeacherId?: number;
     Title?: string;
     AcademicYearId?: number;
+    InsertDate?: string;
+    InsertUserId?: number;
+    UpdateDate?: string;
+    UpdateUserId?: number;
     IsActive?: boolean;
     InstituteId?: number;
     DepartmentId?: number;
@@ -19,10 +23,6 @@ export interface InstituteClassRow {
     InstituteName?: string;
     DepartmentTitle?: string;
     CourseTitle?: string;
-    InsertUserId?: number;
-    InsertDate?: string;
-    UpdateUserId?: number;
-    UpdateDate?: string;
 }
 
 export abstract class InstituteClassRow {

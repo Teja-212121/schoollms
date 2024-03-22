@@ -1,5 +1,4 @@
 ﻿import { fieldsProxy } from "@serenity-is/corelib";
-import { EInstituteTimeTableType } from "../Web/Enums.EInstituteTimeTableType";
 
 export interface InstituteTimeTableRow {
     Id?: number;
@@ -9,14 +8,14 @@ export interface InstituteTimeTableRow {
     PeriodIndex?: number;
     SchoolClassId?: number;
     TeacherId?: number;
-    EType?: EInstituteTimeTableType;
+    EType?: number;
+    InsertDate?: string;
+    InsertUserId?: number;
+    UpdateDate?: string;
+    UpdateUserId?: number;
     IsActive?: boolean;
     SchoolClassDivision?: string;
     TeacherPrn?: string;
-    InsertUserId?: number;
-    InsertDate?: string;
-    UpdateUserId?: number;
-    UpdateDate?: string;
 }
 
 export abstract class InstituteTimeTableRow {
