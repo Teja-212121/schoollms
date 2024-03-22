@@ -12,6 +12,8 @@ public class ClassColumns
     public int Id { get; set; }
     [EditLink]
     public string Title { get; set; }
+    [Width(100),QuickFilter]
+    public string CourseName { get; set; }
     public string Description { get; set; }
     public short SortOrder { get; set; }
     public float Weightage { get; set; }

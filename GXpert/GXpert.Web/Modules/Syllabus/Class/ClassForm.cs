@@ -7,6 +7,7 @@ namespace GXpert.Syllabus.Forms;
 [BasedOnRow(typeof(ClassRow), CheckNames = true)]
 public class ClassForm
 {
+    public int CourseId { get; set; }
     public string Title { get; set; }
     [TextAreaEditor(Rows =3)]
     public string Description { get; set; }

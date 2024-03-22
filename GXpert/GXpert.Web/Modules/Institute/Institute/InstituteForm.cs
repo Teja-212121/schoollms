@@ -1,4 +1,4 @@
-﻿using Serenity.ComponentModel;
+using Serenity.ComponentModel;
 using System;
 
 namespace GXpert.Institute.Forms;
@@ -8,19 +8,27 @@ namespace GXpert.Institute.Forms;
 public class InstituteForm
 {
     public string Name { get; set; }
+    [TextAreaEditor(Rows =3)]
     public string Description { get; set; }
     public short EType { get; set; }
+    [HalfWidth]
     public string Address { get; set; }
+    [HalfWidth]
     public string City { get; set; }
+    [HalfWidth]
     public int StateId { get; set; }
-    public int DistrictId { get; set; }
+    [HalfWidth]
+    public int  DistrictId { get; set; }
+    [HalfWidth]
     public int TalukaId { get; set; }
+    [HalfWidth]
+
+    [TextAreaEditor(Rows =5)]
     public string LocationInfo { get; set; }
+    
     public DateTime EstablishmentDate { get; set; }
-    public DateTime InsertDate { get; set; }
-    public int InsertUserId { get; set; }
-    public DateTime UpdateDate { get; set; }
-    public int UpdateUserId { get; set; }
-    public bool IsActive { get; set; }
+    [HalfWidth]
+    
     public int PrincipalId { get; set; }
+    
 }

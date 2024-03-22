@@ -1,6 +1,8 @@
-﻿using Serenity.ComponentModel;
+using GXpert.Web.Enums;
+using Serenity.ComponentModel;
 using Serenity.Data;
 using Serenity.Data.Mapping;
+using Serenity.Extensions.Entities;
 using System;
 using System.ComponentModel;
 
@@ -10,7 +12,7 @@ namespace GXpert.Institute;
 [DisplayName("Institute Time Table"), InstanceName("Institute Time Table")]
 [ReadPermission("Administration:General")]
 [ModifyPermission("Administration:General")]
-public sealed class InstituteTimeTableRow : Row<InstituteTimeTableRow.RowFields>, IIdRow
+public sealed class InstituteTimeTableRow : LoggingRow<InstituteTimeTableRow.RowFields>, IIdRow
 {
     const string jSchoolClass = nameof(jSchoolClass);
     const string jTeacher = nameof(jTeacher);
@@ -40,21 +42,9 @@ public sealed class InstituteTimeTableRow : Row<InstituteTimeTableRow.RowFields>
     public int? TeacherId { get => fields.TeacherId[this]; set => fields.TeacherId[this] = value; }
 
     [DisplayName("E Type"), Column("eType")]
-    public short? EType { get => fields.EType[this]; set => fields.EType[this] = value; }
+    public EInstituteTimeTableType? EType { get =>(EInstituteTimeTableType) fields.EType[this]; set => fields.EType[this] = (short?)value; }
 
-    [DisplayName("Insert Date"), NotNull]
-    public DateTime? InsertDate { get => fields.InsertDate[this]; set => fields.InsertDate[this] = value; }
-
-    [DisplayName("Insert User Id"), NotNull]
-    public int? InsertUserId { get => fields.InsertUserId[this]; set => fields.InsertUserId[this] = value; }
-
-    [DisplayName("Update Date")]
-    public DateTime? UpdateDate { get => fields.UpdateDate[this]; set => fields.UpdateDate[this] = value; }
-
-    [DisplayName("Update User Id")]
-    public int? UpdateUserId { get => fields.UpdateUserId[this]; set => fields.UpdateUserId[this] = value; }
-
-    [DisplayName("Is Active"), NotNull]
+    [DisplayName("Is Active"), NotNull, DefaultValue(1)]
     public bool? IsActive { get => fields.IsActive[this]; set => fields.IsActive[this] = value; }
 
     [DisplayName("School Class Division"), Origin(jSchoolClass, nameof(InstituteClassRow.Division))]
@@ -63,7 +53,7 @@ public sealed class InstituteTimeTableRow : Row<InstituteTimeTableRow.RowFields>
     [DisplayName("Teacher Prn"), Origin(jTeacher, nameof(Users.TeacherRow.Prn))]
     public string TeacherPrn { get => fields.TeacherPrn[this]; set => fields.TeacherPrn[this] = value; }
 
-    public class RowFields : RowFieldsBase
+    public class RowFields : LoggingRowFields
     {
         public Int32Field Id;
         public DateTimeField Date;
@@ -73,10 +63,6 @@ public sealed class InstituteTimeTableRow : Row<InstituteTimeTableRow.RowFields>
         public Int32Field SchoolClassId;
         public Int32Field TeacherId;
         public Int16Field EType;
-        public DateTimeField InsertDate;
-        public Int32Field InsertUserId;
-        public DateTimeField UpdateDate;
-        public Int32Field UpdateUserId;
         public BooleanField IsActive;
 
         public StringField SchoolClassDivision;

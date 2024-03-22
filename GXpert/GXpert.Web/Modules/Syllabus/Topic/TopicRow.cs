@@ -18,6 +18,8 @@ public sealed class TopicRow : LoggingRow<TopicRow.RowFields>, IIdRow, INameRow
     const string jClass = nameof(jClass);
     const string jMedium = nameof(jMedium);
     const string jSubject = nameof(jSubject);
+    const string jCourse = nameof(jCourse);
+    const string jSemester=nameof(jSemester);
 
     [DisplayName("Id"), Identity, IdProperty, LookupInclude]
     public int? Id { get => fields.Id[this]; set => fields.Id[this] = value; }
@@ -34,10 +36,10 @@ public sealed class TopicRow : LoggingRow<TopicRow.RowFields>, IIdRow, INameRow
     [DisplayName("Class"), NotNull, ForeignKey(typeof(ClassRow)), LeftJoin(jClass), TextualField(nameof(ClassTitle))]
     [ServiceLookupEditor(typeof(ClassRow))]
     public int? ClassId { get => fields.ClassId[this]; set => fields.ClassId[this] = value; }
-
+/*
     [DisplayName("Medium"), NotNull, ForeignKey(typeof(MediumRow)), LeftJoin(jMedium), TextualField(nameof(MediumTitle))]
     [ServiceLookupEditor(typeof(MediumRow))]
-    public int? MediumId { get => fields.MediumId[this]; set => fields.MediumId[this] = value; }
+    public int? MediumId { get => fields.MediumId[this]; set => fields.MediumId[this] = value; }*/
 
     [DisplayName("Subject"), NotNull, ForeignKey(typeof(SubjectRow)), LeftJoin(jSubject), TextualField(nameof(SubjectTitle))]
     [ServiceLookupEditor(typeof(SubjectRow), CascadeFrom = "ClassId", CascadeField = "ClassId"), LookupInclude]
@@ -45,6 +47,20 @@ public sealed class TopicRow : LoggingRow<TopicRow.RowFields>, IIdRow, INameRow
 
     [DisplayName("Weightage"), NotNull]
     public float? Weightage { get => fields.Weightage[this]; set => fields.Weightage[this] = value; }
+
+    [DisplayName("Course"), NotNull, ForeignKey("Course", "Id"), LeftJoin(jCourse)]
+    [ServiceLookupEditor(typeof(CourseRow)), LookupInclude]
+    public int? CourseId { get => fields.CourseId[this]; set => fields.CourseId[this] = value; }
+
+    [DisplayName("CourseName"), Expression($"{jCourse}.[Title]")]
+    public string CourseName { get => fields.CourseName[this]; set => fields.CourseName[this] = value; }
+
+    [DisplayName("Semester"), NotNull, ForeignKey("Semester", "Id"), LeftJoin(jSemester)]
+    [ServiceLookupEditor(typeof(SemesterRow)), LookupInclude]
+    public int? SemesterId { get => fields.SemesterId[this]; set => fields.SemesterId[this] = value; }
+
+    [DisplayName("SemesterName"), Expression($"{jSemester}.[Title]")]
+    public string SemesterName { get => fields.SemesterName[this]; set => fields.SemesterName[this] = value; }
 
     [DisplayName("Thumbnail"), Size(500), NotNull]
     public string Thumbnail { get => fields.Thumbnail[this]; set => fields.Thumbnail[this] = value; }
@@ -55,8 +71,8 @@ public sealed class TopicRow : LoggingRow<TopicRow.RowFields>, IIdRow, INameRow
     [DisplayName("Class Title"), Origin(jClass, nameof(ClassRow.Title))]
     public string ClassTitle { get => fields.ClassTitle[this]; set => fields.ClassTitle[this] = value; }
 
-    [DisplayName("Medium Title"), Origin(jMedium, nameof(MediumRow.Title))]
-    public string MediumTitle { get => fields.MediumTitle[this]; set => fields.MediumTitle[this] = value; }
+    /*[DisplayName("Medium Title"), Origin(jMedium, nameof(MediumRow.Title))]
+    public string MediumTitle { get => fields.MediumTitle[this]; set => fields.MediumTitle[this] = value; }*/
 
     [DisplayName("Subject Title"), Origin(jSubject, nameof(SubjectRow.Title))]
     public string SubjectTitle { get => fields.SubjectTitle[this]; set => fields.SubjectTitle[this] = value; }
@@ -68,14 +84,17 @@ public sealed class TopicRow : LoggingRow<TopicRow.RowFields>, IIdRow, INameRow
         public StringField Description;
         public Int16Field SortOrder;
         public Int32Field ClassId;
-        public Int32Field MediumId;
+        public Int32Field CourseId;
+        public StringField CourseName;
+        public Int32Field SemesterId;
+        public StringField SemesterName;
+      /*  public Int32Field MediumId;*/
         public Int32Field SubjectId;
         public SingleField Weightage;
         public StringField Thumbnail;
         public BooleanField IsActive;
-
         public StringField ClassTitle;
-        public StringField MediumTitle;
+        /*public StringField MediumTitle;*/
         public StringField SubjectTitle;
     }
 }
