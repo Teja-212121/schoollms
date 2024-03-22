@@ -44,7 +44,7 @@ public sealed class InstituteTimeTableRow : LoggingRow<InstituteTimeTableRow.Row
     [DisplayName("E Type"), Column("eType")]
     public EInstituteTimeTableType? EType { get =>(EInstituteTimeTableType) fields.EType[this]; set => fields.EType[this] = (short?)value; }
 
-    [DisplayName("Is Active"), NotNull]
+    [DisplayName("Is Active"), NotNull, DefaultValue(1)]
     public bool? IsActive { get => fields.IsActive[this]; set => fields.IsActive[this] = value; }
 
     [DisplayName("School Class Division"), Origin(jSchoolClass, nameof(InstituteClassRow.Division))]

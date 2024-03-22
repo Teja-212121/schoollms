@@ -10,7 +10,7 @@ export interface InstituteForm {
     StateId: LookupEditor;
     DistrictId: LookupEditor;
     TalukaId: LookupEditor;
-    LocationInfo: StringEditor;
+    LocationInfo: TextAreaEditor;
     EstablishmentDate: DateEditor;
     PrincipalId: IntegerEditor;
 }
@@ -41,7 +41,7 @@ export class InstituteForm extends PrefixedContext {
                 'StateId', w3,
                 'DistrictId', w3,
                 'TalukaId', w3,
-                'LocationInfo', w0,
+                'LocationInfo', w1,
                 'EstablishmentDate', w4,
                 'PrincipalId', w5
             ]);

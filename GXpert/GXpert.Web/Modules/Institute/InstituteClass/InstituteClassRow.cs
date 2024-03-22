@@ -48,7 +48,7 @@ public sealed class InstituteClassRow : LoggingRow<InstituteClassRow.RowFields>,
     public int? AcademicYearId { get => fields.AcademicYearId[this]; set => fields.AcademicYearId[this] = value; }
 
     
-    [DisplayName("Is Active"), NotNull]
+    [DisplayName("Is Active"), NotNull, DefaultValue(1)]
     public bool? IsActive { get => fields.IsActive[this]; set => fields.IsActive[this] = value; }
 
     [DisplayName("Institute"), ForeignKey("Institutes", "Id"), LeftJoin(jInstitute), TextualField(nameof(InstituteName))]

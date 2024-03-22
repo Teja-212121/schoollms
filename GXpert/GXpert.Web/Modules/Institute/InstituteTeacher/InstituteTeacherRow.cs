@@ -45,7 +45,7 @@ public sealed class InstituteTeacherRow : LoggingRow<InstituteTeacherRow.RowFiel
     [TextualField(nameof(AcademicYearName)), LookupEditor(typeof(Masters.AcademicYearRow), Async = true)]
     public int? AcademicYearId { get => fields.AcademicYearId[this]; set => fields.AcademicYearId[this] = value; }
 
-    [DisplayName("Is Active"), NotNull]
+    [DisplayName("Is Active"), NotNull, DefaultValue(1)]
     public bool? IsActive { get => fields.IsActive[this]; set => fields.IsActive[this] = value; }
 
     [DisplayName("Teacher Prn"), Origin(jTeacher, nameof(Users.TeacherRow.Prn))]

@@ -22,7 +22,10 @@ public class InstituteForm
     [HalfWidth]
     public int TalukaId { get; set; }
     [HalfWidth]
+
+    [TextAreaEditor(Rows =5)]
     public string LocationInfo { get; set; }
+    
     public DateTime EstablishmentDate { get; set; }
     [HalfWidth]
     

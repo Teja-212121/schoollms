@@ -57,7 +57,7 @@ public sealed class InstituteRow : LoggingRow<InstituteRow.RowFields>, IIdRow, I
     [DisplayName("Establishment Date")]
     public DateTime? EstablishmentDate { get => fields.EstablishmentDate[this]; set => fields.EstablishmentDate[this] = value; }
 
-    [DisplayName("Is Active"), NotNull]
+    [DisplayName("Is Active"), NotNull, DefaultValue(1)]
     public bool? IsActive { get => fields.IsActive[this]; set => fields.IsActive[this] = value; }
 
     [DisplayName("Principal"), ForeignKey("Principal", "Id"), LeftJoin(jPrincipal), TextualField(nameof(PrincipalName))]
