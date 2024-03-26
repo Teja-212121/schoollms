@@ -25,11 +25,11 @@ public sealed class TalukaRow : LoggingRow<TalukaRow.RowFields>, IIdRow, INameRo
     public string Title { get => fields.Title[this]; set => fields.Title[this] = value; }
 
     [DisplayName("State"), NotNull, ForeignKey(typeof(StateRow)), LeftJoin(jState), TextualField(nameof(StateTitle))]
-    [ServiceLookupEditor(typeof(StateRow))]
+    [ServiceLookupEditor(typeof(StateRow)),LookupInclude]
     public int? StateId { get => fields.StateId[this]; set => fields.StateId[this] = value; }
 
     [DisplayName("District"), NotNull, ForeignKey(typeof(DistrictRow)), LeftJoin(jDistrict), TextualField(nameof(DistrictTitle))]
-    [ServiceLookupEditor(typeof(DistrictRow))]
+    [ServiceLookupEditor(typeof(DistrictRow),CascadeFrom = "StateId",CascadeField = "StateId")]
     public int? DistrictId { get => fields.DistrictId[this]; set => fields.DistrictId[this] = value; }
 
     [DisplayName("Short Name"), Size(200)]
