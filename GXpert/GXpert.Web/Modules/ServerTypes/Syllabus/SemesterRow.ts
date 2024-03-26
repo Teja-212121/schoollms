@@ -5,6 +5,8 @@ export interface SemesterRow {
     Title?: string;
     CourseId?: number;
     ClassId?: number;
+    Description?: string;
+    SortOrder?: number;
     IsActive?: boolean;
     CourseTitle?: string;
     ClassTitle?: string;

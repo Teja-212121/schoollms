@@ -7,8 +7,14 @@ namespace GXpert.Syllabus.Forms;
 [BasedOnRow(typeof(SemesterRow), CheckNames = true)]
 public class SemesterForm
 {
-    public string Title { get; set; }
     public int CourseId { get; set; }
     public int ClassId { get; set; }
+    public string Title { get; set; }
+    [HalfWidth]
+    public short SortOrder { get; set; }
+    [TextAreaEditor(Rows = 3)]
+    public string Description { get; set; }
     
+
+
 }
