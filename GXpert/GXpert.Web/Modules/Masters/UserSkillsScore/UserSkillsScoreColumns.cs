@@ -1,4 +1,4 @@
-﻿using Serenity.ComponentModel;
+using Serenity.ComponentModel;
 using System.ComponentModel;
 
 namespace GXpert.Masters.Columns;
@@ -11,4 +11,5 @@ public class UserSkillsScoreColumns
     public int Id { get; set; }
     public string SkillCategoryName { get; set; }
     public string SkillName { get; set; }
+    public float Score { get; set; }   
 }

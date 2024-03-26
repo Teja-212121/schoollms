@@ -1,4 +1,4 @@
-﻿using Serenity.ComponentModel;
+using Serenity.ComponentModel;
 using Serenity.Data;
 using Serenity.Data.Mapping;
 using System.ComponentModel;
@@ -25,6 +25,10 @@ public sealed class UserSkillsScoreRow : Row<UserSkillsScoreRow.RowFields>, IIdR
     [LookupEditor(typeof(Skills.SkillRow), Async = true)]
     public int? SkillId { get => fields.SkillId[this]; set => fields.SkillId[this] = value; }
 
+    [DisplayName("Score")]
+    public float? Score { get => fields.Score[this]; set => fields.Score[this] = value; }
+
+
     [DisplayName("Skill Category Name"), Origin(jSkillCategory, nameof(Skills.SkillCategoryRow.Name))]
     public string SkillCategoryName { get => fields.SkillCategoryName[this]; set => fields.SkillCategoryName[this] = value; }
 
@@ -36,7 +40,7 @@ public sealed class UserSkillsScoreRow : Row<UserSkillsScoreRow.RowFields>, IIdR
         public Int32Field Id;
         public Int32Field SkillCategoryId;
         public Int32Field SkillId;
-
+        public SingleField Score;
         public StringField SkillCategoryName;
         public StringField SkillName;
     }
