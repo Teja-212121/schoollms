@@ -7,9 +7,10 @@ namespace GXpert.Skills.Forms;
 [BasedOnRow(typeof(SkillRow), CheckNames = true)]
 public class SkillForm
 {
+    public int SkillCategoryId { get; set; }
     public string Name { get; set; }
     [TextAreaEditor(Rows =3)]
     public string Description { get; set; }
-    public int SkillCategoryId { get; set; }
+    
    
 }

@@ -11,9 +11,13 @@ public class AcademicSubjectPerformanceColumns
     [EditLink, DisplayName("Db.Shared.RecordId"), AlignRight]
     public int Id { get; set; }
     public string StudentPrn { get; set; }
+    [QuickFilter]
     public string CourseTitle { get; set; }
+    [QuickFilter]
     public string ClassTitle { get; set; }
+    [QuickFilter]
     public string SemesterTitle { get; set; }
+    [QuickFilter]
     public string SubjectTitle { get; set; }
     public short ETypeOfExam { get; set; }
     public float MarksObtained { get; set; }

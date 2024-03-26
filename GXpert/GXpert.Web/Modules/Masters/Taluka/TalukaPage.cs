@@ -12,7 +12,7 @@ public class TalukaPage : Controller
         return this.GridPage("@/Masters/Taluka/TalukaPage",
             TalukaRow.Fields.PageTitle());
     }
-    [Route("Masters/Taluka/StateSample")]
+    [Route("Masters/Taluka/TalukaSample")]
     public FileContentResult DownloadImportedQuestionsSample()
     {
         string filePath = "Uploads/TalukaSample.xlsx";
