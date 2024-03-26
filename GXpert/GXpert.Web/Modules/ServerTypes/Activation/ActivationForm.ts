@@ -4,6 +4,7 @@ import { EKeyStatus } from "../Web/Enums.EKeyStatus";
 export interface ActivationForm {
     PlayListId: LookupEditor;
     TeacherId: LookupEditor;
+    StudentId: LookupEditor;
     ActivationLogId: ServiceLookupEditor;
     DeviceId: StringEditor;
     DeviceDetails: StringEditor;
@@ -31,6 +32,7 @@ export class ActivationForm extends PrefixedContext {
             initFormType(ActivationForm, [
                 'PlayListId', w0,
                 'TeacherId', w0,
+                'StudentId', w0,
                 'ActivationLogId', w1,
                 'DeviceId', w2,
                 'DeviceDetails', w2,

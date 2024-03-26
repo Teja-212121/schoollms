@@ -21,6 +21,8 @@ namespace GXpert.Texts {
                 export const PlayListId: string;
                 export const PlayListTitle: string;
                 export const SerialKeyId: string;
+                export const StudentId: string;
+                export const StudentName: string;
                 export const TeacherId: string;
                 export const TeacherPrn: string;
                 export const UpdateDate: string;
@@ -914,6 +916,8 @@ namespace GXpert.Texts {
             namespace PlayList {
                 export const ClassId: string;
                 export const ClassTitle: string;
+                export const CourseId: string;
+                export const CourseTitle: string;
                 export const Description: string;
                 export const Id: string;
                 export const InsertDate: string;
@@ -921,6 +925,8 @@ namespace GXpert.Texts {
                 export const IsActive: string;
                 export const PlayListFilePath: string;
                 export const PlayListVersion: string;
+                export const SemesterId: string;
+                export const SemesterName: string;
                 export const SubjectId: string;
                 export const SubjectTitle: string;
                 export const TeacherId: string;
