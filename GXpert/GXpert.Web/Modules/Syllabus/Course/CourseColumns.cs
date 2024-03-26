@@ -12,7 +12,8 @@ public class CourseColumns
     public int Id { get; set; }
     [EditLink]
     public string Title { get; set; }
-    public string Description { get; set; }
     public short SortOrder { get; set; }
     public string Thumbnail { get; set; }
+    public string Description { get; set; }
+    
 }

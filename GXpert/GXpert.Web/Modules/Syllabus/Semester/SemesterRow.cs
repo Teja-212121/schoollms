@@ -31,6 +31,12 @@ public sealed class SemesterRow : LoggingRow<SemesterRow.RowFields>, IIdRow, INa
     [LookupEditor(typeof(ClassRow))]
     public int? ClassId { get => fields.ClassId[this]; set => fields.ClassId[this] = value; }
 
+    [DisplayName("Description"), Size(2000)]
+    public string Description { get => fields.Description[this]; set => fields.Description[this] = value; }
+
+    [DisplayName("Sort Order")]
+    public short? SortOrder { get => fields.SortOrder[this]; set => fields.SortOrder[this] = value; }
+
     [DisplayName("Is Active"),DefaultValue(1)]
     public bool? IsActive { get => fields.IsActive[this]; set => fields.IsActive[this] = value; }
 
@@ -46,6 +52,8 @@ public sealed class SemesterRow : LoggingRow<SemesterRow.RowFields>, IIdRow, INa
         public StringField Title;
         public Int32Field CourseId;
         public Int32Field ClassId;
+        public StringField Description;
+        public Int16Field SortOrder;
         public BooleanField IsActive;
         public StringField CourseTitle;
         public StringField ClassTitle;

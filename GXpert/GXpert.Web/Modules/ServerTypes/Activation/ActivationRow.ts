@@ -5,6 +5,7 @@ export interface ActivationRow {
     Id?: number;
     PlayListId?: number;
     TeacherId?: number;
+    StudentId?: number;
     ActivationLogId?: number;
     DeviceId?: string;
     DeviceDetails?: string;
@@ -15,6 +16,7 @@ export interface ActivationRow {
     SerialKeyId?: number;
     PlayListTitle?: string;
     TeacherPrn?: string;
+    StudentName?: string;
     ActivationLogCode?: string;
     InsertUserId?: number;
     InsertDate?: string;

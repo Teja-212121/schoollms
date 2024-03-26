@@ -27,7 +27,7 @@ public sealed class ClassRow : LoggingRow<ClassRow.RowFields>, IIdRow, INameRow
     [DisplayName("Description"), Size(2000)]
     public string Description { get => fields.Description[this]; set => fields.Description[this] = value; }
 
-    [DisplayName("Sort Order"), NotNull]
+    [DisplayName("Sort Order"),NotNull]
     public short? SortOrder { get => fields.SortOrder[this]; set => fields.SortOrder[this] = value; }
 
     [DisplayName("Weightage")]
