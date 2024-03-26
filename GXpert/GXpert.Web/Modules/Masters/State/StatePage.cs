@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc;
 using Serenity.Web;
 
 namespace GXpert.Masters.Pages;
@@ -11,5 +11,13 @@ public class StatePage : Controller
     {
         return this.GridPage("@/Masters/State/StatePage",
             StateRow.Fields.PageTitle());
+    }
+
+    [Route("Masters/State/StateSample")]
+    public FileContentResult DownloadImportedQuestionsSample()
+    {
+        string filePath = "Uploads/StateSample.xlsx";
+        byte[] fileBytes = System.IO.File.ReadAllBytes(filePath);
+        return new FileContentResult(fileBytes, "application/vnd.ms-excel");
     }
 }
