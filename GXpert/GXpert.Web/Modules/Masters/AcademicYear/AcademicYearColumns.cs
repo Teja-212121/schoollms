@@ -13,6 +13,8 @@ public class AcademicYearColumns
     [EditLink]
     public string Name { get; set; }
     public string Description { get; set; }
+    [QuickFilter]
     public DateTime StartDate { get; set; }
+    [QuickFilter]
     public DateTime EndDate { get; set; }
 }

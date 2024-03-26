@@ -8,8 +8,11 @@ namespace GXpert.Masters.Forms;
 public class AcademicYearForm
 {
     public string Name { get; set; }
+    [HalfWidth]
+    public DateTime StartDate { get; set; }
+    [HalfWidth]
+    public DateTime EndDate { get; set; }
     [TextAreaEditor(Rows = 3)]
     public string Description { get; set; }
-    public DateTime StartDate { get; set; }
-    public DateTime EndDate { get; set; }
+   
 }

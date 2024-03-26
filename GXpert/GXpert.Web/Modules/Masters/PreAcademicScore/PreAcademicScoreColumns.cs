@@ -11,6 +11,7 @@ public class PreAcademicScoreColumns
     [EditLink, DisplayName("Db.Shared.RecordId"), AlignRight]
     public int Id { get; set; }
     public string PreAcadamicsExamName { get; set; }
+    [QuickFilter]
     public DateTime PassedOutDate { get; set; }
     public float MarksObtained { get; set; }
     public float OutOfMarks { get; set; }

@@ -5,13 +5,13 @@ import { SubjectRow } from "./SubjectRow";
 export interface SubjectColumns {
     Id: Column<SubjectRow>;
     CourseName: Column<SubjectRow>;
+    Title: Column<SubjectRow>;
+    Description: Column<SubjectRow>;
+    SortOrder: Column<SubjectRow>;
     ClassTitle: Column<SubjectRow>;
     SemesterName: Column<SubjectRow>;
-    Title: Column<SubjectRow>;
-    SortOrder: Column<SubjectRow>;
     Weightage: Column<SubjectRow>;
     Thumbnail: Column<SubjectRow>;
-    Description: Column<SubjectRow>;
 }
 
 export class SubjectColumns extends ColumnsBase<SubjectRow> {
