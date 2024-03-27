@@ -12,7 +12,6 @@ export interface InstituteTimeTableColumns {
     InstituteClassDivision: Column<InstituteTimeTableRow>;
     TeacherPrn: Column<InstituteTimeTableRow>;
     EType: Column<InstituteTimeTableRow>;
-    ClassRoomNo: Column<InstituteTimeTableRow>;
 }
 
 export class InstituteTimeTableColumns extends ColumnsBase<InstituteTimeTableRow> {

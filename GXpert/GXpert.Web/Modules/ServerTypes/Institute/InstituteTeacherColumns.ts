@@ -10,8 +10,6 @@ export interface InstituteTeacherColumns {
     SubjectTitle: Column<InstituteTeacherRow>;
     Description: Column<InstituteTeacherRow>;
     AcademicYearName: Column<InstituteTeacherRow>;
-    Semester: Column<InstituteTeacherRow>;
-    InstituteDivision: Column<InstituteTeacherRow>;
 }
 
 export class InstituteTeacherColumns extends ColumnsBase<InstituteTeacherRow> {

@@ -4,9 +4,11 @@ import { SemesterRow } from "./SemesterRow";
 
 export interface SemesterColumns {
     Id: Column<SemesterRow>;
-    Title: Column<SemesterRow>;
     CourseTitle: Column<SemesterRow>;
     ClassTitle: Column<SemesterRow>;
+    Title: Column<SemesterRow>;
+    SortOrder: Column<SemesterRow>;
+    Description: Column<SemesterRow>;
 }
 
 export class SemesterColumns extends ColumnsBase<SemesterRow> {

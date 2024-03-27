@@ -1,4 +1,4 @@
-﻿import { fieldsProxy } from "@serenity-is/corelib";
+﻿import { getLookup, getLookupAsync, fieldsProxy } from "@serenity-is/corelib";
 
 export interface CourseRow {
     Id?: number;
@@ -17,6 +17,12 @@ export abstract class CourseRow {
     static readonly idProperty = 'Id';
     static readonly nameProperty = 'Title';
     static readonly localTextPrefix = 'Syllabus.Course';
+    static readonly lookupKey = 'Syllabus.Course';
+
+    /** @deprecated use getLookupAsync instead */
+    static getLookup() { return getLookup<CourseRow>('Syllabus.Course') }
+    static async getLookupAsync() { return getLookupAsync<CourseRow>('Syllabus.Course') }
+
     static readonly deletePermission = 'Administration:General';
     static readonly insertPermission = 'Administration:General';
     static readonly readPermission = 'Administration:General';

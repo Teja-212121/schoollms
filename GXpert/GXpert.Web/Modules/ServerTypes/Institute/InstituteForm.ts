@@ -1,5 +1,4 @@
-﻿import { PrincipalDialog } from "@/Users/Principal/PrincipalDialog";
-import { StringEditor, TextAreaEditor, EnumEditor, LookupEditor, DateEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
+﻿import { StringEditor, TextAreaEditor, EnumEditor, LookupEditor, DateEditor, IntegerEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
 import { EInstituteType } from "../Web/Enums.EInstituteType";
 
 export interface InstituteForm {
@@ -13,7 +12,7 @@ export interface InstituteForm {
     TalukaId: LookupEditor;
     LocationInfo: TextAreaEditor;
     EstablishmentDate: DateEditor;
-    PrincipalId: LookupEditor;
+    PrincipalId: IntegerEditor;
 }
 
 export class InstituteForm extends PrefixedContext {
@@ -31,6 +30,7 @@ export class InstituteForm extends PrefixedContext {
             var w2 = EnumEditor;
             var w3 = LookupEditor;
             var w4 = DateEditor;
+            var w5 = IntegerEditor;
 
             initFormType(InstituteForm, [
                 'Name', w0,
@@ -43,10 +43,10 @@ export class InstituteForm extends PrefixedContext {
                 'TalukaId', w3,
                 'LocationInfo', w1,
                 'EstablishmentDate', w4,
-                'PrincipalId', w3
+                'PrincipalId', w5
             ]);
         }
     }
 }
 
-[EInstituteType, PrincipalDialog]; // referenced types
+[EInstituteType]; // referenced types

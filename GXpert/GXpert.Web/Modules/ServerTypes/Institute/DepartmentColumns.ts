@@ -6,7 +6,7 @@ export interface DepartmentColumns {
     Id: Column<DepartmentRow>;
     Title: Column<DepartmentRow>;
     InstituteName: Column<DepartmentRow>;
-    HODName: Column<DepartmentRow>;
+    HodName: Column<DepartmentRow>;
     Description: Column<DepartmentRow>;
 }
 
