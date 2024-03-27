@@ -1,5 +1,5 @@
 import { InstituteTimeTableColumns, InstituteTimeTableRow, InstituteTimeTableService } from '@/ServerTypes/Institute';
-import { Decorators, EntityGrid } from '@serenity-is/corelib';
+import { Decorators, EntityGrid, postToService, resolveUrl } from '@serenity-is/corelib';
 import { InstituteTimeTableDialog } from './InstituteTimeTableDialog';
 import { InstituteTimeTableExcelImportDialog } from './InstituteTimeTableExcelImportDialog ';
 
@@ -30,6 +30,17 @@ export class InstituteTimeTableGrid extends EntityGrid<InstituteTimeTableRow, an
                     dialog = null;
                 });
                 dialog.dialogOpen();
+            }
+        });
+        buttons.push({
+            title: 'Download InstituteTimeTable Sample',
+            cssClass: 'export-xlsx-button',
+            onClick: () => {
+                debugger;
+
+                var url = "~/Institute/InstituteTimeTable/InstituteTimeTableDownloadImportSample";
+
+                postToService({ url: resolveUrl(url), request: '', target: '_blank' });
             }
         });
         return buttons;

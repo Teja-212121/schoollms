@@ -22,7 +22,7 @@ public class InstituteTeacherForm
     [HalfWidth]
     public int InstituteDivisionId { get; set; }
 
-
+    [HalfWidth]
     public int AcademicYearId { get; set; }
     [TextAreaEditor(Rows = 3)]
     public string Description { get; set; }

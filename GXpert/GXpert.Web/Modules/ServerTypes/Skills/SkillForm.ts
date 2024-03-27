@@ -1,9 +1,9 @@
-﻿import { LookupEditor, StringEditor, TextAreaEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
+﻿import { StringEditor, TextAreaEditor, LookupEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
 
 export interface SkillForm {
-    SkillCategoryId: LookupEditor;
     Name: StringEditor;
     Description: TextAreaEditor;
+    SkillCategoryId: LookupEditor;
 }
 
 export class SkillForm extends PrefixedContext {
@@ -16,14 +16,14 @@ export class SkillForm extends PrefixedContext {
         if (!SkillForm.init)  {
             SkillForm.init = true;
 
-            var w0 = LookupEditor;
-            var w1 = StringEditor;
-            var w2 = TextAreaEditor;
+            var w0 = StringEditor;
+            var w1 = TextAreaEditor;
+            var w2 = LookupEditor;
 
             initFormType(SkillForm, [
-                'SkillCategoryId', w0,
-                'Name', w1,
-                'Description', w2
+                'Name', w0,
+                'Description', w1,
+                'SkillCategoryId', w2
             ]);
         }
     }

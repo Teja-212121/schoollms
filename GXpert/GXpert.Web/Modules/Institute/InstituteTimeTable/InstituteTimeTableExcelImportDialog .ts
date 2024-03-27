@@ -4,7 +4,7 @@ import { Decorators, DialogButton, EntityDialog, isEmptyOrNull, notifyError, not
 @Decorators.registerClass('GXpert.Institute.InstituteTimeTableDialog')
 export class InstituteTimeTableExcelImportDialog extends EntityDialog<InstituteTimeTableRow, any> {
     FileName: any;
-    protected getFormKey() { return InstituteTimeTableForm.formKey; }
+    protected getFormKey() { return InstituteTimeTableExcelImportForm.formKey; }
     protected getRowDefinition() { return InstituteTimeTableRow; }
     protected getService() { return InstituteTimeTableService.baseUrl; }
 

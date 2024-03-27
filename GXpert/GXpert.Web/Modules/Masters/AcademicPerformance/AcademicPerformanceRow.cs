@@ -24,7 +24,7 @@ public sealed class AcademicPerformanceRow : LoggingRow<AcademicPerformanceRow.R
     public int? Id { get => fields.Id[this]; set => fields.Id[this] = value; }
 
     [DisplayName("Student"), ForeignKey(typeof(Users.StudentRow)), LeftJoin(jStudent), TextualField(nameof(StudentPrn))]
-    [LookupEditor(typeof(Users.StudentRow), Async = true)]
+    [LookupEditor(typeof(Users.StudentRow))]
     public int? StudentId { get => fields.StudentId[this]; set => fields.StudentId[this] = value; }
 
     [DisplayName("Course"), NotNull, ForeignKey(typeof(Syllabus.CourseRow)), LeftJoin(jCourse), TextualField(nameof(CourseTitle))]
@@ -32,7 +32,7 @@ public sealed class AcademicPerformanceRow : LoggingRow<AcademicPerformanceRow.R
     public int? CourseId { get => fields.CourseId[this]; set => fields.CourseId[this] = value; }
 
     [DisplayName("Class"), NotNull, ForeignKey(typeof(Syllabus.ClassRow)), LeftJoin(jClass), TextualField(nameof(ClassTitle))]
-    [LookupEditor(typeof(Syllabus.ClassRow), Async = true)]
+    [LookupEditor(typeof(Syllabus.ClassRow))]
     public int? ClassId { get => fields.ClassId[this]; set => fields.ClassId[this] = value; }
 
     [DisplayName("Semester"), NotNull, ForeignKey(typeof(Syllabus.SemesterRow)), LeftJoin(jSemester), TextualField(nameof(SemesterTitle))]
@@ -49,7 +49,7 @@ public sealed class AcademicPerformanceRow : LoggingRow<AcademicPerformanceRow.R
     public string Remarks { get => fields.Remarks[this]; set => fields.Remarks[this] = value; }
 
     [DisplayName("Academic Year"), NotNull, ForeignKey(typeof(AcademicYearRow)), LeftJoin(jAcademicYear)]
-    [TextualField(nameof(AcademicYearName)), LookupEditor(typeof(AcademicYearRow), Async = true)]
+    [TextualField(nameof(AcademicYearName)), LookupEditor(typeof(AcademicYearRow))]
     public int? AcademicYearId { get => fields.AcademicYearId[this]; set => fields.AcademicYearId[this] = value; }
 
 
