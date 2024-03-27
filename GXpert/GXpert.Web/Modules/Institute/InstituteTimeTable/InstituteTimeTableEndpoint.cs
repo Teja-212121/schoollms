@@ -103,35 +103,35 @@ public class InstituteTimeTableEndpoint : ServiceEndpoint
                 MyRow Row = new MyRow();
 
               
-                Row.Date = Convert.ToDateTime(worksheet.Cells[row, 2].Value ?? "");
-                Row.StartTime = Convert.ToDateTime(worksheet.Cells[row, 3].Value ?? "");
-                Row.EndTime = Convert.ToDateTime(worksheet.Cells[row, 4].Value ?? "");
-                Row.PeriodIndex = Convert.ToInt32(worksheet.Cells[row, 5].Value ?? null);
+                Row.Date = Convert.ToDateTime(worksheet.Cells[row, 1].Value ?? "");
+                Row.StartTime = Convert.ToDateTime(worksheet.Cells[row, 2].Value ?? "");
+                Row.EndTime = Convert.ToDateTime(worksheet.Cells[row, 3].Value ?? "");
+                Row.PeriodIndex = Convert.ToInt32(worksheet.Cells[row, 4].Value ?? null);
 
-                Row.InstituteClassDivision = Convert.ToString(worksheet.Cells[row, 6].Value ?? "").Trim();
-                if (string.IsNullOrEmpty(Row.InstituteClassDivision))
+                Row.InstituteDivisionId = Convert.ToInt32(worksheet.Cells[row, 5].Value ?? null);
+                /*if (string.IsNullOrEmpty(Row.InstituteClassDivision))
                 {
                     response.ErrorList.Add("Error On Row " + row + ": class Not found");
                     continue;
-                }
-                Row.TeacherPrn = Convert.ToString(worksheet.Cells[row, 7].Value ?? "").Trim();
-                if (string.IsNullOrEmpty(Row.TeacherPrn))
+                }*/
+                Row.TeacherId = Convert.ToInt32(worksheet.Cells[row, 6].Value ?? null);
+               /* if (string.IsNullOrEmpty(Row.TeacherPrn))
                 {
                     response.ErrorList.Add("Error On Row " + row + ": Prn Not found");
                     continue;
                 }
-
-                int? EType = Convert.ToInt32(worksheet.Cells[row, 8].Value ?? null);
+*/
+                int? EType = Convert.ToInt32(worksheet.Cells[row, 7].Value ?? null);
                 if (EType != null)
                 {
 
                      if (EType == 1)
                             Row.EType = EInstituteTimeTableType.SINGLE_RIGHT_ANSWER;
-                        if (EType == 2)
+                       else if (EType == 2)
                             Row.EType = EInstituteTimeTableType.MULTIPLE_RIGHT_ANSWER;
-                        if (EType == 3)
+                      else  if (EType == 3)
                             Row.EType = EInstituteTimeTableType.NUMERICAL;
-                        if (EType == 4)
+                      else  if (EType == 4)
                             Row.EType = EInstituteTimeTableType.TRUE_OR_FALSE;
                     
                     else
@@ -139,7 +139,7 @@ public class InstituteTimeTableEndpoint : ServiceEndpoint
                         response.ErrorList.Add("Error On Row " + row + ":Invalid Question Type !");
                         continue;
                     }
-                    Row.ClassRoomNo = Convert.ToInt32(worksheet.Cells[row, 9].Value ?? null);
+                    Row.ClassRoomNo = Convert.ToInt32(worksheet.Cells[row, 8].Value ?? null);
                 }
 
                 Row.IsActive = true;

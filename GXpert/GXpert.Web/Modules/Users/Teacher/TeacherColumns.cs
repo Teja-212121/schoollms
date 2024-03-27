@@ -21,5 +21,5 @@ public class TeacherColumns
     public string DistrictTitle { get; set; }
     public string TalukaTitle { get; set; }
     public DateTime Dob { get; set; }
-    public string SchoolName { get; set; }
+    public string InstituteName { get; set; }
 }

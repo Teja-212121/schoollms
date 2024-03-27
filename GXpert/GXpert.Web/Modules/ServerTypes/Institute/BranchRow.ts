@@ -6,6 +6,7 @@ export interface BranchRow {
     InstituteId?: number;
     DepartmentId?: number;
     Description?: string;
+    BranchCode?: number;
     IsActive?: boolean;
     InstituteName?: string;
     DepartmentTitle?: string;

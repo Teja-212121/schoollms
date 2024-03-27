@@ -512,6 +512,7 @@ namespace GXpert.Texts {
         namespace Institute {
 
             namespace Branch {
+                export const BranchCode: string;
                 export const DepartmentId: string;
                 export const DepartmentTitle: string;
                 export const Description: string;
@@ -528,8 +529,8 @@ namespace GXpert.Texts {
 
             namespace Department {
                 export const Description: string;
-                export const HodId: string;
-                export const HodName: string;
+                export const HODId: string;
+                export const HODName: string;
                 export const Id: string;
                 export const InsertDate: string;
                 export const InsertUserId: string;
@@ -597,13 +598,18 @@ namespace GXpert.Texts {
                 export const ClassTitle: string;
                 export const Description: string;
                 export const Division: string;
+                export const EndDate: string;
                 export const Id: string;
                 export const InsertDate: string;
                 export const InsertUserId: string;
+                export const InstituteDivisionId: string;
                 export const InstituteId: string;
                 export const InstituteName: string;
                 export const IsActive: string;
                 export const RollNumber: string;
+                export const Semester: string;
+                export const SemesterId: string;
+                export const StartDate: string;
                 export const StudentId: string;
                 export const StudentPrn: string;
                 export const UpdateDate: string;
@@ -635,6 +641,7 @@ namespace GXpert.Texts {
             }
 
             namespace InstituteTimeTable {
+                export const ClassRoomNo: string;
                 export const Date: string;
                 export const EType: string;
                 export const EndTime: string;
@@ -642,7 +649,7 @@ namespace GXpert.Texts {
                 export const InsertDate: string;
                 export const InsertUserId: string;
                 export const InstituteClassDivision: string;
-                export const InstituteClassesId: string;
+                export const InstituteDivisionId: string;
                 export const IsActive: string;
                 export const PeriodIndex: string;
                 export const StartTime: string;
@@ -1312,12 +1319,12 @@ namespace GXpert.Texts {
                 export const Id: string;
                 export const InsertDate: string;
                 export const InsertUserId: string;
+                export const InstituteId: string;
+                export const InstituteName: string;
                 export const IsActive: string;
                 export const Mobile: string;
                 export const Name: string;
                 export const Prn: string;
-                export const SchoolId: string;
-                export const SchoolName: string;
                 export const StateId: string;
                 export const StateTitle: string;
                 export const TalukaId: string;

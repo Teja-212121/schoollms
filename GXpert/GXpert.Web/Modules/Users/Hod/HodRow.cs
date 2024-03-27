@@ -34,19 +34,19 @@ public sealed class HodRow : LoggingRow<HodRow.RowFields>, IIdRow, INameRow
     public string Mobile { get => fields.Mobile[this]; set => fields.Mobile[this] = value; }
 
     [DisplayName("User"), NotNull, ForeignKey(typeof(Administration.UserRow)), LeftJoin(jUser), TextualField(nameof(Username))]
-    [LookupEditor(typeof(Administration.UserRow), Async = true)]
+    [LookupEditor(typeof(Administration.UserRow))]
     public int? UserId { get => fields.UserId[this]; set => fields.UserId[this] = value; }
 
     [DisplayName("State"), ForeignKey(typeof(Masters.StateRow)), LeftJoin(jState), TextualField(nameof(StateTitle))]
-    [LookupEditor(typeof(Masters.StateRow), Async = true)]
+    [LookupEditor(typeof(Masters.StateRow))]
     public int? StateId { get => fields.StateId[this]; set => fields.StateId[this] = value; }
 
     [DisplayName("District"), ForeignKey(typeof(Masters.DistrictRow)), LeftJoin(jDistrict), TextualField(nameof(DistrictTitle))]
-    [LookupEditor(typeof(Masters.DistrictRow), Async = true)]
+    [LookupEditor(typeof(Masters.DistrictRow))]
     public int? DistrictId { get => fields.DistrictId[this]; set => fields.DistrictId[this] = value; }
 
     [DisplayName("Taluka"), ForeignKey(typeof(Masters.TalukaRow)), LeftJoin(jTaluka), TextualField(nameof(TalukaTitle))]
-    [LookupEditor(typeof(Masters.TalukaRow), Async = true)]
+    [LookupEditor(typeof(Masters.TalukaRow))]
     public int? TalukaId { get => fields.TalukaId[this]; set => fields.TalukaId[this] = value; }
 
     [DisplayName("Dob"), Column("DOB")]

@@ -1,11 +1,9 @@
-﻿import { ServiceLookupEditor, LookupEditor, StringEditor, IntegerEditor, TextAreaEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
+﻿import { StringEditor, ServiceLookupEditor, LookupEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
 
 export interface SemesterForm {
+    Title: StringEditor;
     CourseId: ServiceLookupEditor;
     ClassId: LookupEditor;
-    Title: StringEditor;
-    SortOrder: IntegerEditor;
-    Description: TextAreaEditor;
 }
 
 export class SemesterForm extends PrefixedContext {
@@ -18,18 +16,14 @@ export class SemesterForm extends PrefixedContext {
         if (!SemesterForm.init)  {
             SemesterForm.init = true;
 
-            var w0 = ServiceLookupEditor;
-            var w1 = LookupEditor;
-            var w2 = StringEditor;
-            var w3 = IntegerEditor;
-            var w4 = TextAreaEditor;
+            var w0 = StringEditor;
+            var w1 = ServiceLookupEditor;
+            var w2 = LookupEditor;
 
             initFormType(SemesterForm, [
-                'CourseId', w0,
-                'ClassId', w1,
-                'Title', w2,
-                'SortOrder', w3,
-                'Description', w4
+                'Title', w0,
+                'CourseId', w1,
+                'ClassId', w2
             ]);
         }
     }

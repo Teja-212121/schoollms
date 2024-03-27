@@ -14,7 +14,7 @@ export interface TeacherColumns {
     DistrictTitle: Column<TeacherRow>;
     TalukaTitle: Column<TeacherRow>;
     Dob: Column<TeacherRow>;
-    SchoolName: Column<TeacherRow>;
+    InstituteName: Column<TeacherRow>;
 }
 
 export class TeacherColumns extends ColumnsBase<TeacherRow> {
