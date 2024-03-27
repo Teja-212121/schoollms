@@ -28,9 +28,9 @@ public sealed class DepartmentRow : LoggingRow<DepartmentRow.RowFields>, IIdRow,
     [ServiceLookupEditor(typeof(InstituteRow), Service = "Institute/Institute/List")]
     public int? InstituteId { get => fields.InstituteId[this]; set => fields.InstituteId[this] = value; }
 
-    [DisplayName("HOD"), NotNull, ForeignKey("HOD", "Id"), LeftJoin(jHod)]
+    [DisplayName("HOD"), NotNull, ForeignKey("Hod", "Id"), LeftJoin(jHod), TextualField(nameof(HODName))]
     [LookupEditor("Users.Hod", InplaceAdd = true)]
-    public int? HODId { get => fields.HODId[this]; set => fields.HODId[this] = value; }
+    public int? HodId { get => fields.HodId[this]; set => fields.HodId[this] = value; }
     
 
     [DisplayName("Description"), Size(2000)]
@@ -50,7 +50,7 @@ public sealed class DepartmentRow : LoggingRow<DepartmentRow.RowFields>, IIdRow,
         public Int32Field Id;
         public StringField Title;
         public Int32Field InstituteId;
-        public Int32Field HODId;
+        public Int32Field HodId;
         public StringField Description;
        
         public BooleanField IsActive;

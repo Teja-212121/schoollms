@@ -8,7 +8,7 @@ namespace GXpert.Institute.Forms;
 public class DepartmentForm
 {
     public int InstituteId { get; set; }
-    public int HODId { get; set; }
+    public int HodId { get; set; }
     [TextAreaEditor(Rows = 3)]
     public string Title { get; set; }
    

@@ -1,4 +1,5 @@
-﻿import { StringEditor, DateEditor, LookupEditor, ServiceLookupEditor, TextAreaEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
+﻿import { StringEditor, DateEditor, EnumEditor, LookupEditor, ServiceLookupEditor, TextAreaEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
+import { EGender } from "../Web/Enums.EGender";
 
 export interface StudentForm {
     Prn: StringEditor;
@@ -6,7 +7,7 @@ export interface StudentForm {
     Email: StringEditor;
     Mobile: StringEditor;
     Dob: DateEditor;
-    Gender: StringEditor;
+    Gender: EnumEditor;
     UserId: LookupEditor;
     InstituteId: LookupEditor;
     DivisionId: LookupEditor;
@@ -15,6 +16,7 @@ export interface StudentForm {
     CourseId: ServiceLookupEditor;
     ClassId: LookupEditor;
     SemesterId: ServiceLookupEditor;
+    CurrentAcademicYearId: LookupEditor;
     AddressLine1: StringEditor;
     AddressLine2: StringEditor;
     StateId: LookupEditor;
@@ -35,9 +37,10 @@ export class StudentForm extends PrefixedContext {
 
             var w0 = StringEditor;
             var w1 = DateEditor;
-            var w2 = LookupEditor;
-            var w3 = ServiceLookupEditor;
-            var w4 = TextAreaEditor;
+            var w2 = EnumEditor;
+            var w3 = LookupEditor;
+            var w4 = ServiceLookupEditor;
+            var w5 = TextAreaEditor;
 
             initFormType(StudentForm, [
                 'Prn', w0,
@@ -45,22 +48,25 @@ export class StudentForm extends PrefixedContext {
                 'Email', w0,
                 'Mobile', w0,
                 'Dob', w1,
-                'Gender', w0,
-                'UserId', w2,
-                'InstituteId', w2,
-                'DivisionId', w2,
-                'DepartmentId', w2,
-                'BranchId', w2,
-                'CourseId', w3,
-                'ClassId', w2,
-                'SemesterId', w3,
+                'Gender', w2,
+                'UserId', w3,
+                'InstituteId', w3,
+                'DivisionId', w3,
+                'DepartmentId', w3,
+                'BranchId', w3,
+                'CourseId', w4,
+                'ClassId', w3,
+                'SemesterId', w4,
+                'CurrentAcademicYearId', w3,
                 'AddressLine1', w0,
                 'AddressLine2', w0,
-                'StateId', w2,
-                'DistrictId', w2,
-                'TalukaId', w2,
-                'Description', w4
+                'StateId', w3,
+                'DistrictId', w3,
+                'TalukaId', w3,
+                'Description', w5
             ]);
         }
     }
 }
+
+[EGender]; // referenced types
