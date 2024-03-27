@@ -11,6 +11,9 @@ export interface InstituteStudentColumns {
     RollNumber: Column<InstituteStudentRow>;
     Description: Column<InstituteStudentRow>;
     AcademicYearName: Column<InstituteStudentRow>;
+    Semester: Column<InstituteStudentRow>;
+    StartDate: Column<InstituteStudentRow>;
+    EndDate: Column<InstituteStudentRow>;
 }
 
 export class InstituteStudentColumns extends ColumnsBase<InstituteStudentRow> {

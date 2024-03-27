@@ -10,8 +10,9 @@ public class InstituteForm
     public string Name { get; set; }
     [TextAreaEditor(Rows =3)]
     public string Description { get; set; }
-    public short EType { get; set; }
     [HalfWidth]
+    public short EType { get; set; }
+    
     public string Address { get; set; }
     [HalfWidth]
     public string City { get; set; }
@@ -25,7 +26,7 @@ public class InstituteForm
 
     [TextAreaEditor(Rows =5)]
     public string LocationInfo { get; set; }
-    
+    [HalfWidth]
     public DateTime EstablishmentDate { get; set; }
     [HalfWidth]
     

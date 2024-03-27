@@ -14,7 +14,7 @@ namespace GXpert.Institute;
 [ModifyPermission("Administration:General")]
 public sealed class InstituteTimeTableRow : LoggingRow<InstituteTimeTableRow.RowFields>, IIdRow
 {
-    const string jInstituteClass = nameof(jInstituteClass);
+    const string jInstituteDivision = nameof(jInstituteDivision);
     const string jTeacher = nameof(jTeacher);
 
     [DisplayName("Id"), Identity, IdProperty]
@@ -32,12 +32,12 @@ public sealed class InstituteTimeTableRow : LoggingRow<InstituteTimeTableRow.Row
     [DisplayName("Period Index"), NotNull]
     public int? PeriodIndex { get => fields.PeriodIndex[this]; set => fields.PeriodIndex[this] = value; }
 
-    [DisplayName("Institute Class"), NotNull, ForeignKey(typeof(InstituteClassRow)), LeftJoin(jInstituteClass)]
-    [ServiceLookupEditor(typeof(InstituteClassRow), Service = "Institute/InstituteClass/List")]
-    public int? InstituteClassesId { get => fields.InstituteClassesId[this]; set => fields.InstituteClassesId[this] = value; }
+    [DisplayName("Division"), NotNull, ForeignKey(typeof(InstituteDivisionRow)), LeftJoin(jInstituteDivision)]
+    [LookupEditor("Institute.InstituteDivision")]
+    public int? InstituteDivisionId { get => fields.InstituteDivisionId[this]; set => fields.InstituteDivisionId[this] = value; }
 
     [DisplayName("Teacher"), ForeignKey(typeof(Users.TeacherRow)), LeftJoin(jTeacher), TextualField(nameof(TeacherPrn))]
-    [LookupEditor(typeof(Users.TeacherRow), Async = true)]
+    [LookupEditor(typeof(Users.TeacherRow))]
     public int? TeacherId { get => fields.TeacherId[this]; set => fields.TeacherId[this] = value; }
 
     [DisplayName("E Type"), Column("eType")]
@@ -46,11 +46,15 @@ public sealed class InstituteTimeTableRow : LoggingRow<InstituteTimeTableRow.Row
     [DisplayName("Is Active"), NotNull, DefaultValue(1)]
     public bool? IsActive { get => fields.IsActive[this]; set => fields.IsActive[this] = value; }
 
-    [DisplayName("School Class Division"), Expression($"{jInstituteClass}.[Division]")]
+    [DisplayName("InstituteClassDivision"), Expression($"{jInstituteDivision}.[Division]")]
     public string InstituteClassDivision { get => fields.InstituteClassDivision[this]; set => fields.InstituteClassDivision[this] = value; }
 
     [DisplayName("Teacher Prn"), Origin(jTeacher, nameof(Users.TeacherRow.Prn))]
     public string TeacherPrn { get => fields.TeacherPrn[this]; set => fields.TeacherPrn[this] = value; }
+
+    [DisplayName("ClassRoomNo"), Size(50)]
+    public int? ClassRoomNo { get => fields.ClassRoomNo[this]; set => fields.ClassRoomNo[this] = value; }
+
 
     public class RowFields : LoggingRowFields
     {
@@ -59,11 +63,11 @@ public sealed class InstituteTimeTableRow : LoggingRow<InstituteTimeTableRow.Row
         public DateTimeField StartTime;
         public DateTimeField EndTime;
         public Int32Field PeriodIndex;
-        public Int32Field InstituteClassesId;
+        public Int32Field InstituteDivisionId;
         public Int32Field TeacherId;
         public Int16Field EType;
         public BooleanField IsActive;
-
+        public Int32Field ClassRoomNo;
         public StringField InstituteClassDivision;
         public StringField TeacherPrn;
     }

@@ -9,6 +9,10 @@ namespace GXpert.Web.Enums
     public enum EInstituteTimeTableType
     {
         VIRTUAL,
-        FACETOFACE
+        FACETOFACE,
+        SINGLE_RIGHT_ANSWER,
+        MULTIPLE_RIGHT_ANSWER,
+        TRUE_OR_FALSE,
+        NUMERICAL
     }
 }

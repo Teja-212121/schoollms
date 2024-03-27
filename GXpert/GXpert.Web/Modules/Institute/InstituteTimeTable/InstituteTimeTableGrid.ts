@@ -1,6 +1,9 @@
-﻿import { InstituteTimeTableColumns, InstituteTimeTableRow, InstituteTimeTableService } from '@/ServerTypes/Institute';
+import { InstituteTimeTableColumns, InstituteTimeTableRow, InstituteTimeTableService } from '@/ServerTypes/Institute';
 import { Decorators, EntityGrid } from '@serenity-is/corelib';
 import { InstituteTimeTableDialog } from './InstituteTimeTableDialog';
+import { InstituteTimeTableExcelImportDialog } from './InstituteTimeTableExcelImportDialog ';
+
+
 
 @Decorators.registerClass('GXpert.Institute.InstituteTimeTableGrid')
 export class InstituteTimeTableGrid extends EntityGrid<InstituteTimeTableRow, any> {
@@ -11,5 +14,24 @@ export class InstituteTimeTableGrid extends EntityGrid<InstituteTimeTableRow, an
 
     constructor(container: JQuery) {
         super(container);
+    }
+    protected getButtons() {
+        var buttons = super.getButtons();
+        buttons.splice(1, 3);
+
+        buttons.push({
+            title: 'Import From Excel',
+            cssClass: 'export-xlsx-button',
+            onClick: () => {
+                // open import dialog, let it handle rest
+                var dialog = new InstituteTimeTableExcelImportDialog();
+                dialog.element.on('dialogclose', () => {
+                    this.refresh();
+                    dialog = null;
+                });
+                dialog.dialogOpen();
+            }
+        });
+        return buttons;
     }
 }

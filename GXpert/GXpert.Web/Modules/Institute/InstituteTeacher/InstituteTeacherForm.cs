@@ -8,15 +8,24 @@ namespace GXpert.Institute.Forms;
 public class InstituteTeacherForm
 {
     [HalfWidth]
-    public int TeacherId { get; set; }
-    [HalfWidth]
     public int InstituteId { get; set; }
+      
     [HalfWidth]
     public int ClassId { get; set; }
     [HalfWidth]
+    public int SemesterId { get; set; }
+   
+    [HalfWidth]
     public int SubjectId { get; set; }
+    [HalfWidth]
+    public int TeacherId { get; set; }
+    [HalfWidth]
+    public int InstituteDivisionId { get; set; }
+
+
+    public int AcademicYearId { get; set; }
     [TextAreaEditor(Rows = 3)]
     public string Description { get; set; }
-    public int AcademicYearId { get; set; }
+   
     
 }

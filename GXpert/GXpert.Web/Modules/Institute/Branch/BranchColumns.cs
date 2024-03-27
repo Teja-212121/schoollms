@@ -14,7 +14,7 @@ public class BranchColumns
     public string Title { get; set; }
     public string InstituteName { get; set; }
     public string DepartmentTitle { get; set; }
-    [TextAreaEditor(Rows =3)]
+    public int BranchCode { get; set; }
     public string Description { get; set; }
    
 }

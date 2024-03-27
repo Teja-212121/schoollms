@@ -17,5 +17,6 @@ public class InstituteTimeTableColumns
     public string InstituteClassDivision { get; set; }
     public string TeacherPrn { get; set; }
     public short EType { get; set; }
+    public int ClassRoomNo { get;set; }
     
 }

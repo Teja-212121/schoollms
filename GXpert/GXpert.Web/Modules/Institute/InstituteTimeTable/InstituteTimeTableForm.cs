@@ -7,6 +7,7 @@ namespace GXpert.Institute.Forms;
 [BasedOnRow(typeof(InstituteTimeTableRow), CheckNames = true)]
 public class InstituteTimeTableForm
 {
+    public int ClassRoomNo { get; set; }
     [HalfWidth]
     public DateTime Date { get; set; }
     [HalfWidth]
@@ -16,7 +17,7 @@ public class InstituteTimeTableForm
     [HalfWidth]
     public int PeriodIndex { get; set; }
     [HalfWidth]
-    public int InstituteClassesId { get; set; }
+    public int InstituteDivisionId { get; set; }
     [HalfWidth]
     public int TeacherId { get; set; }
     [HalfWidth]

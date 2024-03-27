@@ -33,22 +33,22 @@ public sealed class InstituteRow : LoggingRow<InstituteRow.RowFields>, IIdRow, I
     [DisplayName("E Type"), Column("eType")]
     public EInstituteType? EType { get => (EInstituteType)fields.EType[this]; set => fields.EType[this] = (short?)value; }
 
-    [DisplayName("Address"), Size(1000), NotNull]
+    [DisplayName("Address"), Size(1000)]
     public string Address { get => fields.Address[this]; set => fields.Address[this] = value; }
 
-    [DisplayName("City"), Size(200), NotNull]
+    [DisplayName("City"), Size(200)]
     public string City { get => fields.City[this]; set => fields.City[this] = value; }
 
-    [DisplayName("State"), NotNull, ForeignKey(typeof(Masters.StateRow)), LeftJoin(jState), TextualField(nameof(StateTitle))]
-    [LookupEditor(typeof(Masters.StateRow), Async = true)]
+    [DisplayName("State"), ForeignKey(typeof(Masters.StateRow)), LeftJoin(jState), TextualField(nameof(StateTitle))]
+    [LookupEditor(typeof(Masters.StateRow))]
     public int? StateId { get => fields.StateId[this]; set => fields.StateId[this] = value; }
 
-    [DisplayName("District"), NotNull, ForeignKey(typeof(Masters.DistrictRow)), LeftJoin(jDistrict), TextualField(nameof(DistrictTitle))]
-    [LookupEditor(typeof(Masters.DistrictRow), Async = true)]
+    [DisplayName("District"), ForeignKey(typeof(Masters.DistrictRow)), LeftJoin(jDistrict), TextualField(nameof(DistrictTitle))]
+    [LookupEditor(typeof(Masters.DistrictRow))]
     public int? DistrictId { get => fields.DistrictId[this]; set => fields.DistrictId[this] = value; }
 
-    [DisplayName("Taluka"), NotNull, ForeignKey(typeof(Masters.TalukaRow)), LeftJoin(jTaluka), TextualField(nameof(TalukaTitle))]
-    [LookupEditor(typeof(Masters.TalukaRow), Async = true)]
+    [DisplayName("Taluka"), ForeignKey(typeof(Masters.TalukaRow)), LeftJoin(jTaluka), TextualField(nameof(TalukaTitle))]
+    [LookupEditor(typeof(Masters.TalukaRow))]
     public int? TalukaId { get => fields.TalukaId[this]; set => fields.TalukaId[this] = value; }
 
     [DisplayName("Location Info"), Size(2000)]
@@ -61,6 +61,7 @@ public sealed class InstituteRow : LoggingRow<InstituteRow.RowFields>, IIdRow, I
     public bool? IsActive { get => fields.IsActive[this]; set => fields.IsActive[this] = value; }
 
     [DisplayName("Principal"), ForeignKey("Principal", "Id"), LeftJoin(jPrincipal), TextualField(nameof(PrincipalName))]
+    [LookupEditor("Users.Principal",InplaceAdd =true)]
     public int? PrincipalId { get => fields.PrincipalId[this]; set => fields.PrincipalId[this] = value; }
 
     [DisplayName("State Title"), Origin(jState, nameof(Masters.StateRow.Title))]

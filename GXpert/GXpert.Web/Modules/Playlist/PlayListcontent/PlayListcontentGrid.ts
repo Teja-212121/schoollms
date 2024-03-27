@@ -1,6 +1,6 @@
-﻿import { PlayListContentColumns, PlayListContentRow, PlayListContentService } from '@/ServerTypes/Playlist';
+import { PlayListContentColumns, PlayListContentRow, PlayListContentService } from '@/ServerTypes/Playlist';
 import { Decorators, EntityGrid } from '@serenity-is/corelib';
-import { PlayListContentDialog } from './PlayListContentDialog';
+import { PlayListContentDialog } from './PlayListcontentDialog';
 
 @Decorators.registerClass('GXpert.Playlist.PlayListContentGrid')
 export class PlayListContentGrid extends EntityGrid<PlayListContentRow, any> {

@@ -28,8 +28,9 @@ public sealed class DepartmentRow : LoggingRow<DepartmentRow.RowFields>, IIdRow,
     [ServiceLookupEditor(typeof(InstituteRow), Service = "Institute/Institute/List")]
     public int? InstituteId { get => fields.InstituteId[this]; set => fields.InstituteId[this] = value; }
 
-    [DisplayName("Hod"), NotNull, ForeignKey("Hod", "Id"), LeftJoin(jHod), TextualField(nameof(HodName))]
-    public int? HodId { get => fields.HodId[this]; set => fields.HodId[this] = value; }
+    [DisplayName("HOD"), NotNull, ForeignKey("HOD", "Id"), LeftJoin(jHod), TextualField(nameof(HODName))]
+    public int? HODId { get => fields.HODId[this]; set => fields.HODId[this] = value; }
+    [LookupEditor("Users.HOD", InplaceAdd = true)]
 
     [DisplayName("Description"), Size(2000)]
     public string Description { get => fields.Description[this]; set => fields.Description[this] = value; }
@@ -40,20 +41,20 @@ public sealed class DepartmentRow : LoggingRow<DepartmentRow.RowFields>, IIdRow,
     [DisplayName("Institute Name"), Origin(jInstitute, nameof(InstituteRow.Name))]
     public string InstituteName { get => fields.InstituteName[this]; set => fields.InstituteName[this] = value; }
 
-    [DisplayName("Hod Name"), Expression($"{jHod}.[Name]")]
-    public string HodName { get => fields.HodName[this]; set => fields.HodName[this] = value; }
+    [DisplayName("HOD Name"), Expression($"{jHod}.[Name]")]
+    public string HODName { get => fields.HODName[this]; set => fields.HODName[this] = value; }
 
     public class RowFields : LoggingRowFields
     {
         public Int32Field Id;
         public StringField Title;
         public Int32Field InstituteId;
-        public Int32Field HodId;
+        public Int32Field HODId;
         public StringField Description;
        
         public BooleanField IsActive;
 
         public StringField InstituteName;
-        public StringField HodName;
+        public StringField HODName;
     }
 }

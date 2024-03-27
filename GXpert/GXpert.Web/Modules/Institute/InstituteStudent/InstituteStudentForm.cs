@@ -7,17 +7,27 @@ namespace GXpert.Institute.Forms;
 [BasedOnRow(typeof(InstituteStudentRow), CheckNames = true)]
 public class InstituteStudentForm
 {
-    public int StudentId { get; set; }
     [HalfWidth]
     public int InstituteId { get; set; }
     [HalfWidth]
     public int ClassId { get; set; }
     [HalfWidth]
-    public string Division { get; set; }
+    public int SemesterId { get; set; }
+    [HalfWidth]
+    public int InstituteDivisionId { get; set; }
+    [HalfWidth]
+    public int StudentId { get; set; }
+    
     [HalfWidth]
     public string RollNumber { get; set; }
+    [HalfWidth]
+    public int AcademicYearId { get; set; }
     [TextAreaEditor(Rows =3)]
     public string Description { get; set; }
-    public int AcademicYearId { get; set; }
-   
+    [HalfWidth]
+    public DateTime StartDate { get; set; }
+    [HalfWidth]
+    public DateTime EndDate { get; set; }
 }
+    
+   

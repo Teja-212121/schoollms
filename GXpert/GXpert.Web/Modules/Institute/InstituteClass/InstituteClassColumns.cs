@@ -10,10 +10,12 @@ public class InstituteClassColumns
 {
     [EditLink, DisplayName("Db.Shared.RecordId"), AlignRight]
     public int Id { get; set; }
+    [QuickFilter]
     public string ClassTitle { get; set; }
     [EditLink]
     public string Division { get; set; }
-    public string MediumTitle { get; set; }
+    [QuickFilter]
+    public int Semester { get; set; }
     public string ClassTeacherPrn { get; set; }
     public string Title { get; set; }
     public string AcademicYearName { get; set; }

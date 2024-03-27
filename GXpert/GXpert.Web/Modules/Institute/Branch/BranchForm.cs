@@ -7,9 +7,12 @@ namespace GXpert.Institute.Forms;
 [BasedOnRow(typeof(BranchRow), CheckNames = true)]
 public class BranchForm
 {
-    public string Title { get; set; }
     public int InstituteId { get; set; }
     public int DepartmentId { get; set; }
+    public string Title { get; set; }
+
+    public int BranchCode { get; set; }
+    [TextAreaEditor(Rows = 3)]
     public string Description { get; set; }
    
 }

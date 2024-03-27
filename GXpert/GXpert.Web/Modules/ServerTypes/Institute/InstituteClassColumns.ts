@@ -6,7 +6,7 @@ export interface InstituteClassColumns {
     Id: Column<InstituteClassRow>;
     ClassTitle: Column<InstituteClassRow>;
     Division: Column<InstituteClassRow>;
-    MediumTitle: Column<InstituteClassRow>;
+    Semester: Column<InstituteClassRow>;
     ClassTeacherPrn: Column<InstituteClassRow>;
     Title: Column<InstituteClassRow>;
     AcademicYearName: Column<InstituteClassRow>;

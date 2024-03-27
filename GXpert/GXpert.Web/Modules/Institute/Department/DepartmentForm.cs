@@ -9,7 +9,8 @@ public class DepartmentForm
 {
     public string Title { get; set; }
     public int InstituteId { get; set; }
-    public int HodId { get; set; }
+    public int HODId { get; set; }
+    [TextAreaEditor(Rows = 3)]
     public string Description { get; set; }
   
 }

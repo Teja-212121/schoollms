@@ -1,4 +1,7 @@
+using GXpert.Web.Enums;
 using Microsoft.AspNetCore.Mvc;
+using OfficeOpenXml;
+using OfficeOpenXml.FormulaParsing.Excel.Functions.RefAndLookup;
 using Serenity.Data;
 using Serenity.Reporting;
 using Serenity.Services;
@@ -6,6 +9,7 @@ using Serenity.Web;
 using System;
 using System.Data;
 using System.Globalization;
+using System.IO;
 using MyRow = GXpert.Institute.InstituteTimeTableRow;
 
 namespace GXpert.Institute.Endpoints;
@@ -59,4 +63,114 @@ public class InstituteTimeTableEndpoint : ServiceEndpoint
         return ExcelContentResult.Create(bytes, "InstituteTimeTableList_" +
             DateTime.Now.ToString("yyyyMMdd_HHmmss", CultureInfo.InvariantCulture) + ".xlsx");
     }
+    public ExcelImportResponse ExcelImport(IUnitOfWork uow, ExcelImportRequest request,
+       [FromServices] IUploadStorage uploadStorage,
+       [FromServices] IInstituteSaveHandler handler)
+    {
+
+        if (request is null)
+            throw new ArgumentNullException(nameof(request));
+        if (string.IsNullOrWhiteSpace(request.FileName))
+            throw new ArgumentNullException(nameof(request.FileName));
+
+        if (uploadStorage is null)
+            throw new ArgumentNullException(nameof(uploadStorage));
+
+        UploadPathHelper.CheckFileNameSecurity(request.FileName);
+
+        if (!request.FileName.StartsWith("temporary/", StringComparison.OrdinalIgnoreCase))
+            throw new ArgumentOutOfRangeException(nameof(request.FileName));
+
+        ExcelPackage ep = new();
+        using (var fs = uploadStorage.OpenFile(request.FileName))
+            ep.Load(fs);
+
+        var p = MyRow.Fields;
+        //var p = ProductsRow.Fields;
+
+        var response = new ExcelImportResponse
+        {
+            ErrorList = new List<string>()
+        };
+
+        var worksheet = ep.Workbook.Worksheets[0];
+
+
+        for (var row = 2; row <= worksheet.Dimension.End.Row; row++)
+        {
+            try
+            {
+                MyRow Row = new MyRow();
+
+              
+                Row.Date = Convert.ToDateTime(worksheet.Cells[row, 3].Value ?? "");
+                Row.StartTime = Convert.ToDateTime(worksheet.Cells[row, 4].Value ?? "");
+                Row.EndTime = Convert.ToDateTime(worksheet.Cells[row, 4].Value ?? "");
+                Row.PeriodIndex = Convert.ToInt32(worksheet.Cells[row, 5].Value ?? null);
+
+                Row.InstituteClassDivision = Convert.ToString(worksheet.Cells[row, 1].Value ?? "").Trim();
+                if (string.IsNullOrEmpty(Row.InstituteClassDivision))
+                {
+                    response.ErrorList.Add("Error On Row " + row + ": class Not found");
+                    continue;
+                }
+                Row.TeacherPrn = Convert.ToString(worksheet.Cells[row, 1].Value ?? "").Trim();
+                if (string.IsNullOrEmpty(Row.TeacherPrn))
+                {
+                    response.ErrorList.Add("Error On Row " + row + ": Prn Not found");
+                    continue;
+                }
+
+                int? EType = Convert.ToInt32(worksheet.Cells[row, 4].Value ?? null);
+                if (EType != null)
+                {
+
+                     if (EType == 1)
+                            Row.EType = EInstituteTimeTableType.SINGLE_RIGHT_ANSWER;
+                        if (EType == 2)
+                            Row.EType = EInstituteTimeTableType.MULTIPLE_RIGHT_ANSWER;
+                        if (EType == 3)
+                            Row.EType = EInstituteTimeTableType.NUMERICAL;
+                        if (EType == 4)
+                            Row.EType = EInstituteTimeTableType.TRUE_OR_FALSE;
+                    
+                    else
+                    {
+                        response.ErrorList.Add("Error On Row " + row + ":Invalid Question Type !");
+                        continue;
+                    }
+                }
+
+                Row.IsActive = true;
+                Row.InsertDate = DateTime.UtcNow;
+                Row.InsertUserId = Convert.ToInt32(User.GetIdentifier());
+                uow.Connection.Insert(Row);
+                response.Inserted = response.Inserted + 1;
+                #region email
+                byte[] bytes;
+                using (var ms = new MemoryStream())
+                using (var bw = new BinaryWriter(ms))
+                {
+                    bw.Write(DateTime.UtcNow.AddHours(3).ToBinary());
+                    //bw.Write(userId);
+                    bw.Write(3);
+                    bw.Flush();
+                    bytes = ms.ToArray();
+                }
+
+
+
+                #endregion
+            }
+            catch (Exception)
+            {
+                //response.ErrorList.Add("Exception on Row " + row + ": " + ex.Message);
+                throw;
+            }
+        }
+        return response;
+    }
 }
+
+
+

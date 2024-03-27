@@ -4,7 +4,6 @@ export interface InstituteClassRow {
     Id?: number;
     ClassId?: number;
     Division?: string;
-    MediumId?: number;
     ClassTeacherId?: number;
     Title?: string;
     AcademicYearId?: number;
@@ -12,13 +11,14 @@ export interface InstituteClassRow {
     InstituteId?: number;
     DepartmentId?: number;
     CourseId?: number;
+    Semester?: string;
     ClassTitle?: string;
-    MediumTitle?: string;
     ClassTeacherPrn?: string;
     AcademicYearName?: string;
     InstituteName?: string;
     DepartmentTitle?: string;
     CourseTitle?: string;
+    SemesterId?: number;
     InsertUserId?: number;
     InsertDate?: string;
     UpdateUserId?: number;

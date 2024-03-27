@@ -45,6 +45,9 @@ public sealed class BranchRow : LoggingRow<BranchRow.RowFields>, IIdRow, INameRo
     [DisplayName("Department Title"), Expression($"{jDepartment}.[Title]")]
     public string DepartmentTitle { get => fields.DepartmentTitle[this]; set => fields.DepartmentTitle[this] = value; }
 
+    [DisplayName("Branch Code")]
+    public int? BranchCode { get => fields.BranchCode[this]; set => fields.BranchCode[this] = value; }
+
     public class RowFields : LoggingRowFields
     {
         public Int32Field Id;
@@ -52,7 +55,7 @@ public sealed class BranchRow : LoggingRow<BranchRow.RowFields>, IIdRow, INameRo
         public Int32Field InstituteId;
         public Int32Field DepartmentId;
         public StringField Description;
-       
+        public Int32Field BranchCode;
         public BooleanField IsActive;
 
         public StringField InstituteName;

@@ -14,6 +14,10 @@ export interface InstituteTeacherRow {
     ClassTitle?: string;
     SubjectTitle?: string;
     AcademicYearName?: string;
+    Semester?: string;
+    SemesterId?: number;
+    InstituteDivisionId?: number;
+    InstituteDivision?: string;
     InsertUserId?: number;
     InsertDate?: string;
     UpdateUserId?: number;

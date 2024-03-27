@@ -12,10 +12,15 @@ public class InstituteTeacherColumns
     public int Id { get; set; }
     public string TeacherPrn { get; set; }
     public string InstituteName { get; set; }
+    [QuickFilter]
     public string ClassTitle { get; set; }
+    [QuickFilter]
     public string SubjectTitle { get; set; }
     [EditLink]
     public string Description { get; set; }
     public string AcademicYearName { get; set; }
-    
+     public string Semester { get; set; }
+    public string InstituteDivision{ get; set; }
+
+
 }
