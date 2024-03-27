@@ -1,10 +1,11 @@
-﻿import { StringEditor, ServiceLookupEditor, LookupEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
+﻿import { ServiceLookupEditor, LookupEditor, StringEditor, IntegerEditor, TextAreaEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
 
 export interface BranchForm {
-    Title: StringEditor;
     InstituteId: ServiceLookupEditor;
     DepartmentId: LookupEditor;
-    Description: StringEditor;
+    Title: StringEditor;
+    BranchCode: IntegerEditor;
+    Description: TextAreaEditor;
 }
 
 export class BranchForm extends PrefixedContext {
@@ -17,15 +18,18 @@ export class BranchForm extends PrefixedContext {
         if (!BranchForm.init)  {
             BranchForm.init = true;
 
-            var w0 = StringEditor;
-            var w1 = ServiceLookupEditor;
-            var w2 = LookupEditor;
+            var w0 = ServiceLookupEditor;
+            var w1 = LookupEditor;
+            var w2 = StringEditor;
+            var w3 = IntegerEditor;
+            var w4 = TextAreaEditor;
 
             initFormType(BranchForm, [
-                'Title', w0,
-                'InstituteId', w1,
-                'DepartmentId', w2,
-                'Description', w0
+                'InstituteId', w0,
+                'DepartmentId', w1,
+                'Title', w2,
+                'BranchCode', w3,
+                'Description', w4
             ]);
         }
     }

@@ -38,7 +38,7 @@ export class InstituteTimeTableGrid extends EntityGrid<InstituteTimeTableRow, an
             onClick: () => {
                 debugger;
 
-                var url = "~/Institute/InstituteTimeTable/InstituteTimeTableDownloadImportSample";
+                var url = "~/Institute/InstituteTimeTable/InstituteTimeTableDownloadSample";
 
                 postToService({ url: resolveUrl(url), request: '', target: '_blank' });
             }

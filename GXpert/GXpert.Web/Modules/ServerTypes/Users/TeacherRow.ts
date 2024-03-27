@@ -12,13 +12,13 @@ export interface TeacherRow {
     DistrictId?: number;
     TalukaId?: number;
     Dob?: string;
-    SchoolId?: number;
+    InstituteId?: number;
     IsActive?: boolean;
     Username?: string;
     StateTitle?: string;
     DistrictTitle?: string;
     TalukaTitle?: string;
-    SchoolName?: string;
+    InstituteName?: string;
     InsertUserId?: number;
     InsertDate?: string;
     UpdateUserId?: number;

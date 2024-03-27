@@ -13,7 +13,7 @@ public class DepartmentColumns
     [EditLink]
     public string Title { get; set; }
     public string InstituteName { get; set; }
-    public string HODName { get; set; }
+    public string HodName { get; set; }
     public string Description { get; set; }
    
 }

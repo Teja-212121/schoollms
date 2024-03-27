@@ -25,7 +25,7 @@ public sealed class InstituteTeacherRow : LoggingRow<InstituteTeacherRow.RowFiel
     [DisplayName("Id"), Identity, IdProperty]
     public int? Id { get => fields.Id[this]; set => fields.Id[this] = value; }
 
-    [DisplayName("Teacher"), NotNull, ForeignKey(typeof(Users.TeacherRow)), LeftJoin(jTeacher), TextualField(nameof(TeacherPrn))]
+    [DisplayName("Teacher"), NotNull, ForeignKey(typeof(Users.TeacherRow)), LeftJoin(jTeacher)]
     [LookupEditor(typeof(Users.TeacherRow))]
     public int? TeacherId { get => fields.TeacherId[this]; set => fields.TeacherId[this] = value; }
 

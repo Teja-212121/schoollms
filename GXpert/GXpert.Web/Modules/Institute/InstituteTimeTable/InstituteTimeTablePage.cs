@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc;
 using Serenity.Web;
 
 namespace GXpert.Institute.Pages;
@@ -12,4 +12,12 @@ public class InstituteTimeTablePage : Controller
         return this.GridPage("@/Institute/InstituteTimeTable/InstituteTimeTablePage",
             InstituteTimeTableRow.Fields.PageTitle());
     }
+    [Route("Institute/InstituteTimeTable/InstituteTimeTableDownloadSample")]
+    public FileContentResult InstituteTimeTableDownloadSample()
+    {
+        string filePath = "Uploads/TimetableDownloadImportSample.xlsx";
+        byte[] fileBytes = System.IO.File.ReadAllBytes(filePath);
+        return new FileContentResult(fileBytes, "application/vnd.ms-excel");
+    }
+
 }

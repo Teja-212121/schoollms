@@ -27,7 +27,7 @@ public class TeacherForm
     [HalfWidth]
     public DateTime Dob { get; set; }
     [HalfWidth]
-    public int SchoolId { get; set; }
+    public int InstituteId { get; set; }
     [TextAreaEditor(Rows = 3)]
     public string Description { get; set; }
 }

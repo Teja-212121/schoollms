@@ -10,7 +10,7 @@ export interface TeacherForm {
     DistrictId: LookupEditor;
     TalukaId: LookupEditor;
     Dob: DateEditor;
-    SchoolId: LookupEditor;
+    InstituteId: LookupEditor;
     Description: TextAreaEditor;
 }
 
@@ -39,7 +39,7 @@ export class TeacherForm extends PrefixedContext {
                 'DistrictId', w1,
                 'TalukaId', w1,
                 'Dob', w2,
-                'SchoolId', w1,
+                'InstituteId', w1,
                 'Description', w3
             ]);
         }

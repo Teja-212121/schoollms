@@ -46,7 +46,7 @@ public sealed class HodRow : LoggingRow<HodRow.RowFields>, IIdRow, INameRow
     public int? DistrictId { get => fields.DistrictId[this]; set => fields.DistrictId[this] = value; }
 
     [DisplayName("Taluka"), ForeignKey(typeof(Masters.TalukaRow)), LeftJoin(jTaluka), TextualField(nameof(TalukaTitle))]
-    [LookupEditor(typeof(Masters.TalukaRow), Async = true)]
+    [LookupEditor(typeof(Masters.TalukaRow))]
     public int? TalukaId { get => fields.TalukaId[this]; set => fields.TalukaId[this] = value; }
 
     [DisplayName("Dob"), Column("DOB")]

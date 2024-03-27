@@ -4,7 +4,7 @@ export interface DepartmentRow {
     Id?: number;
     Title?: string;
     InstituteId?: number;
-    HodId?: number;
+    HODId?: number;
     Description?: string;
     IsActive?: boolean;
     InstituteName?: string;

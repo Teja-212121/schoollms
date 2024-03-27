@@ -19,7 +19,7 @@ public sealed class TeacherRow : LoggingRow<TeacherRow.RowFields>, IIdRow, IName
     const string jState = nameof(jState);
     const string jDistrict = nameof(jDistrict);
     const string jTaluka = nameof(jTaluka);
-    const string jSchool = nameof(jSchool);
+    const string jInstitute = nameof(jInstitute);
 
     [DisplayName("Id"), Identity, IdProperty]
     public int? Id { get => fields.Id[this]; set => fields.Id[this] = value; }
@@ -58,9 +58,9 @@ public sealed class TeacherRow : LoggingRow<TeacherRow.RowFields>, IIdRow, IName
     [DisplayName("Dob"), Column("DOB")]
     public DateTime? Dob { get => fields.Dob[this]; set => fields.Dob[this] = value; }
 
-    [DisplayName("School"), ForeignKey("Schools", "Id"), LeftJoin(jSchool), TextualField(nameof(SchoolName))]
-    [LookupEditor("Schools.School")]
-    public int? SchoolId { get => fields.SchoolId[this]; set => fields.SchoolId[this] = value; }
+    [DisplayName("Institute"), ForeignKey("Institutes", "Id"), LeftJoin(jInstitute)]
+    [LookupEditor("Institute.Institute")]
+    public int? InstituteId { get => fields.InstituteId[this]; set => fields.InstituteId[this] = value; }
 
     [DisplayName("Is Active"), DefaultValue(1)]
     public bool? IsActive { get => fields.IsActive[this]; set => fields.IsActive[this] = value; }
@@ -77,8 +77,8 @@ public sealed class TeacherRow : LoggingRow<TeacherRow.RowFields>, IIdRow, IName
     [DisplayName("Taluka Title"), Expression($"{jTaluka}.[Title]")]
     public string TalukaTitle { get => fields.TalukaTitle[this]; set => fields.TalukaTitle[this] = value; }
 
-    [DisplayName("School Name"), Expression($"{jSchool}.[Name]")]
-    public string SchoolName { get => fields.SchoolName[this]; set => fields.SchoolName[this] = value; }
+    [DisplayName("Institute Name"), Expression($"{jInstitute}.[Name]")]
+    public string InstituteName { get => fields.InstituteName[this]; set => fields.InstituteName[this] = value; }
 
     public class RowFields : LoggingRowFields
     {
@@ -93,13 +93,13 @@ public sealed class TeacherRow : LoggingRow<TeacherRow.RowFields>, IIdRow, IName
         public Int32Field DistrictId;
         public Int32Field TalukaId;
         public DateTimeField Dob;
-        public Int32Field SchoolId;
+        public Int32Field InstituteId;
         public BooleanField IsActive;
 
         public StringField Username;
         public StringField StateTitle;
         public StringField DistrictTitle;
         public StringField TalukaTitle;
-        public StringField SchoolName;
+        public StringField InstituteName;
     }
 }
