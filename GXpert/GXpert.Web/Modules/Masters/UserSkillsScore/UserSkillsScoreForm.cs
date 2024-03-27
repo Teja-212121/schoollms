@@ -1,4 +1,4 @@
-﻿using Serenity.ComponentModel;
+using Serenity.ComponentModel;
 
 namespace GXpert.Masters.Forms;
 
@@ -8,4 +8,5 @@ public class UserSkillsScoreForm
 {
     public int SkillCategoryId { get; set; }
     public int SkillId { get; set; }
+    public float Score { get; set; }   
 }

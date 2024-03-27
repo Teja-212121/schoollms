@@ -12,6 +12,7 @@ namespace GXpert.Masters;
 [ReadPermission("Administration:General")]
 [ModifyPermission("Administration:General")]
 [ServiceLookupPermission("Administration:General")]
+[LookupScript("Masters.PreAcademic")]
 public sealed class PreAcademicRow : LoggingRow<PreAcademicRow.RowFields>, IIdRow, INameRow
 {
     [DisplayName("Id"), Identity, IdProperty]
@@ -23,7 +24,7 @@ public sealed class PreAcademicRow : LoggingRow<PreAcademicRow.RowFields>, IIdRo
     [DisplayName("Description"), Size(2000)]
     public string Description { get => fields.Description[this]; set => fields.Description[this] = value; }
 
-    [DisplayName("Thumbnail"), Size(500)]
+    [DisplayName("Thumbnail"), Size(500),FileUploadEditor]
     public string Thumbnail { get => fields.Thumbnail[this]; set => fields.Thumbnail[this] = value; }
 
     

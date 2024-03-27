@@ -12,6 +12,7 @@ public class DistrictColumns
     public int Id { get; set; }
     [EditLink]
     public string Title { get; set; }
+    [QuickFilter]
     public string StateTitle { get; set; }
     public string ShortName { get; set; }
 }

@@ -12,7 +12,7 @@ namespace GXpert.Syllabus;
 [ReadPermission("Administration:General")]
 [ModifyPermission("Administration:General")]
 [ServiceLookupPermission("Administration:General")]
-
+[LookupScript("Syllabus.Course")]
 public sealed class CourseRow : LoggingRow<CourseRow.RowFields>, IIdRow, INameRow
 {
     [DisplayName("Id"), Identity, IdProperty]

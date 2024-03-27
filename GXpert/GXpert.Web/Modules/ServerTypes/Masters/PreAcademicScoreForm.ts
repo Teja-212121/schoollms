@@ -1,7 +1,7 @@
-﻿import { IntegerEditor, DateEditor, DecimalEditor, LookupEditor, StringEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
+﻿import { LookupEditor, DateEditor, DecimalEditor, StringEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
 
 export interface PreAcademicScoreForm {
-    PreAcadamicsId: IntegerEditor;
+    PreAcadamicsId: LookupEditor;
     PassedOutDate: DateEditor;
     MarksObtained: DecimalEditor;
     OutOfMarks: DecimalEditor;
@@ -19,19 +19,18 @@ export class PreAcademicScoreForm extends PrefixedContext {
         if (!PreAcademicScoreForm.init)  {
             PreAcademicScoreForm.init = true;
 
-            var w0 = IntegerEditor;
+            var w0 = LookupEditor;
             var w1 = DateEditor;
             var w2 = DecimalEditor;
-            var w3 = LookupEditor;
-            var w4 = StringEditor;
+            var w3 = StringEditor;
 
             initFormType(PreAcademicScoreForm, [
                 'PreAcadamicsId', w0,
                 'PassedOutDate', w1,
                 'MarksObtained', w2,
                 'OutOfMarks', w2,
-                'StudentId', w3,
-                'Remarks', w4
+                'StudentId', w0,
+                'Remarks', w3
             ]);
         }
     }

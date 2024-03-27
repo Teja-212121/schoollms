@@ -8,7 +8,7 @@ using System.ComponentModel;
 namespace GXpert.Skills;
 
 [ConnectionKey("Default"), Module("Skills"), TableName("Skills")]
-[DisplayName("Skill"), InstanceName("Skill")]
+[DisplayName("Skills"), InstanceName("Skill")]
 [ReadPermission("Administration:General")]
 [ModifyPermission("Administration:General")]
 [ServiceLookupPermission("Administration:General")]

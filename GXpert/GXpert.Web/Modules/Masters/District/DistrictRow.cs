@@ -17,14 +17,14 @@ public sealed class DistrictRow : LoggingRow<DistrictRow.RowFields>, IIdRow, INa
 {
     const string jState = nameof(jState);
 
-    [DisplayName("Id"), Identity, IdProperty]
+    [DisplayName("Id"), Identity, IdProperty,LookupInclude]
     public int? Id { get => fields.Id[this]; set => fields.Id[this] = value; }
 
     [DisplayName("Title"), Size(500), NotNull, QuickSearch, NameProperty]
     public string Title { get => fields.Title[this]; set => fields.Title[this] = value; }
 
     [DisplayName("State"), NotNull, ForeignKey(typeof(StateRow)), LeftJoin(jState), TextualField(nameof(StateTitle))]
-    [ServiceLookupEditor(typeof(StateRow))]
+    [ServiceLookupEditor(typeof(StateRow)),LookupInclude]
     public int? StateId { get => fields.StateId[this]; set => fields.StateId[this] = value; }
 
     [DisplayName("Short Name"), Size(200)]

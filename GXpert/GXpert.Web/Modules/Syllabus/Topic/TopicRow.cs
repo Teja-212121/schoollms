@@ -27,10 +27,10 @@ public sealed class TopicRow : LoggingRow<TopicRow.RowFields>, IIdRow, INameRow
     [DisplayName("Title"), Size(500), NotNull, QuickSearch, NameProperty]
     public string Title { get => fields.Title[this]; set => fields.Title[this] = value; }
 
-    [DisplayName("Description"), Size(2000), NotNull]
+    [DisplayName("Description"), Size(2000)]
     public string Description { get => fields.Description[this]; set => fields.Description[this] = value; }
 
-    [DisplayName("Sort Order"), NotNull]
+    [DisplayName("Sort Order")]
     public short? SortOrder { get => fields.SortOrder[this]; set => fields.SortOrder[this] = value; }
 
     [DisplayName("Class"), NotNull, ForeignKey(typeof(ClassRow)), LeftJoin(jClass), TextualField(nameof(ClassTitle))]
@@ -41,11 +41,11 @@ public sealed class TopicRow : LoggingRow<TopicRow.RowFields>, IIdRow, INameRow
     [ServiceLookupEditor(typeof(MediumRow))]
     public int? MediumId { get => fields.MediumId[this]; set => fields.MediumId[this] = value; }*/
 
-    [DisplayName("Subject"), NotNull, ForeignKey(typeof(SubjectRow)), LeftJoin(jSubject), TextualField(nameof(SubjectTitle))]
-    [ServiceLookupEditor(typeof(SubjectRow), CascadeFrom = "ClassId", CascadeField = "ClassId"), LookupInclude]
+    [DisplayName("Subject"), NotNull, ForeignKey("Subjects", "Id"), LeftJoin(jSubject)]
+    [ServiceLookupEditor(typeof(SubjectRow)), LookupInclude]
     public int? SubjectId { get => fields.SubjectId[this]; set => fields.SubjectId[this] = value; }
 
-    [DisplayName("Weightage"), NotNull]
+    [DisplayName("Weightage")]
     public float? Weightage { get => fields.Weightage[this]; set => fields.Weightage[this] = value; }
 
     [DisplayName("Course"), NotNull, ForeignKey("Course", "Id"), LeftJoin(jCourse)]
@@ -62,7 +62,7 @@ public sealed class TopicRow : LoggingRow<TopicRow.RowFields>, IIdRow, INameRow
     [DisplayName("SemesterName"), Expression($"{jSemester}.[Title]")]
     public string SemesterName { get => fields.SemesterName[this]; set => fields.SemesterName[this] = value; }
 
-    [DisplayName("Thumbnail"), Size(500), NotNull]
+    [DisplayName("Thumbnail"), Size(500), FileUploadEditor,NotNull]
     public string Thumbnail { get => fields.Thumbnail[this]; set => fields.Thumbnail[this] = value; }
 
     [DisplayName("Is Active"), DefaultValue(1)]
@@ -74,7 +74,7 @@ public sealed class TopicRow : LoggingRow<TopicRow.RowFields>, IIdRow, INameRow
     /*[DisplayName("Medium Title"), Origin(jMedium, nameof(MediumRow.Title))]
     public string MediumTitle { get => fields.MediumTitle[this]; set => fields.MediumTitle[this] = value; }*/
 
-    [DisplayName("Subject Title"), Origin(jSubject, nameof(SubjectRow.Title))]
+    [DisplayName("Subject Title"), Expression($"{jSubject}.[Title]")]
     public string SubjectTitle { get => fields.SubjectTitle[this]; set => fields.SubjectTitle[this] = value; }
 
     public class RowFields : LoggingRowFields

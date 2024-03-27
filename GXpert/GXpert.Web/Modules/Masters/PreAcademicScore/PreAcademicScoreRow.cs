@@ -22,6 +22,7 @@ public sealed class PreAcademicScoreRow : LoggingRow<PreAcademicScoreRow.RowFiel
 
     [DisplayName("Pre Acadamics"), NotNull, ForeignKey("PreAcademics", "Id"), LeftJoin(jPreAcadamics)]
     [TextualField(nameof(PreAcadamicsExamName))]
+    [LookupEditor("Masters.PreAcademic")]
     public int? PreAcadamicsId { get => fields.PreAcadamicsId[this]; set => fields.PreAcadamicsId[this] = value; }
 
     [DisplayName("Passed Out Date")]
@@ -34,7 +35,8 @@ public sealed class PreAcademicScoreRow : LoggingRow<PreAcademicScoreRow.RowFiel
     public float? OutOfMarks { get => fields.OutOfMarks[this]; set => fields.OutOfMarks[this] = value; }
 
     [DisplayName("Student"), ForeignKey(typeof(Users.StudentRow)), LeftJoin(jStudent), TextualField(nameof(StudentPrn))]
-    [LookupEditor(typeof(Users.StudentRow), Async = true)]
+   // [LookupEditor(typeof(Users.StudentRow), Async = true)]
+    [LookupEditor("Users.Student")]
     public int? StudentId { get => fields.StudentId[this]; set => fields.StudentId[this] = value; }
 
     [DisplayName("Remarks"), Size(500), QuickSearch, NameProperty]

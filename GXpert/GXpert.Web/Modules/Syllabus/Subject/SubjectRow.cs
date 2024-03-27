@@ -29,14 +29,14 @@ public sealed class SubjectRow : LoggingRow<SubjectRow.RowFields>, IIdRow, IName
     [DisplayName("Description"), Size(2000)]
     public string Description { get => fields.Description[this]; set => fields.Description[this] = value; }
 
-    [DisplayName("Sort Order"), NotNull]
+    [DisplayName("Sort Order")]
     public short? SortOrder { get => fields.SortOrder[this]; set => fields.SortOrder[this] = value; }
 
-    [DisplayName("Class"), NotNull, ForeignKey(typeof(ClassRow)), LeftJoin(jClass), TextualField(nameof(ClassTitle))]
+    [DisplayName("Class"), ForeignKey(typeof(ClassRow)), LeftJoin(jClass), TextualField(nameof(ClassTitle))]
     [ServiceLookupEditor(typeof(ClassRow)), LookupInclude]
     public int? ClassId { get => fields.ClassId[this]; set => fields.ClassId[this] = value; }
 
-    [DisplayName("Course"), NotNull, ForeignKey("Course", "Id"), LeftJoin(jCourse)]
+    [DisplayName("Course"), ForeignKey("Course", "Id"), LeftJoin(jCourse)]
     [ServiceLookupEditor(typeof(CourseRow)), LookupInclude]
     public int? CourseId { get => fields.CourseId[this]; set => fields.CourseId[this] = value; }
 
