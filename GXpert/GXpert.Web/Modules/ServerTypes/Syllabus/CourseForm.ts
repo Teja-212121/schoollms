@@ -1,10 +1,10 @@
-﻿import { StringEditor, TextAreaEditor, IntegerEditor, ImageUploadEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
+﻿import { StringEditor, IntegerEditor, ImageUploadEditor, TextAreaEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
 
 export interface CourseForm {
     Title: StringEditor;
-    Description: TextAreaEditor;
     SortOrder: IntegerEditor;
     Thumbnail: ImageUploadEditor;
+    Description: TextAreaEditor;
 }
 
 export class CourseForm extends PrefixedContext {
@@ -18,15 +18,15 @@ export class CourseForm extends PrefixedContext {
             CourseForm.init = true;
 
             var w0 = StringEditor;
-            var w1 = TextAreaEditor;
-            var w2 = IntegerEditor;
-            var w3 = ImageUploadEditor;
+            var w1 = IntegerEditor;
+            var w2 = ImageUploadEditor;
+            var w3 = TextAreaEditor;
 
             initFormType(CourseForm, [
                 'Title', w0,
-                'Description', w1,
-                'SortOrder', w2,
-                'Thumbnail', w3
+                'SortOrder', w1,
+                'Thumbnail', w2,
+                'Description', w3
             ]);
         }
     }

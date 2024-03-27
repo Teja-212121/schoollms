@@ -7,11 +7,10 @@ export interface InstituteTimeTableRow {
     StartTime?: string;
     EndTime?: string;
     PeriodIndex?: number;
-    InstituteDivisionId?: number;
+    InstituteClassesId?: number;
     TeacherId?: number;
     EType?: EInstituteTimeTableType;
     IsActive?: boolean;
-    ClassRoomNo?: number;
     InstituteClassDivision?: string;
     TeacherPrn?: string;
     InsertUserId?: number;

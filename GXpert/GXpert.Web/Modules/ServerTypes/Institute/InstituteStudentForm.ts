@@ -1,16 +1,13 @@
-﻿import { LookupEditor, StringEditor, TextAreaEditor, DateEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
+﻿import { LookupEditor, StringEditor, TextAreaEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
 
 export interface InstituteStudentForm {
+    StudentId: LookupEditor;
     InstituteId: LookupEditor;
     ClassId: LookupEditor;
-    SemesterId: LookupEditor;
-    InstituteDivisionId: LookupEditor;
-    StudentId: LookupEditor;
+    Division: StringEditor;
     RollNumber: StringEditor;
-    AcademicYearId: LookupEditor;
     Description: TextAreaEditor;
-    StartDate: DateEditor;
-    EndDate: DateEditor;
+    AcademicYearId: LookupEditor;
 }
 
 export class InstituteStudentForm extends PrefixedContext {
@@ -26,19 +23,15 @@ export class InstituteStudentForm extends PrefixedContext {
             var w0 = LookupEditor;
             var w1 = StringEditor;
             var w2 = TextAreaEditor;
-            var w3 = DateEditor;
 
             initFormType(InstituteStudentForm, [
+                'StudentId', w0,
                 'InstituteId', w0,
                 'ClassId', w0,
-                'SemesterId', w0,
-                'InstituteDivisionId', w0,
-                'StudentId', w0,
+                'Division', w1,
                 'RollNumber', w1,
-                'AcademicYearId', w0,
                 'Description', w2,
-                'StartDate', w3,
-                'EndDate', w3
+                'AcademicYearId', w0
             ]);
         }
     }

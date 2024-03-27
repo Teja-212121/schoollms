@@ -7,7 +7,6 @@ export interface BranchColumns {
     Title: Column<BranchRow>;
     InstituteName: Column<BranchRow>;
     DepartmentTitle: Column<BranchRow>;
-    BranchCode: Column<BranchRow>;
     Description: Column<BranchRow>;
 }
 
