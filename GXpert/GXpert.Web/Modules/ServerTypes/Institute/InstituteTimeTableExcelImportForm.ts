@@ -5,7 +5,7 @@ export interface InstituteTimeTableExcelImportForm {
 }
 
 export class InstituteTimeTableExcelImportForm extends PrefixedContext {
-    static readonly formKey = 'Institute.InstituteTimeTableExcelImportForm';
+    static readonly formKey = 'Institute.InstituteTimeTableExcelImportForm ';
     private static init: boolean;
 
     constructor(prefix: string) {

@@ -597,13 +597,18 @@ namespace GXpert.Texts {
                 export const ClassTitle: string;
                 export const Description: string;
                 export const Division: string;
+                export const EndDate: string;
                 export const Id: string;
                 export const InsertDate: string;
                 export const InsertUserId: string;
+                export const InstituteDivisionId: string;
                 export const InstituteId: string;
                 export const InstituteName: string;
                 export const IsActive: string;
                 export const RollNumber: string;
+                export const Semester: string;
+                export const SemesterId: string;
+                export const StartDate: string;
                 export const StudentId: string;
                 export const StudentPrn: string;
                 export const UpdateDate: string;
@@ -895,6 +900,7 @@ namespace GXpert.Texts {
 
             namespace UserSkillsScore {
                 export const Id: string;
+                export const Score: string;
                 export const SkillCategoryId: string;
                 export const SkillCategoryName: string;
                 export const SkillId: string;

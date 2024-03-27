@@ -1,8 +1,8 @@
-﻿import { StringEditor, ImageUploadEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
+﻿import { StringEditor, TextAreaEditor, ImageUploadEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
 
 export interface PreAcademicForm {
     ExamName: StringEditor;
-    Description: StringEditor;
+    Description: TextAreaEditor;
     Thumbnail: ImageUploadEditor;
 }
 
@@ -17,12 +17,13 @@ export class PreAcademicForm extends PrefixedContext {
             PreAcademicForm.init = true;
 
             var w0 = StringEditor;
-            var w1 = ImageUploadEditor;
+            var w1 = TextAreaEditor;
+            var w2 = ImageUploadEditor;
 
             initFormType(PreAcademicForm, [
                 'ExamName', w0,
-                'Description', w0,
-                'Thumbnail', w1
+                'Description', w1,
+                'Thumbnail', w2
             ]);
         }
     }
