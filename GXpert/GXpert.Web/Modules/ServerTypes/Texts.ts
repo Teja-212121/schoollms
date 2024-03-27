@@ -926,7 +926,6 @@ namespace GXpert.Texts {
 
             namespace UserSkillsScore {
                 export const Id: string;
-                export const Score: string;
                 export const SkillCategoryId: string;
                 export const SkillCategoryName: string;
                 export const SkillId: string;
@@ -1192,10 +1191,12 @@ namespace GXpert.Texts {
                 export const ClassTitle: string;
                 export const CourseId: string;
                 export const CourseTitle: string;
+                export const Description: string;
                 export const Id: string;
                 export const InsertDate: string;
                 export const InsertUserId: string;
                 export const IsActive: string;
+                export const SortOrder: string;
                 export const Title: string;
                 export const UpdateDate: string;
                 export const UpdateUserId: string;

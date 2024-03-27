@@ -6,7 +6,6 @@ export interface UserSkillsScoreColumns {
     Id: Column<UserSkillsScoreRow>;
     SkillCategoryName: Column<UserSkillsScoreRow>;
     SkillName: Column<UserSkillsScoreRow>;
-    Score: Column<UserSkillsScoreRow>;
 }
 
 export class UserSkillsScoreColumns extends ColumnsBase<UserSkillsScoreRow> {

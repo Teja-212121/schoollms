@@ -7,10 +7,11 @@ namespace GXpert.Institute.Forms;
 [BasedOnRow(typeof(DepartmentRow), CheckNames = true)]
 public class DepartmentForm
 {
-    public string Title { get; set; }
     public int InstituteId { get; set; }
     public int HODId { get; set; }
     [TextAreaEditor(Rows = 3)]
+    public string Title { get; set; }
+   
     public string Description { get; set; }
   
 }

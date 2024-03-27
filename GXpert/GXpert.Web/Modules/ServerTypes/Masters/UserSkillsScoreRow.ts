@@ -4,7 +4,6 @@ export interface UserSkillsScoreRow {
     Id?: number;
     SkillCategoryId?: number;
     SkillId?: number;
-    Score?: number;
     SkillCategoryName?: string;
     SkillName?: string;
 }

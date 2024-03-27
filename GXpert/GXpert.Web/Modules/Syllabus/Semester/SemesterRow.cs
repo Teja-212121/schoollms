@@ -12,6 +12,7 @@ namespace GXpert.Syllabus;
 [ReadPermission("Administration:General")]
 [ModifyPermission("Administration:General")]
 [ServiceLookupPermission("Administration:General")]
+[LookupScript("Syllabus.Semester")]
 public sealed class SemesterRow : LoggingRow<SemesterRow.RowFields>, IIdRow, INameRow
 {
     const string jCourse = nameof(jCourse);

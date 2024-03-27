@@ -3,7 +3,7 @@ using System;
 
 namespace GXpert.Institute.Forms;
 
-[FormScript("Institute.InstituteTimeTableExcelImportForm ")]
+[FormScript("Institute.InstituteTimeTableExcelImportForm")]
 //[BasedOnRow(typeof(InstituteTimeTableRow), CheckNames = true)]
 public class InstituteTimeTableExcelImportForm
 {

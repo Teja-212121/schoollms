@@ -8,7 +8,7 @@ using System.ComponentModel;
 namespace GXpert.Users;
 
 [ConnectionKey("Default"), Module("Users"), TableName("Hod")]
-[DisplayName("Hod"), InstanceName("Hod")]
+[DisplayName("HOD"), InstanceName("Hod")]
 [ReadPermission("Administration:General")]
 [ModifyPermission("Administration:General")]
 [ServiceLookupPermission("Administration:General")]
