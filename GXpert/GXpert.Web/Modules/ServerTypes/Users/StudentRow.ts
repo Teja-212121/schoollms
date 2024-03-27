@@ -1,4 +1,5 @@
 ﻿import { getLookup, getLookupAsync, fieldsProxy } from "@serenity-is/corelib";
+import { EGender } from "../Web/Enums.EGender";
 
 export interface StudentRow {
     Id?: number;
@@ -19,7 +20,7 @@ export interface StudentRow {
     InstituteDivision?: string;
     CourseTitle?: string;
     ClassTitle?: string;
-    Gender?: string;
+    Gender?: EGender;
     AddressLine1?: string;
     AddressLine2?: string;
     SemesterTitle?: string;

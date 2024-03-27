@@ -8,7 +8,7 @@ export interface DepartmentRow {
     Description?: string;
     IsActive?: boolean;
     InstituteName?: string;
-    HodName?: string;
+    HODName?: string;
     InsertUserId?: number;
     InsertDate?: string;
     UpdateUserId?: number;

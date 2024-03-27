@@ -1,4 +1,4 @@
-﻿import { DateEditor, IntegerEditor, ServiceLookupEditor, LookupEditor, EnumEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
+﻿import { DateEditor, IntegerEditor, LookupEditor, EnumEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
 import { EInstituteTimeTableType } from "../Web/Enums.EInstituteTimeTableType";
 
 export interface InstituteTimeTableForm {
@@ -6,7 +6,7 @@ export interface InstituteTimeTableForm {
     StartTime: DateEditor;
     EndTime: DateEditor;
     PeriodIndex: IntegerEditor;
-    InstituteClassesId: ServiceLookupEditor;
+    InstituteClassesId: IntegerEditor;
     TeacherId: LookupEditor;
     EType: EnumEditor;
 }
@@ -23,18 +23,17 @@ export class InstituteTimeTableForm extends PrefixedContext {
 
             var w0 = DateEditor;
             var w1 = IntegerEditor;
-            var w2 = ServiceLookupEditor;
-            var w3 = LookupEditor;
-            var w4 = EnumEditor;
+            var w2 = LookupEditor;
+            var w3 = EnumEditor;
 
             initFormType(InstituteTimeTableForm, [
                 'Date', w0,
                 'StartTime', w0,
                 'EndTime', w0,
                 'PeriodIndex', w1,
-                'InstituteClassesId', w2,
-                'TeacherId', w3,
-                'EType', w4
+                'InstituteClassesId', w1,
+                'TeacherId', w2,
+                'EType', w3
             ]);
         }
     }

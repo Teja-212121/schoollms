@@ -1,5 +1,5 @@
-﻿import { AcademicSubjectPerformanceForm, AcademicSubjectPerformanceRow, AcademicSubjectPerformanceService } from '@/ServerTypes/Masters';
-import { Decorators, EntityDialog } from '@serenity-is/corelib';
+import { AcademicSubjectPerformanceForm, AcademicSubjectPerformanceRow, AcademicSubjectPerformanceService } from '@/ServerTypes/Masters';
+import { Decorators, EditorUtils, EntityDialog } from '@serenity-is/corelib';
 
 @Decorators.registerClass('GXpert.Masters.AcademicSubjectPerformanceDialog')
 export class AcademicSubjectPerformanceDialog extends EntityDialog<AcademicSubjectPerformanceRow, any> {
@@ -8,4 +8,8 @@ export class AcademicSubjectPerformanceDialog extends EntityDialog<AcademicSubje
     protected getService() { return AcademicSubjectPerformanceService.baseUrl; }
 
     protected form = new AcademicSubjectPerformanceForm(this.idPrefix);
+    updateInterface() {
+        super.updateInterface();
+        EditorUtils.setReadOnly(this.form.StudentId, true);
+    }
 }

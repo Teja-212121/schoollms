@@ -37,6 +37,8 @@ public class StudentForm
     public int ClassId { get; set; }
     [HalfWidth]
     public int SemesterId { get; set; }
+    [HalfWidth]
+    public int CurrentAcademicYearId { get; set; }
     [Category("Address")]
     public string AddressLine1 { get; set; }
    

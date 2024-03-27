@@ -528,8 +528,8 @@ namespace GXpert.Texts {
 
             namespace Department {
                 export const Description: string;
+                export const HODName: string;
                 export const HodId: string;
-                export const HodName: string;
                 export const Id: string;
                 export const InsertDate: string;
                 export const InsertUserId: string;
@@ -635,6 +635,7 @@ namespace GXpert.Texts {
             }
 
             namespace InstituteTimeTable {
+                export const ClassRoomNo: string;
                 export const Date: string;
                 export const EType: string;
                 export const EndTime: string;
@@ -642,7 +643,7 @@ namespace GXpert.Texts {
                 export const InsertDate: string;
                 export const InsertUserId: string;
                 export const InstituteClassDivision: string;
-                export const InstituteClassesId: string;
+                export const InstituteDivisionId: string;
                 export const IsActive: string;
                 export const PeriodIndex: string;
                 export const StartTime: string;

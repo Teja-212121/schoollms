@@ -1,4 +1,5 @@
 using GXpert.Masters;
+using GXpert.Web.Enums;
 using Serenity.ComponentModel;
 using Serenity.Data;
 using Serenity.Data.Mapping;
@@ -74,14 +75,14 @@ public sealed class StudentRow : LoggingRow<StudentRow.RowFields>, IIdRow, IName
     public int? CourseId { get => fields.CourseId[this]; set => fields.CourseId[this] = value; }
 
     [DisplayName("Class"), NotNull, ForeignKey(typeof(Syllabus.ClassRow)), LeftJoin(jClass), TextualField(nameof(ClassTitle))]
-    [LookupEditor(typeof(Syllabus.ClassRow), Async = true)]
+    [LookupEditor(typeof(Syllabus.ClassRow))]
     public int? ClassId { get => fields.ClassId[this]; set => fields.ClassId[this] = value; }
 
     [DisplayName("Semester"), NotNull, ForeignKey(typeof(Syllabus.SemesterRow)), LeftJoin(jSemester), TextualField(nameof(SemesterTitle))]
     [ServiceLookupEditor(typeof(Syllabus.SemesterRow), Service = "Syllabus/Semester/List")]
     public int? SemesterId { get => fields.SemesterId[this]; set => fields.SemesterId[this] = value; }
     [DisplayName("Current Academic Year"), NotNull, ForeignKey(typeof(AcademicYearRow)), LeftJoin(jAcademicYear)]
-    [TextualField(nameof(AcademicYearName)), LookupEditor(typeof(AcademicYearRow), Async = true)]
+    [TextualField(nameof(AcademicYearName)), LookupEditor(typeof(AcademicYearRow))]
     public int? CurrentAcademicYearId { get => fields.CurrentAcademicYearId[this]; set => fields.CurrentAcademicYearId[this] = value; }
     [DisplayName("Institute Name"), Expression($"{jInstitute}.[Name]")]
     public string InstituteName { get => fields.InstituteName[this]; set => fields.InstituteName[this] = value; }
@@ -98,7 +99,7 @@ public sealed class StudentRow : LoggingRow<StudentRow.RowFields>, IIdRow, IName
     public string AcademicYearName { get => fields.AcademicYearName[this]; set => fields.AcademicYearName[this] = value; }
 
     [DisplayName("Gender"), Size(500)]
-    public string Gender { get => fields.Gender[this]; set => fields.Gender[this] = value; }
+    public EGender? Gender { get => (EGender)fields.Gender[this]; set => fields.Gender[this] = (short?)value; }
     [DisplayName("AddressLine1"), Size(1000)]
     public string AddressLine1 { get => fields.AddressLine1[this]; set => fields.AddressLine1[this] = value; }
     [DisplayName("AddressLine2"), Size(500)]
@@ -157,7 +158,7 @@ public sealed class StudentRow : LoggingRow<StudentRow.RowFields>, IIdRow, IName
         public StringField InstituteDivision;
         public StringField CourseTitle;
         public StringField ClassTitle;
-        public StringField Gender;
+        public Int16Field Gender;
         public StringField AddressLine1;
         public StringField AddressLine2;
         public StringField SemesterTitle;
