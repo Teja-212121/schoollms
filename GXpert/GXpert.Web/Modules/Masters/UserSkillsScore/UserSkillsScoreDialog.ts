@@ -8,8 +8,8 @@ export class UserSkillsScoreDialog extends EntityDialog<UserSkillsScoreRow, any>
     protected getService() { return UserSkillsScoreService.baseUrl; }
 
     protected form = new UserSkillsScoreForm(this.idPrefix);
-    updateInterface() {
-        super.updateInterface();
-        EditorUtils.setReadOnly(this.form.StudentId, true);
-    }
+    //updateInterface() {
+    //    super.updateInterface();
+    //    EditorUtils.setReadOnly(this.form.StudentId, true);
+    //}
 }

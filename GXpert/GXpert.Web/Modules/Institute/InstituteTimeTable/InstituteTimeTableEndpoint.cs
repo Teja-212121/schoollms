@@ -121,26 +121,27 @@ public class InstituteTimeTableEndpoint : ServiceEndpoint
                     continue;
                 }
 */
-                int? EType = Convert.ToInt32(worksheet.Cells[row, 7].Value ?? null);
-                if (EType != null)
-                {
+                //int? EType = Convert.ToInt32(worksheet.Cells[row, 7].Value ?? null);
+                //if (EType != null)
+                //{
 
-                     if (EType == 1)
-                            Row.EType = EInstituteTimeTableType.SINGLE_RIGHT_ANSWER;
-                       else if (EType == 2)
-                            Row.EType = EInstituteTimeTableType.MULTIPLE_RIGHT_ANSWER;
-                      else  if (EType == 3)
-                            Row.EType = EInstituteTimeTableType.NUMERICAL;
-                      else  if (EType == 4)
-                            Row.EType = EInstituteTimeTableType.TRUE_OR_FALSE;
-                    
-                    else
-                    {
-                        response.ErrorList.Add("Error On Row " + row + ":Invalid Question Type !");
-                        continue;
-                    }
+                //    if (EType == 1)
+                //        Row.EType = EInstituteTimeTableType.SINGLE_RIGHT_ANSWER;
+                //    else if (EType == 2)
+                //        Row.EType = EInstituteTimeTableType.MULTIPLE_RIGHT_ANSWER;
+                //    else if (EType == 3)
+                //        Row.EType = EInstituteTimeTableType.NUMERICAL;
+                //    else if (EType == 4)
+                //        Row.EType = EInstituteTimeTableType.TRUE_OR_FALSE;
+
+                //    else
+                //    {
+                //        response.ErrorList.Add("Error On Row " + row + ":Invalid Question Type !");
+                //        continue;
+                //    }
+                //}
                     Row.ClassRoomNo = Convert.ToInt32(worksheet.Cells[row, 8].Value ?? null);
-                }
+                
 
                 Row.IsActive = true;
                 Row.InsertDate = DateTime.UtcNow;

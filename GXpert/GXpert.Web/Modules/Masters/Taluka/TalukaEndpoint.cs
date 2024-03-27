@@ -62,7 +62,7 @@ public class TalukaEndpoint : ServiceEndpoint
     }
     public ExcelImportResponse ExcelImport(IUnitOfWork uow, TalukaExcelImportRequest request,
           [FromServices] IUploadStorage uploadStorage,
-          [FromServices] IStateSaveHandler handler)
+          [FromServices] ITalukaSaveHandler handler)
     {
         if (request is null)
             throw new ArgumentNullException(nameof(request));

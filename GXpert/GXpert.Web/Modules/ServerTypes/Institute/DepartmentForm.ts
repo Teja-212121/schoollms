@@ -1,11 +1,11 @@
 ﻿import { HodDialog } from "@/Users/Hod/HodDialog";
-import { StringEditor, ServiceLookupEditor, LookupEditor, TextAreaEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
+import { ServiceLookupEditor, LookupEditor, TextAreaEditor, StringEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
 
 export interface DepartmentForm {
-    Title: StringEditor;
     InstituteId: ServiceLookupEditor;
     HodId: LookupEditor;
-    Description: TextAreaEditor;
+    Title: TextAreaEditor;
+    Description: StringEditor;
 }
 
 export class DepartmentForm extends PrefixedContext {
@@ -18,15 +18,15 @@ export class DepartmentForm extends PrefixedContext {
         if (!DepartmentForm.init)  {
             DepartmentForm.init = true;
 
-            var w0 = StringEditor;
-            var w1 = ServiceLookupEditor;
-            var w2 = LookupEditor;
-            var w3 = TextAreaEditor;
+            var w0 = ServiceLookupEditor;
+            var w1 = LookupEditor;
+            var w2 = TextAreaEditor;
+            var w3 = StringEditor;
 
             initFormType(DepartmentForm, [
-                'Title', w0,
-                'InstituteId', w1,
-                'HodId', w2,
+                'InstituteId', w0,
+                'HodId', w1,
+                'Title', w2,
                 'Description', w3
             ]);
         }

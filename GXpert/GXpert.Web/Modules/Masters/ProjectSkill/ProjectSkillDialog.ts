@@ -8,8 +8,8 @@ export class ProjectSkillDialog extends EntityDialog<ProjectSkillRow, any> {
     protected getService() { return ProjectSkillService.baseUrl; }
 
     protected form = new ProjectSkillForm(this.idPrefix);
-    updateInterface() {
-        super.updateInterface();
-        EditorUtils.setReadOnly(this.form.StudentId, true);
-    }
+    //updateInterface() {
+    //    super.updateInterface();
+    //    EditorUtils.setReadOnly(this.form.StudentId, true);
+    //}
 }

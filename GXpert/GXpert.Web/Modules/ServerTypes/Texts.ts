@@ -512,6 +512,7 @@ namespace GXpert.Texts {
         namespace Institute {
 
             namespace Branch {
+                export const BranchCode: string;
                 export const DepartmentId: string;
                 export const DepartmentTitle: string;
                 export const Description: string;
@@ -1319,12 +1320,12 @@ namespace GXpert.Texts {
                 export const Id: string;
                 export const InsertDate: string;
                 export const InsertUserId: string;
+                export const InstituteId: string;
+                export const InstituteName: string;
                 export const IsActive: string;
                 export const Mobile: string;
                 export const Name: string;
                 export const Prn: string;
-                export const SchoolId: string;
-                export const SchoolName: string;
                 export const StateId: string;
                 export const StateTitle: string;
                 export const TalukaId: string;
