@@ -337,31 +337,75 @@ namespace GXpert.Texts {
         namespace Content {
 
             namespace Content {
+                export const AllowDownload: string;
                 export const Description: string;
                 export const DisLikesCount: string;
+                export const DownloadFileFallback1Url: string;
+                export const DownloadFileFallback2Url: string;
+                export const DownloadFilePrimaryUrl: string;
+                export const DurationInSeconds: string;
+                export const EContentState: string;
                 export const EContentType: string;
                 export const EDifficultyLevel: string;
+                export const EnableComments: string;
+                export const EncodingStatus: string;
                 export const FileKeyUrl: string;
                 export const FilePath: string;
                 export const FilePathFallBack1: string;
                 export const FilePathFallBack2: string;
+                export const FriendlyToken: string;
                 export const HandRaiseCount: string;
+                export const HlsFile: string;
+                export const Id: string;
+                export const InsertDate: string;
+                export const InsertUserId: string;
+                export const IsActive: string;
+                export const IsFeatured: string;
+                export const IsListed: string;
+                export const IsReviewed: string;
+                export const IsUserFeatured: string;
+                export const Iv: string;
+                export const Length: string;
+                export const LikesCount: string;
+                export const M3u8FileFallback1Url: string;
+                export const M3u8FileFallback2Url: string;
+                export const M3u8FilePrimaryUrl: string;
+                export const Md5sum: string;
+                export const MediaFile: string;
+                export const MediaInfo: string;
+                export const MediaVersion: string;
+                export const NumberOfPages: string;
+                export const Poster: string;
+                export const SearchTags: string;
+                export const Size: string;
+                export const SizeInBytes: string;
+                export const ThumbNail: string;
+                export const ThumbnailTime: string;
+                export const Title: string;
+                export const UpdateDate: string;
+                export const UpdateUserId: string;
+                export const UserId: string;
+                export const Username: string;
+                export const Views: string;
+            }
+
+            namespace ContentAudio {
+                export const ContentId: string;
+                export const ContentTitle: string;
+                export const FileKeyUrl: string;
+                export const HlsFile: string;
                 export const Id: string;
                 export const InsertDate: string;
                 export const InsertUserId: string;
                 export const IsActive: string;
                 export const Iv: string;
-                export const Length: string;
-                export const LikesCount: string;
-                export const MediaInfo: string;
-                export const NumberOfPages: string;
-                export const Poster: string;
-                export const SearchTags: string;
-                export const Size: string;
-                export const ThumbNail: string;
-                export const Title: string;
+                export const LanguageId: string;
+                export const LanguageName: string;
+                export const MediaFile: string;
                 export const UpdateDate: string;
                 export const UpdateUserId: string;
+                export const UserId: string;
+                export const Username: string;
             }
 
             namespace ContentAudio {

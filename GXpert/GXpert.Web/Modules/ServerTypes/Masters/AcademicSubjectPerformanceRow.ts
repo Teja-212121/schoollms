@@ -1,4 +1,5 @@
 ﻿import { fieldsProxy } from "@serenity-is/corelib";
+import { ETypeOfExam } from "../Web/Enums.ETypeOfExam";
 
 export interface AcademicSubjectPerformanceRow {
     Id?: number;
@@ -7,7 +8,7 @@ export interface AcademicSubjectPerformanceRow {
     ClassId?: number;
     SemesterId?: number;
     SubjectId?: number;
-    ETypeOfExam?: number;
+    ETypeOfExam?: ETypeOfExam;
     MarksObtained?: number;
     OutOfMarks?: number;
     Remarks?: string;

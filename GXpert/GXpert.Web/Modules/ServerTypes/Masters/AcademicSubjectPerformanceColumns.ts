@@ -1,5 +1,6 @@
 ﻿import { ColumnsBase, fieldsProxy } from "@serenity-is/corelib";
 import { Column } from "@serenity-is/sleekgrid";
+import { ETypeOfExam } from "../Web/Enums.ETypeOfExam";
 import { AcademicSubjectPerformanceRow } from "./AcademicSubjectPerformanceRow";
 
 export interface AcademicSubjectPerformanceColumns {
@@ -20,3 +21,5 @@ export class AcademicSubjectPerformanceColumns extends ColumnsBase<AcademicSubje
     static readonly columnsKey = 'Masters.AcademicSubjectPerformance';
     static readonly Fields = fieldsProxy<AcademicSubjectPerformanceColumns>();
 }
+
+[ETypeOfExam]; // referenced types

@@ -1,10 +1,13 @@
 ﻿import { getLookup, getLookupAsync, fieldsProxy } from "@serenity-is/corelib";
+import { EContentState } from "../GExpert/Enums.EContentState";
 import { EContentType } from "../Web/Enums.EContentType";
 import { EDifficultyLevel } from "../Web/Enums.EDifficultyLevel";
 
 export interface ContentRow {
     Id?: number;
     Title?: string;
+    HlsFile?: string;
+    MediaFile?: string;
     Description?: string;
     EContentType?: EContentType;
     FileKeyUrl?: string;
@@ -24,6 +27,29 @@ export interface ContentRow {
     SearchTags?: string;
     EDifficultyLevel?: EDifficultyLevel;
     IsActive?: boolean;
+    AllowDownload?: boolean;
+    DurationInSeconds?: number;
+    EnableComments?: boolean;
+    EncodingStatus?: string;
+    FriendlyToken?: string;
+    EContentState?: EContentState;
+    Views?: number;
+    IsFeatured?: boolean;
+    IsReviewed?: boolean;
+    IsListed?: boolean;
+    ThumbnailTime?: number;
+    Md5sum?: string;
+    IsUserFeatured?: boolean;
+    SizeInBytes?: number;
+    MediaVersion?: number;
+    UserId?: number;
+    DownloadFilePrimaryUrl?: string;
+    DownloadFileFallback1Url?: string;
+    DownloadFileFallback2Url?: string;
+    M3u8FilePrimaryUrl?: string;
+    M3u8FileFallback1Url?: string;
+    M3u8FileFallback2Url?: string;
+    Username?: string;
     InsertUserId?: number;
     InsertDate?: string;
     UpdateUserId?: number;

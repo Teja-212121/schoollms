@@ -1,4 +1,5 @@
-﻿import { LookupEditor, ServiceLookupEditor, StringEditor, IntegerEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
+﻿import { LookupEditor, ServiceLookupEditor, StringEditor, TextAreaEditor, EnumEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
+import { EProjectType } from "../Web/Enums.EProjectType";
 
 export interface ProjectForm {
     StudentId: LookupEditor;
@@ -6,8 +7,8 @@ export interface ProjectForm {
     ClassId: LookupEditor;
     SemesterId: ServiceLookupEditor;
     Title: StringEditor;
-    Description: StringEditor;
-    EType: IntegerEditor;
+    Description: TextAreaEditor;
+    EType: EnumEditor;
 }
 
 export class ProjectForm extends PrefixedContext {
@@ -23,7 +24,8 @@ export class ProjectForm extends PrefixedContext {
             var w0 = LookupEditor;
             var w1 = ServiceLookupEditor;
             var w2 = StringEditor;
-            var w3 = IntegerEditor;
+            var w3 = TextAreaEditor;
+            var w4 = EnumEditor;
 
             initFormType(ProjectForm, [
                 'StudentId', w0,
@@ -31,9 +33,11 @@ export class ProjectForm extends PrefixedContext {
                 'ClassId', w0,
                 'SemesterId', w1,
                 'Title', w2,
-                'Description', w2,
-                'EType', w3
+                'Description', w3,
+                'EType', w4
             ]);
         }
     }
 }
+
+[EProjectType]; // referenced types
