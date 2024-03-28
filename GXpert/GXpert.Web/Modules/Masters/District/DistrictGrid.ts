@@ -13,7 +13,7 @@ export class DistrictGrid extends EntityGrid<DistrictRow, any> {
 
     constructor(container: JQuery) {
         super(container);
-        this.rowSelection = new GridRowSelectionMixin(this);
+       // this.rowSelection = new GridRowSelectionMixin(this);
     }
 
     protected getColumns() {
@@ -23,9 +23,9 @@ export class DistrictGrid extends EntityGrid<DistrictRow, any> {
         return columns;
     }
 
-    get selectedItems() {
-        return this.rowSelection.getSelectedKeys().map(x => this.view.getItemById(x));
-    }
+    //get selectedItems() {
+    //    return this.rowSelection.getSelectedKeys().map(x => this.view.getItemById(x));
+    //}
 
     protected getButtons() {
         var buttons = super.getButtons();

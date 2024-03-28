@@ -13,7 +13,7 @@ export class TalukaGrid extends EntityGrid<TalukaRow, any> {
 
     constructor(container: JQuery) {
         super(container);
-        this.rowSelection = new GridRowSelectionMixin(this);
+       // this.rowSelection = new GridRowSelectionMixin(this);
     }
 
     protected getColumns() {
@@ -23,9 +23,9 @@ export class TalukaGrid extends EntityGrid<TalukaRow, any> {
         return columns;
     }
 
-    get selectedItems() {
-        return this.rowSelection.getSelectedKeys().map(x => this.view.getItemById(x));
-    }
+    //get selectedItems() {
+    //    return this.rowSelection.getSelectedKeys().map(x => this.view.getItemById(x));
+    //}
 
     protected getButtons() {
         var buttons = super.getButtons();
