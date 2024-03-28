@@ -43,7 +43,7 @@ namespace GExpert.Migrations.DefaultDB;
 
            ALTER TABLE Students
            DROP COLUMN SchoolId;
- Drop Table InstituteClasses;
+
 ");
     }
     public override void Down()
