@@ -47,10 +47,10 @@ public sealed class ContentRow : LoggingRow<ContentRow.RowFields>, IIdRow, IName
     [DisplayName("Media Info"), NotNull]
     public string MediaInfo { get => fields.MediaInfo[this]; set => fields.MediaInfo[this] = value; }
 
-    [DisplayName("Thumb Nail"), NotNull]
+    [DisplayName("Thumb Nail"), NotNull,FileUploadEditor]
     public string ThumbNail { get => fields.ThumbNail[this]; set => fields.ThumbNail[this] = value; }
 
-    [DisplayName("Poster"), Size(200), NotNull]
+    [DisplayName("Poster"), Size(200), NotNull,FileUploadEditor]
     public string Poster { get => fields.Poster[this]; set => fields.Poster[this] = value; }
 
     [DisplayName("Length"), NotNull]

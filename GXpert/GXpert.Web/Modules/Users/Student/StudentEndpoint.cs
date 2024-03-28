@@ -341,7 +341,43 @@ public class StudentEndpoint : ServiceEndpoint
                         continue;
                     }
                 }
-                //Row.Dob = Convert.ToDateTime(worksheet.Cells[row, 19].Value ?? "");
+                int? talukaId = Convert.ToInt32(worksheet.Cells[row, 19].Value ?? null);
+                if (talukaId == 0)
+                    talukaId = null;
+                if (talukaId != null)
+                {
+                    var Taluka = uow.Connection.TryFirst<TalukaRow>(TalukaRow.Fields.Id == districtId.Value);
+                    if (Taluka != null)
+                    {
+                        Row.TalukaId = Taluka.Id;
+                    }
+                    else
+                    {
+                        response.ErrorList.Add("Error On Row " + row + ":Invalid Taluka !");
+                        continue;
+                    }
+                }
+
+                string dateString = Convert.ToString(worksheet.Cells[row, 20].Value);
+                if (!string.IsNullOrEmpty(dateString))
+                {
+                    if (DateTime.TryParseExact(dateString, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime dob))
+                    {
+                        Row.Dob = dob;
+                    }
+                    else
+                    {
+                        response.ErrorList.Add("Error On Row " + row + ": Invalid date format for Date of Birth.");
+                        continue;
+                    }
+                }
+                else
+                {
+                    response.ErrorList.Add("Error On Row " + row + ": Date of Birth not found.");
+                    continue;
+                }
+
+
 
                 var student = new StudentRow
                 {
@@ -361,7 +397,7 @@ public class StudentEndpoint : ServiceEndpoint
                     Gender = Row.Gender,
                     AddressLine1 = Row.AddressLine1,
                     AddressLine2 = Row.AddressLine2,
-                   // Dob = Row.Dob,
+                    Dob = Row.Dob,
                     StateId = Row.StateId,
                     DistrictId = Row.DistrictId,
                     InsertDate = DateTime.Now,

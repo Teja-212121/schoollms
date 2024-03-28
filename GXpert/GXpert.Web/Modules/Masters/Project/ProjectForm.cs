@@ -1,4 +1,4 @@
-﻿using Serenity.ComponentModel;
+using Serenity.ComponentModel;
 
 namespace GXpert.Masters.Forms;
 
@@ -11,6 +11,7 @@ public class ProjectForm
     public int ClassId { get; set; }
     public int SemesterId { get; set; }
     public string Title { get; set; }
+    [TextAreaEditor(Rows =3)]
     public string Description { get; set; }
     public short EType { get; set; }
 }
