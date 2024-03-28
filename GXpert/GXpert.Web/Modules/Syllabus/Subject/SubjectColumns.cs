@@ -12,7 +12,9 @@ public class SubjectColumns
     public int Id { get; set; }
     [Width(100),QuickFilter]
     public string CourseName { get; set; }
+    [QuickFilter]
     public string ClassTitle { get; set; }
+    [QuickFilter]
     public string SemesterName { get; set; }
     public string Title { get; set; }
     public short SortOrder { get; set; }
