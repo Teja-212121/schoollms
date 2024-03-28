@@ -140,7 +140,7 @@ public class InstituteTimeTableEndpoint : ServiceEndpoint
                 //        continue;
                 //    }
                 //}
-                    Row.ClassRoomNo = Convert.ToInt32(worksheet.Cells[row, 8].Value ?? null);
+                    Row.ClassRoomNo = Convert.ToInt32(worksheet.Cells[row, 7].Value ?? null);
                 
 
                 Row.IsActive = true;

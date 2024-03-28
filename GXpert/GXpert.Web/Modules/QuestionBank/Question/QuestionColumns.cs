@@ -14,6 +14,7 @@ public class QuestionColumns
     public string QuestionText { get; set; }
     public string Explaination { get; set; }
     public bool IsSubjective { get; set; }
+    [QuickFilter]
     public short EQuestionType { get; set; }
     public short EDifficultyLevel { get; set; }
     public string QuestionCommonDataCommonDataTitle { get; set; }
@@ -23,4 +24,7 @@ public class QuestionColumns
     public string TopicTitle { get; set; }
     public string BloomsIndexCoginitiveSkill { get; set; }
     public float BloomsWeightage { get; set; }
+    public List<QuestionOptionRow> QuestionOptions { get; set; }
+    [DisplayName("Date"), QuickFilter, FilterOnly]
+    public DateTime InsertDate { get; set; }
 }

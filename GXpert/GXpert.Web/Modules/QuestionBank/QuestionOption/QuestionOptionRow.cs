@@ -40,6 +40,8 @@ public sealed class QuestionOptionRow : LoggingRow<QuestionOptionRow.RowFields>,
 
     [DisplayName("Question Question Text"), Origin(jQuestion, nameof(QuestionRow.QuestionText))]
     public string QuestionText { get => fields.QuestionText[this]; set => fields.QuestionText[this] = value; }
+    //public string Notes { get; internal set; }
+    //public object QuestionOptionText { get; internal set; }
 
     public class RowFields : LoggingRowFields
     {

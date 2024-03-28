@@ -6,6 +6,7 @@ namespace GXpert.Web.Enums
     {
         EASY = 1,
         MODERATE = 5,
-        DIFFICULT = 10
+        DIFFICULT = 10,
+        MULTIPLE_RIGHT_ANSWER = 11
     }
 }

@@ -86,6 +86,13 @@ public sealed class QuestionRow : LoggingRow<QuestionRow.RowFields>, IIdRow, INa
     [DisplayName("Blooms Index Coginitive Skill"), Expression($"{jBloomsIndex}.[CoginitiveSkill]")]
     public string BloomsIndexCoginitiveSkill { get => fields.BloomsIndexCoginitiveSkill[this]; set => fields.BloomsIndexCoginitiveSkill[this] = value; }
 
+    [DisplayName("Question Option"), MasterDetailRelation(foreignKey: nameof(QuestionOptionRow.QuestionId)),  NotMapped, NotNull]
+    public List<QuestionOptionRow> QuestionOptions
+    {
+        get { return Fields.QuestionOptions[this]; }
+        set { Fields.QuestionOptions[this] = value; }
+    }
+
     public class RowFields : LoggingRowFields
     {
         public Int64Field Id;
@@ -108,5 +115,8 @@ public sealed class QuestionRow : LoggingRow<QuestionRow.RowFields>, IIdRow, INa
         public StringField SubjectTitle;
         public StringField TopicTitle;
         public StringField BloomsIndexCoginitiveSkill;
+        public RowListField<QuestionOptionRow> QuestionOptions;
+
+
     }
 }

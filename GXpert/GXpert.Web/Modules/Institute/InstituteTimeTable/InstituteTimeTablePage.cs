@@ -15,7 +15,7 @@ public class InstituteTimeTablePage : Controller
     [Route("Institute/InstituteTimeTable/InstituteTimeTableDownloadSample")]
     public FileContentResult InstituteTimeTableDownloadSample()
     {
-        string filePath = "Uploads/TimetableDownloadImportSample.xlsx";
+        string filePath = "Uploads/InstituteTimetableDownloadImportSample.xlsx";
         byte[] fileBytes = System.IO.File.ReadAllBytes(filePath);
         return new FileContentResult(fileBytes, "application/vnd.ms-excel");
     }
