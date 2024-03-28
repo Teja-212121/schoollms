@@ -1,4 +1,5 @@
-﻿using Serenity.ComponentModel;
+using GXpert.Web.Enums;
+using Serenity.ComponentModel;
 using Serenity.Data;
 using Serenity.Data.Mapping;
 using System.ComponentModel;
@@ -43,7 +44,7 @@ public sealed class ProjectRow : Row<ProjectRow.RowFields>, IIdRow, INameRow
     public string Description { get => fields.Description[this]; set => fields.Description[this] = value; }
 
     [DisplayName("E Type"), Column("eType")]
-    public short? EType { get => fields.EType[this]; set => fields.EType[this] = value; }
+    public EProjectType? EType { get => (EProjectType)fields.EType[this]; set => fields.EType[this] = (short?)value; }
 
     [DisplayName("Student Prn"), Origin(jStudent, nameof(Users.StudentRow.Prn))]
     public string StudentPrn { get => fields.StudentPrn[this]; set => fields.StudentPrn[this] = value; }

@@ -1,3 +1,4 @@
+using GXpert.Web.Enums;
 using Serenity.ComponentModel;
 using Serenity.Data;
 using Serenity.Data.Mapping;
@@ -45,7 +46,7 @@ public sealed class AcademicSubjectPerformanceRow : LoggingRow<AcademicSubjectPe
     public int? SubjectId { get => fields.SubjectId[this]; set => fields.SubjectId[this] = value; }
 
     [DisplayName("E Type Of Exam"), Column("eTypeOfExam")]
-    public short? ETypeOfExam { get => fields.ETypeOfExam[this]; set => fields.ETypeOfExam[this] = value; }
+    public ETypeOfExam? ETypeOfExam { get => (ETypeOfExam)fields.ETypeOfExam[this]; set => fields.ETypeOfExam[this] = (short?)value; }
 
     [DisplayName("Marks Obtained")]
     public float? MarksObtained { get => fields.MarksObtained[this]; set => fields.MarksObtained[this] = value; }

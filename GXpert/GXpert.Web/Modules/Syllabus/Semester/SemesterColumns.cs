@@ -10,7 +10,9 @@ public class SemesterColumns
 {
     [EditLink, DisplayName("Db.Shared.RecordId"), AlignRight]
     public int Id { get; set; }
+    [QuickFilter]
     public string CourseTitle { get; set; }
+    [QuickFilter]
     public string ClassTitle { get; set; }
     [EditLink]
     public string Title { get; set; }

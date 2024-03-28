@@ -22,7 +22,7 @@ public class InstituteForm
     public int  DistrictId { get; set; }
     [HalfWidth]
     public int TalukaId { get; set; }
-    [HalfWidth]
+  
 
     [TextAreaEditor(Rows =5)]
     public string LocationInfo { get; set; }

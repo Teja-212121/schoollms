@@ -24,10 +24,10 @@ public sealed class TeacherRow : LoggingRow<TeacherRow.RowFields>, IIdRow, IName
     [DisplayName("Id"), Identity, IdProperty]
     public int? Id { get => fields.Id[this]; set => fields.Id[this] = value; }
 
-    [DisplayName("Prn"), Column("PRN"), Size(500), NotNull, QuickSearch, NameProperty]
+    [DisplayName("Prn"), Column("PRN"), Size(500), NotNull, QuickSearch]
     public string Prn { get => fields.Prn[this]; set => fields.Prn[this] = value; }
 
-    [DisplayName("Name"), Size(500), NotNull]
+    [DisplayName("Name"), Size(500), NotNull, NameProperty]
     public string Name { get => fields.Name[this]; set => fields.Name[this] = value; }
 
     [DisplayName("Email"), Size(500), NotNull]
