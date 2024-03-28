@@ -1,6 +1,7 @@
-﻿using Serenity.ComponentModel;
+using Serenity.ComponentModel;
 using Serenity.Data;
 using Serenity.Data.Mapping;
+using Serenity.Extensions.Entities;
 using System;
 using System.ComponentModel;
 
@@ -10,7 +11,8 @@ namespace GXpert.Content;
 [DisplayName("Content Media Rating"), InstanceName("Content Media Rating")]
 [ReadPermission("Administration:General")]
 [ModifyPermission("Administration:General")]
-public sealed class ContentMediaRatingRow : Row<ContentMediaRatingRow.RowFields>, IIdRow
+[LookupScript("Content.ContentMediaRating")]
+public sealed class ContentMediaRatingRow : LoggingRow<ContentMediaRatingRow.RowFields>, IIdRow
 {
     const string jContent = nameof(jContent);
     const string jRating = nameof(jRating);
@@ -24,6 +26,7 @@ public sealed class ContentMediaRatingRow : Row<ContentMediaRatingRow.RowFields>
     public int? ContentId { get => fields.ContentId[this]; set => fields.ContentId[this] = value; }
 
     [DisplayName("Rating"), NotNull, ForeignKey("ContentRatings", "Id"), LeftJoin(jRating), TextualField(nameof(RatingName))]
+    [LookupEditor("Content.ContentRating")]
     public int? RatingId { get => fields.RatingId[this]; set => fields.RatingId[this] = value; }
 
     [DisplayName("Score"), NotNull]
@@ -33,19 +36,7 @@ public sealed class ContentMediaRatingRow : Row<ContentMediaRatingRow.RowFields>
     [LookupEditor(typeof(Administration.UserRow), Async = true)]
     public int? UserId { get => fields.UserId[this]; set => fields.UserId[this] = value; }
 
-    [DisplayName("Insert Date"), NotNull]
-    public DateTime? InsertDate { get => fields.InsertDate[this]; set => fields.InsertDate[this] = value; }
-
-    [DisplayName("Insert User Id"), NotNull]
-    public int? InsertUserId { get => fields.InsertUserId[this]; set => fields.InsertUserId[this] = value; }
-
-    [DisplayName("Update Date")]
-    public DateTime? UpdateDate { get => fields.UpdateDate[this]; set => fields.UpdateDate[this] = value; }
-
-    [DisplayName("Update User Id")]
-    public int? UpdateUserId { get => fields.UpdateUserId[this]; set => fields.UpdateUserId[this] = value; }
-
-    [DisplayName("Is Active"), NotNull]
+    [DisplayName("Is Active"), NotNull,DefaultValue(1)]
     public short? IsActive { get => fields.IsActive[this]; set => fields.IsActive[this] = value; }
 
     [DisplayName("Content Title"), Origin(jContent, nameof(ContentRow.Title))]
@@ -57,17 +48,13 @@ public sealed class ContentMediaRatingRow : Row<ContentMediaRatingRow.RowFields>
     [DisplayName("User Username"), Origin(jUser, nameof(Administration.UserRow.Username))]
     public string Username { get => fields.Username[this]; set => fields.Username[this] = value; }
 
-    public class RowFields : RowFieldsBase
+    public class RowFields : LoggingRowFields
     {
         public Int32Field Id;
         public Int32Field ContentId;
         public Int32Field RatingId;
         public Int16Field Score;
         public Int32Field UserId;
-        public DateTimeField InsertDate;
-        public Int32Field InsertUserId;
-        public DateTimeField UpdateDate;
-        public Int32Field UpdateUserId;
         public Int16Field IsActive;
 
         public StringField ContentTitle;

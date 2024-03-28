@@ -1,6 +1,7 @@
-﻿using Serenity.ComponentModel;
+using Serenity.ComponentModel;
 using Serenity.Data;
 using Serenity.Data.Mapping;
+using Serenity.Extensions.Entities;
 using System;
 using System.ComponentModel;
 
@@ -11,7 +12,8 @@ namespace GXpert.Content;
 [ReadPermission("Administration:General")]
 [ModifyPermission("Administration:General")]
 [ServiceLookupPermission("Administration:General")]
-public sealed class ContentCommentRow : Row<ContentCommentRow.RowFields>, IIdRow, INameRow
+[LookupScript("Content.ContentComment")]
+public sealed class ContentCommentRow : LoggingRow<ContentCommentRow.RowFields>, IIdRow, INameRow
 {
     const string jParent = nameof(jParent);
     const string jContent = nameof(jContent);
@@ -47,19 +49,8 @@ public sealed class ContentCommentRow : Row<ContentCommentRow.RowFields>, IIdRow
     [LookupEditor(typeof(Administration.UserRow), Async = true)]
     public int? UserId { get => fields.UserId[this]; set => fields.UserId[this] = value; }
 
-    [DisplayName("Insert Date"), NotNull]
-    public DateTime? InsertDate { get => fields.InsertDate[this]; set => fields.InsertDate[this] = value; }
 
-    [DisplayName("Insert User Id"), NotNull]
-    public int? InsertUserId { get => fields.InsertUserId[this]; set => fields.InsertUserId[this] = value; }
-
-    [DisplayName("Update Date")]
-    public DateTime? UpdateDate { get => fields.UpdateDate[this]; set => fields.UpdateDate[this] = value; }
-
-    [DisplayName("Update User Id")]
-    public int? UpdateUserId { get => fields.UpdateUserId[this]; set => fields.UpdateUserId[this] = value; }
-
-    [DisplayName("Is Active"), NotNull]
+    [DisplayName("Is Active"), NotNull,DefaultValue(1)]
     public short? IsActive { get => fields.IsActive[this]; set => fields.IsActive[this] = value; }
 
     [DisplayName("Parent Comment Text"), Origin(jParent, nameof(ContentCommentRow.CommentText))]
@@ -71,7 +62,7 @@ public sealed class ContentCommentRow : Row<ContentCommentRow.RowFields>, IIdRow
     [DisplayName("User Username"), Origin(jUser, nameof(Administration.UserRow.Username))]
     public string Username { get => fields.Username[this]; set => fields.Username[this] = value; }
 
-    public class RowFields : RowFieldsBase
+    public class RowFields : LoggingRowFields
     {
         public Int32Field Id;
         public StringField CommentText;
@@ -82,10 +73,7 @@ public sealed class ContentCommentRow : Row<ContentCommentRow.RowFields>, IIdRow
         public Int32Field ParentId;
         public Int32Field ContentId;
         public Int32Field UserId;
-        public DateTimeField InsertDate;
-        public Int32Field InsertUserId;
-        public DateTimeField UpdateDate;
-        public Int32Field UpdateUserId;
+       
         public Int16Field IsActive;
 
         public StringField ParentCommentText;

@@ -1,3 +1,5 @@
+using GExpert.Enums;
+using GXpert.Web.Enums;
 using Serenity.ComponentModel;
 using Serenity.Data;
 using Serenity.Data.Mapping;
@@ -27,7 +29,7 @@ public sealed class ContentRow : LoggingRow<ContentRow.RowFields>, IIdRow, IName
     public string Description { get => fields.Description[this]; set => fields.Description[this] = value; }
 
     [DisplayName("E Content Type"), NotNull]
-    public short? EContentType { get => fields.EContentType[this]; set => fields.EContentType[this] = value; }
+    public EContentType? EContentType { get => (EContentType)fields.EContentType[this]; set => fields.EContentType[this] = (short?)value; }
 
     [DisplayName("File Key Url"), Column("FileKeyURL"), NotNull]
     public string FileKeyUrl { get => fields.FileKeyUrl[this]; set => fields.FileKeyUrl[this] = value; }
@@ -79,7 +81,7 @@ public sealed class ContentRow : LoggingRow<ContentRow.RowFields>, IIdRow, IName
     public string SearchTags { get => fields.SearchTags[this]; set => fields.SearchTags[this] = value; }
 
     [DisplayName("E Difficulty Level"), Column("eDifficultyLevel"), NotNull]
-    public short? EDifficultyLevel { get => fields.EDifficultyLevel[this]; set => fields.EDifficultyLevel[this] = value; }
+    public EDifficultyLevel? EDifficultyLevel { get => (EDifficultyLevel)fields.EDifficultyLevel[this]; set => fields.EDifficultyLevel[this] = (short?)value; }
 
    
     [DisplayName("Is Active"), NotNull,DefaultValue(1)]
@@ -101,7 +103,7 @@ public sealed class ContentRow : LoggingRow<ContentRow.RowFields>, IIdRow, IName
     public string FriendlyToken { get => fields.FriendlyToken[this]; set => fields.FriendlyToken[this] = value; }
 
     [DisplayName("E Content State"), NotNull]
-    public short? EContentState { get => fields.EContentState[this]; set => fields.EContentState[this] = value; }
+    public EContentState? EContentState { get => (EContentState)fields.EContentState[this]; set => fields.EContentState[this] = (short?)value; }
 
     [DisplayName("Views"), NotNull]
     public int? Views { get => fields.Views[this]; set => fields.Views[this] = value; }
@@ -115,7 +117,7 @@ public sealed class ContentRow : LoggingRow<ContentRow.RowFields>, IIdRow, IName
     [DisplayName("Is Listed"), NotNull]
     public bool? IsListed { get => fields.IsListed[this]; set => fields.IsListed[this] = value; }
 
-    [DisplayName("Thumbnail Time"),FileUploadEditor]
+    [DisplayName("Thumbnail Time")]
     public double? ThumbnailTime { get => fields.ThumbnailTime[this]; set => fields.ThumbnailTime[this] = value; }
 
     [DisplayName("Md5sum"), Size(100)]
@@ -131,7 +133,7 @@ public sealed class ContentRow : LoggingRow<ContentRow.RowFields>, IIdRow, IName
     public short? MediaVersion { get => fields.MediaVersion[this]; set => fields.MediaVersion[this] = value; }
 
     [DisplayName("User"), NotNull, ForeignKey(typeof(Administration.UserRow)), LeftJoin(jUser), TextualField(nameof(Username))]
-    [LookupEditor(typeof(Administration.UserRow), Async = true)]
+    [LookupEditor(typeof(Administration.UserRow))]
     public int? UserId { get => fields.UserId[this]; set => fields.UserId[this] = value; }
 
     [DisplayName("Download File Primary Url"), Size(500), NotNull]
