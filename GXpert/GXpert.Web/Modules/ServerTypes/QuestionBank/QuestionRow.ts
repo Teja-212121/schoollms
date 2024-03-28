@@ -1,6 +1,7 @@
 ﻿import { getLookup, getLookupAsync, fieldsProxy } from "@serenity-is/corelib";
 import { EDifficultyLevel } from "../Web/Enums.EDifficultyLevel";
 import { EQuestionType } from "../Web/Enums.EQuestionType";
+import { QuestionOptionRow } from "./QuestionOptionRow";
 
 export interface QuestionRow {
     Id?: number;
@@ -22,6 +23,7 @@ export interface QuestionRow {
     SubjectTitle?: string;
     TopicTitle?: string;
     BloomsIndexCoginitiveSkill?: string;
+    QuestionOptions?: QuestionOptionRow[];
     InsertUserId?: number;
     InsertDate?: string;
     UpdateUserId?: number;

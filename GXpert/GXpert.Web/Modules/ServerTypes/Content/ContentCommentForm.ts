@@ -1,4 +1,4 @@
-﻿import { StringEditor, IntegerEditor, ServiceLookupEditor, LookupEditor, DateEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
+﻿import { StringEditor, IntegerEditor, ServiceLookupEditor, LookupEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
 
 export interface ContentCommentForm {
     CommentText: StringEditor;
@@ -9,11 +9,6 @@ export interface ContentCommentForm {
     ParentId: ServiceLookupEditor;
     ContentId: LookupEditor;
     UserId: LookupEditor;
-    InsertDate: DateEditor;
-    InsertUserId: IntegerEditor;
-    UpdateDate: DateEditor;
-    UpdateUserId: IntegerEditor;
-    IsActive: IntegerEditor;
 }
 
 export class ContentCommentForm extends PrefixedContext {
@@ -30,7 +25,6 @@ export class ContentCommentForm extends PrefixedContext {
             var w1 = IntegerEditor;
             var w2 = ServiceLookupEditor;
             var w3 = LookupEditor;
-            var w4 = DateEditor;
 
             initFormType(ContentCommentForm, [
                 'CommentText', w0,
@@ -40,12 +34,7 @@ export class ContentCommentForm extends PrefixedContext {
                 'CommentLevel', w1,
                 'ParentId', w2,
                 'ContentId', w3,
-                'UserId', w3,
-                'InsertDate', w4,
-                'InsertUserId', w1,
-                'UpdateDate', w4,
-                'UpdateUserId', w1,
-                'IsActive', w1
+                'UserId', w3
             ]);
         }
     }

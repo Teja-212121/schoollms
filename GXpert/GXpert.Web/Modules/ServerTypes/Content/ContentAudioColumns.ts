@@ -11,11 +11,6 @@ export interface ContentAudioColumns {
     ContentTitle: Column<ContentAudioRow>;
     LanguageName: Column<ContentAudioRow>;
     Username: Column<ContentAudioRow>;
-    InsertDate: Column<ContentAudioRow>;
-    InsertUserId: Column<ContentAudioRow>;
-    UpdateDate: Column<ContentAudioRow>;
-    UpdateUserId: Column<ContentAudioRow>;
-    IsActive: Column<ContentAudioRow>;
 }
 
 export class ContentAudioColumns extends ColumnsBase<ContentAudioRow> {

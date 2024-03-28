@@ -1,15 +1,10 @@
-﻿import { StringEditor, LookupEditor, IntegerEditor, DateEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
+﻿import { ImageUploadEditor, LookupEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
 
 export interface ContentSubtitleForm {
-    SubtitleFile: StringEditor;
+    SubtitleFile: ImageUploadEditor;
     ContentId: LookupEditor;
-    LanguageId: IntegerEditor;
+    LanguageId: LookupEditor;
     UserId: LookupEditor;
-    InsertDate: DateEditor;
-    InsertUserId: IntegerEditor;
-    UpdateDate: DateEditor;
-    UpdateUserId: IntegerEditor;
-    IsActive: IntegerEditor;
 }
 
 export class ContentSubtitleForm extends PrefixedContext {
@@ -22,21 +17,14 @@ export class ContentSubtitleForm extends PrefixedContext {
         if (!ContentSubtitleForm.init)  {
             ContentSubtitleForm.init = true;
 
-            var w0 = StringEditor;
+            var w0 = ImageUploadEditor;
             var w1 = LookupEditor;
-            var w2 = IntegerEditor;
-            var w3 = DateEditor;
 
             initFormType(ContentSubtitleForm, [
                 'SubtitleFile', w0,
                 'ContentId', w1,
-                'LanguageId', w2,
-                'UserId', w1,
-                'InsertDate', w3,
-                'InsertUserId', w2,
-                'UpdateDate', w3,
-                'UpdateUserId', w2,
-                'IsActive', w2
+                'LanguageId', w1,
+                'UserId', w1
             ]);
         }
     }

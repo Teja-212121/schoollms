@@ -7,8 +7,9 @@ namespace GXpert.QuestionBank.Forms;
 [BasedOnRow(typeof(QuestionOptionRow), CheckNames = true)]
 public class QuestionOptionForm
 {
-    [HalfWidth]
+    [HalfWidth, Hidden]
     public long QuestionId { get; set; }
+    [HtmlContentEditor(Rows = 4)]
     public string OptionText { get; set; }
     [HalfWidth]
     public bool IsCorrect { get; set; }

@@ -1,10 +1,10 @@
-﻿import { LookupEditor, StringEditor, BooleanEditor, IntegerEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
+﻿import { LookupEditor, StringEditor, TextAreaEditor, BooleanEditor, IntegerEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
 
 export interface UserAcademicForm {
     StudentId: LookupEditor;
     AcademicYearId: LookupEditor;
     Title: StringEditor;
-    Description: StringEditor;
+    Description: TextAreaEditor;
     IsVerify: BooleanEditor;
     VerifyBy: IntegerEditor;
 }
@@ -21,16 +21,17 @@ export class UserAcademicForm extends PrefixedContext {
 
             var w0 = LookupEditor;
             var w1 = StringEditor;
-            var w2 = BooleanEditor;
-            var w3 = IntegerEditor;
+            var w2 = TextAreaEditor;
+            var w3 = BooleanEditor;
+            var w4 = IntegerEditor;
 
             initFormType(UserAcademicForm, [
                 'StudentId', w0,
                 'AcademicYearId', w0,
                 'Title', w1,
-                'Description', w1,
-                'IsVerify', w2,
-                'VerifyBy', w3
+                'Description', w2,
+                'IsVerify', w3,
+                'VerifyBy', w4
             ]);
         }
     }

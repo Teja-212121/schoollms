@@ -178,7 +178,7 @@ public class QuestionEndpoint : ServiceEndpoint
                 List<QuestionOptionRow> OptionList = new List<QuestionOptionRow>();
                 if (Row.EQuestionType == Web.Enums.EQuestionType.SINGLE_RIGHT_ANSWER || Row.EQuestionType == Web.Enums.EQuestionType.MULTIPLE_RIGHT_ANSWER)
                 {
-                    for (int j = 8; j < 14; j++)
+                    for (int j = 8; j < 13; j++)
                     {
                         var Questionoption = new QuestionOptionRow();
                         if (j < 11)

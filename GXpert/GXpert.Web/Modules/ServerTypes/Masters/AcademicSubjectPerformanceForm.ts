@@ -1,4 +1,5 @@
-﻿import { LookupEditor, ServiceLookupEditor, IntegerEditor, DecimalEditor, StringEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
+﻿import { LookupEditor, ServiceLookupEditor, EnumEditor, DecimalEditor, StringEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
+import { ETypeOfExam } from "../Web/Enums.ETypeOfExam";
 
 export interface AcademicSubjectPerformanceForm {
     StudentId: LookupEditor;
@@ -6,7 +7,7 @@ export interface AcademicSubjectPerformanceForm {
     ClassId: LookupEditor;
     SemesterId: ServiceLookupEditor;
     SubjectId: LookupEditor;
-    ETypeOfExam: IntegerEditor;
+    ETypeOfExam: EnumEditor;
     MarksObtained: DecimalEditor;
     OutOfMarks: DecimalEditor;
     Remarks: StringEditor;
@@ -25,7 +26,7 @@ export class AcademicSubjectPerformanceForm extends PrefixedContext {
 
             var w0 = LookupEditor;
             var w1 = ServiceLookupEditor;
-            var w2 = IntegerEditor;
+            var w2 = EnumEditor;
             var w3 = DecimalEditor;
             var w4 = StringEditor;
 
@@ -44,3 +45,5 @@ export class AcademicSubjectPerformanceForm extends PrefixedContext {
         }
     }
 }
+
+[ETypeOfExam]; // referenced types

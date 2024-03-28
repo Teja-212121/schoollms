@@ -1,4 +1,5 @@
 ﻿import { fieldsProxy } from "@serenity-is/corelib";
+import { EProjectType } from "../Web/Enums.EProjectType";
 
 export interface ProjectRow {
     Id?: number;
@@ -8,7 +9,7 @@ export interface ProjectRow {
     SemesterId?: number;
     Title?: string;
     Description?: string;
-    EType?: number;
+    EType?: EProjectType;
     StudentPrn?: string;
     CourseTitle?: string;
     ClassTitle?: string;

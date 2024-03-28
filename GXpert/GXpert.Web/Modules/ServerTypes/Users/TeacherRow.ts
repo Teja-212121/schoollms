@@ -27,7 +27,7 @@ export interface TeacherRow {
 
 export abstract class TeacherRow {
     static readonly idProperty = 'Id';
-    static readonly nameProperty = 'Prn';
+    static readonly nameProperty = 'Name';
     static readonly localTextPrefix = 'Users.Teacher';
     static readonly lookupKey = 'Users.Teacher';
 

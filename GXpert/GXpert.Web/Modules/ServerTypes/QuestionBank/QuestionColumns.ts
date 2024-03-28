@@ -17,6 +17,8 @@ export interface QuestionColumns {
     TopicTitle: Column<QuestionRow>;
     BloomsIndexCoginitiveSkill: Column<QuestionRow>;
     BloomsWeightage: Column<QuestionRow>;
+    QuestionOptions: Column<QuestionRow>;
+    InsertDate: Column<QuestionRow>;
 }
 
 export class QuestionColumns extends ColumnsBase<QuestionRow> {

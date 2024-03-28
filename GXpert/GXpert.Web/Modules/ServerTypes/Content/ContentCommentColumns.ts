@@ -12,11 +12,6 @@ export interface ContentCommentColumns {
     ParentCommentText: Column<ContentCommentRow>;
     ContentTitle: Column<ContentCommentRow>;
     Username: Column<ContentCommentRow>;
-    InsertDate: Column<ContentCommentRow>;
-    InsertUserId: Column<ContentCommentRow>;
-    UpdateDate: Column<ContentCommentRow>;
-    UpdateUserId: Column<ContentCommentRow>;
-    IsActive: Column<ContentCommentRow>;
 }
 
 export class ContentCommentColumns extends ColumnsBase<ContentCommentRow> {

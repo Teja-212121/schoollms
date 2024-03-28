@@ -6,6 +6,7 @@ export interface CommonDataColumns {
     Id: Column<CommonDataRow>;
     CommonDataTitle: Column<CommonDataRow>;
     CommonData: Column<CommonDataRow>;
+    InsertDate: Column<CommonDataRow>;
 }
 
 export class CommonDataColumns extends ColumnsBase<CommonDataRow> {

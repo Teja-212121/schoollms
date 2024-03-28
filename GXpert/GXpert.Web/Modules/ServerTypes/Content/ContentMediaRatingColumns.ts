@@ -8,11 +8,6 @@ export interface ContentMediaRatingColumns {
     RatingName: Column<ContentMediaRatingRow>;
     Score: Column<ContentMediaRatingRow>;
     Username: Column<ContentMediaRatingRow>;
-    InsertDate: Column<ContentMediaRatingRow>;
-    InsertUserId: Column<ContentMediaRatingRow>;
-    UpdateDate: Column<ContentMediaRatingRow>;
-    UpdateUserId: Column<ContentMediaRatingRow>;
-    IsActive: Column<ContentMediaRatingRow>;
 }
 
 export class ContentMediaRatingColumns extends ColumnsBase<ContentMediaRatingRow> {
