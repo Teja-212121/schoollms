@@ -13,4 +13,6 @@ public class CommonDataColumns
     public string CommonDataTitle { get; set; }
     [EditLink]
     public string CommonData { get; set; }
+    [DisplayName("Date"), QuickFilter, FilterOnly] public DateTime InsertDate { get; set; }
+
 }
