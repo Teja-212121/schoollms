@@ -10,11 +10,6 @@ export interface ContentCategoryColumns {
     MediaCount: Column<ContentCategoryRow>;
     Thumbnail: Column<ContentCategoryRow>;
     ListingThumbnail: Column<ContentCategoryRow>;
-    InsertDate: Column<ContentCategoryRow>;
-    InsertUserId: Column<ContentCategoryRow>;
-    UpdateDate: Column<ContentCategoryRow>;
-    UpdateUserId: Column<ContentCategoryRow>;
-    IsActive: Column<ContentCategoryRow>;
 }
 
 export class ContentCategoryColumns extends ColumnsBase<ContentCategoryRow> {

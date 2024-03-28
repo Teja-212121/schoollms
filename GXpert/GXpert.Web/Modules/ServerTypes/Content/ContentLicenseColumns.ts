@@ -6,11 +6,6 @@ export interface ContentLicenseColumns {
     Id: Column<ContentLicenseRow>;
     Name: Column<ContentLicenseRow>;
     Description: Column<ContentLicenseRow>;
-    InsertDate: Column<ContentLicenseRow>;
-    InsertUserId: Column<ContentLicenseRow>;
-    UpdateDate: Column<ContentLicenseRow>;
-    UpdateUserId: Column<ContentLicenseRow>;
-    IsActive: Column<ContentLicenseRow>;
 }
 
 export class ContentLicenseColumns extends ColumnsBase<ContentLicenseRow> {

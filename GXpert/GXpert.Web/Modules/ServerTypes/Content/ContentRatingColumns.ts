@@ -6,11 +6,6 @@ export interface ContentRatingColumns {
     Id: Column<ContentRatingRow>;
     Name: Column<ContentRatingRow>;
     Description: Column<ContentRatingRow>;
-    InsertDate: Column<ContentRatingRow>;
-    InsertUserId: Column<ContentRatingRow>;
-    UpdateDate: Column<ContentRatingRow>;
-    UpdateUserId: Column<ContentRatingRow>;
-    IsActive: Column<ContentRatingRow>;
 }
 
 export class ContentRatingColumns extends ColumnsBase<ContentRatingRow> {

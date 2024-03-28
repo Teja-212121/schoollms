@@ -1,4 +1,5 @@
-﻿import { HtmlContentEditor, BooleanEditor, EnumEditor, ServiceLookupEditor, DecimalEditor, LookupEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
+﻿import { QuestionOptionEditor } from "@/QuestionBank/QuestionOption/QuestionOptionEditor";
+import { HtmlContentEditor, BooleanEditor, EnumEditor, ServiceLookupEditor, DecimalEditor, LookupEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
 import { EDifficultyLevel } from "../Web/Enums.EDifficultyLevel";
 import { EQuestionType } from "../Web/Enums.EQuestionType";
 
@@ -15,6 +16,7 @@ export interface QuestionForm {
     TopicId: LookupEditor;
     BloomsIndex: LookupEditor;
     BloomsWeightage: DecimalEditor;
+    QuestionOptions: QuestionOptionEditor;
 }
 
 export class QuestionForm extends PrefixedContext {
@@ -33,6 +35,7 @@ export class QuestionForm extends PrefixedContext {
             var w3 = ServiceLookupEditor;
             var w4 = DecimalEditor;
             var w5 = LookupEditor;
+            var w6 = QuestionOptionEditor;
 
             initFormType(QuestionForm, [
                 'QuestionText', w0,
@@ -46,7 +49,8 @@ export class QuestionForm extends PrefixedContext {
                 'SubjectId', w5,
                 'TopicId', w5,
                 'BloomsIndex', w5,
-                'BloomsWeightage', w4
+                'BloomsWeightage', w4,
+                'QuestionOptions', w6
             ]);
         }
     }

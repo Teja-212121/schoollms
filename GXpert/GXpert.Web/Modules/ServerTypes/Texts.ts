@@ -364,6 +364,25 @@ namespace GXpert.Texts {
                 export const UpdateUserId: string;
             }
 
+            namespace ContentAudio {
+                export const ContentId: string;
+                export const ContentTitle: string;
+                export const FileKeyUrl: string;
+                export const HlsFile: string;
+                export const Id: string;
+                export const InsertDate: string;
+                export const InsertUserId: string;
+                export const IsActive: string;
+                export const Iv: string;
+                export const LanguageId: string;
+                export const LanguageName: string;
+                export const MediaFile: string;
+                export const UpdateDate: string;
+                export const UpdateUserId: string;
+                export const UserId: string;
+                export const Username: string;
+            }
+
             namespace ContentBloomsIndex {
                 export const BloomsIndex: string;
                 export const BloomsIndexCoginitiveSkill: string;
@@ -376,6 +395,125 @@ namespace GXpert.Texts {
                 export const UpdateDate: string;
                 export const UpdateUserId: string;
                 export const Weightage: string;
+            }
+
+            namespace ContentCategory {
+                export const Description: string;
+                export const Id: string;
+                export const InsertDate: string;
+                export const InsertUserId: string;
+                export const IsActive: string;
+                export const IsGlobal: string;
+                export const ListingThumbnail: string;
+                export const MediaCount: string;
+                export const Name: string;
+                export const Thumbnail: string;
+                export const UpdateDate: string;
+                export const UpdateUserId: string;
+            }
+
+            namespace ContentComment {
+                export const CommentLeft: string;
+                export const CommentLevel: string;
+                export const CommentRight: string;
+                export const CommentText: string;
+                export const ContentId: string;
+                export const ContentTitle: string;
+                export const Id: string;
+                export const InsertDate: string;
+                export const InsertUserId: string;
+                export const IsActive: string;
+                export const ParentCommentText: string;
+                export const ParentId: string;
+                export const TreeId: string;
+                export const UpdateDate: string;
+                export const UpdateUserId: string;
+                export const UserId: string;
+                export const Username: string;
+            }
+
+            namespace ContentCourse {
+                export const ClassId: string;
+                export const ClassTitle: string;
+                export const ContentId: string;
+                export const ContentTitle: string;
+                export const CourseId: string;
+                export const CourseTitle: string;
+                export const Id: string;
+                export const InsertDate: string;
+                export const InsertUserId: string;
+                export const IsActive: string;
+                export const SemesterId: string;
+                export const SemesterTitle: string;
+                export const UpdateDate: string;
+                export const UpdateUserId: string;
+                export const UserId: string;
+                export const Username: string;
+            }
+
+            namespace ContentLanguage {
+                export const Description: string;
+                export const Id: string;
+                export const InsertDate: string;
+                export const InsertUserId: string;
+                export const IsActive: string;
+                export const Name: string;
+                export const UpdateDate: string;
+                export const UpdateUserId: string;
+            }
+
+            namespace ContentLicense {
+                export const Description: string;
+                export const Id: string;
+                export const InsertDate: string;
+                export const InsertUserId: string;
+                export const IsActive: string;
+                export const Name: string;
+                export const UpdateDate: string;
+                export const UpdateUserId: string;
+            }
+
+            namespace ContentMediaRating {
+                export const ContentId: string;
+                export const ContentTitle: string;
+                export const Id: string;
+                export const InsertDate: string;
+                export const InsertUserId: string;
+                export const IsActive: string;
+                export const RatingId: string;
+                export const RatingName: string;
+                export const Score: string;
+                export const UpdateDate: string;
+                export const UpdateUserId: string;
+                export const UserId: string;
+                export const Username: string;
+            }
+
+            namespace ContentRating {
+                export const Description: string;
+                export const Id: string;
+                export const InsertDate: string;
+                export const InsertUserId: string;
+                export const IsActive: string;
+                export const Name: string;
+                export const UpdateDate: string;
+                export const UpdateUserId: string;
+            }
+
+            namespace ContentSubtitle {
+                export const ContentId: string;
+                export const ContentTitle: string;
+                export const Id: string;
+                export const InsertDate: string;
+                export const InsertUserId: string;
+                export const IsActive: string;
+                export const LanguageId: string;
+                export const LanguageName: string;
+                export const SubtitleFile: string;
+                export const UpdateDate: string;
+                export const UpdateUserId: string;
+                export const UserId: string;
+                export const Username: string;
             }
 
             namespace ContentTopic {
@@ -1003,6 +1141,7 @@ namespace GXpert.Texts {
                 export const QuestionCommonDataCommonDataTitle: string;
                 export const QuestionCommonDataId: string;
                 export const QuestionCommonDataSortOrder: string;
+                export const QuestionOptions: string;
                 export const QuestionText: string;
                 export const SubjectId: string;
                 export const SubjectTitle: string;
@@ -1010,6 +1149,25 @@ namespace GXpert.Texts {
                 export const TopicTitle: string;
                 export const UpdateDate: string;
                 export const UpdateUserId: string;
+            }
+
+            namespace QuestionCourse {
+                export const ClassId: string;
+                export const ClassTitle: string;
+                export const CourseId: string;
+                export const CourseTitle: string;
+                export const Id: string;
+                export const InsertDate: string;
+                export const InsertUserId: string;
+                export const IsActive: string;
+                export const QuestionId: string;
+                export const QuestionText: string;
+                export const SemesterId: string;
+                export const SemesterTitle: string;
+                export const UpdateDate: string;
+                export const UpdateUserId: string;
+                export const UserId: string;
+                export const Username: string;
             }
 
             namespace QuestionOption {
@@ -1467,7 +1625,16 @@ namespace GXpert.Texts {
             },
             Content: {
                 Content: {},
+                ContentAudio: {},
                 ContentBloomsIndex: {},
+                ContentCategory: {},
+                ContentComment: {},
+                ContentCourse: {},
+                ContentLanguage: {},
+                ContentLicense: {},
+                ContentMediaRating: {},
+                ContentRating: {},
+                ContentSubtitle: {},
                 ContentTopic: {}
             },
             Exams: {
@@ -1514,6 +1681,7 @@ namespace GXpert.Texts {
             QuestionBank: {
                 CommonData: {},
                 Question: {},
+                QuestionCourse: {},
                 QuestionOption: {}
             },
             Settings: {

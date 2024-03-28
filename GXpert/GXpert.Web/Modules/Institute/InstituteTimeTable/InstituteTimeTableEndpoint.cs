@@ -148,21 +148,7 @@ public class InstituteTimeTableEndpoint : ServiceEndpoint
                 Row.InsertUserId = Convert.ToInt32(User.GetIdentifier());
                 uow.Connection.Insert(Row);
                 response.Inserted = response.Inserted + 1;
-                #region email
-                byte[] bytes;
-                using (var ms = new MemoryStream())
-                using (var bw = new BinaryWriter(ms))
-                {
-                    bw.Write(DateTime.UtcNow.AddHours(3).ToBinary());
-                    //bw.Write(userId);
-                    bw.Write(3);
-                    bw.Flush();
-                    bytes = ms.ToArray();
-                }
-
-
-
-                #endregion
+                
             }
             catch (Exception)
             {

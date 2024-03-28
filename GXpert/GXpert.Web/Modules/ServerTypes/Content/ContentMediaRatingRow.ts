@@ -1,4 +1,4 @@
-﻿import { fieldsProxy } from "@serenity-is/corelib";
+﻿import { getLookup, getLookupAsync, fieldsProxy } from "@serenity-is/corelib";
 
 export interface ContentMediaRatingRow {
     Id?: number;
@@ -6,19 +6,25 @@ export interface ContentMediaRatingRow {
     RatingId?: number;
     Score?: number;
     UserId?: number;
-    InsertDate?: string;
-    InsertUserId?: number;
-    UpdateDate?: string;
-    UpdateUserId?: number;
     IsActive?: number;
     ContentTitle?: string;
     RatingName?: string;
     Username?: string;
+    InsertUserId?: number;
+    InsertDate?: string;
+    UpdateUserId?: number;
+    UpdateDate?: string;
 }
 
 export abstract class ContentMediaRatingRow {
     static readonly idProperty = 'Id';
     static readonly localTextPrefix = 'Content.ContentMediaRating';
+    static readonly lookupKey = 'Content.ContentMediaRating';
+
+    /** @deprecated use getLookupAsync instead */
+    static getLookup() { return getLookup<ContentMediaRatingRow>('Content.ContentMediaRating') }
+    static async getLookupAsync() { return getLookupAsync<ContentMediaRatingRow>('Content.ContentMediaRating') }
+
     static readonly deletePermission = 'Administration:General';
     static readonly insertPermission = 'Administration:General';
     static readonly readPermission = 'Administration:General';

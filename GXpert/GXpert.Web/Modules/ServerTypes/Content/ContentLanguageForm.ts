@@ -1,13 +1,8 @@
-﻿import { StringEditor, DateEditor, IntegerEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
+﻿import { StringEditor, TextAreaEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
 
 export interface ContentLanguageForm {
     Name: StringEditor;
-    Description: StringEditor;
-    InsertDate: DateEditor;
-    InsertUserId: IntegerEditor;
-    UpdateDate: DateEditor;
-    UpdateUserId: IntegerEditor;
-    IsActive: IntegerEditor;
+    Description: TextAreaEditor;
 }
 
 export class ContentLanguageForm extends PrefixedContext {
@@ -21,17 +16,11 @@ export class ContentLanguageForm extends PrefixedContext {
             ContentLanguageForm.init = true;
 
             var w0 = StringEditor;
-            var w1 = DateEditor;
-            var w2 = IntegerEditor;
+            var w1 = TextAreaEditor;
 
             initFormType(ContentLanguageForm, [
                 'Name', w0,
-                'Description', w0,
-                'InsertDate', w1,
-                'InsertUserId', w2,
-                'UpdateDate', w1,
-                'UpdateUserId', w2,
-                'IsActive', w2
+                'Description', w1
             ]);
         }
     }

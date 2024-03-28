@@ -8,11 +8,6 @@ export interface ContentSubtitleColumns {
     ContentTitle: Column<ContentSubtitleRow>;
     LanguageName: Column<ContentSubtitleRow>;
     Username: Column<ContentSubtitleRow>;
-    InsertDate: Column<ContentSubtitleRow>;
-    InsertUserId: Column<ContentSubtitleRow>;
-    UpdateDate: Column<ContentSubtitleRow>;
-    UpdateUserId: Column<ContentSubtitleRow>;
-    IsActive: Column<ContentSubtitleRow>;
 }
 
 export class ContentSubtitleColumns extends ColumnsBase<ContentSubtitleRow> {
