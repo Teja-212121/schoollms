@@ -408,25 +408,6 @@ namespace GXpert.Texts {
                 export const Username: string;
             }
 
-            namespace ContentAudio {
-                export const ContentId: string;
-                export const ContentTitle: string;
-                export const FileKeyUrl: string;
-                export const HlsFile: string;
-                export const Id: string;
-                export const InsertDate: string;
-                export const InsertUserId: string;
-                export const IsActive: string;
-                export const Iv: string;
-                export const LanguageId: string;
-                export const LanguageName: string;
-                export const MediaFile: string;
-                export const UpdateDate: string;
-                export const UpdateUserId: string;
-                export const UserId: string;
-                export const Username: string;
-            }
-
             namespace ContentBloomsIndex {
                 export const BloomsIndex: string;
                 export const BloomsIndexCoginitiveSkill: string;
