@@ -864,6 +864,7 @@ namespace GXpert.Texts {
                 export const Password: string;
                 export const SearchTags: string;
                 export const Secret: string;
+                export const Title: string;
                 export const UpdateDate: string;
                 export const UpdateUserId: string;
             }

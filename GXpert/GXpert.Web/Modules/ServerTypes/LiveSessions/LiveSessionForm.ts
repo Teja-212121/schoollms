@@ -3,6 +3,7 @@ import { ELiveProvider } from "../Web/Enums.ELiveProvider";
 
 export interface LiveSessionForm {
     MeetingId: StringEditor;
+    Title: StringEditor;
     LiveProvider: EnumEditor;
     Password: StringEditor;
     Secret: StringEditor;
@@ -25,6 +26,7 @@ export class LiveSessionForm extends PrefixedContext {
 
             initFormType(LiveSessionForm, [
                 'MeetingId', w0,
+                'Title', w0,
                 'LiveProvider', w1,
                 'Password', w0,
                 'Secret', w0,

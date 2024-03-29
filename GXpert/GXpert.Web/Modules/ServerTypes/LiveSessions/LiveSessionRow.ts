@@ -7,6 +7,7 @@ export interface LiveSessionRow {
     LiveProvider?: ELiveProvider;
     Password?: string;
     Secret?: string;
+    Title?: string;
     LiveAdditionalInfo?: string;
     SearchTags?: string;
     IsActive?: boolean;

@@ -10,7 +10,10 @@ public class LiveSessionForm
     [HalfWidth]
     public string MeetingId { get; set; }
     [HalfWidth]
+    public string Title { get; set; }
+    [HalfWidth]
     public short LiveProvider { get; set; }
+
     [HalfWidth]
     public string Password { get; set; }
     [HalfWidth]

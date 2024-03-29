@@ -21,6 +21,8 @@ public sealed class LiveSessionRow : LoggingRow<LiveSessionRow.RowFields>, IIdRo
 
     [DisplayName("Meeting Id"), Size(2000), NotNull, QuickSearch, NameProperty]
     public string MeetingId { get => fields.MeetingId[this]; set => fields.MeetingId[this] = value; }
+    [DisplayName("Title"), Size(255)]
+    public string Title { get => fields.Title[this]; set => fields.Title[this] = value; }
 
     [DisplayName("Live Provider"), NotNull]
     public ELiveProvider? LiveProvider { get => (ELiveProvider?)fields.LiveProvider[this]; set => fields.LiveProvider[this] = (short?)value; }
@@ -47,6 +49,7 @@ public sealed class LiveSessionRow : LoggingRow<LiveSessionRow.RowFields>, IIdRo
         public Int16Field LiveProvider;
         public StringField Password;
         public StringField Secret;
+        public StringField Title;
         public StringField LiveAdditionalInfo;
         public StringField SearchTags;
         public BooleanField IsActive;

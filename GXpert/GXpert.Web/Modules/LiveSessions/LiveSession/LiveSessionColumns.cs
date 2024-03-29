@@ -12,6 +12,7 @@ public class LiveSessionColumns
     public int Id { get; set; }
     [EditLink]
     public string MeetingId { get; set; }
+    public string Title { get; set; }
     public short LiveProvider { get; set; }
     public string Password { get; set; }
     public string Secret { get; set; }

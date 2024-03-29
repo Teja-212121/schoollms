@@ -6,6 +6,7 @@ import { LiveSessionRow } from "./LiveSessionRow";
 export interface LiveSessionColumns {
     Id: Column<LiveSessionRow>;
     MeetingId: Column<LiveSessionRow>;
+    Title: Column<LiveSessionRow>;
     LiveProvider: Column<LiveSessionRow>;
     Password: Column<LiveSessionRow>;
     Secret: Column<LiveSessionRow>;
