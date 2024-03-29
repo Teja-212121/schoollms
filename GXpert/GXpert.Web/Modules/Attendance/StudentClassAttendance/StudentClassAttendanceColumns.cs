@@ -11,6 +11,6 @@ public class StudentClassAttendanceColumns
     [EditLink, DisplayName("Db.Shared.RecordId"), AlignRight]
     public int Id { get; set; }
     public int InstituteTimeTableId{ get; set; }
-    public string StudentPrn { get; set; }
+    public string StudentId { get; set; }
     public short AttendanceStatus { get; set; }
 }

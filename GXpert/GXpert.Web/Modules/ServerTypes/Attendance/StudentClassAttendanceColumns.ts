@@ -6,7 +6,7 @@ import { StudentClassAttendanceRow } from "./StudentClassAttendanceRow";
 export interface StudentClassAttendanceColumns {
     Id: Column<StudentClassAttendanceRow>;
     InstituteTimeTableId: Column<StudentClassAttendanceRow>;
-    StudentPrn: Column<StudentClassAttendanceRow>;
+    StudentId: Column<StudentClassAttendanceRow>;
     AttendanceStatus: Column<StudentClassAttendanceRow>;
 }
 
