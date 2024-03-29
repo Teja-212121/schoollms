@@ -29,7 +29,7 @@ public sealed class ContentSubtitleRow : LoggingRow<ContentSubtitleRow.RowFields
     [LookupEditor(typeof(ContentRow), Async = true)]
     public int? ContentId { get => fields.ContentId[this]; set => fields.ContentId[this] = value; }
 
-    [DisplayName("Language"), NotNull, ForeignKey("ContentLanguages", "Id"), LeftJoin(jLanguage), TextualField(nameof(LanguageName))]
+    [DisplayName("Language"), ForeignKey("ContentLanguages", "Id"), LeftJoin(jLanguage), TextualField(nameof(LanguageName))]
     [LookupEditor("Content.ContentLanguage")]
     public int? LanguageId { get => fields.LanguageId[this]; set => fields.LanguageId[this] = value; }
 

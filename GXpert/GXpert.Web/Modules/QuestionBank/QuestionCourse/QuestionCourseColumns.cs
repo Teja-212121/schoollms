@@ -1,4 +1,4 @@
-﻿using Serenity.ComponentModel;
+using Serenity.ComponentModel;
 using System;
 using System.ComponentModel;
 
@@ -14,10 +14,6 @@ public class QuestionCourseColumns
     public string CourseTitle { get; set; }
     public string ClassTitle { get; set; }
     public string SemesterTitle { get; set; }
-    public string Username { get; set; }
-    public DateTime InsertDate { get; set; }
-    public int InsertUserId { get; set; }
-    public DateTime UpdateDate { get; set; }
-    public int UpdateUserId { get; set; }
-    public short IsActive { get; set; }
 }
+ 
+   

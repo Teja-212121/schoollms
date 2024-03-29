@@ -67,6 +67,7 @@ public sealed class InstituteTeacherRow : LoggingRow<InstituteTeacherRow.RowFiel
     public string AcademicYearName { get => fields.AcademicYearName[this]; set => fields.AcademicYearName[this] = value; }
 
     [DisplayName("Semester"), ForeignKey("Semester", "Id"), LeftJoin(jSemester), TextualField(nameof(Semester))]
+    [LookupEditor("Syllabus.Semester")]
     public int? SemesterId { get => fields.SemesterId[this]; set => fields.SemesterId[this] = value; }
 
     [DisplayName("Semester"), Expression($"{jSemester}.[Title]")]
@@ -78,6 +79,8 @@ public sealed class InstituteTeacherRow : LoggingRow<InstituteTeacherRow.RowFiel
 
     [DisplayName("InstituteDivision"), Expression($"{jInstituteDivision}.[Title]")]
     public string InstituteDivision { get => fields.InstituteDivision[this]; set => fields.InstituteDivision[this] = value; }
+
+    
     public class RowFields : LoggingRowFields
     {
         public Int32Field Id;
