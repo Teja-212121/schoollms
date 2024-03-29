@@ -24,4 +24,14 @@ public class ExamSectionForm
     public int NumberOfMandatoryQuestions { get; set; }
     [HalfWidth]
     public string SearchTags { get; set; }
+    [HalfWidth]
+    public int CourseId { get; set; }
+    [HalfWidth]
+    public int ClassId { get; set; }
+    [HalfWidth]
+    public int SemesterId { get; set; }
+    [HalfWidth]
+    public int SubjectId { get; set; }
+    [HalfWidth]
+    public int TopicId { get; set; }
 }

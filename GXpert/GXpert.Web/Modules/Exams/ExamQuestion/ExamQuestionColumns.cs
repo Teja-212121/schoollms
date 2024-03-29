@@ -18,7 +18,9 @@ public class ExamQuestionColumns
     public string RightAnswer { get; set; }
     public float Marks { get; set; }
     public float SortOrder { get; set; }
+    public string CourseTitle { get; set; }
     public string ClassTitle { get; set; }
+    public string SemesterTitle { get; set; }
     public string SubjectTitle { get; set; }
     public string TopicTitle { get; set; }
 }

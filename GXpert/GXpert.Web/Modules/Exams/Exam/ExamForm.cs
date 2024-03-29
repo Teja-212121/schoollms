@@ -1,3 +1,4 @@
+
 using Serenity.ComponentModel;
 using System;
 
@@ -12,7 +13,9 @@ public class ExamForm
     public short EExamType { get; set; }
     [HalfWidth]
     public short EExamState { get; set; }
+    [HalfWidth]
     public string QuestionPaperPath { get; set; }
+    [HalfWidth]
     public string ModelAnswerPaperPath { get; set; }
     [HalfWidth]
     public int ExamDuration { get; set; }
@@ -32,7 +35,11 @@ public class ExamForm
     public short EOptionDisplayType { get; set; }
     [HalfWidth]
     public bool HasNegativeMarketing { get; set; }
+    [HtmlContentEditor(Rows = 4), CssClass("fact")]
     public string Instructions { get; set; }
     [HalfWidth]
     public string SearchTags { get; set; }
+    [Category("ExamSectionOption"), CssClass("fact")]
+    [ExamSectionEditor]
+    public List<ExamSectionRow> ExamSection { get; set; }
 }

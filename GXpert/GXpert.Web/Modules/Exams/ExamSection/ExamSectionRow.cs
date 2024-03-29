@@ -12,10 +12,17 @@ namespace GXpert.Exams;
 [ReadPermission("Administration:General")]
 [ModifyPermission("Administration:General")]
 [ServiceLookupPermission("Administration:General")]
+[LookupScript("Exams.Exam Section")]
 public sealed class ExamSectionRow : LoggingRow<ExamSectionRow.RowFields>, IIdRow, INameRow
 {
     const string jExam = nameof(jExam);
     const string jParent = nameof(jParent);
+    const string jClass = nameof(jClass);
+    const string jSubject = nameof(jSubject);
+    const string jTopic = nameof(jTopic);
+    const string jCourse = nameof(jCourse);
+    const string jSemester = nameof(jSemester);
+
 
     [DisplayName("Id"), Identity, IdProperty]
     public int? Id { get => fields.Id[this]; set => fields.Id[this] = value; }
@@ -58,6 +65,40 @@ public sealed class ExamSectionRow : LoggingRow<ExamSectionRow.RowFields>, IIdRo
     [DisplayName("Parent Title"), Origin(jParent, nameof(ExamSectionRow.Title))]
     public string ParentTitle { get => fields.ParentTitle[this]; set => fields.ParentTitle[this] = value; }
 
+    [DisplayName("Class"), ForeignKey("Classes", "Id"), LeftJoin(jClass), TextualField(nameof(ClassTitle))]
+    [LookupEditor("Syllabus.Class")]
+    public int? ClassId { get => fields.ClassId[this]; set => fields.ClassId[this] = value; }
+
+    [DisplayName("Subject"), ForeignKey("Subjects", "Id"), LeftJoin(jSubject), TextualField(nameof(SubjectTitle))]
+    [LookupEditor("Syllabus.Subject")]
+    public int? SubjectId { get => fields.SubjectId[this]; set => fields.SubjectId[this] = value; }
+
+    [DisplayName("Topic"), ForeignKey("Topics", "Id"), LeftJoin(jTopic), TextualField(nameof(TopicTitle))]
+    [LookupEditor("Syllabus.Topic")]
+    public int? TopicId { get => fields.TopicId[this]; set => fields.TopicId[this] = value; }
+
+    [DisplayName("Class Title"), Expression($"{jClass}.[Title]")]
+    public string ClassTitle { get => fields.ClassTitle[this]; set => fields.ClassTitle[this] = value; }
+
+    [DisplayName("Subject Title"), Expression($"{jSubject}.[Title]")]
+    public string SubjectTitle { get => fields.SubjectTitle[this]; set => fields.SubjectTitle[this] = value; }
+
+    [DisplayName("Topic Title"), Expression($"{jTopic}.[Title]")]
+    public string TopicTitle { get => fields.TopicTitle[this]; set => fields.TopicTitle[this] = value; }
+
+    [DisplayName("Course"), ForeignKey("Course", "Id"), LeftJoin(jCourse)]
+    [LookupEditor("Syllabus.Course")]
+    public int? CourseId { get => fields.CourseId[this]; set => fields.CourseId[this] = value; }
+
+    [DisplayName("Course Title"), Expression($"{jCourse}.[Title]")]
+    public string CourseTitle { get => fields.CourseTitle[this]; set => fields.CourseTitle[this] = value; }
+
+    [DisplayName("Semester"), ForeignKey("Semester", "Id"), LeftJoin(jSemester)]
+    [LookupEditor("Syllabus.Semester")]
+    public int? SemesterId { get => fields.SemesterId[this]; set => fields.SemesterId[this] = value; }
+
+    [DisplayName("Semester Title"), Expression($"{jCourse}.[Title]")]
+    public string SemesterTitle { get => fields.SemesterTitle[this]; set => fields.SemesterTitle[this] = value; }
     public class RowFields : LoggingRowFields
     {
         public Int32Field Id;
@@ -67,6 +108,11 @@ public sealed class ExamSectionRow : LoggingRow<ExamSectionRow.RowFields>, IIdRo
         public Int32Field DurationInSeconds;
         public SingleField SortOrder;
         public Int32Field ParentId;
+        public Int32Field CourseId;
+        public Int32Field ClassId;
+        public Int32Field SemesterId;
+        public Int32Field SubjectId;
+        public Int32Field TopicId;
         public Int32Field NumberOfQuestions;
         public Int32Field NumberOfMandatoryQuestions;
         public StringField SearchTags;
@@ -74,5 +120,10 @@ public sealed class ExamSectionRow : LoggingRow<ExamSectionRow.RowFields>, IIdRo
 
         public StringField ExamTitle;
         public StringField ParentTitle;
+        public StringField CourseTitle;
+        public StringField ClassTitle;
+        public StringField SemesterTitle;
+        public StringField SubjectTitle;
+        public StringField TopicTitle;
     }
 }

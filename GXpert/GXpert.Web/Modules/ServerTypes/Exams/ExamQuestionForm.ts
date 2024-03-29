@@ -9,7 +9,9 @@ export interface ExamQuestionForm {
     RightAnswer: StringEditor;
     Marks: DecimalEditor;
     SortOrder: DecimalEditor;
+    CourseId: LookupEditor;
     ClassId: LookupEditor;
+    SemesterId: LookupEditor;
     SubjectId: LookupEditor;
     TopicId: LookupEditor;
 }
@@ -38,7 +40,9 @@ export class ExamQuestionForm extends PrefixedContext {
                 'RightAnswer', w3,
                 'Marks', w4,
                 'SortOrder', w4,
+                'CourseId', w1,
                 'ClassId', w1,
+                'SemesterId', w1,
                 'SubjectId', w1,
                 'TopicId', w1
             ]);

@@ -13,6 +13,11 @@ export interface ExamSectionColumns {
     NumberOfQuestions: Column<ExamSectionRow>;
     NumberOfMandatoryQuestions: Column<ExamSectionRow>;
     SearchTags: Column<ExamSectionRow>;
+    CourseTitle: Column<ExamSectionRow>;
+    ClassTitle: Column<ExamSectionRow>;
+    SemesterTitle: Column<ExamSectionRow>;
+    SubjectTitle: Column<ExamSectionRow>;
+    TopicTitle: Column<ExamSectionRow>;
 }
 
 export class ExamSectionColumns extends ColumnsBase<ExamSectionRow> {
