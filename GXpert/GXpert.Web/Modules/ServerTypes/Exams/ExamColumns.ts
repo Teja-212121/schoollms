@@ -20,6 +20,7 @@ export interface ExamColumns {
     EOptionDisplayType: Column<ExamRow>;
     HasNegativeMarketing: Column<ExamRow>;
     Instructions: Column<ExamRow>;
+    ExamSection: Column<ExamRow>;
     SearchTags: Column<ExamRow>;
 }
 

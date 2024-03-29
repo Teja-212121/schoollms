@@ -408,25 +408,6 @@ namespace GXpert.Texts {
                 export const Username: string;
             }
 
-            namespace ContentAudio {
-                export const ContentId: string;
-                export const ContentTitle: string;
-                export const FileKeyUrl: string;
-                export const HlsFile: string;
-                export const Id: string;
-                export const InsertDate: string;
-                export const InsertUserId: string;
-                export const IsActive: string;
-                export const Iv: string;
-                export const LanguageId: string;
-                export const LanguageName: string;
-                export const MediaFile: string;
-                export const UpdateDate: string;
-                export const UpdateUserId: string;
-                export const UserId: string;
-                export const Username: string;
-            }
-
             namespace ContentBloomsIndex {
                 export const BloomsIndex: string;
                 export const BloomsIndexCoginitiveSkill: string;
@@ -629,6 +610,7 @@ namespace GXpert.Texts {
                 export const EResultType: string;
                 export const ESectionNavigation: string;
                 export const ExamDuration: string;
+                export const ExamSection: string;
                 export const HasNegativeMarketing: string;
                 export const Id: string;
                 export const InsertDate: string;
@@ -648,6 +630,8 @@ namespace GXpert.Texts {
             namespace ExamQuestion {
                 export const ClassId: string;
                 export const ClassTitle: string;
+                export const CourseId: string;
+                export const CourseTitle: string;
                 export const EDifficultyLevel: string;
                 export const ExamId: string;
                 export const ExamSectionId: string;
@@ -661,6 +645,9 @@ namespace GXpert.Texts {
                 export const QuestionId: string;
                 export const QuestionText: string;
                 export const RightAnswer: string;
+                export const RowIds: string;
+                export const SemesterId: string;
+                export const SemesterTitle: string;
                 export const SortOrder: string;
                 export const SubjectId: string;
                 export const SubjectTitle: string;
@@ -671,6 +658,10 @@ namespace GXpert.Texts {
             }
 
             namespace ExamSection {
+                export const ClassId: string;
+                export const ClassTitle: string;
+                export const CourseId: string;
+                export const CourseTitle: string;
                 export const DurationInSeconds: string;
                 export const ExamId: string;
                 export const ExamTitle: string;
@@ -684,8 +675,14 @@ namespace GXpert.Texts {
                 export const ParentId: string;
                 export const ParentTitle: string;
                 export const SearchTags: string;
+                export const SemesterId: string;
+                export const SemesterTitle: string;
                 export const SortOrder: string;
+                export const SubjectId: string;
+                export const SubjectTitle: string;
                 export const Title: string;
+                export const TopicId: string;
+                export const TopicTitle: string;
                 export const UpdateDate: string;
                 export const UpdateUserId: string;
             }
