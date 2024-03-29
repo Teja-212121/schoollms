@@ -8,12 +8,6 @@ export interface ContentCourseColumns {
     CourseTitle: Column<ContentCourseRow>;
     ClassTitle: Column<ContentCourseRow>;
     SemesterTitle: Column<ContentCourseRow>;
-    Username: Column<ContentCourseRow>;
-    InsertDate: Column<ContentCourseRow>;
-    InsertUserId: Column<ContentCourseRow>;
-    UpdateDate: Column<ContentCourseRow>;
-    UpdateUserId: Column<ContentCourseRow>;
-    IsActive: Column<ContentCourseRow>;
 }
 
 export class ContentCourseColumns extends ColumnsBase<ContentCourseRow> {

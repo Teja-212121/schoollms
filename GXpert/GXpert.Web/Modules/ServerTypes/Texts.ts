@@ -472,8 +472,6 @@ namespace GXpert.Texts {
                 export const SemesterTitle: string;
                 export const UpdateDate: string;
                 export const UpdateUserId: string;
-                export const UserId: string;
-                export const Username: string;
             }
 
             namespace ContentLanguage {
