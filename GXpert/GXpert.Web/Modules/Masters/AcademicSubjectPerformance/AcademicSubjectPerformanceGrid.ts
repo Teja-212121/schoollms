@@ -72,7 +72,7 @@ export class AcademicSubjectPerformanceGrid extends EntityGrid<AcademicSubjectPe
             title: 'Download  Sample',
             cssClass: 'export-xlsx-button',
             onClick: () => {
-                var url = "~/Users/Student/StudentSample";
+                var url = "~/Masters/AcademicSubjectPerformance/AcademicSubjectSample";
                 postToService({ url: resolveUrl(url), request: '', target: '_blank' });
             },
             separator: true

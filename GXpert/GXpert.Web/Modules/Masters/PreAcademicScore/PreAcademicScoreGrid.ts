@@ -75,7 +75,7 @@ export class PreAcademicScoreGrid extends EntityGrid<PreAcademicScoreRow, any> {
             title: 'Download  Sample',
             cssClass: 'export-xlsx-button',
             onClick: () => {
-                var url = "~/Users/Student/StudentSample";
+                var url = "~/Masters/PreAcademicScore/PreacademicScoreSample";
                 postToService({ url: resolveUrl(url), request: '', target: '_blank' });
             },
             separator: true

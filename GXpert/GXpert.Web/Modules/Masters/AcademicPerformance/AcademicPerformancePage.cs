@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc;
 using Serenity.Web;
 
 namespace GXpert.Masters.Pages;
@@ -11,5 +11,12 @@ public class AcademicPerformancePage : Controller
     {
         return this.GridPage("@/Masters/AcademicPerformance/AcademicPerformancePage",
             AcademicPerformanceRow.Fields.PageTitle());
+    }
+    [Route("Masters/AcademicPerformance/AcademicPerformanceSample")]
+    public FileContentResult DownloadImportedQuestionsSample()
+    {
+        string filePath = "Uploads/AcademicPerformanceSample.xlsx";
+        byte[] fileBytes = System.IO.File.ReadAllBytes(filePath);
+        return new FileContentResult(fileBytes, "application/vnd.ms-excel");
     }
 }
