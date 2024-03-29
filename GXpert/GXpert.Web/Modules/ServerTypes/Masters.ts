@@ -1,5 +1,7 @@
 ﻿export * from "./Masters/AcademicPerformanceColumns"
+export * from "./Masters/AcademicperformanceExcelImportRequest"
 export * from "./Masters/AcademicPerformanceForm"
+export * from "./Masters/AcademicPerformanceImportForm"
 export * from "./Masters/AcademicPerformanceRow"
 export * from "./Masters/AcademicPerformanceService"
 export * from "./Masters/AcademicSubjectPerformanceColumns"

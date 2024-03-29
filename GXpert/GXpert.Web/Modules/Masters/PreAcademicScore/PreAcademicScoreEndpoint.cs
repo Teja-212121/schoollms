@@ -166,11 +166,6 @@ public class PreAcademicScoreEndpoint : ServiceEndpoint
                 }
                 Row.Remarks = remark;
                
-         
-
-              
-
-
                 var preacademicScore = new PreAcademicScoreRow
                 {
                    
@@ -179,7 +174,7 @@ public class PreAcademicScoreEndpoint : ServiceEndpoint
                     MarksObtained = Row.MarksObtained,
                     OutOfMarks = Row.OutOfMarks,
                     StudentId = Row.StudentId,
-                
+                    Remarks = Row.Remarks,
                     InsertDate = DateTime.Now,
                     InsertUserId = Convert.ToInt32(User.GetIdentifier())
                 };
