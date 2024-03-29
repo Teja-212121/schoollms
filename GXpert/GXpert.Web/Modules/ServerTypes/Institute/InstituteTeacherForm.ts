@@ -1,9 +1,9 @@
-﻿import { LookupEditor, IntegerEditor, TextAreaEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
+﻿import { LookupEditor, TextAreaEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
 
 export interface InstituteTeacherForm {
     InstituteId: LookupEditor;
     ClassId: LookupEditor;
-    SemesterId: IntegerEditor;
+    SemesterId: LookupEditor;
     SubjectId: LookupEditor;
     TeacherId: LookupEditor;
     InstituteDivisionId: LookupEditor;
@@ -22,18 +22,17 @@ export class InstituteTeacherForm extends PrefixedContext {
             InstituteTeacherForm.init = true;
 
             var w0 = LookupEditor;
-            var w1 = IntegerEditor;
-            var w2 = TextAreaEditor;
+            var w1 = TextAreaEditor;
 
             initFormType(InstituteTeacherForm, [
                 'InstituteId', w0,
                 'ClassId', w0,
-                'SemesterId', w1,
+                'SemesterId', w0,
                 'SubjectId', w0,
                 'TeacherId', w0,
                 'InstituteDivisionId', w0,
                 'AcademicYearId', w0,
-                'Description', w2
+                'Description', w1
             ]);
         }
     }

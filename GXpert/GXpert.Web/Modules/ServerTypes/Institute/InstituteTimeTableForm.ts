@@ -1,5 +1,6 @@
 ﻿import { IntegerEditor, DateEditor, LookupEditor, EnumEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
 import { EInstituteTimeTableType } from "../Web/Enums.EInstituteTimeTableType";
+import { ETeacherAttendanceStatus } from "../Web/Enums.ETeacherAttendanceStatus";
 
 export interface InstituteTimeTableForm {
     ClassRoomNo: IntegerEditor;
@@ -10,6 +11,7 @@ export interface InstituteTimeTableForm {
     InstituteDivisionId: LookupEditor;
     TeacherId: LookupEditor;
     EType: EnumEditor;
+    TeacherAttendanceStatus: EnumEditor;
 }
 
 export class InstituteTimeTableForm extends PrefixedContext {
@@ -35,10 +37,11 @@ export class InstituteTimeTableForm extends PrefixedContext {
                 'PeriodIndex', w0,
                 'InstituteDivisionId', w2,
                 'TeacherId', w2,
-                'EType', w3
+                'EType', w3,
+                'TeacherAttendanceStatus', w3
             ]);
         }
     }
 }
 
-[EInstituteTimeTableType]; // referenced types
+[EInstituteTimeTableType, ETeacherAttendanceStatus]; // referenced types

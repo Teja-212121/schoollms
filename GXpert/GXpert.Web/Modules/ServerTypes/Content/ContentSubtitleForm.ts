@@ -3,7 +3,6 @@
 export interface ContentSubtitleForm {
     SubtitleFile: ImageUploadEditor;
     ContentId: LookupEditor;
-    LanguageId: LookupEditor;
     UserId: LookupEditor;
 }
 
@@ -23,7 +22,6 @@ export class ContentSubtitleForm extends PrefixedContext {
             initFormType(ContentSubtitleForm, [
                 'SubtitleFile', w0,
                 'ContentId', w1,
-                'LanguageId', w1,
                 'UserId', w1
             ]);
         }

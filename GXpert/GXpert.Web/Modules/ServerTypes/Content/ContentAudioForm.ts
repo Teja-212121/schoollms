@@ -6,7 +6,6 @@ export interface ContentAudioForm {
     FileKeyUrl: StringEditor;
     Iv: StringEditor;
     ContentId: LookupEditor;
-    LanguageId: LookupEditor;
     UserId: LookupEditor;
 }
 
@@ -29,7 +28,6 @@ export class ContentAudioForm extends PrefixedContext {
                 'FileKeyUrl', w0,
                 'Iv', w0,
                 'ContentId', w1,
-                'LanguageId', w1,
                 'UserId', w1
             ]);
         }
