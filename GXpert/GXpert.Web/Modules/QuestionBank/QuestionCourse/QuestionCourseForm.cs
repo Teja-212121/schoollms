@@ -1,4 +1,4 @@
-﻿using Serenity.ComponentModel;
+using Serenity.ComponentModel;
 using System;
 
 namespace GXpert.QuestionBank.Forms;
@@ -11,10 +11,4 @@ public class QuestionCourseForm
     public int CourseId { get; set; }
     public int ClassId { get; set; }
     public int SemesterId { get; set; }
-    public int UserId { get; set; }
-    public DateTime InsertDate { get; set; }
-    public int InsertUserId { get; set; }
-    public DateTime UpdateDate { get; set; }
-    public int UpdateUserId { get; set; }
-    public short IsActive { get; set; }
 }

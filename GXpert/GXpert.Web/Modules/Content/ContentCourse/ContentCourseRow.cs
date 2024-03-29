@@ -24,24 +24,20 @@ public sealed class ContentCourseRow : LoggingRow<ContentCourseRow.RowFields>, I
     public int? Id { get => fields.Id[this]; set => fields.Id[this] = value; }
 
     [DisplayName("Content"), ForeignKey(typeof(ContentRow)), LeftJoin(jContent), TextualField(nameof(ContentTitle))]
-    [LookupEditor(typeof(ContentRow), Async = true)]
+    [LookupEditor(typeof(ContentRow))]
     public int? ContentId { get => fields.ContentId[this]; set => fields.ContentId[this] = value; }
 
     [DisplayName("Course"), NotNull, ForeignKey(typeof(Syllabus.CourseRow)), LeftJoin(jCourse), TextualField(nameof(CourseTitle))]
-    [LookupEditor(typeof(Syllabus.CourseRow), Async = true)]
+    [LookupEditor(typeof(Syllabus.CourseRow))]
     public int? CourseId { get => fields.CourseId[this]; set => fields.CourseId[this] = value; }
 
     [DisplayName("Class"), NotNull, ForeignKey(typeof(Syllabus.ClassRow)), LeftJoin(jClass), TextualField(nameof(ClassTitle))]
-    [LookupEditor(typeof(Syllabus.ClassRow), Async = true)]
+    [LookupEditor(typeof(Syllabus.ClassRow))]
     public int? ClassId { get => fields.ClassId[this]; set => fields.ClassId[this] = value; }
 
     [DisplayName("Semester"), NotNull, ForeignKey(typeof(Syllabus.SemesterRow)), LeftJoin(jSemester), TextualField(nameof(SemesterTitle))]
-    [LookupEditor(typeof(Syllabus.SemesterRow), Async = true)]
+    [LookupEditor(typeof(Syllabus.SemesterRow))]
     public int? SemesterId { get => fields.SemesterId[this]; set => fields.SemesterId[this] = value; }
-
-    [DisplayName("User"), ForeignKey(typeof(Administration.UserRow)), LeftJoin(jUser), TextualField(nameof(Username))]
-    [LookupEditor(typeof(Administration.UserRow), Async = true)]
-    public int? UserId { get => fields.UserId[this]; set => fields.UserId[this] = value; }
 
     [DisplayName("Is Active"), NotNull,DefaultValue(1)]
     public short? IsActive { get => fields.IsActive[this]; set => fields.IsActive[this] = value; }
@@ -58,8 +54,7 @@ public sealed class ContentCourseRow : LoggingRow<ContentCourseRow.RowFields>, I
     [DisplayName("Semester Title"), Origin(jSemester, nameof(Syllabus.SemesterRow.Title))]
     public string SemesterTitle { get => fields.SemesterTitle[this]; set => fields.SemesterTitle[this] = value; }
 
-    [DisplayName("User Username"), Origin(jUser, nameof(Administration.UserRow.Username))]
-    public string Username { get => fields.Username[this]; set => fields.Username[this] = value; }
+    
 
     public class RowFields : LoggingRowFields
     {
@@ -68,7 +63,7 @@ public sealed class ContentCourseRow : LoggingRow<ContentCourseRow.RowFields>, I
         public Int32Field CourseId;
         public Int32Field ClassId;
         public Int32Field SemesterId;
-        public Int32Field UserId;
+      
        
         public Int16Field IsActive;
 
@@ -76,6 +71,6 @@ public sealed class ContentCourseRow : LoggingRow<ContentCourseRow.RowFields>, I
         public StringField CourseTitle;
         public StringField ClassTitle;
         public StringField SemesterTitle;
-        public StringField Username;
+        
     }
 }

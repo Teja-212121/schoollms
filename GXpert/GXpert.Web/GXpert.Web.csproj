@@ -35,10 +35,19 @@
     <PackageReference Include="Serenity.Pro.OpenIddict" Version="8.0.3" />
   </ItemGroup>
   <ItemGroup>
+    <None Update="Uploads\AcademicPerformanceSample.xlsx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Uploads\AcademicSubjectPerformance.xlsx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Update="Uploads\DistrictSample.xlsx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="Uploads\InstituteTimetableDownloadImportSample.xlsx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Uploads\PreacademicScoresample.xlsx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="Uploads\QuestionsDownloadImportSample.xlsx">

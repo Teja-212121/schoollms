@@ -12,7 +12,7 @@ public class ContentAudioForm
     public string FileKeyUrl { get; set; }
     public string Iv { get; set; }
     public int ContentId { get; set; }
-    public int LanguageId { get; set; }
+   // public int LanguageId { get; set; }
     public int UserId { get; set; }
    
 }

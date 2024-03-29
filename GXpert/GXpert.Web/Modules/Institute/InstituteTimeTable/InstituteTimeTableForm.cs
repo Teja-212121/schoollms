@@ -23,5 +23,8 @@ public class InstituteTimeTableForm
     public int TeacherId { get; set; }
     [HalfWidth]
     public short EType { get; set; }
-    
+    [HalfWidth]
+    public short TeacherAttendanceStatus {  get; set; }
+
+
 }

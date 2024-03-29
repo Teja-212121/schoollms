@@ -47,11 +47,11 @@ public sealed class QuestionRow : LoggingRow<QuestionRow.RowFields>, IIdRow, INa
     [DisplayName("Question Common Data Sort Order")]
     public float? QuestionCommonDataSortOrder { get => fields.QuestionCommonDataSortOrder[this]; set => fields.QuestionCommonDataSortOrder[this] = value; }
 
-    [DisplayName("Class"), NotNull, ForeignKey("Classes", "Id"), LeftJoin(jClass), TextualField(nameof(ClassTitle))]
+    [DisplayName("Class"), ForeignKey("Classes", "Id"), LeftJoin(jClass), TextualField(nameof(ClassTitle))]
     [LookupEditor("Syllabus.Class")]
     public int? ClassId { get => fields.ClassId[this]; set => fields.ClassId[this] = value; }
 
-    [DisplayName("Subject"), NotNull, ForeignKey("Subjects", "Id"), LeftJoin(jSubject), TextualField(nameof(SubjectTitle))]
+    [DisplayName("Subject"), ForeignKey("Subjects", "Id"), LeftJoin(jSubject), TextualField(nameof(SubjectTitle))]
     [LookupEditor("Syllabus.Subject")]
     public int? SubjectId { get => fields.SubjectId[this]; set => fields.SubjectId[this] = value; }
 

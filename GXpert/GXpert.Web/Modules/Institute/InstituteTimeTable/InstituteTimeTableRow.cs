@@ -55,6 +55,8 @@ public sealed class InstituteTimeTableRow : LoggingRow<InstituteTimeTableRow.Row
     [DisplayName("ClassRoomNo"), Size(50)]
     public int? ClassRoomNo { get => fields.ClassRoomNo[this]; set => fields.ClassRoomNo[this] = value; }
 
+    [DisplayName("Teacher Attendance Status")]
+    public ETeacherAttendanceStatus? TeacherAttendanceStatus { get => (ETeacherAttendanceStatus)fields.TeacherAttendanceStatus[this]; set => fields.TeacherAttendanceStatus[this] = (short?)value; }
 
     public class RowFields : LoggingRowFields
     {
@@ -70,5 +72,6 @@ public sealed class InstituteTimeTableRow : LoggingRow<InstituteTimeTableRow.Row
         public Int32Field ClassRoomNo;
         public StringField InstituteClassDivision;
         public StringField TeacherPrn;
+        public Int16Field TeacherAttendanceStatus;
     }
 }

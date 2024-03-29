@@ -9,7 +9,7 @@ public class ContentSubtitleForm
 {
     public string SubtitleFile { get; set; }
     public int ContentId { get; set; }
-    public int LanguageId { get; set; }
+    //public int LanguageId { get; set; }
     public int UserId { get; set; }
    
 }
