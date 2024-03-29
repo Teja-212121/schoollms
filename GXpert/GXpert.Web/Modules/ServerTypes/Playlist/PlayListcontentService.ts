@@ -9,13 +9,15 @@ export namespace PlayListContentService {
     export declare function Delete(request: DeleteRequest, onSuccess?: (response: DeleteResponse) => void, opt?: ServiceOptions<any>): PromiseLike<DeleteResponse>;
     export declare function Retrieve(request: RetrieveRequest, onSuccess?: (response: RetrieveResponse<PlayListContentRow>) => void, opt?: ServiceOptions<any>): PromiseLike<RetrieveResponse<PlayListContentRow>>;
     export declare function List(request: ListRequest, onSuccess?: (response: ListResponse<PlayListContentRow>) => void, opt?: ServiceOptions<any>): PromiseLike<ListResponse<PlayListContentRow>>;
+    export declare function AssignPlaylist(request: SaveRequest<PlayListContentRow>, onSuccess?: (response: SaveResponse) => void, opt?: ServiceOptions<any>): PromiseLike<SaveResponse>;
 
     export const Methods = {
         Create: "Playlist/PlayListContent/Create",
         Update: "Playlist/PlayListContent/Update",
         Delete: "Playlist/PlayListContent/Delete",
         Retrieve: "Playlist/PlayListContent/Retrieve",
-        List: "Playlist/PlayListContent/List"
+        List: "Playlist/PlayListContent/List",
+        AssignPlaylist: "Playlist/PlayListContent/AssignPlaylist"
     } as const;
 
     [
@@ -23,7 +25,8 @@ export namespace PlayListContentService {
         'Update', 
         'Delete', 
         'Retrieve', 
-        'List'
+        'List', 
+        'AssignPlaylist'
     ].forEach(x => {
         (<any>PlayListContentService)[x] = function (r, s, o) {
             return serviceRequest(baseUrl + '/' + x, r, s, o);

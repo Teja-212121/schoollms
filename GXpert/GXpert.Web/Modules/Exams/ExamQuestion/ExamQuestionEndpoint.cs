@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using GXpert.QuestionBank;
+using Microsoft.AspNetCore.Mvc;
 using Serenity.Data;
 using Serenity.Reporting;
 using Serenity.Services;
@@ -58,5 +59,75 @@ public class ExamQuestionEndpoint : ServiceEndpoint
         var bytes = exporter.Export(data, typeof(Columns.ExamQuestionColumns), request.ExportColumns);
         return ExcelContentResult.Create(bytes, "ExamQuestionList_" +
             DateTime.Now.ToString("yyyyMMdd_HHmmss", CultureInfo.InvariantCulture) + ".xlsx");
+    }
+
+
+    [HttpPost, AuthorizeCreate(typeof(MyRow))]
+    public SaveResponse AssignExam(IUnitOfWork uow, SaveRequest<MyRow> request)
+    {
+        SaveResponse saveResponse = new SaveResponse();
+
+        if (request.Entity.RowIds != null)
+        {
+            string[] rowIds = request.Entity.RowIds.Split(',');
+            string erromsg = null;
+            bool issingleadded = false;
+            if (rowIds.Length > 0)
+            {
+                int i = 1;
+                foreach (var id in rowIds)
+                {
+                    if (uow.Connection.Exists<MyRow>
+                                (MyRow.Fields.ExamId == request.Entity.ExamId.Value &&
+                                    MyRow.Fields.QuestionId == Convert.ToInt32(id)))
+                    {
+                        erromsg = erromsg + id + ",";
+                    }
+                    else
+                    {
+                        var Question = uow.Connection.TryFirst<QuestionRow>(QuestionRow.Fields.Id == Convert.ToInt32(id));
+                        var QuestionOption = uow.Connection.TryFirst<QuestionOptionRow>(QuestionOptionRow.Fields.QuestionId == Convert.ToInt32(id));
+                        var exam = uow.Connection.TryFirst<ExamRow>(ExamRow.Fields.Id == request.Entity.ExamId.Value);
+                        var Id = uow.Connection.InsertAndGetID(new MyRow
+                        {
+
+                            QuestionId = Question.Id,
+                            ExamId = request.Entity.ExamId.Value,
+                            ExamSectionId = request.Entity.ExamSectionId.Value,
+                            SortOrder = request.Entity.SortOrder,
+                            Marks = request.Entity.Marks,
+
+                            RightAnswer = QuestionOption.OptionText,
+                            EDifficultyLevel = Question.EDifficultyLevel,
+                            InsertDate = DateTime.Now,
+                            InsertUserId = 1,
+                            UpdateDate=DateTime.Now,
+                            UpdateUserId=Convert.ToInt32(User.GetIdentifier()),
+                            IsActive = true,
+                        });
+                        issingleadded = true;
+                    }
+                    i++;
+
+                    if (issingleadded == false)
+                    {
+                        throw new ValidationError("already Mapped To ExamQuestions");
+
+                    }
+                    if (erromsg != null)
+                    {
+                        erromsg = "Exam Question with Id " + erromsg + " already Mapped To Exams.Other Questions Mapped To exam";
+                        saveResponse.Error = new ServiceError();
+                        saveResponse.Error.Message = erromsg;
+                    }
+                    else
+                    {
+                        saveResponse.Error = new ServiceError();
+                        saveResponse.Error.Message = "Added Successfully";
+                    }
+                }
+            }
+        }
+        return saveResponse;
     }
 }

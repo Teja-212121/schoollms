@@ -1,3 +1,4 @@
+using GXpert.QuestionBank;
 using GXpert.Web.Enums;
 using Serenity.ComponentModel;
 using Serenity.Data;
@@ -29,10 +30,10 @@ public sealed class ExamRow : LoggingRow<ExamRow.RowFields>, IIdRow, INameRow
     [DisplayName("E Exam State")]
     public EExamState? EExamState { get => (EExamState?)fields.EExamState[this]; set => fields.EExamState[this] = (short?)value; }
 
-    [DisplayName("Question Paper Path")]
+    [DisplayName("Question Paper Path"),FileUploadEditor]
     public string QuestionPaperPath { get => fields.QuestionPaperPath[this]; set => fields.QuestionPaperPath[this] = value; }
 
-    [DisplayName("Model Answer Paper Path")]
+    [DisplayName("Model Answer Paper Path"),FileUploadEditor]
     public string ModelAnswerPaperPath { get => fields.ModelAnswerPaperPath[this]; set => fields.ModelAnswerPaperPath[this] = value; }
 
     [DisplayName("Exam Duration")]
@@ -62,7 +63,7 @@ public sealed class ExamRow : LoggingRow<ExamRow.RowFields>, IIdRow, INameRow
     [DisplayName("Has Negative Marketing")]
     public bool? HasNegativeMarketing { get => fields.HasNegativeMarketing[this]; set => fields.HasNegativeMarketing[this] = value; }
 
-    [DisplayName("Instructions")]
+    [DisplayName("Instructions"), HtmlContentEditor(Rows = 3)]
     public string Instructions { get => fields.Instructions[this]; set => fields.Instructions[this] = value; }
 
     [DisplayName("Search Tags"), Size(1000)]
@@ -70,6 +71,13 @@ public sealed class ExamRow : LoggingRow<ExamRow.RowFields>, IIdRow, INameRow
 
     [DisplayName("Is Active"), DefaultValue(1)]
     public bool? IsActive { get => fields.IsActive[this]; set => fields.IsActive[this] = value; }
+
+    [DisplayName("ExamSection"), MasterDetailRelation(foreignKey: nameof(ExamSectionRow.ExamId)), NotMapped, NotNull]
+    public List<ExamSectionRow> ExamSection
+    {
+        get { return Fields.ExamSection[this]; }
+        set { Fields.ExamSection[this] = value; }
+    }
 
     public class RowFields : LoggingRowFields
     {
@@ -90,6 +98,7 @@ public sealed class ExamRow : LoggingRow<ExamRow.RowFields>, IIdRow, INameRow
         public BooleanField HasNegativeMarketing;
         public StringField Instructions;
         public StringField SearchTags;
+        public RowListField<ExamSectionRow> ExamSection;
         public BooleanField IsActive;
 
     }

@@ -22,7 +22,11 @@ public class ExamQuestionForm
     [HalfWidth]
     public float SortOrder { get; set; }
     [HalfWidth]
+    public int CourseId { get; set; }
+    [HalfWidth]
     public int ClassId { get; set; }
+    [HalfWidth]
+    public int SemesterId { get; set; }
     [HalfWidth]
     public int SubjectId { get; set; }
     [HalfWidth]

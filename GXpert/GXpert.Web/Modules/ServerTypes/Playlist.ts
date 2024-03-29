@@ -1,4 +1,5 @@
-﻿export * from "./Playlist/ModuleColumns"
+﻿export * from "./Playlist/ContentAssignToPlayListcontentForm"
+export * from "./Playlist/ModuleColumns"
 export * from "./Playlist/ModuleForm"
 export * from "./Playlist/ModuleRow"
 export * from "./Playlist/ModuleService"

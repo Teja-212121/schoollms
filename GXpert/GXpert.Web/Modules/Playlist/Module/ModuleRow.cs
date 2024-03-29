@@ -12,6 +12,7 @@ namespace GXpert.Playlist;
 [ReadPermission("Administration:General")]
 [ModifyPermission("Administration:General")]
 [ServiceLookupPermission("Administration:General")]
+[LookupScript("Playlist.Module")]
 public sealed class ModuleRow : LoggingRow<ModuleRow.RowFields>, IIdRow, INameRow
 {
     const string jParent = nameof(jParent);

@@ -1,4 +1,5 @@
 ﻿import { getLookup, getLookupAsync, fieldsProxy } from "@serenity-is/corelib";
+import { EExamStatus } from "../Web/Enums.EExamStatus";
 import { EPlayListContentType } from "../Web/Enums.EPlayListContentType";
 
 export interface PlayListContentRow {
@@ -11,7 +12,7 @@ export interface PlayListContentRow {
     AssignmentId?: number;
     ModuleId?: number;
     SortOrder?: number;
-    EPublishStatus?: number;
+    EPublishStatus?: EExamStatus;
     IsActive?: boolean;
     PlayListTitle?: string;
     ContentTitle?: string;
@@ -19,6 +20,7 @@ export interface PlayListContentRow {
     LiveSessionMeetingId?: string;
     AssignmentTitle?: string;
     ModuleTitle?: string;
+    RowIds?: string;
     InsertUserId?: number;
     InsertDate?: string;
     UpdateUserId?: number;

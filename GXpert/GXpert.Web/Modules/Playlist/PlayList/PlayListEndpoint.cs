@@ -12,8 +12,8 @@ using System.Globalization;
 using MyRow = GXpert.Playlist.PlayListRow;
 
 namespace GXpert.Playlist.Endpoints;
-[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
-[IgnoreAntiforgeryToken]
+//[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+//[IgnoreAntiforgeryToken]
 [Route("Services/Playlist/PlayList/[action]")]
 [ConnectionKey(typeof(MyRow)), ServiceAuthorize(typeof(MyRow))]
 public class PlayListEndpoint : ServiceEndpoint

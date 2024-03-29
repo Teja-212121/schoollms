@@ -4,6 +4,7 @@ import { EExamTypes } from "../Web/Enums.EExamTypes";
 import { EOptionDisplayTypes } from "../Web/Enums.EOptionDisplayTypes";
 import { EQuestionNavigation } from "../Web/Enums.EQuestionNavigation";
 import { EResultTypes } from "../Web/Enums.EResultTypes";
+import { ExamSectionRow } from "./ExamSectionRow";
 
 export interface ExamRow {
     Id?: number;
@@ -23,6 +24,7 @@ export interface ExamRow {
     HasNegativeMarketing?: boolean;
     Instructions?: string;
     SearchTags?: string;
+    ExamSection?: ExamSectionRow[];
     IsActive?: boolean;
     InsertUserId?: number;
     InsertDate?: string;

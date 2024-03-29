@@ -26,5 +26,6 @@ public class ExamColumns
     public short EOptionDisplayType { get; set; }
     public bool HasNegativeMarketing { get; set; }
     public string Instructions { get; set; }
+    public List<ExamSectionRow> ExamSection { get; set; }
     public string SearchTags { get; set; }
 }

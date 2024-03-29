@@ -14,7 +14,7 @@ namespace GXpert.Content;
 [ReadPermission("Administration:General")]
 [ModifyPermission("Administration:General")]
 [ServiceLookupPermission("Administration:General")]
-[LookupScript("Content.Content")]
+[LookupScript("Content.Content",Permission ="*")]
 public sealed class ContentRow : LoggingRow<ContentRow.RowFields>, IIdRow, INameRow
 {
     const string jUser = nameof(jUser);

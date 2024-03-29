@@ -58,7 +58,7 @@ public sealed class PlayListContentRow : LoggingRow<PlayListContentRow.RowFields
     public float? SortOrder { get => fields.SortOrder[this]; set => fields.SortOrder[this] = value; }
 
     [DisplayName("E Publish Status"), Column("ePublishStatus"), NotNull]
-    public short? EPublishStatus { get => fields.EPublishStatus[this]; set => fields.EPublishStatus[this] = value; }
+    public EExamStatus? EPublishStatus { get => (EExamStatus)fields.EPublishStatus[this]; set => fields.EPublishStatus[this] = (short?)value; }
 
     [DisplayName("Is Active"), DefaultValue(1)]
     public bool? IsActive { get => fields.IsActive[this]; set => fields.IsActive[this] = value; }
@@ -80,7 +80,12 @@ public sealed class PlayListContentRow : LoggingRow<PlayListContentRow.RowFields
 
     [DisplayName("Module Title"), Origin(jModule, nameof(ModuleRow.Title))]
     public string ModuleTitle { get => fields.ModuleTitle[this]; set => fields.ModuleTitle[this] = value; }
-
+    [NotMapped]
+    public String RowIds
+    {
+        get => fields.RowIds[this];
+        set => fields.RowIds[this] = value;
+    }
     public class RowFields : LoggingRowFields
     {
         public Int32Field Id;
@@ -101,5 +106,6 @@ public sealed class PlayListContentRow : LoggingRow<PlayListContentRow.RowFields
         public StringField LiveSessionMeetingId;
         public StringField AssignmentTitle;
         public StringField ModuleTitle;
+        public StringField RowIds;
     }
 }

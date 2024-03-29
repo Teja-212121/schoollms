@@ -12,5 +12,8 @@ using MyPages = GXpert.Content.Pages;
 [assembly: NavigationLink(6005, "Content/Content Rating", typeof(MyPages.ContentRatingPage), icon: "fa-circle-o")]
 
 [assembly: NavigationLink(6006, "Content/Content Course", typeof(MyPages.ContentCoursePage), icon: "fa-circle-o")]
-[assembly: NavigationLink(150012, "Masters/Content/Content Language", typeof(MyPages.ContentLanguagePage), icon: null)]
-[assembly: NavigationLink(150013, "Masters/Content /Content License", typeof(MyPages.ContentLicensePage), icon: null)]
+
+
+[assembly: NavigationMenu(150014, "Masters/Content", icon: "fa fa-pencil-square-o")]
+[assembly: NavigationLink(150015, "Masters/Content/Content Language", typeof(MyPages.ContentLanguagePage), icon: "fa-circle-o")]
+[assembly: NavigationLink(150016, "Masters/Content/Content License", typeof(MyPages.ContentLicensePage), icon: "fa-circle-o")]

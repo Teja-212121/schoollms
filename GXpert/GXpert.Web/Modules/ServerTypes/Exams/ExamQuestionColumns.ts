@@ -12,7 +12,9 @@ export interface ExamQuestionColumns {
     RightAnswer: Column<ExamQuestionRow>;
     Marks: Column<ExamQuestionRow>;
     SortOrder: Column<ExamQuestionRow>;
+    CourseTitle: Column<ExamQuestionRow>;
     ClassTitle: Column<ExamQuestionRow>;
+    SemesterTitle: Column<ExamQuestionRow>;
     SubjectTitle: Column<ExamQuestionRow>;
     TopicTitle: Column<ExamQuestionRow>;
 }

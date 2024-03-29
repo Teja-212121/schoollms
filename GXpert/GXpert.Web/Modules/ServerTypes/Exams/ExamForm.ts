@@ -1,4 +1,5 @@
-﻿import { StringEditor, EnumEditor, IntegerEditor, DecimalEditor, BooleanEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
+﻿import { ExamSectionEditor } from "@/Exams/ExamSection/ExamSectionEditor";
+import { StringEditor, EnumEditor, ImageUploadEditor, IntegerEditor, DecimalEditor, BooleanEditor, HtmlContentEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
 import { EExamState } from "../Web/Enums.EExamState";
 import { EExamTypes } from "../Web/Enums.EExamTypes";
 import { EOptionDisplayTypes } from "../Web/Enums.EOptionDisplayTypes";
@@ -9,8 +10,8 @@ export interface ExamForm {
     Title: StringEditor;
     EExamType: EnumEditor;
     EExamState: EnumEditor;
-    QuestionPaperPath: StringEditor;
-    ModelAnswerPaperPath: StringEditor;
+    QuestionPaperPath: ImageUploadEditor;
+    ModelAnswerPaperPath: ImageUploadEditor;
     ExamDuration: IntegerEditor;
     MaxMarks: DecimalEditor;
     NegativeMarks: DecimalEditor;
@@ -20,8 +21,9 @@ export interface ExamForm {
     EResultType: EnumEditor;
     EOptionDisplayType: EnumEditor;
     HasNegativeMarketing: BooleanEditor;
-    Instructions: StringEditor;
+    Instructions: HtmlContentEditor;
     SearchTags: StringEditor;
+    ExamSection: ExamSectionEditor;
 }
 
 export class ExamForm extends PrefixedContext {
@@ -36,27 +38,31 @@ export class ExamForm extends PrefixedContext {
 
             var w0 = StringEditor;
             var w1 = EnumEditor;
-            var w2 = IntegerEditor;
-            var w3 = DecimalEditor;
-            var w4 = BooleanEditor;
+            var w2 = ImageUploadEditor;
+            var w3 = IntegerEditor;
+            var w4 = DecimalEditor;
+            var w5 = BooleanEditor;
+            var w6 = HtmlContentEditor;
+            var w7 = ExamSectionEditor;
 
             initFormType(ExamForm, [
                 'Title', w0,
                 'EExamType', w1,
                 'EExamState', w1,
-                'QuestionPaperPath', w0,
-                'ModelAnswerPaperPath', w0,
-                'ExamDuration', w2,
-                'MaxMarks', w3,
-                'NegativeMarks', w3,
+                'QuestionPaperPath', w2,
+                'ModelAnswerPaperPath', w2,
+                'ExamDuration', w3,
+                'MaxMarks', w4,
+                'NegativeMarks', w4,
                 'EExamNavigation', w1,
                 'ESectionNavigation', w1,
                 'EQuestionNavigation', w1,
                 'EResultType', w1,
                 'EOptionDisplayType', w1,
-                'HasNegativeMarketing', w4,
-                'Instructions', w0,
-                'SearchTags', w0
+                'HasNegativeMarketing', w5,
+                'Instructions', w6,
+                'SearchTags', w0,
+                'ExamSection', w7
             ]);
         }
     }

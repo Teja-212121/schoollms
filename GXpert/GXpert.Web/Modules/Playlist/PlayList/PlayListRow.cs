@@ -12,7 +12,7 @@ namespace GXpert.Playlist;
 [ReadPermission("Administration:General")]
 [ModifyPermission("Administration:General")]
 [ServiceLookupPermission("Administration:General")]
-[LookupScript("Playlist.PlayList")]
+[LookupScript("Playlist.PlayList",Permission ="*")]
 public sealed class PlayListRow : LoggingRow<PlayListRow.RowFields>, IIdRow, INameRow
 {
     const string jClass = nameof(jClass);

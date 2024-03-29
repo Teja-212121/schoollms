@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using GXpert.Content;
+using Microsoft.AspNetCore.Mvc;
 using Serenity.Data;
 using Serenity.Reporting;
 using Serenity.Services;
@@ -58,5 +59,72 @@ public class PlayListContentEndpoint : ServiceEndpoint
         var bytes = exporter.Export(data, typeof(Columns.PlayListContentColumns), request.ExportColumns);
         return ExcelContentResult.Create(bytes, "PlayListContentList_" +
             DateTime.Now.ToString("yyyyMMdd_HHmmss", CultureInfo.InvariantCulture) + ".xlsx");
+    }
+    [HttpPost, AuthorizeCreate(typeof(MyRow))]
+    public SaveResponse AssignPlaylist(IUnitOfWork uow, SaveRequest<MyRow> request)
+    {
+        SaveResponse saveResponse = new SaveResponse();
+
+        if (request.Entity.RowIds != null)
+        {
+
+            string[] rowIds = request.Entity.RowIds.Split(',');
+            string erromsg = null;
+            bool issingleadded = false;
+            if (rowIds.Length > 0)
+            {
+                int i = 1;
+                foreach (var id in rowIds)
+                {
+                    if (uow.Connection.Exists<MyRow>
+                                (MyRow.Fields.PlayListId == request.Entity.PlayListId.Value &&
+                                    MyRow.Fields.ContentId == id.ToString()))
+                    {
+                        erromsg = erromsg + id + ",";
+                    }
+                    else
+                    {
+                        var content = uow.Connection.TryFirst<ContentRow>(ContentRow.Fields.Id == id.ToString());
+
+                        var Id = uow.Connection.InsertAndGetID(new MyRow
+                        {
+                           
+                            ContentId = content.Id,
+                            PlayListId = request.Entity.PlayListId.Value,
+                            ExamId = request.Entity.ExamId.Value,
+                            LiveSessionId = request.Entity.LiveSessionId.Value,
+                            AssignmentId = request.Entity.AssignmentId.Value,
+                            ModuleId = request.Entity.ModuleId.Value,
+                            EContentType=request.Entity.EContentType.Value,
+                            EPublishStatus = request.Entity.EPublishStatus.Value,
+                            SortOrder =request.Entity.SortOrder.Value,
+                            InsertDate = DateTime.Now,
+                            InsertUserId = 1,
+                            IsActive = true,
+                        });
+                        issingleadded = true;
+                    }
+                    i++;
+                }
+                if (issingleadded == false)
+                {
+                    throw new ValidationError("already Mapped To Playlist");
+
+                }
+                if (erromsg != null)
+                {
+                    erromsg = "Playlist with Id " + erromsg + " already Mapped To Content Media.Other Content Media Mapped To Playlist";
+                    saveResponse.Error = new ServiceError();
+                    saveResponse.Error.Message = erromsg;
+                    //throw new ValidationError(erromsg);
+                }
+                else
+                {
+                    saveResponse.Error = new ServiceError();
+                    saveResponse.Error.Message = "Added Successfully";
+                }
+            }
+        }
+        return saveResponse;
     }
 }

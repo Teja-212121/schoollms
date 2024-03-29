@@ -20,4 +20,9 @@ public class ExamSectionColumns
     public int NumberOfQuestions { get; set; }
     public int NumberOfMandatoryQuestions { get; set; }
     public string SearchTags { get; set; }
+    public string CourseTitle { get; set; }
+    public string ClassTitle { get; set; }
+    public string SemesterTitle { get; set; }
+    public string SubjectTitle { get; set; }
+    public string TopicTitle { get; set; }
 }
