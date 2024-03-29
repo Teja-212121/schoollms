@@ -1,6 +1,8 @@
-import { StudentClassAttendanceColumns, StudentClassAttendanceRow, StudentClassAttendanceService } from '@/ServerTypes/Attendance';
+import { StudentClassAttendanceColumns, StudentClassAttendanceExcelImportForm, StudentClassAttendanceRow, StudentClassAttendanceService } from '@/ServerTypes/Attendance';
 import { Decorators, EntityGrid, postToService, resolveUrl } from '@serenity-is/corelib';
 import { StudentClassAttendanceDialog } from './StudentClassAttendanceDialog';
+import { StudentClassAttendanceExcelImportDialog } from './StudentClassAttendanceExcelImportDialog';
+
 
 @Decorators.registerClass('GXpert.Attendance.StudentClassAttendanceGrid')
 export class StudentClassAttendanceGrid extends EntityGrid<StudentClassAttendanceRow, any> {
@@ -16,7 +18,7 @@ export class StudentClassAttendanceGrid extends EntityGrid<StudentClassAttendanc
         buttons.push({
             title: 'Import From Excel', cssClass: 'export-xlsx-button',
             onClick: () => {                // open import dialog, let it handle rest
-                var dialog = new StudentClassAttendanceDialog(); dialog.element.on('dialogclose', () => {
+                var dialog = new StudentClassAttendanceExcelImportDialog(); dialog.element.on('dialogclose', () => {
                     this.refresh(); dialog = null;
                 }); dialog.dialogOpen();
             }
@@ -25,7 +27,7 @@ export class StudentClassAttendanceGrid extends EntityGrid<StudentClassAttendanc
             title: 'Download Sample',
             cssClass: 'export-xlsx-button', onClick: () => {
                 debugger;
-                var url = "~/Attendance/StudentClassAttendance/StudentClassAttendanceDownloadSample";
+                var url = "~/Attendance/StudentClassAttendance/StudentAttendanceImportSample";
                 postToService({ url: resolveUrl(url), request: '', target: '_blank' });
             }
         }); return buttons;

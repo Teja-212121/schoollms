@@ -13,6 +13,7 @@ export interface InstituteTimeTableColumns {
     TeacherPrn: Column<InstituteTimeTableRow>;
     EType: Column<InstituteTimeTableRow>;
     ClassRoomNo: Column<InstituteTimeTableRow>;
+    TeacherAttendanceStatus: Column<InstituteTimeTableRow>;
 }
 
 export class InstituteTimeTableColumns extends ColumnsBase<InstituteTimeTableRow> {

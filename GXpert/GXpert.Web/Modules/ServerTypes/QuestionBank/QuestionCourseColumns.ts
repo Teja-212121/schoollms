@@ -8,12 +8,6 @@ export interface QuestionCourseColumns {
     CourseTitle: Column<QuestionCourseRow>;
     ClassTitle: Column<QuestionCourseRow>;
     SemesterTitle: Column<QuestionCourseRow>;
-    Username: Column<QuestionCourseRow>;
-    InsertDate: Column<QuestionCourseRow>;
-    InsertUserId: Column<QuestionCourseRow>;
-    UpdateDate: Column<QuestionCourseRow>;
-    UpdateUserId: Column<QuestionCourseRow>;
-    IsActive: Column<QuestionCourseRow>;
 }
 
 export class QuestionCourseColumns extends ColumnsBase<QuestionCourseRow> {

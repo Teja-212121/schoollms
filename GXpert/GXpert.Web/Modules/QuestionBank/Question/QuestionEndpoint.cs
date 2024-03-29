@@ -142,11 +142,11 @@ public class QuestionEndpoint : ServiceEndpoint
                         {
                             if (Difficulty == 1)
                                 Row.EDifficultyLevel = Web.Enums.EDifficultyLevel.EASY;
-                            if (Difficulty == 5)
+                            else if (Difficulty == 5)
                                 Row.EDifficultyLevel = Web.Enums.EDifficultyLevel.MODERATE;
-                            if (Difficulty == 10)
+                            else if (Difficulty == 10)
                                 Row.EDifficultyLevel = Web.Enums.EDifficultyLevel.DIFFICULT;
-                            if (Difficulty == 11)
+                            else if (Difficulty == 11)
                                 Row.EDifficultyLevel = Web.Enums.EDifficultyLevel.MULTIPLE_RIGHT_ANSWER;
                         }
                         else

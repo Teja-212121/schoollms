@@ -32,7 +32,7 @@ public sealed class StudentClassAttendanceRow : LoggingRow<StudentClassAttendanc
     [DisplayName("Attendance Status")]
     public EAttendanceStatus? AttendanceStatus { get => (EAttendanceStatus)fields.AttendanceStatus[this]; set => fields.AttendanceStatus[this] = (short?)value; }
 
-    [DisplayName("Is Active"), NotNull,DefaultValue(1)]
+    [DisplayName("Is Active"),DefaultValue(1)]
     public short? IsActive { get => fields.IsActive[this]; set => fields.IsActive[this] = value; }
 
     [DisplayName("Student Prn"), Origin(jStudent, nameof(Users.StudentRow.Prn))]

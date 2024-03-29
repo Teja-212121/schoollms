@@ -332,6 +332,19 @@ namespace GXpert.Texts {
                 export const UpdateDate: string;
                 export const UpdateUserId: string;
             }
+
+            namespace StudentClassAttendance {
+                export const AttendanceStatus: string;
+                export const Id: string;
+                export const InsertDate: string;
+                export const InsertUserId: string;
+                export const InstituteTimeTableId: string;
+                export const IsActive: string;
+                export const StudentId: string;
+                export const StudentPrn: string;
+                export const UpdateDate: string;
+                export const UpdateUserId: string;
+            }
         }
 
         namespace Content {
@@ -814,6 +827,7 @@ namespace GXpert.Texts {
                 export const IsActive: string;
                 export const PeriodIndex: string;
                 export const StartTime: string;
+                export const TeacherAttendanceStatus: string;
                 export const TeacherId: string;
                 export const TeacherPrn: string;
                 export const UpdateDate: string;
@@ -1189,8 +1203,6 @@ namespace GXpert.Texts {
                 export const SemesterTitle: string;
                 export const UpdateDate: string;
                 export const UpdateUserId: string;
-                export const UserId: string;
-                export const Username: string;
             }
 
             namespace QuestionOption {
@@ -1644,7 +1656,8 @@ namespace GXpert.Texts {
                 AssignmentAttemptEvaluation: {},
                 PollResponse: {},
                 RaiseHandLiveSession: {},
-                RaiseHandRecordedSession: {}
+                RaiseHandRecordedSession: {},
+                StudentClassAttendance: {}
             },
             Content: {
                 Content: {},

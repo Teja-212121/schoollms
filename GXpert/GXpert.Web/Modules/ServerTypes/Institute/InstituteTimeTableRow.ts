@@ -1,5 +1,6 @@
 ﻿import { fieldsProxy } from "@serenity-is/corelib";
 import { EInstituteTimeTableType } from "../Web/Enums.EInstituteTimeTableType";
+import { ETeacherAttendanceStatus } from "../Web/Enums.ETeacherAttendanceStatus";
 
 export interface InstituteTimeTableRow {
     Id?: number;
@@ -14,6 +15,7 @@ export interface InstituteTimeTableRow {
     ClassRoomNo?: number;
     InstituteClassDivision?: string;
     TeacherPrn?: string;
+    TeacherAttendanceStatus?: ETeacherAttendanceStatus;
     InsertUserId?: number;
     InsertDate?: string;
     UpdateUserId?: number;

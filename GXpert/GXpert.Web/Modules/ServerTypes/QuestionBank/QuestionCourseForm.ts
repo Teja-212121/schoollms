@@ -1,16 +1,10 @@
-﻿import { LookupEditor, DateEditor, IntegerEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
+﻿import { LookupEditor, PrefixedContext, initFormType } from "@serenity-is/corelib";
 
 export interface QuestionCourseForm {
     QuestionId: LookupEditor;
     CourseId: LookupEditor;
     ClassId: LookupEditor;
     SemesterId: LookupEditor;
-    UserId: LookupEditor;
-    InsertDate: DateEditor;
-    InsertUserId: IntegerEditor;
-    UpdateDate: DateEditor;
-    UpdateUserId: IntegerEditor;
-    IsActive: IntegerEditor;
 }
 
 export class QuestionCourseForm extends PrefixedContext {
@@ -24,20 +18,12 @@ export class QuestionCourseForm extends PrefixedContext {
             QuestionCourseForm.init = true;
 
             var w0 = LookupEditor;
-            var w1 = DateEditor;
-            var w2 = IntegerEditor;
 
             initFormType(QuestionCourseForm, [
                 'QuestionId', w0,
                 'CourseId', w0,
                 'ClassId', w0,
-                'SemesterId', w0,
-                'UserId', w0,
-                'InsertDate', w1,
-                'InsertUserId', w2,
-                'UpdateDate', w1,
-                'UpdateUserId', w2,
-                'IsActive', w2
+                'SemesterId', w0
             ]);
         }
     }
