@@ -625,6 +625,7 @@ namespace GXpert.Texts {
                 export const EResultType: string;
                 export const ESectionNavigation: string;
                 export const ExamDuration: string;
+                export const ExamQuestions: string;
                 export const ExamSection: string;
                 export const HasNegativeMarketing: string;
                 export const Id: string;
