@@ -78,7 +78,12 @@ public sealed class ExamRow : LoggingRow<ExamRow.RowFields>, IIdRow, INameRow
         get { return Fields.ExamSection[this]; }
         set { Fields.ExamSection[this] = value; }
     }
-
+    [DisplayName("Exam Questions"), MasterDetailRelation(foreignKey: "ExamId", IncludeColumns = "Question"), NotMapped]
+    public List<ExamQuestionRow> ExamQuestions
+    {
+        get { return Fields.ExamQuestions[this]; }
+        set { Fields.ExamQuestions[this] = value; }
+    }
     public class RowFields : LoggingRowFields
     {
         public Int32Field Id;
@@ -99,6 +104,7 @@ public sealed class ExamRow : LoggingRow<ExamRow.RowFields>, IIdRow, INameRow
         public StringField Instructions;
         public StringField SearchTags;
         public RowListField<ExamSectionRow> ExamSection;
+        public RowListField<ExamQuestionRow> ExamQuestions;
         public BooleanField IsActive;
 
     }

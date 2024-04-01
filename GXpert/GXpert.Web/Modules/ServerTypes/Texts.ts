@@ -625,6 +625,7 @@ namespace GXpert.Texts {
                 export const EResultType: string;
                 export const ESectionNavigation: string;
                 export const ExamDuration: string;
+                export const ExamQuestions: string;
                 export const ExamSection: string;
                 export const HasNegativeMarketing: string;
                 export const Id: string;
@@ -1229,10 +1230,6 @@ namespace GXpert.Texts {
                 export const QuestionText: string;
                 export const SemesterId: string;
                 export const SemesterTitle: string;
-                export const SubjectId: string;
-                export const SubjectTitle: string;
-                export const TopicId: string;
-                export const TopicTitle: string;
                 export const UpdateDate: string;
                 export const UpdateUserId: string;
             }

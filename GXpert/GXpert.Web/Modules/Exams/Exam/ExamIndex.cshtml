@@ -1,0 +1,14 @@
+@inject Serenity.ITextLocalizer Localizer
+@{
+    ViewData["Title"] = "Exam Wizard";
+}
+
+<div id="GridDiv"></div>
+
+<script type="text/javascript">
+    jQuery(function () {
+        new GXpert.Examx.ExamGrid($('#GridDiv'), {}).init();
+
+        Q.initFullHeightGridPage($('#GridDiv'));
+    });
+</script>

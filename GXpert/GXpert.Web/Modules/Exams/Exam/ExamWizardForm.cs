@@ -4,12 +4,11 @@ using System;
 
 namespace GXpert.Exams.Forms;
 
-[FormScript("Exams.Exam")]
-[BasedOnRow(typeof(ExamRow), CheckNames = true)]
-public class ExamForm
+[FormScript("Exams.ExamWizardForm")]
+//[BasedOnRow(typeof(ExamRow), CheckNames = true)]
+public class ExamWizardForm
 {
-    [Category("General")]
-    [HalfWidth]
+    [Tab("Exam Details")]
     public string Title { get; set; }
     [HalfWidth]
     public short EExamType { get; set; }
@@ -25,23 +24,19 @@ public class ExamForm
     public float MaxMarks { get; set; }
     [HalfWidth]
     public float NegativeMarks { get; set; }
-    [HalfWidth]
-    public short EExamNavigation { get; set; }
-    [HalfWidth]
-    public short ESectionNavigation { get; set; }
-    [HalfWidth]
-    public short EQuestionNavigation { get; set; }
+ 
     [HalfWidth]
     public short EResultType { get; set; }
-    [HalfWidth]
-    public short EOptionDisplayType { get; set; }
-    [HalfWidth]
-    public bool HasNegativeMarketing { get; set; }
+  
     [HtmlContentEditor(Rows = 4), CssClass("fact")]
     public string Instructions { get; set; }
     [HalfWidth]
     public string SearchTags { get; set; }
-    [Category("ExamSectionOption"), CssClass("fact")]
+    [Tab("Add Exam Sections")]
+    [LabelWidth("0")]
     [ExamSectionEditor]
     public List<ExamSectionRow> ExamSection { get; set; }
+    [Tab("Add Exam Questions")]
+    [/*ExamQuestionsEditor*/ LabelWidth("0")]
+    public List<ExamQuestionRow> ExamQuestions { get; set; }
 }
