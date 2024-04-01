@@ -19,7 +19,8 @@ public sealed class ContentCourseRow : LoggingRow<ContentCourseRow.RowFields>, I
     const string jClass = nameof(jClass);
     const string jSemester = nameof(jSemester);
     const string jUser = nameof(jUser);
-
+    const string jSubject = nameof(jSubject);
+    const string jTopic = nameof(jTopic);
     [DisplayName("Id"), Identity, IdProperty]
     public int? Id { get => fields.Id[this]; set => fields.Id[this] = value; }
 
@@ -54,7 +55,18 @@ public sealed class ContentCourseRow : LoggingRow<ContentCourseRow.RowFields>, I
     [DisplayName("Semester Title"), Origin(jSemester, nameof(Syllabus.SemesterRow.Title))]
     public string SemesterTitle { get => fields.SemesterTitle[this]; set => fields.SemesterTitle[this] = value; }
 
-    
+    [DisplayName("Subject"), ForeignKey("Subjects", "Id"), LeftJoin(jSubject), TextualField(nameof(SubjectTitle))]
+    [LookupEditor("Syllabus.Subject")]
+    public int? SubjectId { get => fields.SubjectId[this]; set => fields.SubjectId[this] = value; }
+
+    [DisplayName("Topic"), ForeignKey("Topics", "Id"), LeftJoin(jTopic), TextualField(nameof(TopicTitle))]
+    [LookupEditor("Syllabus.Topic")]
+    public int? TopicId { get => fields.TopicId[this]; set => fields.TopicId[this] = value; }
+    [DisplayName("Subject Title"), Expression($"{jSubject}.[Title]")]
+    public string SubjectTitle { get => fields.SubjectTitle[this]; set => fields.SubjectTitle[this] = value; }
+
+    [DisplayName("Topic Title"), Expression($"{jTopic}.[Title]")]
+    public string TopicTitle { get => fields.TopicTitle[this]; set => fields.TopicTitle[this] = value; }
 
     public class RowFields : LoggingRowFields
     {
@@ -63,8 +75,10 @@ public sealed class ContentCourseRow : LoggingRow<ContentCourseRow.RowFields>, I
         public Int32Field CourseId;
         public Int32Field ClassId;
         public Int32Field SemesterId;
-      
-       
+        public StringField SubjectTitle;
+        public StringField TopicTitle;
+        public Int32Field SubjectId;
+        public Int32Field TopicId;
         public Int16Field IsActive;
 
         public StringField ContentTitle;

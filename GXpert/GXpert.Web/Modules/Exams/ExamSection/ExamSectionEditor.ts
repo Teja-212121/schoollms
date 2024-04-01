@@ -1,5 +1,5 @@
 
-import { Authorization, Decorators } from '@serenity-is/corelib';
+import {Decorators } from '@serenity-is/corelib';
 import { GridEditorBase } from '@serenity-is/extensions';
 import { ExamSectionDialog } from './ExamSectionDialog';
 import { ExamSectionColumns, ExamSectionRow } from '../../ServerTypes/Exams';

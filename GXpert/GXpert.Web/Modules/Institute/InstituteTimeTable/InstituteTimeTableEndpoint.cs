@@ -109,38 +109,28 @@ public class InstituteTimeTableEndpoint : ServiceEndpoint
                 Row.PeriodIndex = Convert.ToInt32(worksheet.Cells[row, 4].Value ?? null);
 
                 Row.InstituteDivisionId = Convert.ToInt32(worksheet.Cells[row, 5].Value ?? null);
-                /*if (string.IsNullOrEmpty(Row.InstituteClassDivision))
+              
+
+                int? eType = Convert.ToInt32(worksheet.Cells[row, 6].Value ?? null);
+                if (eType != null)
                 {
-                    response.ErrorList.Add("Error On Row " + row + ": class Not found");
-                    continue;
-                }*/
-                Row.TeacherId = Convert.ToInt32(worksheet.Cells[row, 6].Value ?? null);
-               /* if (string.IsNullOrEmpty(Row.TeacherPrn))
-                {
-                    response.ErrorList.Add("Error On Row " + row + ": Prn Not found");
-                    continue;
+
+                    if (eType == 1)
+                        Row.EType = Web.Enums.EInstituteTimeTableType.SINGLE_RIGHT_ANSWER;
+                    else if (eType == 2)
+                        Row.EType = Web.Enums.EInstituteTimeTableType.MULTIPLE_RIGHT_ANSWER;
+                    else if (eType == 3)
+                        Row.EType =Web.Enums.EInstituteTimeTableType.NUMERICAL;
+                    else if (eType == 4)
+                        Row.EType = Web.Enums.EInstituteTimeTableType.TRUE_OR_FALSE;
+
+                    else
+                    {
+                        response.ErrorList.Add("Error On Row " + row + ":Invalid Question Type !");
+                        continue;
+                    }
                 }
-*/
-                //int? EType = Convert.ToInt32(worksheet.Cells[row, 7].Value ?? null);
-                //if (EType != null)
-                //{
-
-                //    if (EType == 1)
-                //        Row.EType = EInstituteTimeTableType.SINGLE_RIGHT_ANSWER;
-                //    else if (EType == 2)
-                //        Row.EType = EInstituteTimeTableType.MULTIPLE_RIGHT_ANSWER;
-                //    else if (EType == 3)
-                //        Row.EType = EInstituteTimeTableType.NUMERICAL;
-                //    else if (EType == 4)
-                //        Row.EType = EInstituteTimeTableType.TRUE_OR_FALSE;
-
-                //    else
-                //    {
-                //        response.ErrorList.Add("Error On Row " + row + ":Invalid Question Type !");
-                //        continue;
-                //    }
-                //}
-                    Row.ClassRoomNo = Convert.ToInt32(worksheet.Cells[row, 7].Value ?? null);
+                Row.ClassRoomNo = Convert.ToInt32(worksheet.Cells[row, 7].Value ?? null);
                 
 
                 Row.IsActive = true;

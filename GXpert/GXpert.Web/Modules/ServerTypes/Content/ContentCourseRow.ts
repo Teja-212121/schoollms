@@ -6,6 +6,10 @@ export interface ContentCourseRow {
     CourseId?: number;
     ClassId?: number;
     SemesterId?: number;
+    SubjectTitle?: string;
+    TopicTitle?: string;
+    SubjectId?: number;
+    TopicId?: number;
     IsActive?: number;
     ContentTitle?: string;
     CourseTitle?: string;

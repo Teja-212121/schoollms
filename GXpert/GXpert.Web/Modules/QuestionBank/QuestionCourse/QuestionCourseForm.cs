@@ -11,4 +11,6 @@ public class QuestionCourseForm
     public int CourseId { get; set; }
     public int ClassId { get; set; }
     public int SemesterId { get; set; }
+    public int SubjectId { get;set; }
+    public int TopicId { get; set; }
 }

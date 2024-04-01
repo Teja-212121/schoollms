@@ -5,6 +5,8 @@ export interface ContentCourseForm {
     CourseId: LookupEditor;
     ClassId: LookupEditor;
     SemesterId: LookupEditor;
+    SubjectId: LookupEditor;
+    TopicId: LookupEditor;
 }
 
 export class ContentCourseForm extends PrefixedContext {
@@ -23,7 +25,9 @@ export class ContentCourseForm extends PrefixedContext {
                 'ContentId', w0,
                 'CourseId', w0,
                 'ClassId', w0,
-                'SemesterId', w0
+                'SemesterId', w0,
+                'SubjectId', w0,
+                'TopicId', w0
             ]);
         }
     }
