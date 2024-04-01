@@ -12,10 +12,10 @@ public class SubjectColumns
     public int Id { get; set; }
     [Width(100),QuickFilter]
     public string CourseName { get; set; }
-    [QuickFilter(CssClass = "hidden-xs"), FilterOnly, QuickFilterOption("cascadeFrom", "CourseId")]
+    [QuickFilter(CssClass = "hidden-xs"), QuickFilterOption("cascadeFrom", "CourseId")]
 
     public string ClassTitle { get; set; }
-    [QuickFilter(CssClass = "hidden-xs"), FilterOnly, QuickFilterOption("cascadeFrom", "ClassId")]
+    [QuickFilter(CssClass = "hidden-xs"),  QuickFilterOption("cascadeFrom", "ClassId")]
     
     public string SemesterName { get; set; }
     public string Title { get; set; }

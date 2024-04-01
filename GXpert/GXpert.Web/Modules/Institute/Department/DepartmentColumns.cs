@@ -12,6 +12,7 @@ public class DepartmentColumns
     public int Id { get; set; }
     [EditLink]
     public string Title { get; set; }
+    [QuickFilter]
     public string InstituteName { get; set; }
     public string HODName { get; set; }
     public string Description { get; set; }

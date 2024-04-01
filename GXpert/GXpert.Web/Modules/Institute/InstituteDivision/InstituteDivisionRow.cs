@@ -13,7 +13,7 @@ namespace GXpert.Institute;
 [ModifyPermission("Administration:General")]
 [ServiceLookupPermission("Administration:General")]
 [LookupScript("Institute.InstituteDivision")]
-public sealed class InstituteDivisionRow : LoggingRow<InstituteDivisionRow.RowFields>, IIdRow, INameRow
+public sealed class InstituteDivisionRow : LoggingRow<InstituteDivisionRow.RowFields>, IIdRow// INameRow
 {
     const string jClass = nameof(jClass);
     const string jMedium = nameof(jMedium);
@@ -27,13 +27,12 @@ public sealed class InstituteDivisionRow : LoggingRow<InstituteDivisionRow.RowFi
     [DisplayName("Id"), Identity, IdProperty]
     public int? Id { get => fields.Id[this]; set => fields.Id[this] = value; }
 
-    [DisplayName("Class"), NotNull, ForeignKey(typeof(Syllabus.ClassRow)), LeftJoin(jClass), TextualField(nameof(ClassTitle))]
-    [LookupEditor(typeof(Syllabus.ClassRow))]
-    public int? ClassId { get => fields.ClassId[this]; set => fields.ClassId[this] = value; }
-
     [DisplayName("Division"), Size(255), QuickSearch, NameProperty]
     public string Division { get => fields.Division[this]; set => fields.Division[this] = value; }
 
+    [DisplayName("Class"), NotNull, ForeignKey(typeof(Syllabus.ClassRow)), LeftJoin(jClass), TextualField(nameof(ClassTitle))]
+    [LookupEditor(typeof(Syllabus.ClassRow))]
+    public int? ClassId { get => fields.ClassId[this]; set => fields.ClassId[this] = value; }
     //[DisplayName("Medium"), ForeignKey(typeof(Syllabus.MediumRow)), LeftJoin(jMedium), TextualField(nameof(MediumTitle))]
     //[LookupEditor(typeof(Syllabus.MediumRow), Async = true)]
     //public int? MediumId { get => fields.MediumId[this]; set => fields.MediumId[this] = value; }

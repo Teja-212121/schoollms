@@ -21,7 +21,6 @@ public class InstituteDivisionForm
     [HalfWidth]
     public string Title { get; set; }
     [HalfWidth]
-
     public string Division { get; set; }
     [HalfWidth]
 

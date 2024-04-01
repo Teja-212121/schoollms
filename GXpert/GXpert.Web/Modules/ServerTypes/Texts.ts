@@ -835,15 +835,21 @@ namespace GXpert.Texts {
             }
 
             namespace InstituteTimeTable {
+                export const BranchId: string;
+                export const BranchName: string;
                 export const ClassRoomNo: string;
                 export const Date: string;
+                export const DepartmentId: string;
+                export const DepartmentName: string;
                 export const EType: string;
                 export const EndTime: string;
                 export const Id: string;
                 export const InsertDate: string;
                 export const InsertUserId: string;
-                export const InstituteClassDivision: string;
+                export const InstitudeDivisionName: string;
                 export const InstituteDivisionId: string;
+                export const InstituteId: string;
+                export const InstituteName: string;
                 export const IsActive: string;
                 export const PeriodIndex: string;
                 export const StartTime: string;

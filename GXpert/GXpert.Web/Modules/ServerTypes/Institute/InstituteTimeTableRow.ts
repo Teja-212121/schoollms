@@ -10,10 +10,16 @@ export interface InstituteTimeTableRow {
     PeriodIndex?: number;
     InstituteDivisionId?: number;
     TeacherId?: number;
+    InstituteId?: number;
+    InstituteName?: string;
+    DepartmentId?: number;
+    DepartmentName?: string;
+    BranchId?: number;
+    BranchName?: string;
     EType?: EInstituteTimeTableType;
     IsActive?: boolean;
     ClassRoomNo?: number;
-    InstituteClassDivision?: string;
+    InstitudeDivisionName?: string;
     TeacherPrn?: string;
     TeacherAttendanceStatus?: ETeacherAttendanceStatus;
     InsertUserId?: number;

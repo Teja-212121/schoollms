@@ -12,7 +12,7 @@ public class SemesterColumns
     public int Id { get; set; }
     [QuickFilter]
     public string CourseTitle { get; set; }
-    [QuickFilter(CssClass = "hidden-xs"), FilterOnly, QuickFilterOption("cascadeFrom", "CourseId")]
+    [QuickFilter(CssClass = "hidden-xs"), QuickFilterOption("cascadeFrom", "CourseId")]
    
     public string ClassTitle { get; set; }
     [EditLink]

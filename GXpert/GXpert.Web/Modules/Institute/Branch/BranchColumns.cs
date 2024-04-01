@@ -12,7 +12,9 @@ public class BranchColumns
     public int Id { get; set; }
     [EditLink]
     public string Title { get; set; }
+    [QuickFilter]
     public string InstituteName { get; set; }
+    [QuickFilter]
     public string DepartmentTitle { get; set; }
     public int BranchCode { get; set; }
     public string Description { get; set; }

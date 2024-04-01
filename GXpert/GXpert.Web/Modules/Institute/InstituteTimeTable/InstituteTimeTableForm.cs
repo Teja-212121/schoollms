@@ -18,6 +18,12 @@ public class InstituteTimeTableForm
     [HalfWidth]
     public int PeriodIndex { get; set; }
     [HalfWidth]
+    public int InstituteId { get; set; }
+    [HalfWidth]
+    public int DepartmentId { get; set; }
+    [HalfWidth]
+    public int BranchId { get; set; }
+    [HalfWidth]
     public int InstituteDivisionId { get; set; }
     [HalfWidth]
     public int TeacherId { get; set; }

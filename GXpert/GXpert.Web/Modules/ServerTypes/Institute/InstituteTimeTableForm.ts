@@ -8,6 +8,9 @@ export interface InstituteTimeTableForm {
     StartTime: DateEditor;
     EndTime: DateEditor;
     PeriodIndex: IntegerEditor;
+    InstituteId: LookupEditor;
+    DepartmentId: LookupEditor;
+    BranchId: LookupEditor;
     InstituteDivisionId: LookupEditor;
     TeacherId: LookupEditor;
     EType: EnumEditor;
@@ -35,6 +38,9 @@ export class InstituteTimeTableForm extends PrefixedContext {
                 'StartTime', w1,
                 'EndTime', w1,
                 'PeriodIndex', w0,
+                'InstituteId', w2,
+                'DepartmentId', w2,
+                'BranchId', w2,
                 'InstituteDivisionId', w2,
                 'TeacherId', w2,
                 'EType', w3,
