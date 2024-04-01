@@ -14,5 +14,6 @@ public class ContentCourseColumns
     public string CourseTitle { get; set; }
     public string ClassTitle { get; set; }
     public string SemesterTitle { get; set; }
-   
+    public string SubjectTitle { get; set; }
+    public string TopicTitle { get; set; }
 }

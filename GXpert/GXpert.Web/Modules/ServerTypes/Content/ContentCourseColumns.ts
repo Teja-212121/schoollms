@@ -8,6 +8,8 @@ export interface ContentCourseColumns {
     CourseTitle: Column<ContentCourseRow>;
     ClassTitle: Column<ContentCourseRow>;
     SemesterTitle: Column<ContentCourseRow>;
+    SubjectTitle: Column<ContentCourseRow>;
+    TopicTitle: Column<ContentCourseRow>;
 }
 
 export class ContentCourseColumns extends ColumnsBase<ContentCourseRow> {
