@@ -10,6 +10,9 @@ namespace GXpert.Web.Enums
     {
         VIRTUAL,
         FACETOFACE,
-        SINGLE_RIGHT_ANSWER
+        SINGLE_RIGHT_ANSWER,
+        TRUE_OR_FALSE,
+        NUMERICAL,
+        MULTIPLE_RIGHT_ANSWER
     }
 }

@@ -7,6 +7,7 @@ namespace GXpert.Attendance.Forms;
 [BasedOnRow(typeof(StudentClassAttendanceRow), CheckNames = true)]
 public class StudentClassAttendanceForm
 {
+    [HalfWidth]
     public int InstituteTimeTableId { get; set; }
     [HalfWidth]
     public int StudentId { get; set; }

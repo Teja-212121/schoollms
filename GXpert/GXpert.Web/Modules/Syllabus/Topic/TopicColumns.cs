@@ -12,10 +12,12 @@ public class TopicColumns
     public int Id { get; set; }
     [Width(100),QuickFilter]
     public string CourseName { get; set; }
-
+    [QuickFilter(CssClass = "hidden-xs"), FilterOnly, QuickFilterOption("cascadeFrom", "CourseId")]
     public string ClassTitle { get; set; }
+    [QuickFilter(CssClass = "hidden-xs"), FilterOnly, QuickFilterOption("cascadeFrom", "ClassId")]
     public string SemesterName { get; set; }
-    [Width(100), QuickFilter]
+    [QuickFilter(CssClass = "hidden-xs"), FilterOnly, QuickFilterOption("cascadeFrom", "SemesterId")]
+    [LookupEditor("Syllabus.Subject")]
     public string SubjectTitle { get; set; }
     [EditLink]
     public string Title { get; set; }

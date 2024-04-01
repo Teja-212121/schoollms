@@ -34,7 +34,7 @@ public sealed class TopicRow : LoggingRow<TopicRow.RowFields>, IIdRow, INameRow
     public short? SortOrder { get => fields.SortOrder[this]; set => fields.SortOrder[this] = value; }
 
     [DisplayName("Class"), NotNull, ForeignKey(typeof(ClassRow)), LeftJoin(jClass), TextualField(nameof(ClassTitle))]
-    [ServiceLookupEditor(typeof(ClassRow))]
+    [ServiceLookupEditor(typeof(ClassRow), CascadeFrom = "CourseId", CascadeField = "CourseId")]
     public int? ClassId { get => fields.ClassId[this]; set => fields.ClassId[this] = value; }
 /*
     [DisplayName("Medium"), NotNull, ForeignKey(typeof(MediumRow)), LeftJoin(jMedium), TextualField(nameof(MediumTitle))]
@@ -42,7 +42,7 @@ public sealed class TopicRow : LoggingRow<TopicRow.RowFields>, IIdRow, INameRow
     public int? MediumId { get => fields.MediumId[this]; set => fields.MediumId[this] = value; }*/
 
     [DisplayName("Subject"), NotNull, ForeignKey("Subjects", "Id"), LeftJoin(jSubject)]
-    [ServiceLookupEditor(typeof(SubjectRow)), LookupInclude]
+    [ServiceLookupEditor(typeof(SubjectRow), CascadeFrom = "SemesterId", CascadeField = "SemesterId"), LookupInclude]
     public int? SubjectId { get => fields.SubjectId[this]; set => fields.SubjectId[this] = value; }
 
     [DisplayName("Weightage")]
@@ -56,7 +56,7 @@ public sealed class TopicRow : LoggingRow<TopicRow.RowFields>, IIdRow, INameRow
     public string CourseName { get => fields.CourseName[this]; set => fields.CourseName[this] = value; }
 
     [DisplayName("Semester"), NotNull, ForeignKey("Semester", "Id"), LeftJoin(jSemester)]
-    [ServiceLookupEditor(typeof(SemesterRow)), LookupInclude]
+    [ServiceLookupEditor(typeof(SemesterRow),CascadeFrom = "ClassId", CascadeField = "ClassId"), LookupInclude]
     public int? SemesterId { get => fields.SemesterId[this]; set => fields.SemesterId[this] = value; }
 
     [DisplayName("SemesterName"), Expression($"{jSemester}.[Title]")]

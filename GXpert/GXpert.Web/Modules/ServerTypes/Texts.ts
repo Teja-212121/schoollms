@@ -1224,6 +1224,10 @@ namespace GXpert.Texts {
                 export const QuestionText: string;
                 export const SemesterId: string;
                 export const SemesterTitle: string;
+                export const SubjectId: string;
+                export const SubjectTitle: string;
+                export const TopicId: string;
+                export const TopicTitle: string;
                 export const UpdateDate: string;
                 export const UpdateUserId: string;
             }
