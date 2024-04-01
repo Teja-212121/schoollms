@@ -8,6 +8,8 @@ namespace GXpert.Exams.Forms;
 [BasedOnRow(typeof(ExamRow), CheckNames = true)]
 public class ExamForm
 {
+    [Category("General")]
+    [HalfWidth]
     public string Title { get; set; }
     [HalfWidth]
     public short EExamType { get; set; }

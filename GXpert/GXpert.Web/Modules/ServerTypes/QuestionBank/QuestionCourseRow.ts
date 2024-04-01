@@ -5,16 +5,12 @@ export interface QuestionCourseRow {
     QuestionId?: number;
     CourseId?: number;
     ClassId?: number;
-    TopicId?: number;
-    SubjectId?: number;
     SemesterId?: number;
     IsActive?: number;
     QuestionText?: string;
     CourseTitle?: string;
     ClassTitle?: string;
     SemesterTitle?: string;
-    TopicTitle?: string;
-    SubjectTitle?: string;
     InsertUserId?: number;
     InsertDate?: string;
     UpdateUserId?: number;
