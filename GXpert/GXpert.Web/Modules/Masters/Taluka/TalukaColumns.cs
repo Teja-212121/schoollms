@@ -14,7 +14,8 @@ public class TalukaColumns
     public string Title { get; set; }
     [QuickFilter]
     public string StateTitle { get; set; }
-    [QuickFilter]
+    [QuickFilter(CssClass = "hidden-xs"), FilterOnly, QuickFilterOption("cascadeFrom", "StateId")]
+   
     public string DistrictTitle { get; set; }
     public string ShortName { get; set; }
 }

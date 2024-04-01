@@ -29,7 +29,7 @@ public sealed class SemesterRow : LoggingRow<SemesterRow.RowFields>, IIdRow, INa
     public int? CourseId { get => fields.CourseId[this]; set => fields.CourseId[this] = value; }
 
     [DisplayName("Class"), NotNull, ForeignKey(typeof(ClassRow)), LeftJoin(jClass)]
-    [LookupEditor(typeof(ClassRow))]
+    [LookupEditor(typeof(ClassRow), CascadeFrom = "CourseId", CascadeField = "CourseId")]
     public int? ClassId { get => fields.ClassId[this]; set => fields.ClassId[this] = value; }
 
     [DisplayName("Description"), Size(2000)]
