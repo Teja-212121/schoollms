@@ -21,10 +21,10 @@ export abstract class ContentRatingRow {
     static getLookup() { return getLookup<ContentRatingRow>('Content.ContentRating') }
     static async getLookupAsync() { return getLookupAsync<ContentRatingRow>('Content.ContentRating') }
 
-    static readonly deletePermission = 'Administration:General';
-    static readonly insertPermission = 'Administration:General';
-    static readonly readPermission = 'Administration:General';
-    static readonly updatePermission = 'Administration:General';
+    static readonly deletePermission = 'Content:ContentManagement:View';
+    static readonly insertPermission = 'Content:ContentManagement:View';
+    static readonly readPermission = 'Content:ContentManagement:View';
+    static readonly updatePermission = 'Content:ContentManagement:View';
 
     static readonly Fields = fieldsProxy<ContentRatingRow>();
 }

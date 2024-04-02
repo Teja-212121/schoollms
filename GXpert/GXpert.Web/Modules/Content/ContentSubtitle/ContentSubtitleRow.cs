@@ -9,8 +9,8 @@ namespace GXpert.Content;
 
 [ConnectionKey("Default"), Module("Content"), TableName("ContentSubtitles")]
 [DisplayName("Content Subtitle"), InstanceName("Content Subtitle")]
-[ReadPermission("Administration:General")]
-[ModifyPermission("Administration:General")]
+[ReadPermission(PermissionKeys.ContentManagement.View)]
+[ModifyPermission(PermissionKeys.ContentManagement.View)]
 [ServiceLookupPermission("Administration:General")]
 [LookupScript("Content.ContentSubtitle")]
 public sealed class ContentSubtitleRow : LoggingRow<ContentSubtitleRow.RowFields>, IIdRow, INameRow

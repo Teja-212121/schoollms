@@ -9,8 +9,8 @@ namespace GXpert.Content;
 
 [ConnectionKey("Default"), Module("Content"), TableName("ContentMediaRatings")]
 [DisplayName("Content Media Rating"), InstanceName("Content Media Rating")]
-[ReadPermission("Administration:General")]
-[ModifyPermission("Administration:General")]
+[ReadPermission(PermissionKeys.ContentManagement.View)]
+[ModifyPermission(PermissionKeys.ContentManagement.View)]
 [LookupScript("Content.ContentMediaRating")]
 public sealed class ContentMediaRatingRow : LoggingRow<ContentMediaRatingRow.RowFields>, IIdRow
 {

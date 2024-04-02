@@ -21,10 +21,10 @@ export abstract class SkillCategoryRow {
     static getLookup() { return getLookup<SkillCategoryRow>('Skills.SkillCategory') }
     static async getLookupAsync() { return getLookupAsync<SkillCategoryRow>('Skills.SkillCategory') }
 
-    static readonly deletePermission = 'Administration:General';
-    static readonly insertPermission = 'Administration:General';
-    static readonly readPermission = 'Administration:General';
-    static readonly updatePermission = 'Administration:General';
+    static readonly deletePermission = 'Skills:SkillsManagement:Modify';
+    static readonly insertPermission = 'Skills:SkillsManagement:Modify';
+    static readonly readPermission = 'Skills:SkillsManagement:View';
+    static readonly updatePermission = 'Skills:SkillsManagement:Modify';
 
     static readonly Fields = fieldsProxy<SkillCategoryRow>();
 }

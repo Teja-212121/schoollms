@@ -9,8 +9,8 @@ namespace GXpert.Content;
 
 [ConnectionKey("Default"), Module("Content"), TableName("ContentBloomsIndex")]
 [DisplayName("Content Blooms Index"), InstanceName("Content Blooms Index")]
-[ReadPermission("Administration:General")]
-[ModifyPermission("Administration:General")]
+[ReadPermission(PermissionKeys.ContentManagement.View)]
+[ModifyPermission(PermissionKeys.ContentManagement.View)]
 public sealed class ContentBloomsIndexRow : LoggingRow<ContentBloomsIndexRow.RowFields>, IIdRow
 {
     const string jContent = nameof(jContent);

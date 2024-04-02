@@ -5,12 +5,16 @@ export interface QuestionCourseRow {
     QuestionId?: number;
     CourseId?: number;
     ClassId?: number;
+    TopicId?: number;
+    SubjectId?: number;
     SemesterId?: number;
     IsActive?: number;
     QuestionText?: string;
     CourseTitle?: string;
     ClassTitle?: string;
     SemesterTitle?: string;
+    TopicTitle?: string;
+    SubjectTitle?: string;
     InsertUserId?: number;
     InsertDate?: string;
     UpdateUserId?: number;
@@ -26,10 +30,10 @@ export abstract class QuestionCourseRow {
     static getLookup() { return getLookup<QuestionCourseRow>('QuestionBank.Question Course') }
     static async getLookupAsync() { return getLookupAsync<QuestionCourseRow>('QuestionBank.Question Course') }
 
-    static readonly deletePermission = 'Administration:General';
-    static readonly insertPermission = 'Administration:General';
-    static readonly readPermission = 'Administration:General';
-    static readonly updatePermission = 'Administration:General';
+    static readonly deletePermission = 'QuestionBank:QuestionBankManagement:Modify';
+    static readonly insertPermission = 'QuestionBank:QuestionBankManagement:Modify';
+    static readonly readPermission = 'QuestionBank:QuestionBankManagement:View';
+    static readonly updatePermission = 'QuestionBank:QuestionBankManagement:Modify';
 
     static readonly Fields = fieldsProxy<QuestionCourseRow>();
 }

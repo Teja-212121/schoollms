@@ -10,8 +10,8 @@ namespace GXpert.Analytics;
 
 [ConnectionKey("Default"), Module("Analytics"), TableName("ExamAttemptQuestions")]
 [DisplayName("Exam Attempt Question"), InstanceName("Exam Attempt Question")]
-[ReadPermission("Administration:General")]
-[ModifyPermission("Administration:General")]
+[ReadPermission(PermissionKeys.AnalyticsManagement.View)]
+[ModifyPermission(PermissionKeys.AnalyticsManagement.Modify)]
 [ServiceLookupPermission("Administration:General")]
 public sealed class ExamAttemptQuestionRow : LoggingRow<ExamAttemptQuestionRow.RowFields>, IIdRow, INameRow
 {

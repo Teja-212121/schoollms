@@ -10,8 +10,8 @@ namespace GXpert.LiveSessions;
 
 [ConnectionKey("Default"), Module("LiveSessions"), TableName("LiveSessions")]
 [DisplayName("Live Session"), InstanceName("Live Session")]
-[ReadPermission("Administration:General")]
-[ModifyPermission("Administration:General")]
+[ReadPermission(PermissionKeys.LiveSessionsManagement.View)]
+[ModifyPermission(PermissionKeys.LiveSessionsManagement.Modify)]
 [ServiceLookupPermission("Administration:General")]
 [LookupScript("LiveSessions.LiveSession")]
 public sealed class LiveSessionRow : LoggingRow<LiveSessionRow.RowFields>, IIdRow, INameRow

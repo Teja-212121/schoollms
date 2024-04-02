@@ -9,8 +9,8 @@ namespace GXpert.Skills;
 
 [ConnectionKey("Default"), Module("Skills"), TableName("SkillCategory")]
 [DisplayName("Skill Category"), InstanceName("Skill Category")]
-[ReadPermission("Administration:General")]
-[ModifyPermission("Administration:General")]
+[ReadPermission(PermissionKeys.SkillsManagement.View)]
+[ModifyPermission(PermissionKeys.SkillsManagement.Modify)]
 [ServiceLookupPermission("Administration:General")]
 [LookupScript("Skills.SkillCategory")]
 public sealed class SkillCategoryRow : LoggingRow<SkillCategoryRow.RowFields>, IIdRow, INameRow

@@ -7,8 +7,8 @@ namespace GXpert.Masters;
 
 [ConnectionKey("Default"), Module("Masters"), TableName("UserSkillsScore")]
 [DisplayName("User Skills Score"), InstanceName("User Skills Score")]
-[ReadPermission("Administration:General")]
-[ModifyPermission("Administration:General")]
+[ReadPermission(PermissionKeys.MastersManagement.View)]
+[ModifyPermission(PermissionKeys.MastersManagement.Modify)]
 public sealed class UserSkillsScoreRow : Row<UserSkillsScoreRow.RowFields>, IIdRow
 {
     const string jSkillCategory = nameof(jSkillCategory);

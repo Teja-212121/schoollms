@@ -23,10 +23,10 @@ export interface ContentTopicRow {
 export abstract class ContentTopicRow {
     static readonly idProperty = 'Id';
     static readonly localTextPrefix = 'Content.ContentTopic';
-    static readonly deletePermission = 'Administration:General';
-    static readonly insertPermission = 'Administration:General';
-    static readonly readPermission = 'Administration:General';
-    static readonly updatePermission = 'Administration:General';
+    static readonly deletePermission = 'Content:ContentManagement:View';
+    static readonly insertPermission = 'Content:ContentManagement:View';
+    static readonly readPermission = 'Content:ContentManagement:View';
+    static readonly updatePermission = 'Content:ContentManagement:View';
 
     static readonly Fields = fieldsProxy<ContentTopicRow>();
 }

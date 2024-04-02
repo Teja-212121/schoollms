@@ -32,10 +32,10 @@ export abstract class TopicRow {
     static getLookup() { return getLookup<TopicRow>('Syllabus.Topic') }
     static async getLookupAsync() { return getLookupAsync<TopicRow>('Syllabus.Topic') }
 
-    static readonly deletePermission = 'Administration:General';
-    static readonly insertPermission = 'Administration:General';
-    static readonly readPermission = 'Administration:General';
-    static readonly updatePermission = 'Administration:General';
+    static readonly deletePermission = 'Syllabus:SyllabusManagement:Modify';
+    static readonly insertPermission = 'Syllabus:SyllabusManagement:Modify';
+    static readonly readPermission = 'Syllabus:SyllabusManagement:View';
+    static readonly updatePermission = 'Syllabus:SyllabusManagement:Modify';
 
     static readonly Fields = fieldsProxy<TopicRow>();
 }

@@ -9,8 +9,8 @@ namespace GXpert.Content;
 
 [ConnectionKey("Default"), Module("Content"), TableName("ContentAudio")]
 [DisplayName("Content Audio"), InstanceName("Content Audio")]
-[ReadPermission("Administration:General")]
-[ModifyPermission("Administration:General")]
+[ReadPermission(PermissionKeys.ContentManagement.View)]
+[ModifyPermission(PermissionKeys.ContentManagement.View)]
 [ServiceLookupPermission("Administration:General")]
 [LookupScript("Content.ContentAudio")]
 public sealed class ContentAudioRow : LoggingRow<ContentAudioRow.RowFields>, IIdRow, INameRow

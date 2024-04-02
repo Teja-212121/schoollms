@@ -9,8 +9,8 @@ namespace GXpert.Users;
 
 [ConnectionKey("Default"), Module("Users"), TableName("Principal")]
 [DisplayName("Principal"), InstanceName("Principal")]
-[ReadPermission("Administration:General")]
-[ModifyPermission("Administration:General")]
+[ReadPermission(PermissionKeys.UsersManagement.View)]
+[ModifyPermission(PermissionKeys.UsersManagement.Modify)]
 [ServiceLookupPermission("Administration:General")]
 [LookupScript("Users.Principal")]
 public sealed class PrincipalRow : LoggingRow<PrincipalRow.RowFields>, IIdRow, INameRow

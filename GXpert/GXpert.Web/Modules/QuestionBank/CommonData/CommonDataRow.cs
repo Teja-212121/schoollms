@@ -9,8 +9,8 @@ namespace GXpert.QuestionBank;
 
 [ConnectionKey("Default"), Module("QuestionBank"), TableName("QuestionCommonData")]
 [DisplayName("Common Data"), InstanceName("Common Data")]
-[ReadPermission("Administration:General")]
-[ModifyPermission("Administration:General")]
+[ReadPermission(PermissionKeys.QuestionBankManagement.View)]
+[ModifyPermission(PermissionKeys.QuestionBankManagement.Modify)]
 [ServiceLookupPermission("Administration:General")]
 public sealed class CommonDataRow : LoggingRow<CommonDataRow.RowFields>, IIdRow, INameRow
 {

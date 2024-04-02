@@ -10,8 +10,8 @@ namespace GXpert.Attendance;
 
 [ConnectionKey("Default"), Module("Attendance"), TableName("AssignmentAttemptEvaluations")]
 [DisplayName("Assignment Attempt Evaluation"), InstanceName("Assignment Attempt Evaluation")]
-[ReadPermission("Administration:General")]
-[ModifyPermission("Administration:General")]
+[ReadPermission(PermissionKeys.AttendanceManagement.View)]
+[ModifyPermission(PermissionKeys.AttendanceManagement.Modify)]
 public sealed class AssignmentAttemptEvaluationRow : LoggingRow<AssignmentAttemptEvaluationRow.RowFields>, IIdRow
 {
     const string jAssignment = nameof(jAssignment);

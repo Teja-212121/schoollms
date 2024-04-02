@@ -35,10 +35,10 @@ export abstract class InstituteRow {
     static getLookup() { return getLookup<InstituteRow>('Institute.Institute') }
     static async getLookupAsync() { return getLookupAsync<InstituteRow>('Institute.Institute') }
 
-    static readonly deletePermission = 'Administration:General';
-    static readonly insertPermission = 'Administration:General';
-    static readonly readPermission = 'Administration:General';
-    static readonly updatePermission = 'Administration:General';
+    static readonly deletePermission = 'Institute:InstituteManagement:Modify';
+    static readonly insertPermission = 'Institute:InstituteManagement:Modify';
+    static readonly readPermission = 'Institute:InstituteManagement:View';
+    static readonly updatePermission = 'Institute:InstituteManagement:Modify';
 
     static readonly Fields = fieldsProxy<InstituteRow>();
 }

@@ -1,4 +1,4 @@
-﻿using Serenity.ComponentModel;
+using Serenity.ComponentModel;
 using Serenity.Data;
 using Serenity.Data.Mapping;
 using System.ComponentModel;
@@ -7,8 +7,8 @@ namespace GXpert.Masters;
 
 [ConnectionKey("Default"), Module("Masters"), TableName("UserAcademics")]
 [DisplayName("User Academic"), InstanceName("User Academic")]
-[ReadPermission("Administration:General")]
-[ModifyPermission("Administration:General")]
+[ReadPermission(PermissionKeys.MastersManagement.View)]
+[ModifyPermission(PermissionKeys.MastersManagement.Modify)]
 [ServiceLookupPermission("Administration:General")]
 public sealed class UserAcademicRow : Row<UserAcademicRow.RowFields>, IIdRow, INameRow
 {

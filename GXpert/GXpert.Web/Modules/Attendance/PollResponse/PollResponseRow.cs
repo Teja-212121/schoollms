@@ -9,8 +9,8 @@ namespace GXpert.Attendance;
 
 [ConnectionKey("Default"), Module("Attendance"), TableName("PollResponses")]
 [DisplayName("Poll Response"), InstanceName("Poll Response")]
-[ReadPermission("Administration:General")]
-[ModifyPermission("Administration:General")]
+[ReadPermission(PermissionKeys.AttendanceManagement.View)]
+[ModifyPermission(PermissionKeys.AttendanceManagement.Modify)]
 [ServiceLookupPermission("Administration:General")]
 public sealed class PollResponseRow : LoggingRow<PollResponseRow.RowFields>, IIdRow, INameRow
 {

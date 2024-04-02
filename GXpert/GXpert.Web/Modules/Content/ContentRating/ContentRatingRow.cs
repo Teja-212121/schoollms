@@ -9,8 +9,8 @@ namespace GXpert.Content;
 
 [ConnectionKey("Default"), Module("Content"), TableName("ContentRatings")]
 [DisplayName("Content Rating"), InstanceName("Content Rating")]
-[ReadPermission("Administration:General")]
-[ModifyPermission("Administration:General")]
+[ReadPermission(PermissionKeys.ContentManagement.View)]
+[ModifyPermission(PermissionKeys.ContentManagement.View)]
 [ServiceLookupPermission("Administration:General")]
 [LookupScript("Content.ContentRating")]
 public sealed class ContentRatingRow : LoggingRow<ContentRatingRow.RowFields>, IIdRow, INameRow

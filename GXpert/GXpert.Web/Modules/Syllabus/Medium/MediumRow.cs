@@ -9,8 +9,8 @@ namespace GXpert.Syllabus;
 
 [ConnectionKey("Default"), Module("Syllabus"), TableName("Mediums")]
 [DisplayName("Medium"), InstanceName("Medium")]
-[ReadPermission("Administration:General")]
-[ModifyPermission("Administration:General")]
+[ReadPermission(PermissionKeys.SyllabusManagement.View)]
+[ModifyPermission(PermissionKeys.SyllabusManagement.Modify)]
 [ServiceLookupPermission("Administration:General")]
 [LookupScript("Syllabus.Medium")]
 public sealed class MediumRow : LoggingRow<MediumRow.RowFields>, IIdRow, INameRow

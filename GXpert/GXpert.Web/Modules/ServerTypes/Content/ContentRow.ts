@@ -66,10 +66,10 @@ export abstract class ContentRow {
     static getLookup() { return getLookup<ContentRow>('Content.Content') }
     static async getLookupAsync() { return getLookupAsync<ContentRow>('Content.Content') }
 
-    static readonly deletePermission = 'Administration:General';
-    static readonly insertPermission = 'Administration:General';
-    static readonly readPermission = 'Administration:General';
-    static readonly updatePermission = 'Administration:General';
+    static readonly deletePermission = 'Content:ContentManagement:View';
+    static readonly insertPermission = 'Content:ContentManagement:View';
+    static readonly readPermission = 'Content:ContentManagement:View';
+    static readonly updatePermission = 'Content:ContentManagement:View';
 
     static readonly Fields = fieldsProxy<ContentRow>();
 }

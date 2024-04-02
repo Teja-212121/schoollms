@@ -24,10 +24,10 @@ export abstract class ModuleRow {
     static getLookup() { return getLookup<ModuleRow>('Playlist.Module') }
     static async getLookupAsync() { return getLookupAsync<ModuleRow>('Playlist.Module') }
 
-    static readonly deletePermission = 'Administration:General';
-    static readonly insertPermission = 'Administration:General';
-    static readonly readPermission = 'Administration:General';
-    static readonly updatePermission = 'Administration:General';
+    static readonly deletePermission = 'Playlist:PlaylistManagement:Modify';
+    static readonly insertPermission = 'Playlist:PlaylistManagement:Modify';
+    static readonly readPermission = 'Playlist:PlaylistManagement:View';
+    static readonly updatePermission = 'Playlist:PlaylistManagement:Modify';
 
     static readonly Fields = fieldsProxy<ModuleRow>();
 }

@@ -31,10 +31,10 @@ export interface InstituteTimeTableRow {
 export abstract class InstituteTimeTableRow {
     static readonly idProperty = 'Id';
     static readonly localTextPrefix = 'Institute.InstituteTimeTable';
-    static readonly deletePermission = 'Administration:General';
-    static readonly insertPermission = 'Administration:General';
-    static readonly readPermission = 'Administration:General';
-    static readonly updatePermission = 'Administration:General';
+    static readonly deletePermission = 'Institute:InstituteManagement:Modify';
+    static readonly insertPermission = 'Institute:InstituteManagement:Modify';
+    static readonly readPermission = 'Institute:InstituteManagement:View';
+    static readonly updatePermission = 'Institute:InstituteManagement:Modify';
 
     static readonly Fields = fieldsProxy<InstituteTimeTableRow>();
 }

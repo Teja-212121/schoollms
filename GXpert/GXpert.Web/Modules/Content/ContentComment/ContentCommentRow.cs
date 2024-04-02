@@ -9,8 +9,8 @@ namespace GXpert.Content;
 
 [ConnectionKey("Default"), Module("Content"), TableName("ContentComments")]
 [DisplayName("Content Comment"), InstanceName("Content Comment")]
-[ReadPermission("Administration:General")]
-[ModifyPermission("Administration:General")]
+[ReadPermission(PermissionKeys.ContentManagement.View)]
+[ModifyPermission(PermissionKeys.ContentManagement.View)]
 [ServiceLookupPermission("Administration:General")]
 [LookupScript("Content.ContentComment")]
 public sealed class ContentCommentRow : LoggingRow<ContentCommentRow.RowFields>, IIdRow, INameRow

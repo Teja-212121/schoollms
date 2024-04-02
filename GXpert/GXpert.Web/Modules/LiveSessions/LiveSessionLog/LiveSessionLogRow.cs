@@ -9,8 +9,8 @@ namespace GXpert.LiveSessions;
 
 [ConnectionKey("Default"), Module("LiveSessions"), TableName("LiveSessionLog")]
 [DisplayName("Live Session Log"), InstanceName("Live Session Log")]
-[ReadPermission("Administration:General")]
-[ModifyPermission("Administration:General")]
+[ReadPermission(PermissionKeys.LiveSessionsManagement.View)]
+[ModifyPermission(PermissionKeys.LiveSessionsManagement.Modify)]
 [LookupScript("LiveSessions.LiveSessionLog")]
 public sealed class LiveSessionLogRow : LoggingRow<LiveSessionLogRow.RowFields>, IIdRow
 {

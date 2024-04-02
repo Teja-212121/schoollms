@@ -2,6 +2,7 @@
 export * from "./Users/HodForm"
 export * from "./Users/HodRow"
 export * from "./Users/HodService"
+export * from "./Users/PermissionKeys"
 export * from "./Users/PrincipalColumns"
 export * from "./Users/PrincipalForm"
 export * from "./Users/PrincipalRow"

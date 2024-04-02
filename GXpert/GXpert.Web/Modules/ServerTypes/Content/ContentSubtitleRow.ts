@@ -26,10 +26,10 @@ export abstract class ContentSubtitleRow {
     static getLookup() { return getLookup<ContentSubtitleRow>('Content.ContentSubtitle') }
     static async getLookupAsync() { return getLookupAsync<ContentSubtitleRow>('Content.ContentSubtitle') }
 
-    static readonly deletePermission = 'Administration:General';
-    static readonly insertPermission = 'Administration:General';
-    static readonly readPermission = 'Administration:General';
-    static readonly updatePermission = 'Administration:General';
+    static readonly deletePermission = 'Content:ContentManagement:View';
+    static readonly insertPermission = 'Content:ContentManagement:View';
+    static readonly readPermission = 'Content:ContentManagement:View';
+    static readonly updatePermission = 'Content:ContentManagement:View';
 
     static readonly Fields = fieldsProxy<ContentSubtitleRow>();
 }

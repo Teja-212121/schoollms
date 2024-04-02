@@ -9,8 +9,8 @@ namespace GXpert.Content;
 
 [ConnectionKey("Default"), Module("Content"), TableName("ContentLanguages")]
 [DisplayName("Content Language"), InstanceName("Content Language")]
-[ReadPermission("Administration:General")]
-[ModifyPermission("Administration:General")]
+[ReadPermission(PermissionKeys.ContentManagement.View)]
+[ModifyPermission(PermissionKeys.ContentManagement.View)]
 [ServiceLookupPermission("Administration:General")]
 [LookupScript("Content.ContentLanguage")]
 public sealed class ContentLanguageRow : LoggingRow<ContentLanguageRow.RowFields>, IIdRow, INameRow

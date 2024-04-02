@@ -9,8 +9,8 @@ namespace GXpert.Masters;
 
 [ConnectionKey("Default"), Module("Masters"), TableName("PreAcademicsScore")]
 [DisplayName("Pre Academic Score"), InstanceName("Pre Academic Score")]
-[ReadPermission("Administration:General")]
-[ModifyPermission("Administration:General")]
+[ReadPermission(PermissionKeys.MastersManagement.View)]
+[ModifyPermission(PermissionKeys.MastersManagement.Modify)]
 [ServiceLookupPermission("Administration:General")]
 public sealed class PreAcademicScoreRow : LoggingRow<PreAcademicScoreRow.RowFields>, IIdRow, INameRow
 {

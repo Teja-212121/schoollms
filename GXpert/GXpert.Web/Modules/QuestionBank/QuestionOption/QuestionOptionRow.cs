@@ -9,8 +9,8 @@ namespace GXpert.QuestionBank;
 
 [ConnectionKey("Default"), Module("QuestionBank"), TableName("QuestionOptions")]
 [DisplayName("Question Option"), InstanceName("Question Option")]
-[ReadPermission("Administration:General")]
-[ModifyPermission("Administration:General")]
+[ReadPermission(PermissionKeys.QuestionBankManagement.View)]
+[ModifyPermission(PermissionKeys.QuestionBankManagement.Modify)]
 [ServiceLookupPermission("Administration:General")]
 public sealed class QuestionOptionRow : LoggingRow<QuestionOptionRow.RowFields>, IIdRow, INameRow
 {

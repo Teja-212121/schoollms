@@ -9,8 +9,9 @@ namespace GXpert.Analytics;
 
 [ConnectionKey("Default"), Module("Analytics"), TableName("AnalyticsLog")]
 [DisplayName("Analytics Log"), InstanceName("Analytics Log")]
-[ReadPermission("Administration:General")]
-[ModifyPermission("Administration:General")]
+[ReadPermission(PermissionKeys.AnalyticsManagement.View)]
+[ModifyPermission(PermissionKeys.AnalyticsManagement.Modify)]
+    [LookupScript("Analytics.AnalyticsLog",Permission ="*")]
 public sealed class AnalyticsLogRow : LoggingRow<AnalyticsLogRow.RowFields>, IIdRow
 {
     const string jContent = nameof(jContent);

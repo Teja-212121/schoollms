@@ -23,10 +23,10 @@ export abstract class StudentClassAttendanceRow {
     static getLookup() { return getLookup<StudentClassAttendanceRow>('Attendance.Student Class Attendance') }
     static async getLookupAsync() { return getLookupAsync<StudentClassAttendanceRow>('Attendance.Student Class Attendance') }
 
-    static readonly deletePermission = 'Administration:General';
-    static readonly insertPermission = 'Administration:General';
-    static readonly readPermission = 'Administration:General';
-    static readonly updatePermission = 'Administration:General';
+    static readonly deletePermission = 'Attendance:AttendanceManagement:Modify';
+    static readonly insertPermission = 'Attendance:AttendanceManagement:Modify';
+    static readonly readPermission = 'Attendance:AttendanceManagement:View';
+    static readonly updatePermission = 'Attendance:AttendanceManagement:Modify';
 
     static readonly Fields = fieldsProxy<StudentClassAttendanceRow>();
 }

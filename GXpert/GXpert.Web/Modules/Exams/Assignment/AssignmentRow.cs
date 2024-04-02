@@ -9,8 +9,8 @@ namespace GXpert.Exams;
 
 [ConnectionKey("Default"), Module("Exams"), TableName("Assignments")]
 [DisplayName("Assignment"), InstanceName("Assignment")]
-[ReadPermission("Administration:General")]
-[ModifyPermission("Administration:General")]
+[ReadPermission(PermissionKeys.ExamsManagement.View)]
+[ModifyPermission(PermissionKeys.ExamsManagement.Modify)]
 [ServiceLookupPermission("Administration:General")]
 [LookupScript("Exams.Assignment")]
 public sealed class AssignmentRow : LoggingRow<AssignmentRow.RowFields>, IIdRow, INameRow

@@ -16,10 +16,10 @@ export abstract class PreDefinedKeyRow {
     static readonly idProperty = 'Id';
     static readonly nameProperty = 'SerialKey';
     static readonly localTextPrefix = 'Activation.PreDefinedKey';
-    static readonly deletePermission = 'Administration:General';
-    static readonly insertPermission = 'Administration:General';
-    static readonly readPermission = 'Administration:General';
-    static readonly updatePermission = 'Administration:General';
+    static readonly deletePermission = 'Activation:ActivationManagement:Modify';
+    static readonly insertPermission = 'Activation:ActivationManagement:Modify';
+    static readonly readPermission = 'Activation:ActivationManagement:View';
+    static readonly updatePermission = 'Activation:ActivationManagement:Modify';
 
     static readonly Fields = fieldsProxy<PreDefinedKeyRow>();
 }

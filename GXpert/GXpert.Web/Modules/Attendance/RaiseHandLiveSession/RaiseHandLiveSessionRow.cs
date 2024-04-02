@@ -10,8 +10,8 @@ namespace GXpert.Attendance;
 
 [ConnectionKey("Default"), Module("Attendance"), TableName("RaisehandLiveSessions")]
 [DisplayName("Raise Hand Live Session"), InstanceName("Raise Hand Live Session")]
-[ReadPermission("Administration:General")]
-[ModifyPermission("Administration:General")]
+[ReadPermission(PermissionKeys.AttendanceManagement.View)]
+[ModifyPermission(PermissionKeys.AttendanceManagement.Modify)]
 public sealed class RaiseHandLiveSessionRow : LoggingRow<RaiseHandLiveSessionRow.RowFields>, IIdRow
 {
     const string jLiveSessionlog = nameof(jLiveSessionlog);

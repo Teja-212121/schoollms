@@ -10,8 +10,8 @@ namespace GXpert.Institute;
 
 [ConnectionKey("Default"), Module("Institute"), TableName("InstituteTimeTable")]
 [DisplayName("Institute Time Table"), InstanceName("Institute Time Table")]
-[ReadPermission("Administration:General")]
-[ModifyPermission("Administration:General")]
+[ReadPermission(PermissionKeys.InstituteManagement.View)]
+[ModifyPermission(PermissionKeys.InstituteManagement.Modify)]
 public sealed class InstituteTimeTableRow : LoggingRow<InstituteTimeTableRow.RowFields>, IIdRow
 {
     const string jinstitutedivision = nameof(jinstitutedivision);

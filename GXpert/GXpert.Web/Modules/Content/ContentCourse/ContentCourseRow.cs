@@ -9,8 +9,8 @@ namespace GXpert.Content;
 
 [ConnectionKey("Default"), Module("Content"), TableName("ContentCourse")]
 [DisplayName("Content Course"), InstanceName("Content Course")]
-[ReadPermission("Administration:General")]
-[ModifyPermission("Administration:General")]
+[ReadPermission(PermissionKeys.ContentManagement.View)]
+[ModifyPermission(PermissionKeys.ContentManagement.View)]
 [LookupScript("Content.ContentCourse")]
 public sealed class ContentCourseRow : LoggingRow<ContentCourseRow.RowFields>, IIdRow
 {

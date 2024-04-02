@@ -9,8 +9,8 @@ namespace GXpert.Content;
 
 [ConnectionKey("Default"), Module("Content"), TableName("ContentTopics")]
 [DisplayName("Content Topic"), InstanceName("Content Topic")]
-[ReadPermission("Administration:General")]
-[ModifyPermission("Administration:General")]
+[ReadPermission(PermissionKeys.ContentManagement.View)]
+[ModifyPermission(PermissionKeys.ContentManagement.View)]
 public sealed class ContentTopicRow : LoggingRow<ContentTopicRow.RowFields>, IIdRow
 {
     const string jContent = nameof(jContent);

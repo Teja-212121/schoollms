@@ -10,8 +10,8 @@ namespace GXpert.Activation;
 
 [ConnectionKey("Default"), Module("Activation"), TableName("PreDefinedKeys")]
 [DisplayName("Pre Defined Key"), InstanceName("Pre Defined Key")]
-[ReadPermission("Administration:General")]
-[ModifyPermission("Administration:General")]
+[ReadPermission(PermissionKeys.ActivationManagement.View)]
+[ModifyPermission(PermissionKeys.ActivationManagement.Modify)]
 [ServiceLookupPermission("Administration:General")]
 public sealed class PreDefinedKeyRow : LoggingRow<PreDefinedKeyRow.RowFields>, IIdRow, INameRow
 {

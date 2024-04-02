@@ -1,4 +1,4 @@
-﻿import { fieldsProxy } from "@serenity-is/corelib";
+﻿import { getLookup, getLookupAsync, fieldsProxy } from "@serenity-is/corelib";
 
 export interface AnalyticsLogRow {
     Id?: number;
@@ -21,10 +21,16 @@ export interface AnalyticsLogRow {
 export abstract class AnalyticsLogRow {
     static readonly idProperty = 'Id';
     static readonly localTextPrefix = 'Analytics.AnalyticsLog';
-    static readonly deletePermission = 'Administration:General';
-    static readonly insertPermission = 'Administration:General';
-    static readonly readPermission = 'Administration:General';
-    static readonly updatePermission = 'Administration:General';
+    static readonly lookupKey = 'Analytics.AnalyticsLog';
+
+    /** @deprecated use getLookupAsync instead */
+    static getLookup() { return getLookup<AnalyticsLogRow>('Analytics.AnalyticsLog') }
+    static async getLookupAsync() { return getLookupAsync<AnalyticsLogRow>('Analytics.AnalyticsLog') }
+
+    static readonly deletePermission = 'Analytics:AnalyticsManagement:Modify';
+    static readonly insertPermission = 'Analytics:AnalyticsManagement:Modify';
+    static readonly readPermission = 'Analytics:AnalyticsManagement:View';
+    static readonly updatePermission = 'Analytics:AnalyticsManagement:Modify';
 
     static readonly Fields = fieldsProxy<AnalyticsLogRow>();
 }

@@ -21,10 +21,10 @@ export interface RaiseHandRecordedSessionRow {
 export abstract class RaiseHandRecordedSessionRow {
     static readonly idProperty = 'Id';
     static readonly localTextPrefix = 'Attendance.RaiseHandRecordedSession';
-    static readonly deletePermission = 'Administration:General';
-    static readonly insertPermission = 'Administration:General';
-    static readonly readPermission = 'Administration:General';
-    static readonly updatePermission = 'Administration:General';
+    static readonly deletePermission = 'Attendance:AttendanceManagement:Modify';
+    static readonly insertPermission = 'Attendance:AttendanceManagement:Modify';
+    static readonly readPermission = 'Attendance:AttendanceManagement:View';
+    static readonly updatePermission = 'Attendance:AttendanceManagement:Modify';
 
     static readonly Fields = fieldsProxy<RaiseHandRecordedSessionRow>();
 }

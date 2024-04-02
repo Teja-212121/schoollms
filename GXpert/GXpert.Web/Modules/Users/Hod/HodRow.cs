@@ -9,8 +9,8 @@ namespace GXpert.Users;
 
 [ConnectionKey("Default"), Module("Users"), TableName("Hod")]
 [DisplayName("HOD"), InstanceName("Hod")]
-[ReadPermission("Administration:General")]
-[ModifyPermission("Administration:General")]
+[ReadPermission(PermissionKeys.UsersManagement.View)]
+[ModifyPermission(PermissionKeys.UsersManagement.Modify)]
 [ServiceLookupPermission("Administration:General")]
 [LookupScript("Users.Hod")]
 public sealed class HodRow : LoggingRow<HodRow.RowFields>, IIdRow, INameRow

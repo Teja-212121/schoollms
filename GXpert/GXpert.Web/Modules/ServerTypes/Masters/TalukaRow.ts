@@ -25,10 +25,10 @@ export abstract class TalukaRow {
     static getLookup() { return getLookup<TalukaRow>('Masters.Taluka') }
     static async getLookupAsync() { return getLookupAsync<TalukaRow>('Masters.Taluka') }
 
-    static readonly deletePermission = 'Administration:General';
-    static readonly insertPermission = 'Administration:General';
-    static readonly readPermission = 'Administration:General';
-    static readonly updatePermission = 'Administration:General';
+    static readonly deletePermission = 'Masters:MastersManagement:Modify';
+    static readonly insertPermission = 'Masters:MastersManagement:Modify';
+    static readonly readPermission = 'Masters:MastersManagement:View';
+    static readonly updatePermission = 'Masters:MastersManagement:Modify';
 
     static readonly Fields = fieldsProxy<TalukaRow>();
 }

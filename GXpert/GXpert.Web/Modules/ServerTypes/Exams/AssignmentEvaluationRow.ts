@@ -31,10 +31,10 @@ export abstract class AssignmentEvaluationRow {
     static getLookup() { return getLookup<AssignmentEvaluationRow>('Exams.AssignmentEvaluation') }
     static async getLookupAsync() { return getLookupAsync<AssignmentEvaluationRow>('Exams.AssignmentEvaluation') }
 
-    static readonly deletePermission = 'Administration:General';
-    static readonly insertPermission = 'Administration:General';
-    static readonly readPermission = 'Administration:General';
-    static readonly updatePermission = 'Administration:General';
+    static readonly deletePermission = 'Exams:ExamsManagement:Modify';
+    static readonly insertPermission = 'Exams:ExamsManagement:Modify';
+    static readonly readPermission = 'Exams:ExamsManagement:View';
+    static readonly updatePermission = 'Exams:ExamsManagement:Modify';
 
     static readonly Fields = fieldsProxy<AssignmentEvaluationRow>();
 }

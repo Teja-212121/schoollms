@@ -10,8 +10,8 @@ namespace GXpert.LiveSessions;
 
 [ConnectionKey("Default"), Module("LiveSessions"), TableName("Polls")]
 [DisplayName("Poll"), InstanceName("Poll")]
-[ReadPermission("Administration:General")]
-[ModifyPermission("Administration:General")]
+[ReadPermission(PermissionKeys.LiveSessionsManagement.View)]
+[ModifyPermission(PermissionKeys.LiveSessionsManagement.Modify)]
 [ServiceLookupPermission("Administration:General")]
 [LookupScript("LiveSessions.Poll")]
 public sealed class PollRow : LoggingRow<PollRow.RowFields>, IIdRow, INameRow

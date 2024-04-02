@@ -10,8 +10,8 @@ namespace GXpert.Activation;
 
 [ConnectionKey("Default"), Module("Activation"), TableName("SerialKeys")]
 [DisplayName("Serial Key"), InstanceName("Serial Key")]
-[ReadPermission("Administration:General")]
-[ModifyPermission("Administration:General")]
+[ReadPermission(PermissionKeys.ActivationManagement.View)]
+[ModifyPermission(PermissionKeys.ActivationManagement.Modify)]
 [ServiceLookupPermission("Administration:General")]
 [LookupScript("Activation.SerialKey")]
 public sealed class SerialKeyRow : LoggingRow<SerialKeyRow.RowFields>, IIdRow, INameRow

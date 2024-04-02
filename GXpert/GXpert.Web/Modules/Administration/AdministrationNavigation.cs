@@ -1,4 +1,5 @@
-using Serenity.Navigation;
+﻿using Serenity.Navigation;
+using MyPages = GXpert.Administration.Pages;
 using Administration = GXpert.Administration.Pages;
 
 [assembly: NavigationMenu(9000, "Administration", icon: "fa-tools")]
@@ -9,3 +10,4 @@ using Administration = GXpert.Administration.Pages;
 [assembly: NavigationLink(9600, "Administration/Translations", typeof(Administration.TranslationPage), icon: "fa-comment-o")]
 [assembly: NavigationLink(9700, "Administration/Roles", typeof(Administration.RolePage), icon: "fa-lock")]
 [assembly: NavigationLink(9800, "Administration/User Management", typeof(Administration.UserPage), icon: "fa-users")]
+[assembly: NavigationLink(int.MaxValue, "Administration/Tenant", typeof(MyPages.TenantPage), icon: null)]

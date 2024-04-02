@@ -27,10 +27,10 @@ export abstract class LiveSessionLogRow {
     static getLookup() { return getLookup<LiveSessionLogRow>('LiveSessions.LiveSessionLog') }
     static async getLookupAsync() { return getLookupAsync<LiveSessionLogRow>('LiveSessions.LiveSessionLog') }
 
-    static readonly deletePermission = 'Administration:General';
-    static readonly insertPermission = 'Administration:General';
-    static readonly readPermission = 'Administration:General';
-    static readonly updatePermission = 'Administration:General';
+    static readonly deletePermission = 'LiveSessions:LiveSessionsManagement:Modify';
+    static readonly insertPermission = 'LiveSessions:LiveSessionsManagement:Modify';
+    static readonly readPermission = 'LiveSessions:LiveSessionsManagement:View';
+    static readonly updatePermission = 'LiveSessions:LiveSessionsManagement:Modify';
 
     static readonly Fields = fieldsProxy<LiveSessionLogRow>();
 }

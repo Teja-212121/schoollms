@@ -10,8 +10,8 @@ namespace GXpert.Activation;
 
 [ConnectionKey("Default"), Module("Activation"), TableName("CouponCodes")]
 [DisplayName("Coupon Code"), InstanceName("Coupon Code")]
-[ReadPermission("Administration:General")]
-[ModifyPermission("Administration:General")]
+[ReadPermission(PermissionKeys.ActivationManagement.View)]
+[ModifyPermission(PermissionKeys.ActivationManagement.Modify)]
 [ServiceLookupPermission("Administration:General")]
 [LookupScript("Activation.CouponCode")]
 public sealed class CouponCodeRow : LoggingRow<CouponCodeRow.RowFields>, IIdRow, INameRow

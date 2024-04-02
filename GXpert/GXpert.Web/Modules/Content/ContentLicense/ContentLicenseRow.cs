@@ -9,8 +9,8 @@ namespace GXpert.Content;
 
 [ConnectionKey("Default"), Module("Content"), TableName("ContentLicenses")]
 [DisplayName("Content License"), InstanceName("Content License")]
-[ReadPermission("Administration:General")]
-[ModifyPermission("Administration:General")]
+[ReadPermission(PermissionKeys.ContentManagement.View)]
+[ModifyPermission(PermissionKeys.ContentManagement.View)]
 [ServiceLookupPermission("Administration:General")]
 [LookupScript("Content.ContentLicense")]
 public sealed class ContentLicenseRow : LoggingRow<ContentLicenseRow.RowFields>, IIdRow, INameRow

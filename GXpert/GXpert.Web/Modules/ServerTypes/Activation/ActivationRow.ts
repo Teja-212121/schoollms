@@ -34,10 +34,10 @@ export abstract class ActivationRow {
     static getLookup() { return getLookup<ActivationRow>('Activation.Activation') }
     static async getLookupAsync() { return getLookupAsync<ActivationRow>('Activation.Activation') }
 
-    static readonly deletePermission = 'Administration:General';
-    static readonly insertPermission = 'Administration:General';
-    static readonly readPermission = 'Administration:General';
-    static readonly updatePermission = 'Administration:General';
+    static readonly deletePermission = 'Activation:ActivationManagement:Modify';
+    static readonly insertPermission = 'Activation:ActivationManagement:Modify';
+    static readonly readPermission = 'Activation:ActivationManagement:View';
+    static readonly updatePermission = 'Activation:ActivationManagement:Modify';
 
     static readonly Fields = fieldsProxy<ActivationRow>();
 }

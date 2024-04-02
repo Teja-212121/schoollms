@@ -10,8 +10,8 @@ namespace GXpert.Attendance;
 
 [ConnectionKey("Default"), Module("Attendance"), TableName("AssignmentAttempts")]
 [DisplayName("Assignment Attempt"), InstanceName("Assignment Attempt")]
-[ReadPermission("Administration:General")]
-[ModifyPermission("Administration:General")]
+[ReadPermission(PermissionKeys.AttendanceManagement.View)]
+[ModifyPermission(PermissionKeys.AttendanceManagement.Modify)]
 [ServiceLookupPermission("Administration:General")]
 public sealed class AssignmentAttemptRow : LoggingRow<AssignmentAttemptRow.RowFields>, IIdRow, INameRow
 {

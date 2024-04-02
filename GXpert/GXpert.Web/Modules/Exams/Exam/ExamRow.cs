@@ -11,8 +11,8 @@ namespace GXpert.Exams;
 
 [ConnectionKey("Default"), Module("Exams"), TableName("Exams")]
 [DisplayName("Exam"), InstanceName("Exam")]
-[ReadPermission("Administration:General")]
-[ModifyPermission("Administration:General")]
+[ReadPermission(PermissionKeys.ExamsManagement.View)]
+[ModifyPermission(PermissionKeys.ExamsManagement.Modify)]
 [ServiceLookupPermission("Administration:General")]
 [LookupScript("Exams.Exam")]
 

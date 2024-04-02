@@ -1,4 +1,5 @@
-﻿export * from "./Skills/SkillCategoryColumns"
+﻿export * from "./Skills/PermissionKeys"
+export * from "./Skills/SkillCategoryColumns"
 export * from "./Skills/SkillCategoryForm"
 export * from "./Skills/SkillCategoryRow"
 export * from "./Skills/SkillCategoryService"

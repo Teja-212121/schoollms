@@ -9,8 +9,8 @@ namespace GXpert.Analytics;
 
 [ConnectionKey("Default"), Module("Analytics"), TableName("AssignedexamsTeachers")]
 [DisplayName("Assigned Exam Teachers"), InstanceName("Assigned Exam Teachers")]
-[ReadPermission("Administration:General")]
-[ModifyPermission("Administration:General")]
+[ReadPermission(PermissionKeys.AnalyticsManagement.View)]
+[ModifyPermission(PermissionKeys.AnalyticsManagement.Modify)]
 public sealed class AssignedExamTeachersRow : LoggingRow<AssignedExamTeachersRow.RowFields>, IIdRow
 {
     const string jExam = nameof(jExam);

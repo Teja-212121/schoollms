@@ -9,8 +9,8 @@ namespace GXpert.Masters;
 
 [ConnectionKey("Default"), Module("Masters"), TableName("BloomsTaxanomy")]
 [DisplayName("Blooms Taxanomy"), InstanceName("Blooms Taxanomy")]
-[ReadPermission("Administration:General")]
-[ModifyPermission("Administration:General")]
+[ReadPermission(PermissionKeys.MastersManagement.View)]
+[ModifyPermission(PermissionKeys.MastersManagement.Modify)]
 [ServiceLookupPermission("Administration:General")]
 [LookupScript("Masters.BloomsTaxanomy")]
 public sealed class BloomsTaxanomyRow : LoggingRow<BloomsTaxanomyRow.RowFields>, IIdRow, INameRow

@@ -9,8 +9,8 @@ namespace GXpert.Syllabus;
 
 [ConnectionKey("Default"), Module("Syllabus"), TableName("Subjects")]
 [DisplayName("Subject"), InstanceName("Subject")]
-[ReadPermission("Administration:General")]
-[ModifyPermission("Administration:General")]
+[ReadPermission(PermissionKeys.SyllabusManagement.View)]
+[ModifyPermission(PermissionKeys.SyllabusManagement.Modify)]
 [ServiceLookupPermission("Administration:General")]
 [LookupScript("Syllabus.Subject")]
 public sealed class SubjectRow : LoggingRow<SubjectRow.RowFields>, IIdRow, INameRow

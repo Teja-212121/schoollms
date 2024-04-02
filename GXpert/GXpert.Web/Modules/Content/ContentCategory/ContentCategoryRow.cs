@@ -9,8 +9,8 @@ namespace GXpert.Content;
 
 [ConnectionKey("Default"), Module("Content"), TableName("ContentCategories")]
 [DisplayName("Content Category"), InstanceName("Content Category")]
-[ReadPermission("Administration:General")]
-[ModifyPermission("Administration:General")]
+[ReadPermission(PermissionKeys.ContentManagement.View)]
+[ModifyPermission(PermissionKeys.ContentManagement.View)]
 [ServiceLookupPermission("Administration:General")]
 [LookupScript("Content.ContentCategory")]
 public sealed class ContentCategoryRow : LoggingRow<ContentCategoryRow.RowFields>, IIdRow, INameRow

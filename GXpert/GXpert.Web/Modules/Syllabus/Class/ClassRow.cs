@@ -10,8 +10,8 @@ namespace GXpert.Syllabus;
 
 [ConnectionKey("Default"), Module("Syllabus"), TableName("Classes")]
 [DisplayName("Class"), InstanceName("Class")]
-[ReadPermission("Administration:General")]
-[ModifyPermission("Administration:General")]
+[ReadPermission(PermissionKeys.SyllabusManagement.View)]
+[ModifyPermission(PermissionKeys.SyllabusManagement.Modify)]
 [ServiceLookupPermission("Administration:General")]
 [LookupScript("Syllabus.Class")]
 public sealed class ClassRow : LoggingRow<ClassRow.RowFields>, IIdRow, INameRow

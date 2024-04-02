@@ -19,10 +19,10 @@ export abstract class QuestionOptionRow {
     static readonly idProperty = 'Id';
     static readonly nameProperty = 'OptionText';
     static readonly localTextPrefix = 'QuestionBank.QuestionOption';
-    static readonly deletePermission = 'Administration:General';
-    static readonly insertPermission = 'Administration:General';
-    static readonly readPermission = 'Administration:General';
-    static readonly updatePermission = 'Administration:General';
+    static readonly deletePermission = 'QuestionBank:QuestionBankManagement:Modify';
+    static readonly insertPermission = 'QuestionBank:QuestionBankManagement:Modify';
+    static readonly readPermission = 'QuestionBank:QuestionBankManagement:View';
+    static readonly updatePermission = 'QuestionBank:QuestionBankManagement:Modify';
 
     static readonly Fields = fieldsProxy<QuestionOptionRow>();
 }

@@ -9,8 +9,8 @@ namespace GXpert.Masters;
 
 [ConnectionKey("Default"), Module("Masters"), TableName("States")]
 [DisplayName("State"), InstanceName("State")]
-[ReadPermission("Administration:General")]
-[ModifyPermission("Administration:General")]
+[ReadPermission(PermissionKeys.MastersManagement.View)]
+[ModifyPermission(PermissionKeys.MastersManagement.Modify)]
 [ServiceLookupPermission("Administration:General")]
 [LookupScript("Masters.State")]
 public sealed class StateRow : LoggingRow<StateRow.RowFields>, IIdRow, INameRow

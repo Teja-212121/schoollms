@@ -1,4 +1,4 @@
-﻿using Serenity.ComponentModel;
+using Serenity.ComponentModel;
 using Serenity.Data;
 using Serenity.Data.Mapping;
 using System.ComponentModel;
@@ -7,8 +7,8 @@ namespace GXpert.Masters;
 
 [ConnectionKey("Default"), Module("Masters"), TableName("ProjectSkills")]
 [DisplayName("Project Skill"), InstanceName("Project Skill")]
-[ReadPermission("Administration:General")]
-[ModifyPermission("Administration:General")]
+[ReadPermission(PermissionKeys.MastersManagement.View)]
+[ModifyPermission(PermissionKeys.MastersManagement.Modify)]
 public sealed class ProjectSkillRow : Row<ProjectSkillRow.RowFields>, IIdRow
 {
     const string jSkillCategory = nameof(jSkillCategory);

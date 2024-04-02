@@ -10,8 +10,8 @@ namespace GXpert.Activation;
 
 [ConnectionKey("Default"), Module("Activation"), TableName("ActivationLog")]
 [DisplayName("Activation Log"), InstanceName("Activation Log")]
-[ReadPermission("Administration:General")]
-[ModifyPermission("Administration:General")]
+[ReadPermission(PermissionKeys.ActivationManagement.View)]
+[ModifyPermission(PermissionKeys.ActivationManagement.Modify)]
 [ServiceLookupPermission("Administration:General")]
 [LookupScript("Activation.ActivationLog")]
 public sealed class ActivationLogRow : LoggingRow<ActivationLogRow.RowFields>, IIdRow, INameRow

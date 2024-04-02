@@ -2,6 +2,7 @@
 export * from "./QuestionBank/CommonDataForm"
 export * from "./QuestionBank/CommonDataRow"
 export * from "./QuestionBank/CommonDataService"
+export * from "./QuestionBank/PermissionKeys"
 export * from "./QuestionBank/QuestionColumns"
 export * from "./QuestionBank/QuestionCourseColumns"
 export * from "./QuestionBank/QuestionCourseForm"

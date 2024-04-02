@@ -8,8 +8,8 @@ namespace GXpert.Masters;
 
 [ConnectionKey("Default"), Module("Masters"), TableName("Projects")]
 [DisplayName("Project"), InstanceName("Project")]
-[ReadPermission("Administration:General")]
-[ModifyPermission("Administration:General")]
+[ReadPermission(PermissionKeys.MastersManagement.View)]
+[ModifyPermission(PermissionKeys.MastersManagement.Modify)]
 [ServiceLookupPermission("Administration:General")]
 public sealed class ProjectRow : Row<ProjectRow.RowFields>, IIdRow, INameRow
 {

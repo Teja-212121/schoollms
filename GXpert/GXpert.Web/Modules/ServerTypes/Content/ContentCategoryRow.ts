@@ -25,10 +25,10 @@ export abstract class ContentCategoryRow {
     static getLookup() { return getLookup<ContentCategoryRow>('Content.ContentCategory') }
     static async getLookupAsync() { return getLookupAsync<ContentCategoryRow>('Content.ContentCategory') }
 
-    static readonly deletePermission = 'Administration:General';
-    static readonly insertPermission = 'Administration:General';
-    static readonly readPermission = 'Administration:General';
-    static readonly updatePermission = 'Administration:General';
+    static readonly deletePermission = 'Content:ContentManagement:View';
+    static readonly insertPermission = 'Content:ContentManagement:View';
+    static readonly readPermission = 'Content:ContentManagement:View';
+    static readonly updatePermission = 'Content:ContentManagement:View';
 
     static readonly Fields = fieldsProxy<ContentCategoryRow>();
 }

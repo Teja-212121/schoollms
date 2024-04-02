@@ -28,10 +28,10 @@ export abstract class ExamAttemptRow {
     static readonly idProperty = 'Id';
     static readonly nameProperty = 'StudentAnswerSheetUpload';
     static readonly localTextPrefix = 'Analytics.ExamAttempt';
-    static readonly deletePermission = 'Administration:General';
-    static readonly insertPermission = 'Administration:General';
-    static readonly readPermission = 'Administration:General';
-    static readonly updatePermission = 'Administration:General';
+    static readonly deletePermission = 'Analytics:AnalyticsManagement:Modify';
+    static readonly insertPermission = 'Analytics:AnalyticsManagement:Modify';
+    static readonly readPermission = 'Analytics:AnalyticsManagement:View';
+    static readonly updatePermission = 'Analytics:AnalyticsManagement:Modify';
 
     static readonly Fields = fieldsProxy<ExamAttemptRow>();
 }

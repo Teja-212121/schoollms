@@ -9,8 +9,8 @@ namespace GXpert.Playlist;
 
 [ConnectionKey("Default"), Module("Playlist"), TableName("PlayLists")]
 [DisplayName("Play List"), InstanceName("Play List")]
-[ReadPermission("Administration:General")]
-[ModifyPermission("Administration:General")]
+[ReadPermission(PermissionKeys.PlaylistManagement.View)]
+[ModifyPermission(PermissionKeys.PlaylistManagement.Modify)]
 [ServiceLookupPermission("Administration:General")]
 [LookupScript("Playlist.PlayList",Permission ="*")]
 public sealed class PlayListRow : LoggingRow<PlayListRow.RowFields>, IIdRow, INameRow

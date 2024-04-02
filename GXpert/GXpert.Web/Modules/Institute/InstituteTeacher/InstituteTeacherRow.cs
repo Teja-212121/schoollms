@@ -9,8 +9,8 @@ namespace GXpert.Institute;
 
 [ConnectionKey("Default"), Module("Institute"), TableName("InstituteTeachers")]
 [DisplayName("Institute Teacher"), InstanceName("Institute Teacher")]
-[ReadPermission("Administration:General")]
-[ModifyPermission("Administration:General")]
+[ReadPermission(PermissionKeys.InstituteManagement.View)]
+[ModifyPermission(PermissionKeys.InstituteManagement.Modify)]
 [ServiceLookupPermission("Administration:General")]
 public sealed class InstituteTeacherRow : LoggingRow<InstituteTeacherRow.RowFields>, IIdRow, INameRow
 {

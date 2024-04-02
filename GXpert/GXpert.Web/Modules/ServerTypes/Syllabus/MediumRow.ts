@@ -21,10 +21,10 @@ export abstract class MediumRow {
     static getLookup() { return getLookup<MediumRow>('Syllabus.Medium') }
     static async getLookupAsync() { return getLookupAsync<MediumRow>('Syllabus.Medium') }
 
-    static readonly deletePermission = 'Administration:General';
-    static readonly insertPermission = 'Administration:General';
-    static readonly readPermission = 'Administration:General';
-    static readonly updatePermission = 'Administration:General';
+    static readonly deletePermission = 'Syllabus:SyllabusManagement:Modify';
+    static readonly insertPermission = 'Syllabus:SyllabusManagement:Modify';
+    static readonly readPermission = 'Syllabus:SyllabusManagement:View';
+    static readonly updatePermission = 'Syllabus:SyllabusManagement:Modify';
 
     static readonly Fields = fieldsProxy<MediumRow>();
 }

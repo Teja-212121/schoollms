@@ -9,8 +9,8 @@ namespace GXpert.Attendance;
 
 [ConnectionKey("Default"), Module("Attendance"), TableName("RaisehandRecordedSessions")]
 [DisplayName("Raise Hand Recorded Session"), InstanceName("Raise Hand Recorded Session")]
-[ReadPermission("Administration:General")]
-[ModifyPermission("Administration:General")]
+[ReadPermission(PermissionKeys.AttendanceManagement.View)]
+[ModifyPermission(PermissionKeys.AttendanceManagement.Modify)]
 public sealed class RaiseHandRecordedSessionRow : LoggingRow<RaiseHandRecordedSessionRow.RowFields>, IIdRow
 {
     const string jContent = nameof(jContent);

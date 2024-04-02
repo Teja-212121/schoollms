@@ -9,8 +9,8 @@ namespace GXpert.Institute;
 
 [ConnectionKey("Default"), Module("Institute"), TableName("InstituteDivision")]
 [DisplayName("Institute Division"), InstanceName("Institute Division")]
-[ReadPermission("Administration:General")]
-[ModifyPermission("Administration:General")]
+[ReadPermission(PermissionKeys.InstituteManagement.View)]
+[ModifyPermission(PermissionKeys.InstituteManagement.Modify)]
 [ServiceLookupPermission("Administration:General")]
 [LookupScript("Institute.InstituteDivision")]
 public sealed class InstituteDivisionRow : LoggingRow<InstituteDivisionRow.RowFields>, IIdRow// INameRow

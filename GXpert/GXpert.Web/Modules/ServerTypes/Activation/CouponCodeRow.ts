@@ -31,10 +31,10 @@ export abstract class CouponCodeRow {
     static getLookup() { return getLookup<CouponCodeRow>('Activation.CouponCode') }
     static async getLookupAsync() { return getLookupAsync<CouponCodeRow>('Activation.CouponCode') }
 
-    static readonly deletePermission = 'Administration:General';
-    static readonly insertPermission = 'Administration:General';
-    static readonly readPermission = 'Administration:General';
-    static readonly updatePermission = 'Administration:General';
+    static readonly deletePermission = 'Activation:ActivationManagement:Modify';
+    static readonly insertPermission = 'Activation:ActivationManagement:Modify';
+    static readonly readPermission = 'Activation:ActivationManagement:View';
+    static readonly updatePermission = 'Activation:ActivationManagement:Modify';
 
     static readonly Fields = fieldsProxy<CouponCodeRow>();
 }

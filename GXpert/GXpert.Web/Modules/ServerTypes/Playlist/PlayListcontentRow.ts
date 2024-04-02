@@ -36,10 +36,10 @@ export abstract class PlayListContentRow {
     static getLookup() { return getLookup<PlayListContentRow>('Playlist.PlayListContent') }
     static async getLookupAsync() { return getLookupAsync<PlayListContentRow>('Playlist.PlayListContent') }
 
-    static readonly deletePermission = 'Administration:General';
-    static readonly insertPermission = 'Administration:General';
-    static readonly readPermission = 'Administration:General';
-    static readonly updatePermission = 'Administration:General';
+    static readonly deletePermission = 'Playlist:PlaylistManagement:Modify';
+    static readonly insertPermission = 'Playlist:PlaylistManagement:Modify';
+    static readonly readPermission = 'Playlist:PlaylistManagement:View';
+    static readonly updatePermission = 'Playlist:PlaylistManagement:Modify';
 
     static readonly Fields = fieldsProxy<PlayListContentRow>();
 }

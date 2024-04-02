@@ -15,10 +15,10 @@ export abstract class CommonDataRow {
     static readonly idProperty = 'Id';
     static readonly nameProperty = 'CommonData';
     static readonly localTextPrefix = 'QuestionBank.CommonData';
-    static readonly deletePermission = 'Administration:General';
-    static readonly insertPermission = 'Administration:General';
-    static readonly readPermission = 'Administration:General';
-    static readonly updatePermission = 'Administration:General';
+    static readonly deletePermission = 'QuestionBank:QuestionBankManagement:Modify';
+    static readonly insertPermission = 'QuestionBank:QuestionBankManagement:Modify';
+    static readonly readPermission = 'QuestionBank:QuestionBankManagement:View';
+    static readonly updatePermission = 'QuestionBank:QuestionBankManagement:Modify';
 
     static readonly Fields = fieldsProxy<CommonDataRow>();
 }

@@ -118,6 +118,12 @@ namespace GXpert.Texts {
                 export const RolePermissionId: string;
             }
 
+            namespace Tenant {
+                export const OwnerId: string;
+                export const TenantId: string;
+                export const TenantName: string;
+            }
+
             namespace User {
                 export const DisplayName: string;
                 export const Email: string;
@@ -1230,6 +1236,10 @@ namespace GXpert.Texts {
                 export const QuestionText: string;
                 export const SemesterId: string;
                 export const SemesterTitle: string;
+                export const SubjectId: string;
+                export const SubjectTitle: string;
+                export const TopicId: string;
+                export const TopicTitle: string;
                 export const UpdateDate: string;
                 export const UpdateUserId: string;
             }
@@ -1670,6 +1680,7 @@ namespace GXpert.Texts {
                 Language: {},
                 Role: {},
                 RolePermission: {},
+                Tenant: {},
                 User: {},
                 UserPermission: {},
                 UserRole: {}

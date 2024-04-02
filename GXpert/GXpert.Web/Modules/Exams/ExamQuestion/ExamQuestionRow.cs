@@ -10,8 +10,8 @@ namespace GXpert.Exams;
 
 [ConnectionKey("Default"), Module("Exams"), TableName("ExamQuestions")]
 [DisplayName("Exam Question"), InstanceName("Exam Question")]
-[ReadPermission("Administration:General")]
-[ModifyPermission("Administration:General")]
+[ReadPermission(PermissionKeys.ExamsManagement.View)]
+[ModifyPermission(PermissionKeys.ExamsManagement.Modify)]
 [ServiceLookupPermission("Administration:General")]
 [LookupScript("Exams.ExamQuestion")]
 public sealed class ExamQuestionRow : LoggingRow<ExamQuestionRow.RowFields>, IIdRow, INameRow

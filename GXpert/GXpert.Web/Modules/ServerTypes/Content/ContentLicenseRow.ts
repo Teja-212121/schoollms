@@ -21,10 +21,10 @@ export abstract class ContentLicenseRow {
     static getLookup() { return getLookup<ContentLicenseRow>('Content.ContentLicense') }
     static async getLookupAsync() { return getLookupAsync<ContentLicenseRow>('Content.ContentLicense') }
 
-    static readonly deletePermission = 'Administration:General';
-    static readonly insertPermission = 'Administration:General';
-    static readonly readPermission = 'Administration:General';
-    static readonly updatePermission = 'Administration:General';
+    static readonly deletePermission = 'Content:ContentManagement:View';
+    static readonly insertPermission = 'Content:ContentManagement:View';
+    static readonly readPermission = 'Content:ContentManagement:View';
+    static readonly updatePermission = 'Content:ContentManagement:View';
 
     static readonly Fields = fieldsProxy<ContentLicenseRow>();
 }

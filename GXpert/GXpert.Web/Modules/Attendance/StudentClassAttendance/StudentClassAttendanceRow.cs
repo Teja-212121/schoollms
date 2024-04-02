@@ -10,8 +10,8 @@ namespace GXpert.Attendance;
 
 [ConnectionKey("Default"), Module("Attendance"), TableName("StudentClassAttendance")]
 [DisplayName("Student Class Attendance"), InstanceName("Student Class Attendance")]
-[ReadPermission("Administration:General")]
-[ModifyPermission("Administration:General")]
+[ReadPermission(PermissionKeys.AttendanceManagement.View)]
+[ModifyPermission(PermissionKeys.AttendanceManagement.Modify)]
 [LookupScript("Attendance.Student Class Attendance")]
 public sealed class StudentClassAttendanceRow : LoggingRow<StudentClassAttendanceRow.RowFields>, IIdRow
 {

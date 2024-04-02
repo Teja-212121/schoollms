@@ -29,10 +29,10 @@ export abstract class InstituteStudentRow {
     static readonly idProperty = 'Id';
     static readonly nameProperty = 'InstituteName';
     static readonly localTextPrefix = 'Institute.InstituteStudent';
-    static readonly deletePermission = 'Administration:General';
-    static readonly insertPermission = 'Administration:General';
-    static readonly readPermission = 'Administration:General';
-    static readonly updatePermission = 'Administration:General';
+    static readonly deletePermission = 'Institute:InstituteManagement:Modify';
+    static readonly insertPermission = 'Institute:InstituteManagement:Modify';
+    static readonly readPermission = 'Institute:InstituteManagement:View';
+    static readonly updatePermission = 'Institute:InstituteManagement:Modify';
 
     static readonly Fields = fieldsProxy<InstituteStudentRow>();
 }

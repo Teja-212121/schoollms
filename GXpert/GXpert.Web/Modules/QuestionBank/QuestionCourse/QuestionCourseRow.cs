@@ -9,8 +9,8 @@ namespace GXpert.QuestionBank;
 
 [ConnectionKey("Default"), Module("QuestionBank"), TableName("QuestionCourse")]
 [DisplayName("Question Course"), InstanceName("Question Course")]
-[ReadPermission("Administration:General")]
-[ModifyPermission("Administration:General")]
+[ReadPermission(PermissionKeys.QuestionBankManagement.View)]
+[ModifyPermission(PermissionKeys.QuestionBankManagement.Modify)]
 [LookupScript("QuestionBank.Question Course")]
 public sealed class QuestionCourseRow : LoggingRow<QuestionCourseRow.RowFields>, IIdRow
 {

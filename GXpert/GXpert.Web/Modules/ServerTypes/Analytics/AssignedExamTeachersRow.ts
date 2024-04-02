@@ -18,10 +18,10 @@ export interface AssignedExamTeachersRow {
 export abstract class AssignedExamTeachersRow {
     static readonly idProperty = 'Id';
     static readonly localTextPrefix = 'Analytics.AssignedExamTeachers';
-    static readonly deletePermission = 'Administration:General';
-    static readonly insertPermission = 'Administration:General';
-    static readonly readPermission = 'Administration:General';
-    static readonly updatePermission = 'Administration:General';
+    static readonly deletePermission = 'Analytics:AnalyticsManagement:Modify';
+    static readonly insertPermission = 'Analytics:AnalyticsManagement:Modify';
+    static readonly readPermission = 'Analytics:AnalyticsManagement:View';
+    static readonly updatePermission = 'Analytics:AnalyticsManagement:Modify';
 
     static readonly Fields = fieldsProxy<AssignedExamTeachersRow>();
 }

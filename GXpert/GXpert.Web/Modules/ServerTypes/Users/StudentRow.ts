@@ -53,10 +53,10 @@ export abstract class StudentRow {
     static getLookup() { return getLookup<StudentRow>('Users.Student') }
     static async getLookupAsync() { return getLookupAsync<StudentRow>('Users.Student') }
 
-    static readonly deletePermission = 'Administration:General';
-    static readonly insertPermission = 'Administration:General';
-    static readonly readPermission = 'Administration:General';
-    static readonly updatePermission = 'Administration:General';
+    static readonly deletePermission = 'Users:UsersManagement:Modify';
+    static readonly insertPermission = 'Users:UsersManagement:Modify';
+    static readonly readPermission = 'Users:UsersManagement:View';
+    static readonly updatePermission = 'Users:UsersManagement:Modify';
 
     static readonly Fields = fieldsProxy<StudentRow>();
 }

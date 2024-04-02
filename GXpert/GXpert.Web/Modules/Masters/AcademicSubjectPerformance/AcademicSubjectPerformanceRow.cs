@@ -10,8 +10,8 @@ namespace GXpert.Masters;
 
 [ConnectionKey("Default"), Module("Masters"), TableName("AcademicSubjectPerformance")]
 [DisplayName("Academic Subject Performance"), InstanceName("Academic Subject Performance")]
-[ReadPermission("Administration:General")]
-[ModifyPermission("Administration:General")]
+[ReadPermission(PermissionKeys.MastersManagement.View)]
+[ModifyPermission(PermissionKeys.MastersManagement.Modify)]
 [ServiceLookupPermission("Administration:General")]
 public sealed class AcademicSubjectPerformanceRow : LoggingRow<AcademicSubjectPerformanceRow.RowFields>, IIdRow, INameRow
 {

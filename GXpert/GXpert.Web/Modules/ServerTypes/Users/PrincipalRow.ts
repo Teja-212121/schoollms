@@ -33,10 +33,10 @@ export abstract class PrincipalRow {
     static getLookup() { return getLookup<PrincipalRow>('Users.Principal') }
     static async getLookupAsync() { return getLookupAsync<PrincipalRow>('Users.Principal') }
 
-    static readonly deletePermission = 'Administration:General';
-    static readonly insertPermission = 'Administration:General';
-    static readonly readPermission = 'Administration:General';
-    static readonly updatePermission = 'Administration:General';
+    static readonly deletePermission = 'Users:UsersManagement:Modify';
+    static readonly insertPermission = 'Users:UsersManagement:Modify';
+    static readonly readPermission = 'Users:UsersManagement:View';
+    static readonly updatePermission = 'Users:UsersManagement:Modify';
 
     static readonly Fields = fieldsProxy<PrincipalRow>();
 }
