@@ -1,3 +1,4 @@
+using Serenity.Web.Providers;
 using MyRequest = Serenity.Services.SaveRequest<GXpert.Administration.UserRow>;
 using MyResponse = Serenity.Services.SaveResponse;
 using MyRow = GXpert.Administration.UserRow;
@@ -97,5 +98,14 @@ public class UserSaveHandler(IRequestContext context) :
         base.AfterSave();
 
         Cache.InvalidateOnCommit(UnitOfWork, Fld);
+    }
+    public static string CalculateHash(string password, string salt)
+    {
+        return SiteMembershipProvider.ComputeSHA512(password + salt);
+    }
+    public static string GenerateHash(string password, ref string salt)
+    {
+        salt = salt ?? Serenity.IO.TemporaryFileHelper.RandomFileCode().Substring(0, 5);
+        return CalculateHash(password, salt);
     }
 }
