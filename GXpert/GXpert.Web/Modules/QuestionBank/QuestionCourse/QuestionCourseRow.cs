@@ -1,3 +1,5 @@
+using GXpert.Syllabus;
+using Microsoft.AspNetCore.Components;
 using Serenity.ComponentModel;
 using Serenity.Data;
 using Serenity.Data.Mapping;
@@ -25,7 +27,7 @@ public sealed class QuestionCourseRow : LoggingRow<QuestionCourseRow.RowFields>,
     public int? Id { get => fields.Id[this]; set => fields.Id[this] = value; }
 
     [DisplayName("Question"), ForeignKey(typeof(QuestionRow)), LeftJoin(jQuestion), TextualField(nameof(QuestionText))]
-    [LookupEditor(typeof(QuestionRow))]
+    [LookupEditor("QuestionBank.Question")]
     public long? QuestionId { get => fields.QuestionId[this]; set => fields.QuestionId[this] = value; }
 
     [DisplayName("Course"), NotNull, ForeignKey(typeof(Syllabus.CourseRow)), LeftJoin(jCourse), TextualField(nameof(CourseTitle))]
@@ -33,17 +35,15 @@ public sealed class QuestionCourseRow : LoggingRow<QuestionCourseRow.RowFields>,
     public int? CourseId { get => fields.CourseId[this]; set => fields.CourseId[this] = value; }
 
     [DisplayName("Class"), NotNull, ForeignKey(typeof(Syllabus.ClassRow)), LeftJoin(jClass), TextualField(nameof(ClassTitle))]
-    [LookupEditor(typeof(Syllabus.ClassRow))]
+    [LookupEditor(typeof(Syllabus.ClassRow),CascadeFrom ="CourseId",CascadeField = "CourseId")]
     public int? ClassId { get => fields.ClassId[this]; set => fields.ClassId[this] = value; }
 
-    [DisplayName("Semester"), NotNull, ForeignKey(typeof(Syllabus.SemesterRow)), LeftJoin(jSemester), TextualField(nameof(SemesterTitle))]
-    [LookupEditor(typeof(Syllabus.SemesterRow))]
-    public int? SemesterId { get => fields.SemesterId[this]; set => fields.SemesterId[this] = value; }
+   
 
     [DisplayName("Is Active"), NotNull, DefaultValue(1)]
     public short? IsActive { get => fields.IsActive[this]; set => fields.IsActive[this] = value; }
 
-    [DisplayName("Question Question Text"), Origin(jQuestion, nameof(QuestionRow.QuestionText))]
+    [DisplayName("Question Question Text"), Expression($"{jQuestion}.[QuestionText]")]
     public string QuestionText { get => fields.QuestionText[this]; set => fields.QuestionText[this] = value; }
 
     [DisplayName("Course Title"), Origin(jCourse, nameof(Syllabus.CourseRow.Title))]
@@ -52,15 +52,18 @@ public sealed class QuestionCourseRow : LoggingRow<QuestionCourseRow.RowFields>,
     [DisplayName("Class Title"), Origin(jClass, nameof(Syllabus.ClassRow.Title))]
     public string ClassTitle { get => fields.ClassTitle[this]; set => fields.ClassTitle[this] = value; }
 
-    [DisplayName("Semester Title"), Origin(jSemester, nameof(Syllabus.SemesterRow.Title))]
-    public string SemesterTitle { get => fields.SemesterTitle[this]; set => fields.SemesterTitle[this] = value; }
+    [DisplayName("Semester"), NotNull, ForeignKey("Semester", "Id"), LeftJoin(jSemester)]
+    [ServiceLookupEditor(typeof(SemesterRow), CascadeFrom = "ClassId", CascadeField = "ClassId"), LookupInclude]
+    public int? SemesterId { get => fields.SemesterId[this]; set => fields.SemesterId[this] = value; }
 
+    [DisplayName("SemesterTitle"), Expression($"{jSemester}.[Title]")]
+    public string SemesterTitle { get => fields.SemesterTitle[this]; set => fields.SemesterTitle[this] = value; }
     [DisplayName("Subject"), ForeignKey("Subjects", "Id"), LeftJoin(jSubject), TextualField(nameof(SubjectTitle))]
-    [LookupEditor("Syllabus.Subject")]
+    [LookupEditor("Syllabus.Subject", CascadeFrom = "SemesterId", CascadeField = "SemesterId")]
     public int? SubjectId { get => fields.SubjectId[this]; set => fields.SubjectId[this] = value; }
 
     [DisplayName("Topic"), ForeignKey("Topics", "Id"), LeftJoin(jTopic), TextualField(nameof(TopicTitle))]
-    [LookupEditor("Syllabus.Topic")]
+    [LookupEditor("Syllabus.Topic", CascadeFrom = "SubjectId", CascadeField = "SubjectId"),LookupInclude]
     public int? TopicId { get => fields.TopicId[this]; set => fields.TopicId[this] = value; }
     [DisplayName("Subject Title"), Expression($"{jSubject}.[Title]")]
     public string SubjectTitle { get => fields.SubjectTitle[this]; set => fields.SubjectTitle[this] = value; }
