@@ -12,4 +12,6 @@ public class PermissionKeys
 
     [Description("Publisher")]
     public const string Publisher = "Administration:Publisher";
+    [Description("Tenant Management")]
+    public const string Tenants = "Administration:Tenants";
 }
