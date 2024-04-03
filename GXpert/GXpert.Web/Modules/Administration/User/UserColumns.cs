@@ -1,4 +1,4 @@
-﻿namespace GXpert.Administration.Columns;
+namespace GXpert.Administration.Columns;
 
 [ColumnsScript("Administration.User")]
 [BasedOnRow(typeof(UserRow), CheckNames = true)]
@@ -18,4 +18,5 @@ public class UserColumns
     public string Source { get; set; }
     [QuickFilter, Width(300)]
     public string Roles { get; set; }
+
 }

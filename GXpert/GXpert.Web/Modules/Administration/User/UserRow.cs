@@ -5,9 +5,10 @@ namespace GXpert.Administration;
 [DisplayName("Users"), InstanceName("User"), GenerateFields]
 [ReadPermission(PermissionKeys.Security)]
 [ModifyPermission(PermissionKeys.Security)]
-[LookupScript("Administration.User", Permission = PermissionKeys.Security)]
+[LookupScript("Administration.User", Permission ="*")]
 public sealed partial class UserRow : LoggingRow<UserRow.RowFields>, IIdRow, INameRow, IIsActiveRow, IDisplayNameRow, IEmailRow, IPasswordRow
 {
+    const string jTenant = nameof(jTenant);
     [DisplayName("User Id"), Identity, IdProperty]
     public int? UserId { get => fields.UserId[this]; set => fields.UserId[this] = value; }
 
@@ -60,7 +61,20 @@ public sealed partial class UserRow : LoggingRow<UserRow.RowFields>, IIdRow, INa
     [DisplayName("Roles"), LinkingSetRelation(typeof(UserRoleRow), nameof(UserRoleRow.UserId), nameof(UserRoleRow.RoleId))]
     [AsyncLookupEditor(typeof(RoleRow), Multiple = true)]
     public List<int> Roles { get => fields.Roles[this]; set => fields.Roles[this] = value; }
+    [DisplayName("Tenant"), ForeignKey("Tenants", "TenantId"), LeftJoin(jTenant)]
+    [ServiceLookupEditor(typeof(TenantRow))]
+    public int? TenantId
+    {
+        get => Fields.TenantId[this];
+        set => Fields.TenantId[this] = value;
+    }
 
+    [DisplayName("Tenant"), Expression($"{jTenant}.[TenantName]")]
+    public string TenantName
+    {
+        get => Fields.TenantName[this];
+        set => Fields.TenantName[this] = value;
+    }
     StringField IDisplayNameRow.DisplayNameField => fields.DisplayName;
     StringField IEmailRow.EmailField => fields.Email;
     Int16Field IIsActiveRow.IsActiveField => fields.IsActive;

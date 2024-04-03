@@ -19,6 +19,8 @@ export interface UserRow {
     LastDirectoryUpdate?: string;
     ImpersonationToken?: string;
     Roles?: number[];
+    TenantId?: number;
+    TenantName?: string;
     InsertUserId?: number;
     InsertDate?: string;
     UpdateUserId?: number;

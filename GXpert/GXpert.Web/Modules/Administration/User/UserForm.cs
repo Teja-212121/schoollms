@@ -22,4 +22,5 @@ public class UserForm
     [OneWay]
     public string Source { get; set; }
     public bool IsActive { get; set; }
+    public int? TenantId { get; set; }
 }
